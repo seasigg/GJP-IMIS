@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IMIS Main Menu\Reports\" />
+    <Folder Include="IMIS Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
