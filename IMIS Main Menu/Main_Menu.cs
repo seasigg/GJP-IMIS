@@ -40,6 +40,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_selector.BackColor = deSelect;
             main_menu_univ_selector.BackColor = deSelect;
             main_menu_reports_selector.BackColor = deSelect;
+            main_menu_logout_selector.BackColor = deSelect;
         }
         // ADD NEW INTERN BUTTON
         private void main_menu_interns_btn_newintern_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_intern_selector.BackColor = deSelect;
             main_menu_univ_selector.BackColor = deSelect;
             main_menu_reports_selector.BackColor = deSelect;
+            main_menu_logout_selector.BackColor = deSelect;
         }
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_intern_selector.BackColor = deSelect;
             main_menu_addresse_selector.BackColor = deSelect;
             main_menu_reports_selector.BackColor = deSelect;
+            main_menu_logout_selector.BackColor = deSelect;
         }
         // ADD NEW UNIVERSITY BUTTON
         private void main_menu_interns_btn_newUniv_Click(object sender, EventArgs e)
@@ -94,6 +97,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_intern_selector.BackColor = deSelect;
             main_menu_addresse_selector.BackColor = deSelect;
             main_menu_univ_selector.BackColor = deSelect;
+            main_menu_logout_selector.BackColor = deSelect;
+        }
+
+        private void btn_logout_panel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WelcomeForm wf = new WelcomeForm();
+            wf.Show();
         }
     }
 }

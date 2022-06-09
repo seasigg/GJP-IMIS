@@ -63,6 +63,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_logout_panel = new System.Windows.Forms.Button();
+            this.main_menu_logout_selector = new System.Windows.Forms.Panel();
             this.main_menu_panel_selectors.SuspendLayout();
             this.main_menu_panel_logo.SuspendLayout();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -78,6 +80,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_panel_selectors
             // 
             this.main_menu_panel_selectors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.main_menu_panel_selectors.Controls.Add(this.btn_logout_panel);
+            this.main_menu_panel_selectors.Controls.Add(this.main_menu_logout_selector);
             this.main_menu_panel_selectors.Controls.Add(this.btn_reports_panel);
             this.main_menu_panel_selectors.Controls.Add(this.main_menu_reports_selector);
             this.main_menu_panel_selectors.Controls.Add(this.btn_univ_panel);
@@ -424,6 +428,27 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
+            // btn_logout_panel
+            // 
+            this.btn_logout_panel.FlatAppearance.BorderSize = 0;
+            this.btn_logout_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logout_panel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.25F);
+            this.btn_logout_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
+            this.btn_logout_panel.Location = new System.Drawing.Point(3, 500);
+            this.btn_logout_panel.Name = "btn_logout_panel";
+            this.btn_logout_panel.Size = new System.Drawing.Size(227, 66);
+            this.btn_logout_panel.TabIndex = 11;
+            this.btn_logout_panel.Text = "LOGOUT";
+            this.btn_logout_panel.UseVisualStyleBackColor = true;
+            this.btn_logout_panel.Click += new System.EventHandler(this.btn_logout_panel_Click);
+            // 
+            // main_menu_logout_selector
+            // 
+            this.main_menu_logout_selector.Location = new System.Drawing.Point(3, 572);
+            this.main_menu_logout_selector.Name = "main_menu_logout_selector";
+            this.main_menu_logout_selector.Size = new System.Drawing.Size(230, 11);
+            this.main_menu_logout_selector.TabIndex = 10;
+            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,5 +520,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.ComboBox main_menu_addresse_addresseComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_logout_panel;
+        private System.Windows.Forms.Panel main_menu_logout_selector;
     }
 }
