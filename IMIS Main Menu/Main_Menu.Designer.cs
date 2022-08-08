@@ -30,6 +30,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void InitializeComponent()
         {
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
+            this.btn_logout_panel = new System.Windows.Forms.Button();
+            this.main_menu_logout_selector = new System.Windows.Forms.Panel();
             this.btn_reports_panel = new System.Windows.Forms.Button();
             this.main_menu_reports_selector = new System.Windows.Forms.Panel();
             this.btn_univ_panel = new System.Windows.Forms.Button();
@@ -48,12 +50,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_dataGridView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.main_menu_addresse_panel = new System.Windows.Forms.Panel();
+            this.main_menu_addresse_addresse_DataGrid = new System.Windows.Forms.DataGridView();
+            this.main_menu_addresse_search_addresse = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.main_menu_addresse_addresseComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.main_menu_addresse_btn_newaddresse = new System.Windows.Forms.Button();
             this.main_menu_addresse_search_univ = new System.Windows.Forms.TextBox();
-            this.main_menu_addresse_univ_dataGridView = new System.Windows.Forms.DataGridView();
+            this.main_menu_addresse_univ_DataGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.main_menu_univ_panel = new System.Windows.Forms.Panel();
             this.main_menu_univ_btn_newUniv = new System.Windows.Forms.Button();
@@ -63,15 +66,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_logout_panel = new System.Windows.Forms.Button();
-            this.main_menu_logout_selector = new System.Windows.Forms.Panel();
+            this.main_menu_addresse_btn_clearSelection = new System.Windows.Forms.Button();
             this.main_menu_panel_selectors.SuspendLayout();
             this.main_menu_panel_logo.SuspendLayout();
             this.main_menu_welcome_panel.SuspendLayout();
             this.main_menu_interns_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_interns_dataGridView)).BeginInit();
             this.main_menu_addresse_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_addresse_DataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_DataGrid)).BeginInit();
             this.main_menu_univ_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).BeginInit();
             this.main_menu_reports_panel.SuspendLayout();
@@ -96,6 +99,27 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(236, 726);
             this.main_menu_panel_selectors.TabIndex = 0;
+            // 
+            // btn_logout_panel
+            // 
+            this.btn_logout_panel.FlatAppearance.BorderSize = 0;
+            this.btn_logout_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logout_panel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.25F);
+            this.btn_logout_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
+            this.btn_logout_panel.Location = new System.Drawing.Point(3, 500);
+            this.btn_logout_panel.Name = "btn_logout_panel";
+            this.btn_logout_panel.Size = new System.Drawing.Size(227, 66);
+            this.btn_logout_panel.TabIndex = 11;
+            this.btn_logout_panel.Text = "LOGOUT";
+            this.btn_logout_panel.UseVisualStyleBackColor = true;
+            this.btn_logout_panel.Click += new System.EventHandler(this.btn_logout_panel_Click);
+            // 
+            // main_menu_logout_selector
+            // 
+            this.main_menu_logout_selector.Location = new System.Drawing.Point(3, 572);
+            this.main_menu_logout_selector.Name = "main_menu_logout_selector";
+            this.main_menu_logout_selector.Size = new System.Drawing.Size(230, 11);
+            this.main_menu_logout_selector.TabIndex = 10;
             // 
             // btn_reports_panel
             // 
@@ -271,36 +295,49 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_addresse_panel
             // 
             this.main_menu_addresse_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_clearSelection);
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_addresse_DataGrid);
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_search_addresse);
             this.main_menu_addresse_panel.Controls.Add(this.label8);
-            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_addresseComboBox);
             this.main_menu_addresse_panel.Controls.Add(this.label7);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_newaddresse);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_search_univ);
-            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_univ_dataGridView);
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_univ_DataGrid);
             this.main_menu_addresse_panel.Controls.Add(this.label5);
             this.main_menu_addresse_panel.Location = new System.Drawing.Point(239, 3);
             this.main_menu_addresse_panel.Name = "main_menu_addresse_panel";
             this.main_menu_addresse_panel.Size = new System.Drawing.Size(1376, 811);
             this.main_menu_addresse_panel.TabIndex = 5;
             // 
+            // main_menu_addresse_addresse_DataGrid
+            // 
+            this.main_menu_addresse_addresse_DataGrid.AllowUserToAddRows = false;
+            this.main_menu_addresse_addresse_DataGrid.AllowUserToDeleteRows = false;
+            this.main_menu_addresse_addresse_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_menu_addresse_addresse_DataGrid.Location = new System.Drawing.Point(674, 287);
+            this.main_menu_addresse_addresse_DataGrid.Name = "main_menu_addresse_addresse_DataGrid";
+            this.main_menu_addresse_addresse_DataGrid.ReadOnly = true;
+            this.main_menu_addresse_addresse_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.main_menu_addresse_addresse_DataGrid.Size = new System.Drawing.Size(493, 354);
+            this.main_menu_addresse_addresse_DataGrid.TabIndex = 28;
+            // 
+            // main_menu_addresse_search_addresse
+            // 
+            this.main_menu_addresse_search_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.main_menu_addresse_search_addresse.Location = new System.Drawing.Point(736, 233);
+            this.main_menu_addresse_search_addresse.Name = "main_menu_addresse_search_addresse";
+            this.main_menu_addresse_search_addresse.Size = new System.Drawing.Size(224, 31);
+            this.main_menu_addresse_search_addresse.TabIndex = 27;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(830, 335);
+            this.label8.Location = new System.Drawing.Point(730, 186);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(160, 33);
             this.label8.TabIndex = 25;
             this.label8.Text = "Addresse:";
-            // 
-            // main_menu_addresse_addresseComboBox
-            // 
-            this.main_menu_addresse_addresseComboBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.main_menu_addresse_addresseComboBox.FormattingEnabled = true;
-            this.main_menu_addresse_addresseComboBox.Location = new System.Drawing.Point(836, 391);
-            this.main_menu_addresse_addresseComboBox.Name = "main_menu_addresse_addresseComboBox";
-            this.main_menu_addresse_addresseComboBox.Size = new System.Drawing.Size(323, 40);
-            this.main_menu_addresse_addresseComboBox.TabIndex = 24;
             // 
             // label7
             // 
@@ -315,11 +352,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_addresse_btn_newaddresse
             // 
             this.main_menu_addresse_btn_newaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(1046, 448);
+            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(1054, 680);
             this.main_menu_addresse_btn_newaddresse.Name = "main_menu_addresse_btn_newaddresse";
             this.main_menu_addresse_btn_newaddresse.Size = new System.Drawing.Size(113, 43);
             this.main_menu_addresse_btn_newaddresse.TabIndex = 6;
-            this.main_menu_addresse_btn_newaddresse.Text = "ADD ADDRESSE";
+            this.main_menu_addresse_btn_newaddresse.Text = "ADD NEW ADDRESSE";
             this.main_menu_addresse_btn_newaddresse.UseVisualStyleBackColor = true;
             this.main_menu_addresse_btn_newaddresse.Click += new System.EventHandler(this.main_menu_interns_btn_newaddresse_Click);
             // 
@@ -331,13 +368,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_search_univ.Size = new System.Drawing.Size(224, 31);
             this.main_menu_addresse_search_univ.TabIndex = 5;
             // 
-            // main_menu_addresse_univ_dataGridView
+            // main_menu_addresse_univ_DataGrid
             // 
-            this.main_menu_addresse_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_menu_addresse_univ_dataGridView.Location = new System.Drawing.Point(168, 287);
-            this.main_menu_addresse_univ_dataGridView.Name = "main_menu_addresse_univ_dataGridView";
-            this.main_menu_addresse_univ_dataGridView.Size = new System.Drawing.Size(431, 436);
-            this.main_menu_addresse_univ_dataGridView.TabIndex = 4;
+            this.main_menu_addresse_univ_DataGrid.AllowUserToAddRows = false;
+            this.main_menu_addresse_univ_DataGrid.AllowUserToDeleteRows = false;
+            this.main_menu_addresse_univ_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_menu_addresse_univ_DataGrid.Location = new System.Drawing.Point(168, 287);
+            this.main_menu_addresse_univ_DataGrid.Name = "main_menu_addresse_univ_DataGrid";
+            this.main_menu_addresse_univ_DataGrid.ReadOnly = true;
+            this.main_menu_addresse_univ_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.main_menu_addresse_univ_DataGrid.Size = new System.Drawing.Size(431, 436);
+            this.main_menu_addresse_univ_DataGrid.TabIndex = 4;
+            this.main_menu_addresse_univ_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_menu_addresse_univ_CellClick);
             // 
             // label5
             // 
@@ -382,9 +424,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // main_menu_univ_dataGridView
             // 
+            this.main_menu_univ_dataGridView.AllowUserToAddRows = false;
+            this.main_menu_univ_dataGridView.AllowUserToDeleteRows = false;
             this.main_menu_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_menu_univ_dataGridView.Location = new System.Drawing.Point(27, 186);
             this.main_menu_univ_dataGridView.Name = "main_menu_univ_dataGridView";
+            this.main_menu_univ_dataGridView.ReadOnly = true;
+            this.main_menu_univ_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.main_menu_univ_dataGridView.Size = new System.Drawing.Size(1327, 602);
             this.main_menu_univ_dataGridView.TabIndex = 3;
             // 
@@ -428,26 +474,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // btn_logout_panel
+            // main_menu_addresse_btn_clearSelection
             // 
-            this.btn_logout_panel.FlatAppearance.BorderSize = 0;
-            this.btn_logout_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logout_panel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 25.25F);
-            this.btn_logout_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(183)))), ((int)(((byte)(183)))));
-            this.btn_logout_panel.Location = new System.Drawing.Point(3, 500);
-            this.btn_logout_panel.Name = "btn_logout_panel";
-            this.btn_logout_panel.Size = new System.Drawing.Size(227, 66);
-            this.btn_logout_panel.TabIndex = 11;
-            this.btn_logout_panel.Text = "LOGOUT";
-            this.btn_logout_panel.UseVisualStyleBackColor = true;
-            this.btn_logout_panel.Click += new System.EventHandler(this.btn_logout_panel_Click);
-            // 
-            // main_menu_logout_selector
-            // 
-            this.main_menu_logout_selector.Location = new System.Drawing.Point(3, 572);
-            this.main_menu_logout_selector.Name = "main_menu_logout_selector";
-            this.main_menu_logout_selector.Size = new System.Drawing.Size(230, 11);
-            this.main_menu_logout_selector.TabIndex = 10;
+            this.main_menu_addresse_btn_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_addresse_btn_clearSelection.Location = new System.Drawing.Point(674, 680);
+            this.main_menu_addresse_btn_clearSelection.Name = "main_menu_addresse_btn_clearSelection";
+            this.main_menu_addresse_btn_clearSelection.Size = new System.Drawing.Size(113, 43);
+            this.main_menu_addresse_btn_clearSelection.TabIndex = 29;
+            this.main_menu_addresse_btn_clearSelection.Text = "CLEAR SELECTION";
+            this.main_menu_addresse_btn_clearSelection.UseVisualStyleBackColor = true;
+            this.main_menu_addresse_btn_clearSelection.Click += new System.EventHandler(this.main_menu_addresse_btn_clearSelection_Click);
             // 
             // Main_Menu
             // 
@@ -455,11 +491,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1617, 815);
             this.Controls.Add(this.main_menu_panel_selectors);
+            this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
-            this.Controls.Add(this.main_menu_addresse_panel);
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Menu";
@@ -474,7 +510,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_interns_dataGridView)).EndInit();
             this.main_menu_addresse_panel.ResumeLayout(false);
             this.main_menu_addresse_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_addresse_DataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_DataGrid)).EndInit();
             this.main_menu_univ_panel.ResumeLayout(false);
             this.main_menu_univ_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).EndInit();
@@ -516,11 +553,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button main_menu_addresse_btn_newaddresse;
         private System.Windows.Forms.TextBox main_menu_addresse_search_univ;
-        private System.Windows.Forms.DataGridView main_menu_addresse_univ_dataGridView;
-        private System.Windows.Forms.ComboBox main_menu_addresse_addresseComboBox;
+        private System.Windows.Forms.DataGridView main_menu_addresse_univ_DataGrid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_logout_panel;
         private System.Windows.Forms.Panel main_menu_logout_selector;
+        private System.Windows.Forms.TextBox main_menu_addresse_search_addresse;
+        private System.Windows.Forms.DataGridView main_menu_addresse_addresse_DataGrid;
+        private System.Windows.Forms.Button main_menu_addresse_btn_clearSelection;
     }
 }

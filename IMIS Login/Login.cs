@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GJP_IMIS.IMIS_Main_Menu;
+using GJP_IMIS.IMIS_Methods.Database_Connection;
 
 namespace GJP_IMIS.IMIS_Login
 {
@@ -23,6 +24,8 @@ namespace GJP_IMIS.IMIS_Login
             /*
              CODES TO LOGIN
              */
+
+
             Main_Menu m = new Main_Menu();
             this.Hide();
             m.Show();

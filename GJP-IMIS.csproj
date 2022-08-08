@@ -76,6 +76,7 @@
     <Compile Include="IMIS Main Menu\University\Add_University.Designer.cs">
       <DependentUpon>Add_University.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WelcomeForm.cs">
@@ -126,7 +127,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IMIS Main Menu\Reports\" />
-    <Folder Include="IMIS Methods\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

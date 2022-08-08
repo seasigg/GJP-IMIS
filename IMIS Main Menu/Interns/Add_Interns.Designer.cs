@@ -86,6 +86,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label17 = new System.Windows.Forms.Label();
             this.add_intern_btn_confirm = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.add_intern_univ_addresse_clearSelection = new System.Windows.Forms.Button();
             this.add_intern_one.SuspendLayout();
             this.add_intern_two.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).BeginInit();
@@ -245,6 +246,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // add_intern_two
             // 
             this.add_intern_two.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.add_intern_two.Controls.Add(this.add_intern_univ_addresse_clearSelection);
             this.add_intern_two.Controls.Add(this.add_intern_btn_prev2);
             this.add_intern_two.Controls.Add(this.add_intern_btn_next2);
             this.add_intern_two.Controls.Add(this.label10);
@@ -311,19 +313,28 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             // add_intern_addresse_dataGridView
             // 
+            this.add_intern_addresse_dataGridView.AllowUserToAddRows = false;
+            this.add_intern_addresse_dataGridView.AllowUserToDeleteRows = false;
             this.add_intern_addresse_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.add_intern_addresse_dataGridView.Location = new System.Drawing.Point(669, 204);
             this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
+            this.add_intern_addresse_dataGridView.ReadOnly = true;
+            this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(493, 354);
             this.add_intern_addresse_dataGridView.TabIndex = 13;
             // 
             // add_intern_univ_dataGridView
             // 
+            this.add_intern_univ_dataGridView.AllowUserToAddRows = false;
+            this.add_intern_univ_dataGridView.AllowUserToDeleteRows = false;
             this.add_intern_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.add_intern_univ_dataGridView.Location = new System.Drawing.Point(63, 208);
             this.add_intern_univ_dataGridView.Name = "add_intern_univ_dataGridView";
+            this.add_intern_univ_dataGridView.ReadOnly = true;
+            this.add_intern_univ_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.add_intern_univ_dataGridView.Size = new System.Drawing.Size(459, 350);
             this.add_intern_univ_dataGridView.TabIndex = 12;
+            this.add_intern_univ_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.add_intern_univ_CellClick);
             // 
             // add_intern_find_univ
             // 
@@ -358,6 +369,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             // add_intern_office_comboBox
             // 
+            this.add_intern_office_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.add_intern_office_comboBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_intern_office_comboBox.FormattingEnabled = true;
             this.add_intern_office_comboBox.Location = new System.Drawing.Point(528, 265);
@@ -710,6 +722,17 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label13.TabIndex = 1;
             this.label13.Text = "part four add intern";
             // 
+            // add_intern_univ_addresse_clearSelection
+            // 
+            this.add_intern_univ_addresse_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.add_intern_univ_addresse_clearSelection.Location = new System.Drawing.Point(558, 585);
+            this.add_intern_univ_addresse_clearSelection.Name = "add_intern_univ_addresse_clearSelection";
+            this.add_intern_univ_addresse_clearSelection.Size = new System.Drawing.Size(121, 47);
+            this.add_intern_univ_addresse_clearSelection.TabIndex = 19;
+            this.add_intern_univ_addresse_clearSelection.Text = "CLEAR SELECTION";
+            this.add_intern_univ_addresse_clearSelection.UseVisualStyleBackColor = true;
+            this.add_intern_univ_addresse_clearSelection.Click += new System.EventHandler(this.add_intern_univ_addresse_clearSelection_Click);
+            // 
             // Add_Interns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,5 +819,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Button add_intern_editCourse;
         private System.Windows.Forms.Button add_intern_editLname;
         private System.Windows.Forms.Button add_intern_editMname;
+        private System.Windows.Forms.Button add_intern_univ_addresse_clearSelection;
     }
 }
