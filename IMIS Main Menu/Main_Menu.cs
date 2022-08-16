@@ -12,6 +12,7 @@ using GJP_IMIS.IMIS_Main_Menu.Interns;
 using GJP_IMIS.IMIS_Main_Menu.University;
 using GJP_IMIS.IMIS_Main_Menu.Addresse;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Methods.Intern_Queries;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
@@ -53,6 +54,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_univ_selector.BackColor = deSelect;
             main_menu_reports_selector.BackColor = deSelect;
             main_menu_logout_selector.BackColor = deSelect;
+
+            //Intern List
+            dataGridIntern.DataSource = InternQueries.viewInternPlain();
 
             // loads the university data grid view
             universityData();
@@ -219,5 +223,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             wf.Show();
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
