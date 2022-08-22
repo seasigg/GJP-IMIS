@@ -13,10 +13,10 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         public static SqlConnection con;
 
         // MAB
-        //public static String conn = @"Data Source=DESKTOP-NAARK29\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
+        public static String conn = @"Data Source=DESKTOP-NAARK29\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         //Earl
-        public static String conn = @"Data Source=DESKTOP-S9H3AS7\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
+        //public static String conn = @"Data Source=DESKTOP-S9H3AS7\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         public static void dbConnection()
         {
