@@ -11,6 +11,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 {
     class InternQueries
     {
+
+        /////Intern Panel Default/////
         public static DataTable viewInternPlain()
         {
             String query = "select First_Name as 'First Name', Last_Name as 'Last Name', Course, Addresse_Info.Salutation as 'Addresse', University.University_Name as 'University', Office.Office_Name as 'Office Deployed' " +
@@ -27,5 +29,46 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             return dt;
         }
+
+        ////////// Add Intern Form //////////
+        
+        /// Part Two University Data Grid
+        public static DataTable addInternUniversityData()
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * from University", Connection_String.con);
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            Connection_String.con.Close();
+
+            return dt;
+        }
+
+        /// Part Two Addresse Data Grid
+        public static DataTable addInternAddresseData()
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("SELECT * from Addresse_Info", Connection_String.con);
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            Connection_String.con.Close();
+
+            return dt;
+        }
+
+        /// 
+
+        /////Adding of Interns/////
+        ///Part One
+        
+
+        
+
     }
 }

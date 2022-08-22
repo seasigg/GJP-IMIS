@@ -44,6 +44,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_btn_next1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.add_intern_two = new System.Windows.Forms.Panel();
+            this.add_intern_univ_addresse_clearSelection = new System.Windows.Forms.Button();
             this.add_intern_btn_prev2 = new System.Windows.Forms.Button();
             this.add_intern_btn_next2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -86,7 +87,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label17 = new System.Windows.Forms.Label();
             this.add_intern_btn_confirm = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.add_intern_univ_addresse_clearSelection = new System.Windows.Forms.Button();
             this.add_intern_one.SuspendLayout();
             this.add_intern_two.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).BeginInit();
@@ -251,15 +251,26 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_two.Controls.Add(this.add_intern_btn_next2);
             this.add_intern_two.Controls.Add(this.label10);
             this.add_intern_two.Controls.Add(this.label9);
-            this.add_intern_two.Controls.Add(this.add_intern_find_addresse);
-            this.add_intern_two.Controls.Add(this.add_intern_addresse_dataGridView);
             this.add_intern_two.Controls.Add(this.add_intern_univ_dataGridView);
             this.add_intern_two.Controls.Add(this.add_intern_find_univ);
             this.add_intern_two.Controls.Add(this.label1);
+            this.add_intern_two.Controls.Add(this.add_intern_addresse_dataGridView);
+            this.add_intern_two.Controls.Add(this.add_intern_find_addresse);
             this.add_intern_two.Location = new System.Drawing.Point(12, 12);
             this.add_intern_two.Name = "add_intern_two";
             this.add_intern_two.Size = new System.Drawing.Size(1244, 683);
             this.add_intern_two.TabIndex = 2;
+            // 
+            // add_intern_univ_addresse_clearSelection
+            // 
+            this.add_intern_univ_addresse_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.add_intern_univ_addresse_clearSelection.Location = new System.Drawing.Point(558, 585);
+            this.add_intern_univ_addresse_clearSelection.Name = "add_intern_univ_addresse_clearSelection";
+            this.add_intern_univ_addresse_clearSelection.Size = new System.Drawing.Size(121, 47);
+            this.add_intern_univ_addresse_clearSelection.TabIndex = 19;
+            this.add_intern_univ_addresse_clearSelection.Text = "CLEAR SELECTION";
+            this.add_intern_univ_addresse_clearSelection.UseVisualStyleBackColor = true;
+            this.add_intern_univ_addresse_clearSelection.Click += new System.EventHandler(this.add_intern_univ_addresse_clearSelection_Click);
             // 
             // add_intern_btn_prev2
             // 
@@ -722,27 +733,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label13.TabIndex = 1;
             this.label13.Text = "part four add intern";
             // 
-            // add_intern_univ_addresse_clearSelection
-            // 
-            this.add_intern_univ_addresse_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
-            this.add_intern_univ_addresse_clearSelection.Location = new System.Drawing.Point(558, 585);
-            this.add_intern_univ_addresse_clearSelection.Name = "add_intern_univ_addresse_clearSelection";
-            this.add_intern_univ_addresse_clearSelection.Size = new System.Drawing.Size(121, 47);
-            this.add_intern_univ_addresse_clearSelection.TabIndex = 19;
-            this.add_intern_univ_addresse_clearSelection.Text = "CLEAR SELECTION";
-            this.add_intern_univ_addresse_clearSelection.UseVisualStyleBackColor = true;
-            this.add_intern_univ_addresse_clearSelection.Click += new System.EventHandler(this.add_intern_univ_addresse_clearSelection_Click);
-            // 
             // Add_Interns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1268, 707);
-            this.Controls.Add(this.add_intern_three);
             this.Controls.Add(this.add_intern_two);
             this.Controls.Add(this.add_intern_one);
             this.Controls.Add(this.add_intern_four);
+            this.Controls.Add(this.add_intern_three);
             this.Name = "Add_Interns";
             this.Text = "ADD NEW INTERN";
             this.Load += new System.EventHandler(this.Add_Interns_Load);

@@ -12,6 +12,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlClient;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Methods.Intern_Queries;
 
 namespace GJP_IMIS.IMIS_Main_Menu.Interns
 {
@@ -27,11 +28,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         SqlDataAdapter da;
         SqlDataReader dr;
 
-        // part one
+        // Part One Variables
         string int_fname, int_mname, int_lname, int_course, int_gender = "";
-        // part two
+        // Part Two Variables
         string int_univ, int_addr = "";
-        // part three
+        // Part Three Variables
         string int_office = "";
 
         int int_univ_id, int_addr_id, int_office_id = 0;
@@ -57,36 +58,23 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         }
 
         // PART TWO
+        // Getting all data grids and queries from a seperate class at InternQueries.cs
+        
+        // Data Grid View for Part Two - University Data Grid
         public void addInternUniversityData()
         {
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("SELECT * from University", Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            dt = new DataTable();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            add_intern_univ_dataGridView.DataSource = dt;
-            Connection_String.con.Close();
-
+            add_intern_univ_dataGridView.DataSource = InternQueries.addInternUniversityData();
             add_intern_univ_dataGridView.ClearSelection();
         }
 
+        // Data Grid View for Part Two - Addresse Data Grid
         public void addInternAddresseData()
         {
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("SELECT * from Addresse_Info", Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            dt = new DataTable();
-            da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            add_intern_addresse_dataGridView.DataSource = dt;
-            Connection_String.con.Close();
-
+            add_intern_addresse_dataGridView.DataSource = InternQueries.addInternAddresseData();
             add_intern_addresse_dataGridView.ClearSelection();
         }
 
+        //string for storing the string of the selected university
         string addInternUnivName;
         private void add_intern_univ_CellClick(object sender, DataGridViewCellEventArgs e)
         {
