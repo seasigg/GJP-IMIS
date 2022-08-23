@@ -49,11 +49,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_btn_next2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.add_intern_find_addresse = new System.Windows.Forms.TextBox();
-            this.add_intern_addresse_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_intern_univ_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_intern_find_univ = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.add_intern_addresse_dataGridView = new System.Windows.Forms.DataGridView();
+            this.add_intern_find_addresse = new System.Windows.Forms.TextBox();
             this.add_intern_three = new System.Windows.Forms.Panel();
             this.add_intern_office_comboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -89,8 +89,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label13 = new System.Windows.Forms.Label();
             this.add_intern_one.SuspendLayout();
             this.add_intern_two.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_intern_univ_dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).BeginInit();
             this.add_intern_three.SuspendLayout();
             this.add_intern_four.SuspendLayout();
             this.SuspendLayout();
@@ -314,26 +314,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label9.TabIndex = 15;
             this.label9.Text = "University:";
             // 
-            // add_intern_find_addresse
-            // 
-            this.add_intern_find_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.add_intern_find_addresse.Location = new System.Drawing.Point(669, 154);
-            this.add_intern_find_addresse.Name = "add_intern_find_addresse";
-            this.add_intern_find_addresse.Size = new System.Drawing.Size(311, 31);
-            this.add_intern_find_addresse.TabIndex = 14;
-            // 
-            // add_intern_addresse_dataGridView
-            // 
-            this.add_intern_addresse_dataGridView.AllowUserToAddRows = false;
-            this.add_intern_addresse_dataGridView.AllowUserToDeleteRows = false;
-            this.add_intern_addresse_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.add_intern_addresse_dataGridView.Location = new System.Drawing.Point(669, 204);
-            this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
-            this.add_intern_addresse_dataGridView.ReadOnly = true;
-            this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(493, 354);
-            this.add_intern_addresse_dataGridView.TabIndex = 13;
-            // 
             // add_intern_univ_dataGridView
             // 
             this.add_intern_univ_dataGridView.AllowUserToAddRows = false;
@@ -364,6 +344,26 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label1.Size = new System.Drawing.Size(391, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "part two add intern";
+            // 
+            // add_intern_addresse_dataGridView
+            // 
+            this.add_intern_addresse_dataGridView.AllowUserToAddRows = false;
+            this.add_intern_addresse_dataGridView.AllowUserToDeleteRows = false;
+            this.add_intern_addresse_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.add_intern_addresse_dataGridView.Location = new System.Drawing.Point(669, 204);
+            this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
+            this.add_intern_addresse_dataGridView.ReadOnly = true;
+            this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(493, 354);
+            this.add_intern_addresse_dataGridView.TabIndex = 13;
+            // 
+            // add_intern_find_addresse
+            // 
+            this.add_intern_find_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
+            this.add_intern_find_addresse.Location = new System.Drawing.Point(669, 154);
+            this.add_intern_find_addresse.Name = "add_intern_find_addresse";
+            this.add_intern_find_addresse.Size = new System.Drawing.Size(311, 31);
+            this.add_intern_find_addresse.TabIndex = 14;
             // 
             // add_intern_three
             // 
@@ -739,10 +739,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1268, 707);
-            this.Controls.Add(this.add_intern_two);
-            this.Controls.Add(this.add_intern_one);
             this.Controls.Add(this.add_intern_four);
             this.Controls.Add(this.add_intern_three);
+            this.Controls.Add(this.add_intern_two);
+            this.Controls.Add(this.add_intern_one);
             this.Name = "Add_Interns";
             this.Text = "ADD NEW INTERN";
             this.Load += new System.EventHandler(this.Add_Interns_Load);
@@ -750,8 +750,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_one.PerformLayout();
             this.add_intern_two.ResumeLayout(false);
             this.add_intern_two.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_intern_univ_dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.add_intern_addresse_dataGridView)).EndInit();
             this.add_intern_three.ResumeLayout(false);
             this.add_intern_three.PerformLayout();
             this.add_intern_four.ResumeLayout(false);

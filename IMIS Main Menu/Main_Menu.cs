@@ -46,7 +46,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /* 
          * INTERN PANEL
          */
-        private void btn_interns_panel_Click(object sender, EventArgs e)
+        public void btn_interns_panel_Click(object sender, EventArgs e)
         {
             main_menu_interns_panel.BringToFront();
             main_menu_intern_selector.BackColor = select;
@@ -57,18 +57,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             //Intern List
             dataGridIntern.DataSource = InternQueries.viewInternPlain();
-
+            dataGridIntern.ClearSelection();
             // loads the university data grid view
             universityData();
 
             // loads the addresse data grid view
             addresseData();
         }
+
+        public void internRefreshTable()
+        {
+            dataGridIntern.DataSource = InternQueries.viewInternPlain();
+            dataGridIntern.Update();
+            dataGridIntern.Refresh();
+        }
+
         // ADD NEW INTERN BUTTON
         private void main_menu_interns_btn_newintern_Click(object sender, EventArgs e)
         {
-            Add_Interns ai = new Add_Interns();
-            ai.Show();
+            Add_Interns ai = new Add_Interns(this);
+            ai.ShowDialog();
         }
 
         /*
@@ -102,6 +110,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             main_menu_addresse_addresse_DataGrid.DataSource = dt;
+            main_menu_addresse_addresse_DataGrid.ClearSelection();
             Connection_String.con.Close();
         }
 
@@ -123,8 +132,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
         {
-            Add_Addresse aa = new Add_Addresse();
-            aa.Show();
+            Add_Addresse aa = new Add_Addresse(this);
+            aa.ShowDialog();
         }
         // CLEAR SELECTION OF ADDRESSE
         private void main_menu_addresse_btn_clearSelection_Click(object sender, EventArgs e)
@@ -192,9 +201,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ADD NEW UNIVERSITY BUTTON
         private void main_menu_interns_btn_newUniv_Click(object sender, EventArgs e)
         {
-            Add_University au = new Add_University();
-            this.Hide();
-            au.Show();
+            Add_University au = new Add_University(this);
+            au.ShowDialog();
         }
 
         /*
@@ -223,9 +231,5 @@ namespace GJP_IMIS.IMIS_Main_Menu
             wf.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

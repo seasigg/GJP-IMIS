@@ -23,6 +23,15 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             InitializeComponent();
         }
 
+        public Main_Menu mainMenu;
+
+        public Add_Interns(Main_Menu m)
+        {
+            InitializeComponent();
+
+            mainMenu = m;
+        }
+
         SqlCommand cmd;
         DataTable dt;
         SqlDataAdapter da;
@@ -89,6 +98,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
                 add_intern_addresse_dataGridView.DataSource = dt;
+                add_intern_addresse_dataGridView.ClearSelection();
                 Connection_String.con.Close();
             }
         }
@@ -154,6 +164,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             cmd.ExecuteNonQuery();
             Connection_String.con.Close();
             MessageBox.Show("Intern Successfully Added.");
+
         }
 
         // GET UNIVERSITY ID
@@ -207,8 +218,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         // BUTTON TO CONFIRM INSERTION OF INTERN INFORMATION
         private void add_intern_btn_confirm_Click(object sender, EventArgs e)
         {
-
             insertInternInformation(int_fname, int_mname, int_lname, int_course, int_gender, getUnivId(int_univ), getAddrId(int_addr), getOfficeId(int_office));
+
+            mainMenu.internRefreshTable();
+
+            this.Close();
         }
 
         private void add_intern_editFname_Click(object sender, EventArgs e)

@@ -19,6 +19,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
             InitializeComponent();
         }
 
+        public Main_Menu mainMenu;
+        public Add_Addresse(Main_Menu m)
+        {
+            InitializeComponent();
+
+            mainMenu = m;
+        }
+
         SqlCommand cmd;
         
         private void Add_Addresse_Load(object sender, EventArgs e)
@@ -59,10 +67,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         // SUBMIT BUTTON
         private void add_addresse_btn_confirm_Click(object sender, EventArgs e)
         {
-            // CODES TO SUBMIT THE ADDRESSE TO DB SSOB
-            // REFRESH NA DEN NUNG PANEL NA ADDRESSE PARA ANDUN NA YUNG
-            // BAGONG ADDRESSE SALAMAS
-
             string add_name = add_addresse_name.Text;
             string add_pos = add_addresse_position.Text;
             string add_department = add_addresse_department.Text;
@@ -71,7 +75,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
 
             addAddresse(add_name, add_pos, add_department, add_salutation, add_univ);
 
-            this.Hide();
+            mainMenu.addresseData();
+
+            this.Close();
         }
     }
 }

@@ -45,6 +45,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_welcome_panel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.main_menu_interns_panel = new System.Windows.Forms.Panel();
+            this.dataGridIntern = new System.Windows.Forms.DataGridView();
             this.main_menu_interns_btn_newintern = new System.Windows.Forms.Button();
             this.main_menu_interns_search_intern = new System.Windows.Forms.TextBox();
             this.main_menu_interns_dataGridView = new System.Windows.Forms.DataGridView();
@@ -67,11 +68,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridIntern = new System.Windows.Forms.DataGridView();
             this.main_menu_panel_selectors.SuspendLayout();
             this.main_menu_panel_logo.SuspendLayout();
             this.main_menu_welcome_panel.SuspendLayout();
             this.main_menu_interns_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_interns_dataGridView)).BeginInit();
             this.main_menu_addresse_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_addresse_DataGrid)).BeginInit();
@@ -79,7 +80,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).BeginInit();
             this.main_menu_reports_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).BeginInit();
             this.SuspendLayout();
             // 
             // main_menu_panel_selectors
@@ -257,6 +257,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_panel.Name = "main_menu_interns_panel";
             this.main_menu_interns_panel.Size = new System.Drawing.Size(1376, 811);
             this.main_menu_interns_panel.TabIndex = 4;
+            // 
+            // dataGridIntern
+            // 
+            this.dataGridIntern.AllowUserToAddRows = false;
+            this.dataGridIntern.AllowUserToDeleteRows = false;
+            this.dataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridIntern.Location = new System.Drawing.Point(47, 203);
+            this.dataGridIntern.Name = "dataGridIntern";
+            this.dataGridIntern.ReadOnly = true;
+            this.dataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridIntern.Size = new System.Drawing.Size(1289, 567);
+            this.dataGridIntern.TabIndex = 4;
             // 
             // main_menu_interns_btn_newintern
             // 
@@ -488,29 +500,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // dataGridIntern
-            // 
-            this.dataGridIntern.AllowUserToAddRows = false;
-            this.dataGridIntern.AllowUserToDeleteRows = false;
-            this.dataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridIntern.Location = new System.Drawing.Point(47, 203);
-            this.dataGridIntern.Name = "dataGridIntern";
-            this.dataGridIntern.ReadOnly = true;
-            this.dataGridIntern.Size = new System.Drawing.Size(1289, 567);
-            this.dataGridIntern.TabIndex = 4;
-            this.dataGridIntern.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1617, 815);
             this.Controls.Add(this.main_menu_panel_selectors);
+            this.Controls.Add(this.main_menu_univ_panel);
+            this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
-            this.Controls.Add(this.main_menu_univ_panel);
-            this.Controls.Add(this.main_menu_addresse_panel);
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Menu";
@@ -522,6 +522,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_welcome_panel.PerformLayout();
             this.main_menu_interns_panel.ResumeLayout(false);
             this.main_menu_interns_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_interns_dataGridView)).EndInit();
             this.main_menu_addresse_panel.ResumeLayout(false);
             this.main_menu_addresse_panel.PerformLayout();
@@ -532,7 +533,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).EndInit();
             this.main_menu_reports_panel.ResumeLayout(false);
             this.main_menu_reports_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).EndInit();
             this.ResumeLayout(false);
 
         }

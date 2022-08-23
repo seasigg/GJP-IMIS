@@ -20,6 +20,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
             InitializeComponent();
         }
 
+        public Main_Menu mainMenu;
+        public Add_University(Main_Menu m)
+        {
+            InitializeComponent();
+
+            mainMenu = m;
+        }
+
         SqlCommand cmd;
 
         private void add_univ_cancel_Click(object sender, EventArgs e)
@@ -44,10 +52,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
             string univ_name = main_menu_univ_find_univ.Text;
             addUniversity(univ_name);
 
-            Main_Menu m = new Main_Menu();
-            m.universityData();
-            m.Show();
-            m.univPanelClicked();
+            mainMenu.universityData();
             this.Hide();
         }
     }
