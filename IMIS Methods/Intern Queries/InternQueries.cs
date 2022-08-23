@@ -62,7 +62,17 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dt;
         }
 
-        /// 
+        /// Part Two University Data Grid Cell Click
+        public static DataTable selectUniversityCellClick(string uni)
+        {
+            Connection_String.dbConnection();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Addresse_Info WHERE University = '" + uni + "'", Connection_String.con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
+        }
+
 
         /////Adding of Interns/////
         ///Part One

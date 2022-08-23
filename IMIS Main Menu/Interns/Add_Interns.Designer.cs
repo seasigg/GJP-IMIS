@@ -320,8 +320,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_univ_dataGridView.AllowUserToDeleteRows = false;
             this.add_intern_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.add_intern_univ_dataGridView.Location = new System.Drawing.Point(63, 208);
+            this.add_intern_univ_dataGridView.MultiSelect = false;
             this.add_intern_univ_dataGridView.Name = "add_intern_univ_dataGridView";
-            this.add_intern_univ_dataGridView.ReadOnly = true;
             this.add_intern_univ_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.add_intern_univ_dataGridView.Size = new System.Drawing.Size(459, 350);
             this.add_intern_univ_dataGridView.TabIndex = 12;

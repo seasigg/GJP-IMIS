@@ -37,6 +37,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         SqlDataAdapter da;
         SqlDataReader dr;
 
+        // OJT Number
+        string int_ojt;
         // Part One Variables
         string int_fname, int_mname, int_lname, int_course, int_gender = "";
         // Part Two Variables
@@ -58,6 +60,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // part three of adding of interns
             add_interns_office_combo();
 
+            foreach (DataGridViewColumn column in add_intern_univ_dataGridView.Columns)
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            foreach (DataGridViewColumn column in add_intern_addresse_dataGridView.Columns)
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         // PART ONE
@@ -74,6 +81,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             add_intern_univ_dataGridView.DataSource = InternQueries.addInternUniversityData();
             add_intern_univ_dataGridView.ClearSelection();
+
+
         }
 
         // Data Grid View for Part Two - Addresse Data Grid
@@ -81,6 +90,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             add_intern_addresse_dataGridView.DataSource = InternQueries.addInternAddresseData();
             add_intern_addresse_dataGridView.ClearSelection();
+            
         }
 
         //string for storing the string of the selected university
@@ -89,26 +99,19 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             if (e.RowIndex >= 0)
             {
-                Connection_String.dbConnection();
                 addInternUnivName = add_intern_univ_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                cmd = new SqlCommand("SELECT * from Addresse_Info WHERE University = '" + addInternUnivName + "'", Connection_String.con);
-                cmd.ExecuteNonQuery();
-
-                dt = new DataTable();
-                da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
-                add_intern_addresse_dataGridView.DataSource = dt;
+                add_intern_addresse_dataGridView.DataSource = InternQueries.selectUniversityCellClick(addInternUnivName);
                 add_intern_addresse_dataGridView.ClearSelection();
-                Connection_String.con.Close();
             }
         }
+
+        //Part Two Clear Selection Button
         private void add_intern_univ_addresse_clearSelection_Click(object sender, EventArgs e)
         {
             // refresh the university datagrid
             addInternUniversityData();
             // refresh the addresse datagrid
             addInternAddresseData();
-
         }
 
         private void add_intern_btn_prev2_Click(object sender, EventArgs e)
@@ -127,20 +130,18 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             add_intern_two.BringToFront();
         }
 
-        // add interns office combo box
+        // add interns office combo box (TO BE CHANGED)
         private void add_interns_office_combo()
         {
             Connection_String.dbConnection();
-            add_intern_office_comboBox.Items.Clear();
-
-            cmd = new SqlCommand("SELECT * from Office", Connection_String.con);
-
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Office", Connection_String.con);
             SqlDataReader r = cmd.ExecuteReader();
+            
             while (r.Read())
             {
                 add_intern_office_comboBox.Items.Add(r["Office_Abr"].ToString());
-                //add_intern_office_comboBox.Items.Add(r["Office_Name"].ToString());
             }
+            Connection_String.con.Close();
         }
 
         // BUTTON FOR CONFIRMATION
@@ -157,10 +158,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         // PART FOUR, OUTPUT PART
         // insertion of interns information to db
-        private void insertInternInformation(string f, string m, string l, string c, string g, int u, int a, int o)
+        private void insertInternInformation(string oid, string f, string m, string l, string c, string g, int u, int a, int o)
         {
             Connection_String.dbConnection();
-            cmd = new SqlCommand("INSERT into Intern_Info VALUES ('"+f+"', '"+m+"', '"+l+"', '"+c+"', '"+a+"', '"+u+"', '"+g+"', '"+o+"')", Connection_String.con);
+            cmd = new SqlCommand("INSERT into Intern_Info VALUES ('"+oid+"', '"+f+"', '"+m+"', '"+l+"', '"+c+"', '"+a+"', '"+u+"', '"+g+"', '"+o+"')", Connection_String.con);
             cmd.ExecuteNonQuery();
             Connection_String.con.Close();
             MessageBox.Show("Intern Successfully Added.");
@@ -218,7 +219,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         // BUTTON TO CONFIRM INSERTION OF INTERN INFORMATION
         private void add_intern_btn_confirm_Click(object sender, EventArgs e)
         {
-            insertInternInformation(int_fname, int_mname, int_lname, int_course, int_gender, getUnivId(int_univ), getAddrId(int_addr), getOfficeId(int_office));
+            insertInternInformation(int_ojt, int_fname, int_mname, int_lname, int_course, int_gender, getUnivId(int_univ), getAddrId(int_addr), getOfficeId(int_office));
 
             mainMenu.internRefreshTable();
 

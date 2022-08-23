@@ -68,8 +68,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public void internRefreshTable()
         {
             dataGridIntern.DataSource = InternQueries.viewInternPlain();
-            dataGridIntern.Update();
-            dataGridIntern.Refresh();
         }
 
         // ADD NEW INTERN BUTTON
