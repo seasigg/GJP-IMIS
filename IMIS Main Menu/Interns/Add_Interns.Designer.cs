@@ -44,6 +44,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_btn_next1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.add_intern_two = new System.Windows.Forms.Panel();
+            this.lblAddresseSelected = new System.Windows.Forms.Label();
+            this.lblUnivSelected = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.add_intern_univ_addresse_clearSelection = new System.Windows.Forms.Button();
             this.add_intern_btn_prev2 = new System.Windows.Forms.Button();
             this.add_intern_btn_next2 = new System.Windows.Forms.Button();
@@ -246,6 +250,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // add_intern_two
             // 
             this.add_intern_two.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.add_intern_two.Controls.Add(this.lblAddresseSelected);
+            this.add_intern_two.Controls.Add(this.lblUnivSelected);
+            this.add_intern_two.Controls.Add(this.label22);
+            this.add_intern_two.Controls.Add(this.label21);
             this.add_intern_two.Controls.Add(this.add_intern_univ_addresse_clearSelection);
             this.add_intern_two.Controls.Add(this.add_intern_btn_prev2);
             this.add_intern_two.Controls.Add(this.add_intern_btn_next2);
@@ -260,6 +268,46 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_two.Name = "add_intern_two";
             this.add_intern_two.Size = new System.Drawing.Size(1244, 683);
             this.add_intern_two.TabIndex = 2;
+            // 
+            // lblAddresseSelected
+            // 
+            this.lblAddresseSelected.AutoSize = true;
+            this.lblAddresseSelected.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddresseSelected.Location = new System.Drawing.Point(832, 517);
+            this.lblAddresseSelected.Name = "lblAddresseSelected";
+            this.lblAddresseSelected.Size = new System.Drawing.Size(57, 22);
+            this.lblAddresseSelected.TabIndex = 23;
+            this.lblAddresseSelected.Text = "None";
+            // 
+            // lblUnivSelected
+            // 
+            this.lblUnivSelected.AutoSize = true;
+            this.lblUnivSelected.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnivSelected.Location = new System.Drawing.Point(210, 519);
+            this.lblUnivSelected.Name = "lblUnivSelected";
+            this.lblUnivSelected.Size = new System.Drawing.Size(57, 22);
+            this.lblUnivSelected.TabIndex = 22;
+            this.lblUnivSelected.Text = "None";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(729, 517);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 22);
+            this.label22.TabIndex = 21;
+            this.label22.Text = "Selected:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(107, 519);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(97, 22);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "Selected:";
             // 
             // add_intern_univ_addresse_clearSelection
             // 
@@ -323,7 +371,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_univ_dataGridView.MultiSelect = false;
             this.add_intern_univ_dataGridView.Name = "add_intern_univ_dataGridView";
             this.add_intern_univ_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.add_intern_univ_dataGridView.Size = new System.Drawing.Size(459, 350);
+            this.add_intern_univ_dataGridView.Size = new System.Drawing.Size(459, 270);
             this.add_intern_univ_dataGridView.TabIndex = 12;
             this.add_intern_univ_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.add_intern_univ_CellClick);
             // 
@@ -354,8 +402,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
             this.add_intern_addresse_dataGridView.ReadOnly = true;
             this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(493, 354);
+            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(493, 274);
             this.add_intern_addresse_dataGridView.TabIndex = 13;
+            this.add_intern_addresse_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.add_intern_addresse_dataGridView_CellClick);
             // 
             // add_intern_find_addresse
             // 
@@ -739,10 +788,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1268, 707);
-            this.Controls.Add(this.add_intern_four);
-            this.Controls.Add(this.add_intern_three);
             this.Controls.Add(this.add_intern_two);
             this.Controls.Add(this.add_intern_one);
+            this.Controls.Add(this.add_intern_four);
+            this.Controls.Add(this.add_intern_three);
             this.Name = "Add_Interns";
             this.Text = "ADD NEW INTERN";
             this.Load += new System.EventHandler(this.Add_Interns_Load);
@@ -820,5 +869,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Button add_intern_editLname;
         private System.Windows.Forms.Button add_intern_editMname;
         private System.Windows.Forms.Button add_intern_univ_addresse_clearSelection;
+        private System.Windows.Forms.Label lblAddresseSelected;
+        private System.Windows.Forms.Label lblUnivSelected;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }

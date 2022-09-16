@@ -95,6 +95,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         //string for storing the string of the selected university
         string addInternUnivName;
+        string addInternAddresseName;
         private void add_intern_univ_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -102,6 +103,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 addInternUnivName = add_intern_univ_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
                 add_intern_addresse_dataGridView.DataSource = InternQueries.selectUniversityCellClick(addInternUnivName);
                 add_intern_addresse_dataGridView.ClearSelection();
+                lblUnivSelected.Text = addInternUnivName;
+            }
+        }
+
+        private void add_intern_addresse_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                addInternAddresseName = add_intern_addresse_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                lblAddresseSelected.Text = addInternAddresseName;
             }
         }
 
@@ -112,6 +123,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             addInternUniversityData();
             // refresh the addresse datagrid
             addInternAddresseData();
+
+            lblUnivSelected.Text = "None";
+            lblAddresseSelected.Text = "None";
         }
 
         private void add_intern_btn_prev2_Click(object sender, EventArgs e)
@@ -245,6 +259,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             add_intern_one.BringToFront();
         }
+
+        
 
         private void add_intern_editGender_Click(object sender, EventArgs e)
         {
