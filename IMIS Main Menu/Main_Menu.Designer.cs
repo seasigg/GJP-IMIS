@@ -580,11 +580,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1617, 815);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_univ_panel);
-            this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
+            this.Controls.Add(this.main_menu_univ_panel);
+            this.Controls.Add(this.main_menu_addresse_panel);
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main_Menu";

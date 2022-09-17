@@ -32,39 +32,46 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             mainMenu = m;
         }
 
-        SqlCommand cmd;
-        DataTable dt;
-        SqlDataAdapter da;
-        SqlDataReader dr;
-
+        //Target Hours
+        string targetHours;
         // OJT Number
         string int_ojt;
         // Part One Variables
         string int_fname, int_mname, int_lname, int_course, int_gender = "";
         // Part Two Variables
-        string int_univ, int_addr = "";
+        string int_univ_name, int_addr_name = "", int_off_name;
         // Part Three Variables
-        string int_office = "";
+        string addInternOfficeID = "";
+        string addInternUnivID;
+        string addInternAddresseID;
 
-        int int_univ_id, int_addr_id, int_office_id = 0;
+
 
         private void Add_Interns_Load(object sender, EventArgs e)
         {
             add_intern_one.BringToFront();
 
-
             // part two of adding of interns univ & addresse datagridview
             addInternUniversityData();
-            addInternAddresseData();
 
             // part three of adding of interns
-            add_interns_office_combo();
+            addOfficeDataGrid();
 
             foreach (DataGridViewColumn column in add_intern_univ_dataGridView.Columns)
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
             foreach (DataGridViewColumn column in add_intern_addresse_dataGridView.Columns)
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+
+            if(InternQueries.checkYearData())
+            {
+                int_ojt = InternQueries.addOJTNumberIncrement();
+            }
+            else
+            {
+                int_ojt = DateTime.Now.Year.ToString() + "001";
+            }
         }
 
         // PART ONE
@@ -81,29 +88,25 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             add_intern_univ_dataGridView.DataSource = InternQueries.addInternUniversityData();
             add_intern_univ_dataGridView.ClearSelection();
-
-
+            add_intern_univ_dataGridView.AutoResizeColumns();
+            add_intern_univ_dataGridView.Columns["University_ID"].Visible = false;
         }
 
         // Data Grid View for Part Two - Addresse Data Grid
-        public void addInternAddresseData()
-        {
-            add_intern_addresse_dataGridView.DataSource = InternQueries.addInternAddresseData();
-            add_intern_addresse_dataGridView.ClearSelection();
-            
-        }
 
-        //string for storing the string of the selected university
-        string addInternUnivName;
-        string addInternAddresseName;
+        //string for storing the string value of the selected university
+        
         private void add_intern_univ_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                addInternUnivName = add_intern_univ_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                add_intern_addresse_dataGridView.DataSource = InternQueries.selectUniversityCellClick(addInternUnivName);
+                addInternUnivID = add_intern_univ_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                add_intern_addresse_dataGridView.DataSource = InternQueries.addInternAddresseData(addInternUnivID);
                 add_intern_addresse_dataGridView.ClearSelection();
-                lblUnivSelected.Text = addInternUnivName;
+                add_intern_addresse_dataGridView.AutoResizeColumns();
+                add_intern_addresse_dataGridView.Columns["Addresse_ID"].Visible = false;
+                int_univ_name = add_intern_univ_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                lblUnivSelected.Text = int_univ_name;
             }
         }
 
@@ -111,8 +114,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             if (e.RowIndex >= 0)
             {
-                addInternAddresseName = add_intern_addresse_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-                lblAddresseSelected.Text = addInternAddresseName;
+                addInternAddresseID = add_intern_addresse_dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                int_addr_name = add_intern_addresse_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                lblAddresseSelected.Text = int_addr_name;
             }
         }
 
@@ -122,7 +126,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // refresh the university datagrid
             addInternUniversityData();
             // refresh the addresse datagrid
-            addInternAddresseData();
+            add_intern_addresse_dataGridView.DataSource = null;
+            add_intern_addresse_dataGridView.ClearSelection();
 
             lblUnivSelected.Text = "None";
             lblAddresseSelected.Text = "None";
@@ -145,100 +150,62 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         }
 
         // add interns office combo box (TO BE CHANGED)
-        private void add_interns_office_combo()
+        private void addOfficeDataGrid()
         {
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Office", Connection_String.con);
-            SqlDataReader r = cmd.ExecuteReader();
-            
-            while (r.Read())
+            dataGridViewOffice.DataSource = InternQueries.addOfficeData();
+            dataGridViewOffice.AutoResizeColumns();
+            dataGridViewOffice.AutoResizeRows();
+            dataGridViewOffice.ClearSelection();
+            dataGridViewOffice.Columns["Office_ID"].Visible = false;
+        }
+
+        private void dataGridViewOffice_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
             {
-                add_intern_office_comboBox.Items.Add(r["Office_Abr"].ToString());
+                addInternOfficeID = dataGridViewOffice.SelectedRows[0].Cells[0].Value.ToString();
+                int_off_name = dataGridViewOffice.SelectedRows[0].Cells[1].Value.ToString();
+                labelOfficeSelected.Text = int_off_name;
             }
-            Connection_String.con.Close();
         }
 
         // BUTTON FOR CONFIRMATION
         private void add_intern_btn_next3_Click(object sender, EventArgs e)
-        {
+        {     
             add_intern_four.BringToFront();
 
             // collect intern's information and store it to local variable
             internsFullInformation();
 
             // output the intern's full information
-            outputInternsFullInformation(int_fname, int_mname, int_lname, int_course, int_gender, int_univ, int_addr, int_office);
+            outputInternsFullInformation(int_ojt, int_fname, int_mname, int_lname, int_course, int_gender, int_univ_name, int_addr_name, int_off_name);
         }
 
+        // method to collect all the intern's information
+        private void internsFullInformation()
+        {
+            // part one
+            int_fname = add_intern_txtFname.Text;
+            int_mname = add_intern_txtMname.Text;
+            int_lname = add_intern_txtLname.Text;
+            int_course = add_intern_txtCourse.Text;
+            int_gender = internGender();
+            targetHours = textBoxTargetHours.Text;
+
+        }
         // PART FOUR, OUTPUT PART
-        // insertion of interns information to db
-        private void insertInternInformation(string oid, string f, string m, string l, string c, string g, int u, int a, int o)
-        {
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("INSERT into Intern_Info VALUES ('"+oid+"', '"+f+"', '"+m+"', '"+l+"', '"+c+"', '"+a+"', '"+u+"', '"+g+"', '"+o+"')", Connection_String.con);
-            cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
-            MessageBox.Show("Intern Successfully Added.");
-
-        }
-
-        // GET UNIVERSITY ID
-        public int getUnivId(string u)
-        {
-            int i = 0;
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("SELECT * from University where University_Name = '" + u + "'", Connection_String.con);
-            dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                i = Int32.Parse(dr["University_ID"].ToString());
-            }
-            Connection_String.con.Close();
-            return i;
-        }
-
-        // GET ADDRESSEE ID
-        public int getAddrId(string a)
-        {
-            int addr = 0;
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("SELECT * from Addresse_Info where Addresse_Name = '" + int_addr + "'", Connection_String.con);
-            dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                addr = Int32.Parse(dr["Addresse_ID"].ToString());
-            }
-            Connection_String.con.Close();
-            return addr;
-        }
-
-        // GET OFFICE ID
-        public int getOfficeId(string o)
-        {
-            int of = 0;
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("SELECT * from Office where Office_Abr = '" + o + "'", Connection_String.con);
-            dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                of = Int32.Parse(dr["Office_ID"].ToString());
-            }
-            Connection_String.con.Close();
-            return of;
-        }
 
         // BUTTON TO CONFIRM INSERTION OF INTERN INFORMATION
         private void add_intern_btn_confirm_Click(object sender, EventArgs e)
         {
-            insertInternInformation(int_ojt, int_fname, int_mname, int_lname, int_course, int_gender, getUnivId(int_univ), getAddrId(int_addr), getOfficeId(int_office));
-
+            InternQueries.addInternData(int_ojt, int_fname, int_mname, int_lname, int_course, int_gender, addInternUnivID, addInternAddresseID, addInternOfficeID);
+            InternQueries.addInternStatus(int_ojt, targetHours);
+            MessageBox.Show("Intern Number: " + int_ojt + " named as " + int_fname + " " + int_lname + " has been registered");
+            
             mainMenu.internRefreshTable();
 
             this.Close();
-        }
+        } 
 
         private void add_intern_editFname_Click(object sender, EventArgs e)
         {
@@ -281,23 +248,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             add_intern_three.BringToFront();
         }
 
-        // method to collect all the intern's information
-        private void internsFullInformation()
-        {
-            // part one
-            int_fname = add_intern_txtFname.Text;
-            int_mname = add_intern_txtMname.Text;
-            int_lname = add_intern_txtLname.Text;
-            int_course = add_intern_txtCourse.Text;
-            int_gender = internGender();
-
-            // part two
-            int_univ = add_intern_univ_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-            int_addr = add_intern_addresse_dataGridView.SelectedRows[0].Cells[1].Value.ToString();
-
-            // part three
-            int_office = add_intern_office_comboBox.Text;
-        }
+        
         private string internGender()
         {
             string g = "";
@@ -308,8 +259,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             return g;
         }
 
-        private void outputInternsFullInformation(string f, string m, string l, string c, string g, string u, string a, string o) // first - mid - last name - course - gender - univ - addre - office
+        private void outputInternsFullInformation(string ojt, string f, string m, string l, string c, string g, string u, string a, string o) // first - mid - last name - course - gender - univ - addre - office
         {
+            lblOJTID.Text = int_ojt;
             add_intern_output_fName.Text = f;
             add_intern_output_mName.Text = m;
             add_intern_output_lName.Text = l;
@@ -318,6 +270,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             add_intern_output_univ.Text = u;
             add_intern_output_addresse.Text = a;
             add_intern_output_office.Text = o;
+            lblTargetHours.Text = targetHours;
 
         }
     }
