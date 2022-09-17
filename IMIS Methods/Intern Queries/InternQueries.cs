@@ -11,24 +11,19 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 {
     class InternQueries
     {
-
-        /////Intern Panel Default/////
-        public static DataTable viewInternPlain()
+        public static DataTable dataTable(string query)
         {
-            String query = "select First_Name as 'First Name', Last_Name as 'Last Name', Course, Addresse_Info.Salutation as 'Addresse', University.University_Name as 'University', Office.Office_Name as 'Office Deployed' " +
-                "from(((Intern_Info " +
-                "inner join Addresse_Info on Intern_Info.Addresse_ID = Addresse_Info.Addresse_ID)" +
-                "inner join University on Intern_Info.School_ID = University.University_ID)" +
-                "inner join Office on Intern_Info.Office_ID = Office.Office_ID)";
-            
             Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(query, Connection_String.con);
+            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+
             DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
             Connection_String.con.Close();
 
             return dt;
         }
+
 
         ////////// Add Intern Form //////////
         

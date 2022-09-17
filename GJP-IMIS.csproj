@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
     <Compile Include="IMIS Methods\Intern Queries\InternQueries.cs" />
+    <Compile Include="IMIS Methods\Main Menu Queries\menuQueries.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WelcomeForm.cs">
