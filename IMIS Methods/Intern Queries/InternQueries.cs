@@ -27,37 +27,19 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         ////////// Add Intern Form //////////
         
-        /// Part Two University Data Grid
+        // Part Two University Data Grid
         public static DataTable addInternUniversityData()
         {
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * from University", Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            Connection_String.con.Close();
-
-            return dt;
+            return dataTable("SELECT * FROM University");
         }
 
-        /// Part Two Addresse Data Grid
+        // Part Two Addresse Data Grid
         public static DataTable addInternAddresseData()
         {
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * from Addresse_Info", Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            Connection_String.con.Close();
-
-            return dt;
+            return dataTable("SELECT * FROM Addresse_Info");
         }
 
-        /// Part Two University Data Grid Cell Click
+        // Part Two University Data Grid Cell Click
         public static DataTable selectUniversityCellClick(string uni)
         {
             Connection_String.dbConnection();
