@@ -69,6 +69,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // loads the addresse data grid view
             addresseData();
+
         }
 
         public void internRefreshTable()

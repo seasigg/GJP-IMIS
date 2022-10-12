@@ -29,12 +29,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.add_intern_one = new System.Windows.Forms.Panel();
             this.textBoxTargetHours = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -64,8 +64,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_univ_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_intern_find_univ = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.add_intern_addresse_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_intern_find_addresse = new System.Windows.Forms.TextBox();
+            this.add_intern_addresse_dataGridView = new System.Windows.Forms.DataGridView();
             this.add_intern_three = new System.Windows.Forms.Panel();
             this.labelOfficeSelected = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -75,6 +75,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_btn_next3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.add_intern_four = new System.Windows.Forms.Panel();
+            this.lblTargetHours = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.lblOJTID = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.add_intern_editOffice = new System.Windows.Forms.Button();
@@ -99,8 +101,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label17 = new System.Windows.Forms.Label();
             this.add_intern_btn_confirm = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.lblTargetHours = new System.Windows.Forms.Label();
             this.add_intern_one.SuspendLayout();
             this.add_intern_two.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.add_intern_univ_dataGridView)).BeginInit();
@@ -397,23 +397,23 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             this.add_intern_univ_dataGridView.AllowUserToAddRows = false;
             this.add_intern_univ_dataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.add_intern_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.add_intern_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.add_intern_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.add_intern_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.add_intern_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.add_intern_univ_dataGridView.Location = new System.Drawing.Point(63, 208);
             this.add_intern_univ_dataGridView.MultiSelect = false;
             this.add_intern_univ_dataGridView.Name = "add_intern_univ_dataGridView";
@@ -440,35 +440,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label1.TabIndex = 1;
             this.label1.Text = "part two add intern";
             // 
-            // add_intern_addresse_dataGridView
-            // 
-            this.add_intern_addresse_dataGridView.AllowUserToAddRows = false;
-            this.add_intern_addresse_dataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.add_intern_addresse_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.add_intern_addresse_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.add_intern_addresse_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.add_intern_addresse_dataGridView.Location = new System.Drawing.Point(456, 204);
-            this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
-            this.add_intern_addresse_dataGridView.ReadOnly = true;
-            this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(746, 274);
-            this.add_intern_addresse_dataGridView.TabIndex = 13;
-            this.add_intern_addresse_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.add_intern_addresse_dataGridView_CellClick);
-            // 
             // add_intern_find_addresse
             // 
             this.add_intern_find_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
@@ -476,6 +447,35 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_find_addresse.Name = "add_intern_find_addresse";
             this.add_intern_find_addresse.Size = new System.Drawing.Size(311, 31);
             this.add_intern_find_addresse.TabIndex = 14;
+            // 
+            // add_intern_addresse_dataGridView
+            // 
+            this.add_intern_addresse_dataGridView.AllowUserToAddRows = false;
+            this.add_intern_addresse_dataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.add_intern_addresse_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.add_intern_addresse_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.add_intern_addresse_dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            this.add_intern_addresse_dataGridView.Location = new System.Drawing.Point(456, 204);
+            this.add_intern_addresse_dataGridView.Name = "add_intern_addresse_dataGridView";
+            this.add_intern_addresse_dataGridView.ReadOnly = true;
+            this.add_intern_addresse_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.add_intern_addresse_dataGridView.Size = new System.Drawing.Size(746, 274);
+            this.add_intern_addresse_dataGridView.TabIndex = 13;
+            this.add_intern_addresse_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.add_intern_addresse_dataGridView_CellClick);
             // 
             // add_intern_three
             // 
@@ -516,23 +516,23 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             this.dataGridViewOffice.AllowUserToAddRows = false;
             this.dataGridViewOffice.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewOffice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewOffice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewOffice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewOffice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOffice.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOffice.Location = new System.Drawing.Point(43, 154);
             this.dataGridViewOffice.Name = "dataGridViewOffice";
             this.dataGridViewOffice.ReadOnly = true;
@@ -616,6 +616,26 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.add_intern_four.Name = "add_intern_four";
             this.add_intern_four.Size = new System.Drawing.Size(1244, 683);
             this.add_intern_four.TabIndex = 24;
+            // 
+            // lblTargetHours
+            // 
+            this.lblTargetHours.AutoSize = true;
+            this.lblTargetHours.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTargetHours.Location = new System.Drawing.Point(931, 119);
+            this.lblTargetHours.Name = "lblTargetHours";
+            this.lblTargetHours.Size = new System.Drawing.Size(146, 32);
+            this.lblTargetHours.TabIndex = 47;
+            this.lblTargetHours.Text = "/OUTPUT/";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(727, 119);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(198, 32);
+            this.label26.TabIndex = 46;
+            this.label26.Text = "Target Hours:";
             // 
             // lblOJTID
             // 
@@ -862,26 +882,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label13.TabIndex = 1;
             this.label13.Text = "part four add intern";
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(727, 119);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(198, 32);
-            this.label26.TabIndex = 46;
-            this.label26.Text = "Target Hours:";
-            // 
-            // lblTargetHours
-            // 
-            this.lblTargetHours.AutoSize = true;
-            this.lblTargetHours.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetHours.Location = new System.Drawing.Point(931, 119);
-            this.lblTargetHours.Name = "lblTargetHours";
-            this.lblTargetHours.Size = new System.Drawing.Size(146, 32);
-            this.lblTargetHours.TabIndex = 47;
-            this.lblTargetHours.Text = "/OUTPUT/";
-            // 
             // Add_Interns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -892,6 +892,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.Controls.Add(this.add_intern_four);
             this.Controls.Add(this.add_intern_three);
             this.Controls.Add(this.add_intern_two);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Add_Interns";
             this.Text = "ADD NEW INTERN";
             this.Load += new System.EventHandler(this.Add_Interns_Load);

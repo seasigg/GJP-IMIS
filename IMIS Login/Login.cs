@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GJP_IMIS.IMIS_Main_Menu;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Main_Menu.Interns;
 
 namespace GJP_IMIS.IMIS_Login
 {
@@ -26,9 +27,12 @@ namespace GJP_IMIS.IMIS_Login
              */
 
 
-            Main_Menu m = new Main_Menu();
-            this.Hide();
-            m.Show();
+            /*Main_Menu m = new Main_Menu();
+           this.Hide();
+           m.Show();*/
+
+            Add_Intern ai = new Add_Intern();
+            ai.ShowDialog();
         }
     }
 }

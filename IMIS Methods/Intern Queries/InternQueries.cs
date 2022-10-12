@@ -109,6 +109,20 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             Connection_String.con.Close();
         }
 
+        /////////////////////////////////////////////////
+        public static DataTable getUniversities()
+        {
+            return dataTable("SELECT * FROM University");
+        }
 
+        public static DataTable getCourses()
+        {
+            return dataTable("SELECT * FROM Course");
+        }
+
+        public static DataTable getOffices()
+        {
+            return dataTable("SELECT * FROM Office");
+        }
     }
 }

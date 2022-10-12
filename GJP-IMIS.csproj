@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMIS Class\Classes.cs" />
     <Compile Include="IMIS Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="IMIS Main Menu\Addresse\Add_Addresse.Designer.cs">
       <DependentUpon>Add_Addresse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Interns\Add_Intern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Interns\Add_Intern.Designer.cs">
+      <DependentUpon>Add_Intern.cs</DependentUpon>
     </Compile>
     <Compile Include="IMIS Main Menu\Interns\Add_Interns.cs">
       <SubType>Form</SubType>
@@ -92,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Addresse\Add_Addresse.resx">
       <DependentUpon>Add_Addresse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern.resx">
+      <DependentUpon>Add_Intern.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Interns.resx">
       <DependentUpon>Add_Interns.cs</DependentUpon>

@@ -287,7 +287,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridIntern.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridIntern.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridIntern.Location = new System.Drawing.Point(47, 203);
+            this.dataGridIntern.MultiSelect = false;
             this.dataGridIntern.Name = "dataGridIntern";
             this.dataGridIntern.ReadOnly = true;
             this.dataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
