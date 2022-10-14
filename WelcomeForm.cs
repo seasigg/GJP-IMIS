@@ -11,9 +11,9 @@ using GJP_IMIS.IMIS_Login;
 
 namespace GJP_IMIS
 {
-    public partial class WelcomeForm : Form
+    public partial class IMIS : Form
     {
-        public WelcomeForm()
+        public IMIS()
         {
             InitializeComponent();
         }

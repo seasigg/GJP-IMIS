@@ -1,7 +1,7 @@
 ﻿
 namespace GJP_IMIS
 {
-    partial class WelcomeForm
+    partial class IMIS
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@ namespace GJP_IMIS
             this.wc_btn_proceed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.wc_btn_proceed.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wc_btn_proceed.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.wc_btn_proceed.Location = new System.Drawing.Point(358, 356);
+            this.wc_btn_proceed.Location = new System.Drawing.Point(362, 363);
             this.wc_btn_proceed.Name = "wc_btn_proceed";
             this.wc_btn_proceed.Size = new System.Drawing.Size(213, 56);
             this.wc_btn_proceed.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace GJP_IMIS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bell MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(175, 286);
+            this.label1.Location = new System.Drawing.Point(165, 287);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(637, 42);
             this.label1.TabIndex = 1;
@@ -63,11 +63,11 @@ namespace GJP_IMIS
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(251, 558);
+            this.label2.Location = new System.Drawing.Point(246, 561);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(418, 25);
+            this.label2.Size = new System.Drawing.Size(422, 25);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Earl Francis Jalandoon Et.al All rights Reserved";
+            this.label2.Text = "Guarismo, Jalandoon, Pareja All rights Reserved";
             // 
             // pictureBox1
             // 
@@ -79,7 +79,7 @@ namespace GJP_IMIS
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // WelcomeForm
+            // IMIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,9 +90,9 @@ namespace GJP_IMIS
             this.Controls.Add(this.label1);
             this.Controls.Add(this.wc_btn_proceed);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "WelcomeForm";
+            this.Name = "IMIS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WelcomeForm";
+            this.Text = "IMIS";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

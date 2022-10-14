@@ -209,7 +209,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btn_logout_panel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            WelcomeForm wf = new WelcomeForm();
+            IMIS wf = new IMIS();
             wf.Show();
         }
 
