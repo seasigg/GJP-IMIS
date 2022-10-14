@@ -27,12 +27,14 @@ namespace GJP_IMIS.IMIS_Login
              */
 
 
-            /*Main_Menu m = new Main_Menu();
+            Main_Menu m = new Main_Menu();
            this.Hide();
-           m.Show();*/
+           m.Show();
 
+            /*
             Add_Intern ai = new Add_Intern();
             ai.ShowDialog();
+            */
         }
     }
 }

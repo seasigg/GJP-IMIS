@@ -32,7 +32,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private Boolean checkData()
         {
-            if(txtFirstName)
+            //if(txtFirstName)
+            return true;
         }
 
         private void btnClearEntry_Click(object sender, EventArgs e)
