@@ -120,6 +120,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
@@ -139,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IMIS Main Menu\Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IMIS Images\IMIS Logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

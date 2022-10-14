@@ -24,8 +24,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
     public partial class Main_Menu : Form
     {
         // SELECTION COLOR FOR NAV BAR
-        Color select = Color.FromArgb(242, 241, 239);
-        Color deSelect = Color.FromArgb(46, 49, 49);
+        Color selectBackColor = Color.FromArgb(51, 96, 185);
+        Color selectForeColor = Color.FromArgb(255,255,255);
+        Color deSelectBackColor = Color.FromArgb(255,255,255);
+        Color deSelectForeColor = Color.FromArgb(0,0,0);
 
         // SQL COMMANDS
         SqlDataAdapter da;
@@ -54,11 +56,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public void btn_interns_panel_Click(object sender, EventArgs e)
         {
             main_menu_interns_panel.BringToFront();
-            main_menu_intern_selector.BackColor = select;
-            main_menu_addresse_selector.BackColor = deSelect;
-            main_menu_univ_selector.BackColor = deSelect;
-            main_menu_reports_selector.BackColor = deSelect;
-            main_menu_logout_selector.BackColor = deSelect;
+
+            //intern button select
+            internSelect();
 
             //Intern List
             dataGridIntern.DataSource = menuQueries.viewInternPlain();
@@ -112,12 +112,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btn_addresse_panel_Click(object sender, EventArgs e)
         {
             main_menu_addresse_panel.BringToFront();
-            main_menu_addresse_selector.BackColor = select;
-            main_menu_intern_selector.BackColor = deSelect;
-            main_menu_univ_selector.BackColor = deSelect;
-            main_menu_reports_selector.BackColor = deSelect;
-            main_menu_logout_selector.BackColor = deSelect;
 
+            // coordinator button select
+            coordinatorSelect();
             // loads the university data grid view
             universityData();
 
@@ -146,11 +143,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public void btn_univ_panel_Click(object sender, EventArgs e)
         {
             main_menu_univ_panel.BringToFront();
-            main_menu_univ_selector.BackColor = select;
-            main_menu_intern_selector.BackColor = deSelect;
-            main_menu_addresse_selector.BackColor = deSelect;
-            main_menu_reports_selector.BackColor = deSelect;
-            main_menu_logout_selector.BackColor = deSelect;
+
+            // university button select
+            universitySelect();
 
             // loads the university data grid view
             universityData();
@@ -162,11 +157,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public void univPanelClicked()
         {
             main_menu_univ_panel.BringToFront();
-            main_menu_univ_selector.BackColor = select;
-            main_menu_intern_selector.BackColor = deSelect;
-            main_menu_addresse_selector.BackColor = deSelect;
-            main_menu_reports_selector.BackColor = deSelect;
-            main_menu_logout_selector.BackColor = deSelect;
+            
 
             // loads the university data grid view
             universityData();
@@ -204,11 +195,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btn_reports_panel_Click(object sender, EventArgs e)
         {
             main_menu_reports_panel.BringToFront();
-            main_menu_reports_selector.BackColor = select;
-            main_menu_intern_selector.BackColor = deSelect;
-            main_menu_addresse_selector.BackColor = deSelect;
-            main_menu_univ_selector.BackColor = deSelect;
-            main_menu_logout_selector.BackColor = deSelect;
+
+            // reports button select
+            reportSelect();
 
             // loads the university data grid view
             universityData();
@@ -222,6 +211,70 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.Hide();
             WelcomeForm wf = new WelcomeForm();
             wf.Show();
+        }
+
+        // intern button select color
+        private void internSelect()
+        {
+            btn_interns_panel.BackColor = selectBackColor;
+            btn_interns_panel.ForeColor = selectForeColor;
+
+            btn_addresse_panel.BackColor = deSelectBackColor;
+            btn_addresse_panel.ForeColor = deSelectForeColor;
+
+            btn_univ_panel.BackColor = deSelectBackColor;
+            btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_reports_panel.BackColor = deSelectBackColor;
+            btn_reports_panel.ForeColor = deSelectForeColor;
+        }
+
+        // coordinator button select color
+        private void coordinatorSelect()
+        {
+            btn_interns_panel.BackColor = deSelectBackColor;
+            btn_interns_panel.ForeColor = deSelectForeColor;
+
+            btn_addresse_panel.BackColor = selectBackColor;
+            btn_addresse_panel.ForeColor = selectForeColor;
+
+            btn_univ_panel.BackColor = deSelectBackColor;
+            btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_reports_panel.BackColor = deSelectBackColor;
+            btn_reports_panel.ForeColor = deSelectForeColor;
+        }
+
+        // university button select color
+        private void universitySelect()
+        {
+            btn_interns_panel.BackColor = deSelectBackColor;
+            btn_interns_panel.ForeColor = deSelectForeColor;
+
+            btn_addresse_panel.BackColor = deSelectBackColor;
+            btn_addresse_panel.ForeColor = deSelectForeColor;
+
+            btn_univ_panel.BackColor = selectBackColor;
+            btn_univ_panel.ForeColor = selectForeColor;
+
+            btn_reports_panel.BackColor = deSelectBackColor;
+            btn_reports_panel.ForeColor = deSelectForeColor;
+        }
+
+        // report button select color
+        private void reportSelect()
+        {
+            btn_interns_panel.BackColor = deSelectBackColor;
+            btn_interns_panel.ForeColor = deSelectForeColor;
+
+            btn_addresse_panel.BackColor = deSelectBackColor;
+            btn_addresse_panel.ForeColor = deSelectForeColor;
+
+            btn_univ_panel.BackColor = deSelectBackColor;
+            btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_reports_panel.BackColor = selectBackColor;
+            btn_reports_panel.ForeColor = selectForeColor;
         }
     }
 }

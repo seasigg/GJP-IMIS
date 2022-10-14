@@ -30,7 +30,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         }
 
-        /*private Boolean checkData()
+        private Boolean checkData()
         {
             //if(txtFirstName)
             return true;
