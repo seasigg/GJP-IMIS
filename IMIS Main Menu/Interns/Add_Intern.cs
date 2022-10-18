@@ -145,21 +145,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.comboCourse.DroppedDown = false;
         }
 
-        private void comboUniversity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*DataTable dt = InternQueries.checkCoordinator(comboUniversity.SelectedValue.ToString());
-            if (dt != null)
-            {
-                if(dt.Rows.Count > 0)
-                {
-                    comboOJTCoordinator.Enabled = true;
-                    comboOJTCoordinator.DataSource = dt;
-                    comboOJTCoordinator.DisplayMember = "First_Name" + " " + "Middle_Initial" + " " + "Last_Name";
-                    comboOJTCoordinator.ValueMember = "Coordinator_ID";
-                }
-            }*/
-        }
-
         private void btnAddCoordinator_Click(object sender, EventArgs e)
         {
             if(comboUniversity.SelectedIndex != -1)
@@ -171,6 +156,32 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             {
                 Add_Coordinator ac = new Add_Coordinator();
                 ac.ShowDialog();
+            }
+        }
+
+        private void comboUniversity_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (comboUniversity.SelectedIndex != -1)
+            {
+                int comboValue = Convert.ToInt32(comboUniversity.SelectedValue.ToString());
+                DataTable dt = InternQueries.checkCoordinator(comboValue);
+
+                if (dt != null)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        comboOJTCoordinator.Enabled = true;
+                        comboOJTCoordinator.DataSource = dt;
+                        comboOJTCoordinator.DisplayMember = "FullName";
+                        comboOJTCoordinator.ValueMember = "Coordinator_ID";
+                    }
+                    else
+                    {
+                        comboOJTCoordinator.Enabled = false;
+                        comboOJTCoordinator.DataSource = null;
+                        comboOJTCoordinator.Items.Clear();
+                    }
+                }
             }
         }
     }

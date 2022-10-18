@@ -124,9 +124,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dataTable("SELECT * FROM Office");
         }
 
-        public static DataTable checkCoordinator(string uID)
+        public static DataTable checkCoordinator(int uID)
         {
-            return dataTable("SELECT * FROM Coordinator_Info WHERE University_ID = '"+uID+"'");
+            return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
     }
 }
