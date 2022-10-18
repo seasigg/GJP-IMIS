@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
+using GJP_IMIS.IMIS_Main_Menu;
+using GJP_IMIS.IMIS_Class;
+using GJP_IMIS.IMIS_Main_Menu.Addresse;
 
 namespace GJP_IMIS.IMIS_Main_Menu.Interns
 {
@@ -20,9 +23,30 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             InitializeComponent();
         }
 
+        public Main_Menu mainMenu;
+
+        public Add_Intern(Main_Menu m)
+        {
+            InitializeComponent();
+            
+            mainMenu = m;
+        }
+
         private void Add_Intern_Load(object sender, EventArgs e)
         {
             clearEntry();
+        }
+
+        private void btnAddIntern_Click(object sender, EventArgs e)
+        {
+            if(Classes.checkData(this.Controls))
+            {
+                MessageBox.Show("MAY DATA");
+            }
+            else
+            {
+                MessageBox.Show("Walang DATA");
+            }
         }
 
         private void dataValidation()
@@ -30,11 +54,21 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         }
 
-        private Boolean checkData()
+        /*private Boolean checkData()
         {
-            //if(txtFirstName)
-            return true;
-        }
+
+            if(Classes.checkData(this.Controls))
+            {
+                MessageBox.Show("MAY DATA");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Walang DATA");
+                return false;
+            }
+                
+        }*/
 
         private void btnClearEntry_Click(object sender, EventArgs e)
         {
@@ -47,7 +81,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             DialogResult dr = MessageBox.Show("Cancelling will take you back to the Main Menu. \nProceed?", "Cancel", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
-                MessageBox.Show("MainMenu"); 
+                mainMenu.internRefreshTable();
         }
 
         public void clearEntry()
@@ -67,7 +101,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboOfficeDeployed.ValueMember = "Office_ID";
             comboOfficeDeployed.SelectedIndex = -1;
 
-            IMIS_Class.Classes.clearTextBox(this.Controls); 
+            Classes.clearTextBox(this.Controls);
+
+            if (InternQueries.checkYearData())
+                txtOJTNumber.Text = InternQueries.addOJTNumberIncrement();
+            else
+                txtOJTNumber.Text = DateTime.Now.Year.ToString() + "001";
         }
 
  
@@ -108,7 +147,31 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private void comboUniversity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            /*DataTable dt = InternQueries.checkCoordinator(comboUniversity.SelectedValue.ToString());
+            if (dt != null)
+            {
+                if(dt.Rows.Count > 0)
+                {
+                    comboOJTCoordinator.Enabled = true;
+                    comboOJTCoordinator.DataSource = dt;
+                    comboOJTCoordinator.DisplayMember = "First_Name" + " " + "Middle_Initial" + " " + "Last_Name";
+                    comboOJTCoordinator.ValueMember = "Coordinator_ID";
+                }
+            }*/
+        }
+
+        private void btnAddCoordinator_Click(object sender, EventArgs e)
+        {
+            if(comboUniversity.SelectedIndex != -1)
+            {
+                Add_Coordinator ac = new Add_Coordinator(comboUniversity.SelectedValue.ToString());
+                ac.ShowDialog();
+            }
+            else
+            {
+                Add_Coordinator ac = new Add_Coordinator();
+                ac.ShowDialog();
+            }
         }
     }
 }

@@ -22,13 +22,31 @@ namespace GJP_IMIS.IMIS_Class
 
         public static Boolean checkData(Control.ControlCollection collection)
         {
-            Boolean haveData = true;
+            Boolean haveData = false;
             foreach (Control ctrl in collection)
             {
                 if(ctrl is TextBoxBase)
                 {
                     TextBox tb = ctrl as TextBox;
-                    if(string.IsNullOrWhiteSpace(tb.Text))
+                    if(!string.IsNullOrWhiteSpace(tb.Text))
+                    {
+                        haveData = true;
+                    }
+                }
+            }
+
+            return haveData;
+        }
+
+        public static Boolean checkDataCoord(Control.ControlCollection collection)
+        {
+            Boolean haveData = true;
+            foreach (Control ctrl in collection)
+            {
+                if (ctrl is TextBoxBase)
+                {
+                    TextBox tb = ctrl as TextBox;
+                    if (string.IsNullOrWhiteSpace(tb.Text))
                     {
                         haveData = false;
                     }

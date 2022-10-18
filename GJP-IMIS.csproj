@@ -53,11 +53,11 @@
     <Compile Include="IMIS Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMIS Main Menu\Addresse\Add_Addresse.cs">
+    <Compile Include="IMIS Main Menu\Addresse\Add_Coordinator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IMIS Main Menu\Addresse\Add_Addresse.Designer.cs">
-      <DependentUpon>Add_Addresse.cs</DependentUpon>
+    <Compile Include="IMIS Main Menu\Addresse\Add_Coordinator.Designer.cs">
+      <DependentUpon>Add_Coordinator.cs</DependentUpon>
     </Compile>
     <Compile Include="IMIS Main Menu\Interns\Add_Intern.cs">
       <SubType>Form</SubType>
@@ -83,6 +83,7 @@
     <Compile Include="IMIS Main Menu\University\Add_University.Designer.cs">
       <DependentUpon>Add_University.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Methods\Coordinator Queries\CoordinatorQueries.cs" />
     <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
     <Compile Include="IMIS Methods\Intern Queries\InternQueries.cs" />
     <Compile Include="IMIS Methods\Main Menu Queries\menuQueries.cs" />
@@ -97,8 +98,8 @@
     <EmbeddedResource Include="IMIS Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Addresse\Add_Addresse.resx">
-      <DependentUpon>Add_Addresse.cs</DependentUpon>
+    <EmbeddedResource Include="IMIS Main Menu\Addresse\Add_Coordinator.resx">
+      <DependentUpon>Add_Coordinator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern.resx">
       <DependentUpon>Add_Intern.cs</DependentUpon>

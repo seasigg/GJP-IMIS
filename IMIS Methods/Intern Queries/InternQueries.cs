@@ -50,7 +50,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // OJT ID
         public static Boolean checkYearData()
         {
-
             string currentYear = "%" + DateTime.Now.Year.ToString() + "%";
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Intern_Info WHERE OJT_Number LIKE '" + currentYear + "'", Connection_String.con);
@@ -123,6 +122,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static DataTable getOffices()
         {
             return dataTable("SELECT * FROM Office");
+        }
+
+        public static DataTable checkCoordinator(string uID)
+        {
+            return dataTable("SELECT * FROM Coordinator_Info WHERE University_ID = '"+uID+"'");
         }
     }
 }

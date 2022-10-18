@@ -45,7 +45,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddCoordinator = new System.Windows.Forms.Button();
             this.comboOJTCoordinator = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -242,7 +242,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(184)))), ((int)(((byte)(168)))));
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnAddCoordinator);
             this.groupBox1.Controls.Add(this.comboOJTCoordinator);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.button2);
@@ -259,15 +259,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "School Information";
             // 
-            // button3
+            // btnAddCoordinator
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(823, 211);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(68, 33);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddCoordinator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCoordinator.Location = new System.Drawing.Point(823, 211);
+            this.btnAddCoordinator.Name = "btnAddCoordinator";
+            this.btnAddCoordinator.Size = new System.Drawing.Size(68, 33);
+            this.btnAddCoordinator.TabIndex = 8;
+            this.btnAddCoordinator.Text = "Add";
+            this.btnAddCoordinator.UseVisualStyleBackColor = true;
+            this.btnAddCoordinator.Click += new System.EventHandler(this.btnAddCoordinator_Click);
             // 
             // comboOJTCoordinator
             // 
@@ -471,6 +472,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnAddIntern.TabIndex = 10;
             this.btnAddIntern.Text = "Save";
             this.btnAddIntern.UseVisualStyleBackColor = true;
+            this.btnAddIntern.Click += new System.EventHandler(this.btnAddIntern_Click);
             // 
             // btnClearEntry
             // 
@@ -541,7 +543,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboCourse;
         private System.Windows.Forms.ComboBox comboUniversity;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddCoordinator;
         private System.Windows.Forms.ComboBox comboOJTCoordinator;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button2;

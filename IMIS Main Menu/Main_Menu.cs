@@ -82,7 +82,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ADD NEW INTERN BUTTON
         private void main_menu_interns_btn_newintern_Click(object sender, EventArgs e)
         {
-            Add_Interns ai = new Add_Interns(this);
+            Add_Intern ai = new Add_Intern(this);
             ai.ShowDialog();
         }
 
@@ -124,7 +124,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
         {
-            Add_Addresse aa = new Add_Addresse(this);
+            Add_Coordinator aa = new Add_Coordinator();
             aa.ShowDialog();
         }
         // CLEAR SELECTION OF ADDRESSE
