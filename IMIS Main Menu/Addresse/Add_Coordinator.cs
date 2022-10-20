@@ -126,5 +126,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
