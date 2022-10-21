@@ -7,34 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
 
-using GJP_IMIS.IMIS_Class;
-using GJP_IMIS.IMIS_Methods.Course_Queries;
 using GJP_IMIS.IMIS_Main_Menu.Interns;
+using GJP_IMIS.IMIS_Methods.Office_Queries;
+using GJP_IMIS.IMIS_Main_Menu;
+using GJP_IMIS.IMIS_Class;
 
-namespace GJP_IMIS.IMIS_Main_Menu.Course
+namespace GJP_IMIS.IMIS_Main_Menu.Office
 {
-    public partial class addCourse : Form
+    public partial class addOffice : Form
     {
-        public Add_Intern ai;
         public Main_Menu mm;
+        public Add_Intern ai;
 
-        bool fromAddIntern = false;
         bool fromMainMenu = false;
-        public addCourse()
+        bool fromAddIntern = false;
+
+        public addOffice()
         {
             InitializeComponent();
         }
-        public addCourse(Main_Menu m)
+        public addOffice(Main_Menu m)
         {
             InitializeComponent();
             fromMainMenu = true;
             fromAddIntern = false;
             mm = m;
         }
-
-        public addCourse(Add_Intern a)
+        public addOffice(Add_Intern a)
         {
             InitializeComponent();
             fromMainMenu = false;
@@ -42,18 +42,28 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
             ai = a;
         }
 
+
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtOffice.Clear();
+            txtOfficeAbb.Clear();
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if(Classes.checkData(this.Controls))
             {
-                string course = txtCourse.Text;
+                string o = txtOffice.Text;
+                string oa = txtOfficeAbb.Text;
 
-                DialogResult dr = MessageBox.Show("Add " + course + "\nto the Course database?", "Add Course", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show("Add Office: " + o + "\nAbbreviation: " + oa + "\ninto the Database?", "Add Office", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(dr == DialogResult.Yes)
                 {
-                    courseQueries.insertCourse(course);
-                    MessageBox.Show("Course " + course + "\nhas been successfully added.", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtCourse.Clear();
+                    OfficeQueries.insertOffice(o, oa);
+                    MessageBox.Show("Office: " + o + "\nhas been succesfully added.", "Add Office", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtOffice.Clear();
+                    txtOfficeAbb.Clear();
                 }
             }
             else
@@ -62,31 +72,18 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtCourse.Clear();
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if(fromMainMenu == true)
             {
 
             }
- 
+
             if(fromAddIntern == true)
             {
-                ai.clearCourseCombo();
+                ai.clearOfficeCombo();
             }
-                
             this.Dispose();
         }
-
-        private void txtCourse_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
-        }
-
-        
     }
 }

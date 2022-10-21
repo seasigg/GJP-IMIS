@@ -19,7 +19,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
     public partial class Add_Coordinator : Form
     {
         public Main_Menu mainMenu;
+        public Add_Intern ai;
+
         string selectedUniv = null;
+
+        bool fromMainMenu = false;
+        bool fromAddIntern = false;
 
         public Add_Coordinator()
         {
@@ -27,14 +32,22 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         }
 
         
-        public Add_Coordinator(string univID, Add_Intern a)
+        public Add_Coordinator(Add_Intern a, string univID)
         {
             InitializeComponent();
-
+            fromMainMenu = false;
+            fromAddIntern = true;
             selectedUniv = univID;
+            ai = a;
         }
 
-        SqlCommand cmd;
+        public Add_Coordinator(Main_Menu m)
+        {
+            InitializeComponent();
+            fromMainMenu = true;
+            fromAddIntern = false;
+            mainMenu = m;
+        }
 
         string coord_fName;
         string coord_mName;
@@ -53,6 +66,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
 
         private void populateUniversity()
         {
+            comboUniversity.DataSource = null;
             comboUniversity.DataSource = CoordinatorQueries.getUniversity();
             comboUniversity.DisplayMember = "University_Name";
             comboUniversity.ValueMember = "University_ID";
@@ -62,6 +76,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         // CANCEL BUTTON
         private void add_addresse_btn_cancel_Click(object sender, EventArgs e)
         {
+            if(fromMainMenu == true)
+            {
+
+            }
+            if(fromAddIntern == true)
+            {
+                ai.clearCoordinatorCombo();
+            }
             this.Dispose();
         }
 
@@ -78,9 +100,20 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
                 coord_dep = txtDepartment.Text;
                 coord_univID = getUnivID();
 
-                CoordinatorQueries.insertCoordinator(coord_fName, coord_mName, coord_lName, coord_gender, coord_pos, coord_dep, coord_univID);
-
-                MessageBox.Show("OJT Coordinator Successfully Registered!");
+                string q = "Are you sure you want to add the following details:" +
+                    "\nFirst Name = " + coord_fName +
+                    "\nMiddle Initial = " + coord_mName +
+                    "\nLast Name = " + coord_lName +
+                    "\nGender = " + coord_gender +
+                    "\nPosition = " + coord_pos +
+                    "\nDepartment = " + coord_dep +
+                    "\nUniversity ID = " + coord_univID.ToString();
+                DialogResult dr = MessageBox.Show(q, "Add Coordinator", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dr == DialogResult.Yes)
+                {
+                    CoordinatorQueries.insertCoordinator(coord_fName, coord_mName, coord_lName, coord_gender, coord_pos, coord_dep, coord_univID);
+                    MessageBox.Show("OJT Coordinator Successfully Registered!", "Add Coordinator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }  
             }
             else
             {
@@ -90,7 +123,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
 
         private Boolean checkData()
         {
-            return (Classes.checkDataCoord(this.Controls) && comboUniversity.SelectedIndex != -1 && (radioFemale.Checked || radioMale.Checked));
+            return (Classes.checkData(this.Controls) && comboUniversity.SelectedIndex != -1 && (radioFemale.Checked || radioMale.Checked));
         }
 
         private String getGender()
@@ -133,6 +166,18 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Clear All Entry?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dr == DialogResult.Yes)
+            {
+                Classes.clearTextBox(this.Controls);
+                populateUniversity();
+                radioMale.Checked = false;
+                radioFemale.Checked = false;
+            }
         }
     }
 }

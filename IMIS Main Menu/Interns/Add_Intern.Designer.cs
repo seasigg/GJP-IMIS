@@ -51,14 +51,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.comboOJTCoordinator = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddCourse = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddUniversity = new System.Windows.Forms.Button();
             this.comboCourse = new System.Windows.Forms.ComboBox();
             this.comboUniversity = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnAddOffice = new System.Windows.Forms.Button();
             this.dateTimeTargetDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStartDate = new System.Windows.Forms.DateTimePicker();
             this.comboOfficeDeployed = new System.Windows.Forms.ComboBox();
@@ -262,7 +262,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.Controls.Add(this.comboOJTCoordinator);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnAddCourse);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAddUniversity);
             this.groupBox1.Controls.Add(this.comboCourse);
             this.groupBox1.Controls.Add(this.comboUniversity);
             this.groupBox1.Controls.Add(this.label7);
@@ -330,15 +330,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnAddCourse.UseVisualStyleBackColor = true;
             this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
             // 
-            // button1
+            // btnAddUniversity
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(823, 61);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 33);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUniversity.Location = new System.Drawing.Point(823, 61);
+            this.btnAddUniversity.Name = "btnAddUniversity";
+            this.btnAddUniversity.Size = new System.Drawing.Size(68, 33);
+            this.btnAddUniversity.TabIndex = 4;
+            this.btnAddUniversity.Text = "Add";
+            this.btnAddUniversity.UseVisualStyleBackColor = true;
+            this.btnAddUniversity.Click += new System.EventHandler(this.btnAddUniversity_Click);
             // 
             // comboCourse
             // 
@@ -389,7 +390,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
             this.groupBox2.Controls.Add(this.numericUpDown1);
-            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.btnAddOffice);
             this.groupBox2.Controls.Add(this.dateTimeTargetDate);
             this.groupBox2.Controls.Add(this.dateTimeStartDate);
             this.groupBox2.Controls.Add(this.comboOfficeDeployed);
@@ -414,15 +415,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.numericUpDown1.TabIndex = 14;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button9
+            // btnAddOffice
             // 
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(823, 58);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(68, 33);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Add";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnAddOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOffice.Location = new System.Drawing.Point(823, 58);
+            this.btnAddOffice.Name = "btnAddOffice";
+            this.btnAddOffice.Size = new System.Drawing.Size(68, 33);
+            this.btnAddOffice.TabIndex = 9;
+            this.btnAddOffice.Text = "Add";
+            this.btnAddOffice.UseVisualStyleBackColor = true;
+            this.btnAddOffice.Click += new System.EventHandler(this.btnAddOffice_Click);
             // 
             // dateTimeTargetDate
             // 
@@ -576,7 +578,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.ComboBox comboOJTCoordinator;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAddCourse;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddUniversity;
         private System.Windows.Forms.DateTimePicker dateTimeTargetDate;
         private System.Windows.Forms.DateTimePicker dateTimeStartDate;
         private System.Windows.Forms.ComboBox comboOfficeDeployed;
@@ -588,7 +590,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Button btnUploadPicture;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnAddOffice;
         private System.Windows.Forms.RadioButton radioFemale;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnCancel;

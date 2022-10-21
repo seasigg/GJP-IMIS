@@ -46,10 +46,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
         private void add_univ_cancel_Click(object sender, EventArgs e)
         {
             if(fromMainMenu == true)
+            {
+
+            }
 
             if(fromAddIntern == true)
+            {
                 ai.clearUniversityCombo();
-            
+            }
             this.Dispose();
         }
 
@@ -59,11 +63,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
 
             if(Classes.checkData(this.Controls))
             {
-                DialogResult dr = MessageBox.Show("Add " + univ + "\nto the University Database?", "Add University", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show("Add " + univ + "\nto the University Database?", "Add University", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
                     universityClass.addUniversity(univ);
-                    MessageBox.Show(univ + " has been successfully added", "Add University");
+                    MessageBox.Show(univ + " has been successfully added", "Add University", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtUniversity.Clear();
                 }
             }
             else
