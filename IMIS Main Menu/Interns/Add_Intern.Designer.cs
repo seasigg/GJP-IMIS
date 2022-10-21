@@ -30,7 +30,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private void InitializeComponent()
         {
             this.groupBoxInternInfo = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnUploadPicture = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.radioFemale = new System.Windows.Forms.RadioButton();
@@ -67,6 +67,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnAddIntern = new System.Windows.Forms.Button();
             this.btnClearEntry = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblCoordinatorError = new System.Windows.Forms.Label();
+            this.btnClearPicture = new System.Windows.Forms.Button();
             this.groupBoxInternInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -77,7 +79,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // groupBoxInternInfo
             // 
             this.groupBoxInternInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.groupBoxInternInfo.Controls.Add(this.button8);
+            this.groupBoxInternInfo.Controls.Add(this.btnClearPicture);
+            this.groupBoxInternInfo.Controls.Add(this.btnUploadPicture);
             this.groupBoxInternInfo.Controls.Add(this.pictureBox1);
             this.groupBoxInternInfo.Controls.Add(this.label11);
             this.groupBoxInternInfo.Controls.Add(this.radioFemale);
@@ -99,15 +102,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBoxInternInfo.TabStop = false;
             this.groupBoxInternInfo.Text = "Student Details";
             // 
-            // button8
+            // btnUploadPicture
             // 
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(254, 274);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(68, 25);
-            this.button8.TabIndex = 9;
-            this.button8.Text = "Upload";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnUploadPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadPicture.Location = new System.Drawing.Point(180, 274);
+            this.btnUploadPicture.Name = "btnUploadPicture";
+            this.btnUploadPicture.Size = new System.Drawing.Size(68, 25);
+            this.btnUploadPicture.TabIndex = 9;
+            this.btnUploadPicture.Text = "Upload";
+            this.btnUploadPicture.UseVisualStyleBackColor = true;
+            this.btnUploadPicture.Click += new System.EventHandler(this.btnUploadPicture_Click);
             // 
             // pictureBox1
             // 
@@ -242,6 +246,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(184)))), ((int)(((byte)(168)))));
+            this.groupBox1.Controls.Add(this.lblCoordinatorError);
             this.groupBox1.Controls.Add(this.btnAddCoordinator);
             this.groupBox1.Controls.Add(this.comboOJTCoordinator);
             this.groupBox1.Controls.Add(this.label5);
@@ -496,6 +501,28 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lblCoordinatorError
+            // 
+            this.lblCoordinatorError.AutoSize = true;
+            this.lblCoordinatorError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatorError.ForeColor = System.Drawing.Color.Red;
+            this.lblCoordinatorError.Location = new System.Drawing.Point(195, 193);
+            this.lblCoordinatorError.Name = "lblCoordinatorError";
+            this.lblCoordinatorError.Size = new System.Drawing.Size(39, 20);
+            this.lblCoordinatorError.TabIndex = 9;
+            this.lblCoordinatorError.Text = "Text";
+            // 
+            // btnClearPicture
+            // 
+            this.btnClearPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearPicture.Location = new System.Drawing.Point(254, 274);
+            this.btnClearPicture.Name = "btnClearPicture";
+            this.btnClearPicture.Size = new System.Drawing.Size(68, 25);
+            this.btnClearPicture.TabIndex = 13;
+            this.btnClearPicture.Text = "Clear";
+            this.btnClearPicture.UseVisualStyleBackColor = true;
+            this.btnClearPicture.Click += new System.EventHandler(this.btnClearPicture_Click);
+            // 
             // Add_Intern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,12 +583,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddIntern;
         private System.Windows.Forms.Button btnClearEntry;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnUploadPicture;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.RadioButton radioFemale;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblCoordinatorError;
+        private System.Windows.Forms.Button btnClearPicture;
     }
 }

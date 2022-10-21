@@ -35,7 +35,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private void Add_Intern_Load(object sender, EventArgs e)
         {
             clearEntry();
+            lblCoordinatorError.Text = "* Select a University First";
         }
+
+        string pictureFile = "none";
+
 
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
@@ -81,7 +85,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             DialogResult dr = MessageBox.Show("Cancelling will take you back to the Main Menu. \nProceed?", "Cancel", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
+            {
                 mainMenu.internRefreshTable();
+                this.Dispose();
+            }
+                
         }
 
         public void clearEntry()
@@ -174,15 +182,37 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                         comboOJTCoordinator.DataSource = dt;
                         comboOJTCoordinator.DisplayMember = "FullName";
                         comboOJTCoordinator.ValueMember = "Coordinator_ID";
+
+                        lblCoordinatorError.Visible = false;
                     }
                     else
                     {
                         comboOJTCoordinator.Enabled = false;
                         comboOJTCoordinator.DataSource = null;
                         comboOJTCoordinator.Items.Clear();
+
+                        lblCoordinatorError.Text = "* No Coordinator within selected university";
                     }
                 }
             }
+        }
+
+        private void btnUploadPicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+
+            open.Filter = "Image Files(*.jpg, *.jpeg; *.png; *.bmp; *.gif)|*.jpg; *.jpeg; *.png; *.bmp; *.gif";
+            if(open.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = new Bitmap(open.FileName);
+                MessageBox.Show(open.FileName);
+            }
+        }
+
+        private void btnClearPicture_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            pictureFile = "none";
         }
     }
 }
