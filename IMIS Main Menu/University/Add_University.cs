@@ -7,53 +7,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
 using System.Data.SqlClient;
+
 using GJP_IMIS.IMIS_Main_Menu;
+using GJP_IMIS.IMIS_Main_Menu.Interns;
+using GJP_IMIS.IMIS_Class;
+using GJP_IMIS.IMIS_Methods.Univ_Queries;
 
 namespace GJP_IMIS.IMIS_Main_Menu.University
 {
     public partial class Add_University : Form
     {
+        public Main_Menu mainMenu;
+        public Add_Intern ai;
+
+        public bool fromAddIntern = false;
+        public bool fromMainMenu = false;
+
         public Add_University()
         {
             InitializeComponent();
         }
-
-        public Main_Menu mainMenu;
         public Add_University(Main_Menu m)
         {
             InitializeComponent();
-
+            fromMainMenu = true;
+            fromAddIntern = false;
             mainMenu = m;
         }
-
-        SqlCommand cmd;
+        public Add_University(Add_Intern a)
+        {
+            InitializeComponent();
+            fromMainMenu = false;
+            fromAddIntern = true;
+            ai = a;
+        }
 
         private void add_univ_cancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-        }
+            if(fromMainMenu == true)
 
-        private void addUniversity(string university)
-        {
-            Connection_String.dbConnection();
-            cmd = new SqlCommand("INSERT into University VALUES ('" + university + "')", Connection_String.con);
-            cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
-
-            MessageBox.Show("University Added.");
+            if(fromAddIntern == true)
+                ai.clearUniversityCombo();
+            
+            this.Dispose();
         }
 
         private void add_univ_confirm_Click(object sender, EventArgs e)
         {
-            // SUBMIT THE INPUTTED UNIV TO DB CODES DITO SSOB
+            string univ = txtUniversity.Text;
 
-            string univ_name = main_menu_univ_find_univ.Text;
-            addUniversity(univ_name);
+            if(Classes.checkData(this.Controls))
+            {
+                DialogResult dr = MessageBox.Show("Add " + univ + "\nto the University Database?", "Add University", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    universityClass.addUniversity(univ);
+                    MessageBox.Show(univ + " has been successfully added", "Add University");
+                }
+            }
+            else
+            {
+                Classes.alert("Invalid Input");
+            }
+            
+        }
 
-            mainMenu.universityData();
-            this.Hide();
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtUniversity.Clear();
+        }
+
+        private void main_menu_univ_find_univ_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
     }
 }

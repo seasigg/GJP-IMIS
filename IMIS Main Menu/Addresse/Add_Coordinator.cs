@@ -12,19 +12,22 @@ using GJP_IMIS.IMIS_Methods.Database_Connection;
 
 using GJP_IMIS.IMIS_Methods.Coordinator_Queries;
 using GJP_IMIS.IMIS_Class;
+using GJP_IMIS.IMIS_Main_Menu.Interns;
 
 namespace GJP_IMIS.IMIS_Main_Menu.Addresse
 {
     public partial class Add_Coordinator : Form
     {
+        public Main_Menu mainMenu;
+        string selectedUniv = null;
+
         public Add_Coordinator()
         {
             InitializeComponent();
         }
 
-        public Main_Menu mainMenu;
-        string selectedUniv = null;
-        public Add_Coordinator(string univID)
+        
+        public Add_Coordinator(string univID, Add_Intern a)
         {
             InitializeComponent();
 
@@ -59,7 +62,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         // CANCEL BUTTON
         private void add_addresse_btn_cancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Dispose();
         }
 
         // SUBMIT BUTTON

@@ -13,6 +13,7 @@ using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Main_Menu;
 using GJP_IMIS.IMIS_Class;
 using GJP_IMIS.IMIS_Main_Menu.Addresse;
+using GJP_IMIS.IMIS_Main_Menu.Course;
 
 namespace GJP_IMIS.IMIS_Main_Menu.Interns
 {
@@ -94,20 +95,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         public void clearEntry()
         {
-            comboUniversity.DataSource = InternQueries.getUniversities();
-            comboUniversity.DisplayMember = "University_Name";
-            comboUniversity.ValueMember = "University_ID";
-            comboUniversity.SelectedIndex = -1;
-
-            comboCourse.DataSource = InternQueries.getCourses();
-            comboCourse.DisplayMember = "Course_Name";
-            comboCourse.ValueMember = "Course_ID";
-            comboCourse.SelectedIndex = -1;
-
-            comboOfficeDeployed.DataSource = InternQueries.getOffices();
-            comboOfficeDeployed.DisplayMember = "Office_Name";
-            comboOfficeDeployed.ValueMember = "Office_ID";
-            comboOfficeDeployed.SelectedIndex = -1;
+            clearUniversityCombo();
+            clearCourseCombo();
+            clearOfficeCombo();
 
             Classes.clearTextBox(this.Controls);
 
@@ -115,6 +105,30 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 txtOJTNumber.Text = InternQueries.addOJTNumberIncrement();
             else
                 txtOJTNumber.Text = DateTime.Now.Year.ToString() + "001";
+        }
+
+        public void clearCourseCombo()
+        {
+            comboCourse.DataSource = InternQueries.getCourses();
+            comboCourse.DisplayMember = "Course_Name";
+            comboCourse.ValueMember = "Course_ID";
+            comboCourse.SelectedIndex = -1;
+        }
+
+        public void clearOfficeCombo()
+        {
+            comboOfficeDeployed.DataSource = InternQueries.getOffices();
+            comboOfficeDeployed.DisplayMember = "Office_Name";
+            comboOfficeDeployed.ValueMember = "Office_ID";
+            comboOfficeDeployed.SelectedIndex = -1;
+        }
+
+        public void clearUniversityCombo()
+        {
+            comboUniversity.DataSource = InternQueries.getUniversities();
+            comboUniversity.DisplayMember = "University_Name";
+            comboUniversity.ValueMember = "University_ID";
+            comboUniversity.SelectedIndex = -1;
         }
 
  
@@ -142,7 +156,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         }
 
         /* ComboBoxes */
-
         private void comboUniversity_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.comboUniversity.DroppedDown = false;
@@ -213,6 +226,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             pictureBox1.Image = null;
             pictureFile = "none";
+        }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            addCourse ac = new addCourse(this);
+            ac.ShowDialog();
         }
     }
 }

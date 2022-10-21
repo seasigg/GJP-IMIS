@@ -30,6 +30,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private void InitializeComponent()
         {
             this.groupBoxInternInfo = new System.Windows.Forms.GroupBox();
+            this.btnClearPicture = new System.Windows.Forms.Button();
             this.btnUploadPicture = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -45,10 +46,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCoordinatorError = new System.Windows.Forms.Label();
             this.btnAddCoordinator = new System.Windows.Forms.Button();
             this.comboOJTCoordinator = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAddCourse = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboCourse = new System.Windows.Forms.ComboBox();
             this.comboUniversity = new System.Windows.Forms.ComboBox();
@@ -67,8 +69,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnAddIntern = new System.Windows.Forms.Button();
             this.btnClearEntry = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lblCoordinatorError = new System.Windows.Forms.Label();
-            this.btnClearPicture = new System.Windows.Forms.Button();
             this.groupBoxInternInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -101,6 +101,17 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBoxInternInfo.TabIndex = 0;
             this.groupBoxInternInfo.TabStop = false;
             this.groupBoxInternInfo.Text = "Student Details";
+            // 
+            // btnClearPicture
+            // 
+            this.btnClearPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearPicture.Location = new System.Drawing.Point(254, 274);
+            this.btnClearPicture.Name = "btnClearPicture";
+            this.btnClearPicture.Size = new System.Drawing.Size(68, 25);
+            this.btnClearPicture.TabIndex = 13;
+            this.btnClearPicture.Text = "Clear";
+            this.btnClearPicture.UseVisualStyleBackColor = true;
+            this.btnClearPicture.Click += new System.EventHandler(this.btnClearPicture_Click);
             // 
             // btnUploadPicture
             // 
@@ -250,7 +261,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.Controls.Add(this.btnAddCoordinator);
             this.groupBox1.Controls.Add(this.comboOJTCoordinator);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnAddCourse);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.comboCourse);
             this.groupBox1.Controls.Add(this.comboUniversity);
@@ -263,6 +274,17 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "School Information";
+            // 
+            // lblCoordinatorError
+            // 
+            this.lblCoordinatorError.AutoSize = true;
+            this.lblCoordinatorError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCoordinatorError.ForeColor = System.Drawing.Color.Red;
+            this.lblCoordinatorError.Location = new System.Drawing.Point(195, 193);
+            this.lblCoordinatorError.Name = "lblCoordinatorError";
+            this.lblCoordinatorError.Size = new System.Drawing.Size(39, 20);
+            this.lblCoordinatorError.TabIndex = 9;
+            this.lblCoordinatorError.Text = "Text";
             // 
             // btnAddCoordinator
             // 
@@ -297,15 +319,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label5.TabIndex = 6;
             this.label5.Text = "OJT Coordinator";
             // 
-            // button2
+            // btnAddCourse
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(823, 132);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 33);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAddCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCourse.Location = new System.Drawing.Point(823, 132);
+            this.btnAddCourse.Name = "btnAddCourse";
+            this.btnAddCourse.Size = new System.Drawing.Size(68, 33);
+            this.btnAddCourse.TabIndex = 5;
+            this.btnAddCourse.Text = "Add";
+            this.btnAddCourse.UseVisualStyleBackColor = true;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
             // 
             // button1
             // 
@@ -501,32 +524,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // lblCoordinatorError
-            // 
-            this.lblCoordinatorError.AutoSize = true;
-            this.lblCoordinatorError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCoordinatorError.ForeColor = System.Drawing.Color.Red;
-            this.lblCoordinatorError.Location = new System.Drawing.Point(195, 193);
-            this.lblCoordinatorError.Name = "lblCoordinatorError";
-            this.lblCoordinatorError.Size = new System.Drawing.Size(39, 20);
-            this.lblCoordinatorError.TabIndex = 9;
-            this.lblCoordinatorError.Text = "Text";
-            // 
-            // btnClearPicture
-            // 
-            this.btnClearPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearPicture.Location = new System.Drawing.Point(254, 274);
-            this.btnClearPicture.Name = "btnClearPicture";
-            this.btnClearPicture.Size = new System.Drawing.Size(68, 25);
-            this.btnClearPicture.TabIndex = 13;
-            this.btnClearPicture.Text = "Clear";
-            this.btnClearPicture.UseVisualStyleBackColor = true;
-            this.btnClearPicture.Click += new System.EventHandler(this.btnClearPicture_Click);
-            // 
             // Add_Intern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1350, 682);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClearEntry);
@@ -534,7 +536,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxInternInfo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Add_Intern";
             this.Text = "Add Intern";
             this.Load += new System.EventHandler(this.Add_Intern_Load);
@@ -573,7 +575,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Button btnAddCoordinator;
         private System.Windows.Forms.ComboBox comboOJTCoordinator;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddCourse;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimeTargetDate;
         private System.Windows.Forms.DateTimePicker dateTimeStartDate;
