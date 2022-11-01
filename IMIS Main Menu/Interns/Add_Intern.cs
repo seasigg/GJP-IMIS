@@ -46,36 +46,82 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
-            if(Classes.checkData(this.Controls))
+            if (dataValidation())
             {
-                MessageBox.Show("MAY DATA");
+                if (pictureFile == "none")
+                {
+                    DialogResult dr = MessageBox.Show("No picture selected.\nProceed without picture?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                        addIntern();
+                }
+                else
+                    addIntern();
+                    
             }
             else
-            {
-                MessageBox.Show("Walang DATA");
-            }
-        }
-
-        private void dataValidation()
-        {
-
-        }
-
-        /*private Boolean checkData()
-        {
-
-            if(Classes.checkData(this.Controls))
-            {
-                MessageBox.Show("MAY DATA");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Walang DATA");
-                return false;
-            }
+                MessageBox.Show("Bawal pa");
+            
                 
-        }*/
+        }
+
+        private void addIntern()
+        {
+            string firstName = txtFirstName.Text;
+            string middleInit = txtMiddleInitial.Text;
+            string lastName = txtLastName.Text;
+            string gender = getGender();
+            string univID = comboUniversity.SelectedValue.ToString();
+            string courseID = comboCourse.SelectedValue.ToString();
+            string coordID = comboOJTCoordinator.SelectedValue.ToString();
+            string officeID = comboOfficeDeployed.SelectedValue.ToString();
+            string targetHours = numericTargetHours.Value.ToString();
+            string startDate = dateTimeStartDate.Value.ToShortDateString();
+            string targetDate = dateTimeTargetDate.Value.ToShortDateString();
+
+            DialogResult dr = MessageBox.Show("Add the following details to the database?", "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dr == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private string getGender()
+        {
+            string gender = null;
+            if (radioMale.Checked)
+                gender = radioMale.Text;
+            if (radioFemale.Checked)
+                gender = radioFemale.Text;
+
+            return gender;
+        }
+
+        private Boolean dataValidation()
+        {
+            return (checkTextbox() && checkCombo() && checkGender());
+        }
+
+        private Boolean checkTextbox()
+        {
+            return !(string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                string.IsNullOrWhiteSpace(txtMiddleInitial.Text) ||
+                string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                numericTargetHours.Value <= 0) ;
+        }
+
+        private Boolean checkCombo()
+        {
+            return !(comboUniversity.SelectedIndex == -1 ||
+                comboCourse.SelectedIndex == -1 ||
+                comboOJTCoordinator.SelectedIndex == -1 ||
+                comboOfficeDeployed.SelectedIndex == -1);
+        }
+
+        private Boolean checkGender()
+        {
+            return (radioMale.Checked || radioFemale.Checked);
+        }
+
 
         private void btnClearEntry_Click(object sender, EventArgs e)
         {
@@ -145,11 +191,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
  
 
 
-        
-
-
-
-
         /* TextBox Alphabets Only Input */
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -207,7 +248,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             if(open.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image = new Bitmap(open.FileName);
-                MessageBox.Show(open.FileName);
+                pictureFile = open.FileName;
             }
         }
 

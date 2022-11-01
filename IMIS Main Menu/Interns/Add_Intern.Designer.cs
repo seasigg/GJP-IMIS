@@ -57,7 +57,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericTargetHours = new System.Windows.Forms.NumericUpDown();
             this.btnAddOffice = new System.Windows.Forms.Button();
             this.dateTimeTargetDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimeStartDate = new System.Windows.Forms.DateTimePicker();
@@ -73,7 +73,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTargetHours)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxInternInfo
@@ -389,7 +389,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(148)))), ((int)(((byte)(148)))));
-            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.numericTargetHours);
             this.groupBox2.Controls.Add(this.btnAddOffice);
             this.groupBox2.Controls.Add(this.dateTimeTargetDate);
             this.groupBox2.Controls.Add(this.dateTimeStartDate);
@@ -406,14 +406,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "OJT Requirements";
             // 
-            // numericUpDown1
+            // numericTargetHours
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(26, 132);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 14;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericTargetHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericTargetHours.Location = new System.Drawing.Point(26, 132);
+            this.numericTargetHours.Name = "numericTargetHours";
+            this.numericTargetHours.Size = new System.Drawing.Size(120, 26);
+            this.numericTargetHours.TabIndex = 14;
+            this.numericTargetHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAddOffice
             // 
@@ -428,7 +428,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             // dateTimeTargetDate
             // 
-            this.dateTimeTargetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeTargetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeTargetDate.Location = new System.Drawing.Point(26, 267);
             this.dateTimeTargetDate.Name = "dateTimeTargetDate";
             this.dateTimeTargetDate.Size = new System.Drawing.Size(396, 26);
@@ -436,7 +436,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             // dateTimeStartDate
             // 
-            this.dateTimeStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeStartDate.Location = new System.Drawing.Point(26, 199);
             this.dateTimeStartDate.Name = "dateTimeStartDate";
             this.dateTimeStartDate.Size = new System.Drawing.Size(396, 26);
@@ -549,7 +549,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTargetHours)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -592,7 +592,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnAddOffice;
         private System.Windows.Forms.RadioButton radioFemale;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericTargetHours;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblCoordinatorError;
         private System.Windows.Forms.Button btnClearPicture;
