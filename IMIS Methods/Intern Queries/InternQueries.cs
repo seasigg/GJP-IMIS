@@ -91,12 +91,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         /////////////////////////////////////////////////
         public static DataTable getUniversities()
         {
-            return dataTable("SELECT * FROM University");
+            return dataTable("SELECT * FROM University ORDER BY University_Name ASC");
         }
 
         public static DataTable getCourses()
         {
-            return dataTable("SELECT * FROM Course");
+            return dataTable("SELECT * FROM Course ORDER BY Course_Name ASC");
         }
 
         public static DataTable getOffices()

@@ -192,8 +192,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.txtMiddleInitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMiddleInitial.Location = new System.Drawing.Point(20, 473);
             this.txtMiddleInitial.Name = "txtMiddleInitial";
-            this.txtMiddleInitial.Size = new System.Drawing.Size(113, 26);
+            this.txtMiddleInitial.Size = new System.Drawing.Size(94, 26);
             this.txtMiddleInitial.TabIndex = 6;
+            this.txtMiddleInitial.TextChanged += new System.EventHandler(this.midInitialToUpperCase);
             this.txtMiddleInitial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMiddleInitial_KeyPress);
             // 
             // txtFirstName

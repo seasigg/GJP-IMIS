@@ -39,6 +39,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             clearEntry();
             lblCoordinatorError.Text = "* Select a University First";
+
+            // one character only in middle initial
+            txtMiddleInitial.MaxLength = 1;
         }
 
         string pictureFile = "none";
@@ -84,10 +87,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 + "\nMiddle Initial: " + middleInit
                 + "\nLast Name: " + lastName
                 + "\nGender: " + gender
-                + "\nCourse: " + comboCourse.SelectedItem.ToString()
-                + "\nUniversity: " + comboUniversity.SelectedItem.ToString()
-                + "\nCoordinator: " + comboOJTCoordinator.SelectedItem.ToString()
-                + "\nOffice Deployed: " + comboOfficeDeployed.SelectedItem.ToString();
+                + "\nCourse: " + this.comboCourse.GetItemText(this.comboCourse.SelectedItem)
+                + "\nUniversity: " + this.comboUniversity.GetItemText(this.comboUniversity.SelectedItem)
+                + "\nCoordinator: " + this.comboOJTCoordinator.GetItemText(this.comboOJTCoordinator.SelectedItem)
+                + "\nOffice Deployed: " + this.comboOfficeDeployed.GetItemText(this.comboOfficeDeployed.SelectedItem);
 
             DialogResult dr = MessageBox.Show("Add the following details to the database?\n" + dg, "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dr == DialogResult.Yes)
@@ -317,5 +320,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             addOffice ao = new addOffice(this);
             ao.ShowDialog();
         }
+
+        // to upper case initials
+        private void midInitialToUpperCase(object sender, EventArgs e)
+        {
+            txtMiddleInitial.Text = txtMiddleInitial.Text.ToUpper();
+            txtMiddleInitial.SelectionStart = txtMiddleInitial.Text.Length;
+            txtMiddleInitial.SelectionLength = 0;
+        }
+
     }
 }
