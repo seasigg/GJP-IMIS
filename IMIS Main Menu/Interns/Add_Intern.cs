@@ -66,6 +66,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private void addIntern()
         {
+            string ojtID = txtOJTNumber.Text;
             string firstName = txtFirstName.Text;
             string middleInit = txtMiddleInitial.Text;
             string lastName = txtLastName.Text;
@@ -78,10 +79,24 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             string startDate = dateTimeStartDate.Value.ToShortDateString();
             string targetDate = dateTimeTargetDate.Value.ToShortDateString();
 
-            DialogResult dr = MessageBox.Show("Add the following details to the database?", "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string dg = "OJT Number: " + ojtID
+                + "\nFirst Name: " + firstName
+                + "\nMiddle Initial: " + middleInit
+                + "\nLast Name: " + lastName
+                + "\nGender: " + gender
+                + "\nCourse: " + comboCourse.SelectedItem.ToString()
+                + "\nUniversity: " + comboUniversity.SelectedItem.ToString()
+                + "\nCoordinator: " + comboOJTCoordinator.SelectedItem.ToString()
+                + "\nOffice Deployed: " + comboOfficeDeployed.SelectedItem.ToString();
+
+            DialogResult dr = MessageBox.Show("Add the following details to the database?\n" + dg, "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dr == DialogResult.Yes)
             {
+                InternQueries.addInternData(ojtID, firstName, middleInit, lastName, gender, courseID, univID, coordID, officeID, pictureFile);
+                InternQueries.addInternStatus(ojtID, startDate, targetDate, targetHours);
 
+                MessageBox.Show("Intern Successfully Registered on the Databse", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clearEntry();
             }
         }
 
@@ -194,17 +209,17 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         /* TextBox Alphabets Only Input */
         private void txtFirstName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         private void txtMiddleInitial_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         private void txtLastName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         /* ComboBoxes */

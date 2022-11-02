@@ -71,12 +71,6 @@
     <Compile Include="IMIS Main Menu\Interns\Add_Intern.Designer.cs">
       <DependentUpon>Add_Intern.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Interns.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Interns.Designer.cs">
-      <DependentUpon>Add_Interns.cs</DependentUpon>
-    </Compile>
     <Compile Include="IMIS Main Menu\Main_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,9 +115,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern.resx">
       <DependentUpon>Add_Intern.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Interns.resx">
-      <DependentUpon>Add_Interns.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>

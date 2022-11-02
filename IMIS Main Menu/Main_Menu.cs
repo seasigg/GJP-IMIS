@@ -29,10 +29,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         Color deSelectBackColor = Color.FromArgb(255,255,255);
         Color deSelectForeColor = Color.FromArgb(0,0,0);
 
-        // SQL COMMANDS
-        SqlDataAdapter da;
-        SqlCommand cmd;
-        DataTable dt;
 
         public Main_Menu()
         {
@@ -61,7 +57,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             internSelect();
 
             //Intern List
-            dataGridIntern.DataSource = menuQueries.viewInternPlain();
+            /*dataGridIntern.DataSource = menuQueries.viewInternPlain();*/
             dataGridIntern.ClearSelection();
             dataGridIntern.AutoResizeColumns();
             // loads the university data grid view
@@ -74,7 +70,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         public void internRefreshTable()
         {
-            dataGridIntern.DataSource = menuQueries.viewInternPlain();
+            //dataGridIntern.DataSource = menuQueries.viewInternPlain();
             dataGridIntern.ClearSelection();
             dataGridIntern.AutoResizeColumns();
         }
@@ -93,10 +89,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // main_menu_univ_dataGridView
         public void addresseData()
         {
-            main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.addresseDataGrid();
+            /*main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.addresseDataGrid();
             main_menu_addresse_addresse_DataGrid.Columns["Addresse_ID"].Visible = false;
             main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
-            main_menu_addresse_addresse_DataGrid.ClearSelection();
+            main_menu_addresse_addresse_DataGrid.ClearSelection();*/
             
         }
 
@@ -168,7 +164,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         
         public void universityData()
         {
-            main_menu_addresse_univ_DataGrid.DataSource = menuQueries.universityDataGrid();
+            /*main_menu_addresse_univ_DataGrid.DataSource = menuQueries.universityDataGrid();
             main_menu_univ_dataGridView.DataSource = menuQueries.universityDataGrid();
 
             main_menu_addresse_univ_DataGrid.AutoResizeColumns();
@@ -177,7 +173,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_univ_DataGrid.ClearSelection();
             main_menu_univ_dataGridView.ClearSelection();;
 
-            main_menu_addresse_univ_DataGrid.Columns["University_ID"].Visible = false;
+            main_menu_addresse_univ_DataGrid.Columns["University_ID"].Visible = false;*/
         }
         // main_menu_univ_dataGridView
 
