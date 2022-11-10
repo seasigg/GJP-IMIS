@@ -51,6 +51,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_search_intern = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.main_menu_addresse_panel = new System.Windows.Forms.Panel();
+            this.coordComboUniversity = new System.Windows.Forms.ComboBox();
             this.main_menu_addresse_btn_clearSelection = new System.Windows.Forms.Button();
             this.main_menu_addresse_addresse_DataGrid = new System.Windows.Forms.DataGridView();
             this.main_menu_addresse_search_addresse = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.coordComboUniversity = new System.Windows.Forms.ComboBox();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -301,6 +301,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_addresse_panel.TabIndex = 5;
             // 
+            // coordComboUniversity
+            // 
+            this.coordComboUniversity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.coordComboUniversity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.coordComboUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coordComboUniversity.FormattingEnabled = true;
+            this.coordComboUniversity.Location = new System.Drawing.Point(275, 186);
+            this.coordComboUniversity.Name = "coordComboUniversity";
+            this.coordComboUniversity.Size = new System.Drawing.Size(790, 28);
+            this.coordComboUniversity.TabIndex = 30;
+            // 
             // main_menu_addresse_btn_clearSelection
             // 
             this.main_menu_addresse_btn_clearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
@@ -497,17 +508,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // coordComboUniversity
-            // 
-            this.coordComboUniversity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.coordComboUniversity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.coordComboUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coordComboUniversity.FormattingEnabled = true;
-            this.coordComboUniversity.Location = new System.Drawing.Point(275, 186);
-            this.coordComboUniversity.Name = "coordComboUniversity";
-            this.coordComboUniversity.Size = new System.Drawing.Size(790, 28);
-            this.coordComboUniversity.TabIndex = 30;
-            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,10 +520,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main_Menu";
+            this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.Main_Menu_Load);
             this.main_menu_panel_selectors.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

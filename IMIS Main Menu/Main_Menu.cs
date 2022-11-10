@@ -50,9 +50,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         }
 
-        /* 
-         * INTERN PANEL
-         */
+        /* --------------------INTERN PANEL---------------------  */
         public void btn_interns_panel_Click(object sender, EventArgs e)
         {
             main_menu_interns_panel.BringToFront();
@@ -61,14 +59,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             internSelect();
 
             //Intern List
-            dataGridIntern.DataSource = menuQueries.viewInternPlain();
-            dataGridIntern.ClearSelection();
-            dataGridIntern.AutoResizeColumns();
+            internDataGrid();
+            
             // loads the university data grid view
-            universityData();
+            //universityData();
 
             // loads the addresse data grid view
-            coordComboData();
+            //coordComboData();
 
             // intern datagridview resize column header
             setInternDataGridHeaderSize();
@@ -94,9 +91,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         public void internRefreshTable()
         {
-            //dataGridIntern.DataSource = menuQueries.viewInternPlain();
-            dataGridIntern.ClearSelection();
-            dataGridIntern.AutoResizeColumns();
+            internDataGrid();
         }
 
         // ADD NEW INTERN BUTTON
@@ -112,12 +107,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // main_menu_univ_dataGridView
         public void coordComboData()
-        {
-            /*main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.addresseDataGrid();
-            main_menu_addresse_addresse_DataGrid.Columns["Addresse_ID"].Visible = false;
-            main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
-            main_menu_addresse_addresse_DataGrid.ClearSelection();*/
-            
+        {       
             coordComboUniversity.DataSource = InternQueries.getUniversities();
             coordComboUniversity.DisplayMember = "University_Name";
             coordComboUniversity.ValueMember = "University_ID";
@@ -132,7 +122,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // coordinator button select
             coordinatorSelect();
             // loads the university data grid view
-            universityData();
+            //universityData();
 
             // loads the addresse data grid view
             coordComboData();
@@ -147,7 +137,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void main_menu_addresse_btn_clearSelection_Click(object sender, EventArgs e)
         {
             // loads the university data grid view
-            universityData();
+            //universityData();
 
             // loads the addresse data grid view
             coordComboData();
@@ -164,21 +154,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universitySelect();
 
             // loads the university data grid view
-            universityData();
+            //universityData();
 
             // loads the addresse data grid view
-            coordComboData();
-        }
-
-        public void univPanelClicked()
-        {
-            main_menu_univ_panel.BringToFront();
-
-            // loads the university data grid view
-            universityData();
-
-            // loads the addresse data grid view
-            coordComboData();
+            //coordComboData();
         }
         
         public void universityData()
@@ -200,6 +179,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         }
 
+        public void internDataGrid()
+        {
+            dataGridIntern.DataSource = menuQueries.viewInternPlain();
+            dataGridIntern.ClearSelection();
+            dataGridIntern.AutoResizeColumns();
+        }
+
         // ADD NEW UNIVERSITY BUTTON
         private void main_menu_interns_btn_newUniv_Click(object sender, EventArgs e)
         {
@@ -216,12 +202,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // reports button select
             reportSelect();
-
-            // loads the university data grid view
-            universityData();
-
-            // loads the addresse data grid view
-            coordComboData();
         }
 
         private void btn_logout_panel_Click(object sender, EventArgs e)

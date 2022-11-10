@@ -540,6 +540,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxInternInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "Add_Intern";
             this.Text = "Add Intern";
             this.Load += new System.EventHandler(this.Add_Intern_Load);
