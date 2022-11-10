@@ -62,5 +62,18 @@ namespace GJP_IMIS.IMIS_Class
             SystemSounds.Exclamation.Play();
             MessageBox.Show(m);
         }
+
+        // data grid header resize width
+        public static void setDataGridHeaderWidth(int c, int w, DataGridView dg) // c = column, w = width, dg = datagrid
+        {
+            DataGridViewColumn col = dg.Columns[c];
+            col.Width = w;
+        }
+        // data grid row resize height
+        public static void setDataGridRowHeight(int r, int h, DataGridView dg) // r = rows, h = height, dg = datagrid
+        {
+            DataGridViewRow row = dg.Rows[r];
+            row.Height = h;
+        }
     }
 }

@@ -35,15 +35,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_logout_panel = new System.Windows.Forms.Button();
             this.btn_reports_panel = new System.Windows.Forms.Button();
             this.btn_univ_panel = new System.Windows.Forms.Button();
             this.btn_addresse_panel = new System.Windows.Forms.Button();
             this.btn_interns_panel = new System.Windows.Forms.Button();
             this.main_menu_welcome_panel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.main_menu_interns_panel = new System.Windows.Forms.Panel();
             this.dataGridIntern = new System.Windows.Forms.DataGridView();
             this.main_menu_interns_btn_newintern = new System.Windows.Forms.Button();
@@ -56,8 +57,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.main_menu_addresse_btn_newaddresse = new System.Windows.Forms.Button();
-            this.main_menu_addresse_search_univ = new System.Windows.Forms.TextBox();
-            this.main_menu_addresse_univ_DataGrid = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.main_menu_univ_panel = new System.Windows.Forms.Panel();
             this.main_menu_univ_btn_newUniv = new System.Windows.Forms.Button();
@@ -67,21 +66,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.coordComboUniversity = new System.Windows.Forms.ComboBox();
             this.main_menu_panel_selectors.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.main_menu_interns_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).BeginInit();
             this.main_menu_addresse_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_addresse_DataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_DataGrid)).BeginInit();
             this.main_menu_univ_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).BeginInit();
             this.main_menu_reports_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // main_menu_panel_selectors
@@ -98,6 +94,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(185, 788);
             this.main_menu_panel_selectors.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 615);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
             // btn_logout_panel
             // 
@@ -179,6 +185,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_welcome_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_welcome_panel.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(469, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(471, 407);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bell MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(393, 529);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(637, 42);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Intern Management Information System";
+            // 
             // main_menu_interns_panel
             // 
             this.main_menu_interns_panel.BackColor = System.Drawing.Color.White;
@@ -195,6 +221,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.dataGridIntern.AllowUserToAddRows = false;
             this.dataGridIntern.AllowUserToDeleteRows = false;
+            this.dataGridIntern.AllowUserToResizeColumns = false;
+            this.dataGridIntern.AllowUserToResizeRows = false;
+            this.dataGridIntern.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridIntern.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +233,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridIntern.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridIntern.ColumnHeadersHeight = 50;
+            this.dataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,6 +249,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridIntern.MultiSelect = false;
             this.dataGridIntern.Name = "dataGridIntern";
             this.dataGridIntern.ReadOnly = true;
+            this.dataGridIntern.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridIntern.Size = new System.Drawing.Size(1289, 567);
             this.dataGridIntern.TabIndex = 4;
@@ -256,14 +288,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_addresse_panel
             // 
             this.main_menu_addresse_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_addresse_panel.Controls.Add(this.coordComboUniversity);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_clearSelection);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_addresse_DataGrid);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_search_addresse);
             this.main_menu_addresse_panel.Controls.Add(this.label8);
             this.main_menu_addresse_panel.Controls.Add(this.label7);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_newaddresse);
-            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_search_univ);
-            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_univ_DataGrid);
             this.main_menu_addresse_panel.Controls.Add(this.label5);
             this.main_menu_addresse_panel.Location = new System.Drawing.Point(191, 3);
             this.main_menu_addresse_panel.Name = "main_menu_addresse_panel";
@@ -275,7 +306,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_clearSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.main_menu_addresse_btn_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_clearSelection.ForeColor = System.Drawing.Color.White;
-            this.main_menu_addresse_btn_clearSelection.Location = new System.Drawing.Point(235, 615);
+            this.main_menu_addresse_btn_clearSelection.Location = new System.Drawing.Point(977, 705);
             this.main_menu_addresse_btn_clearSelection.Name = "main_menu_addresse_btn_clearSelection";
             this.main_menu_addresse_btn_clearSelection.Size = new System.Drawing.Size(172, 43);
             this.main_menu_addresse_btn_clearSelection.TabIndex = 29;
@@ -305,36 +336,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.main_menu_addresse_addresse_DataGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.main_menu_addresse_addresse_DataGrid.EnableHeadersVisualStyles = false;
-            this.main_menu_addresse_addresse_DataGrid.Location = new System.Drawing.Point(47, 203);
+            this.main_menu_addresse_addresse_DataGrid.Location = new System.Drawing.Point(65, 336);
             this.main_menu_addresse_addresse_DataGrid.Name = "main_menu_addresse_addresse_DataGrid";
             this.main_menu_addresse_addresse_DataGrid.ReadOnly = true;
             this.main_menu_addresse_addresse_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.main_menu_addresse_addresse_DataGrid.Size = new System.Drawing.Size(731, 354);
+            this.main_menu_addresse_addresse_DataGrid.Size = new System.Drawing.Size(1276, 354);
             this.main_menu_addresse_addresse_DataGrid.TabIndex = 28;
             // 
             // main_menu_addresse_search_addresse
             // 
             this.main_menu_addresse_search_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.main_menu_addresse_search_addresse.Location = new System.Drawing.Point(47, 155);
+            this.main_menu_addresse_search_addresse.Location = new System.Drawing.Point(65, 285);
             this.main_menu_addresse_search_addresse.Name = "main_menu_addresse_search_addresse";
-            this.main_menu_addresse_search_addresse.Size = new System.Drawing.Size(224, 31);
+            this.main_menu_addresse_search_addresse.Size = new System.Drawing.Size(382, 31);
             this.main_menu_addresse_search_addresse.TabIndex = 27;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(41, 119);
+            this.label8.Location = new System.Drawing.Point(60, 251);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 25);
+            this.label8.Size = new System.Drawing.Size(120, 25);
             this.label8.TabIndex = 25;
-            this.label8.Text = "Addresse:";
+            this.label8.Text = "Coordinator:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(883, 119);
+            this.label7.Location = new System.Drawing.Point(591, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(187, 25);
             this.label7.TabIndex = 7;
@@ -345,51 +376,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_newaddresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.main_menu_addresse_btn_newaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_newaddresse.ForeColor = System.Drawing.Color.White;
-            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(47, 615);
+            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(1171, 705);
             this.main_menu_addresse_btn_newaddresse.Name = "main_menu_addresse_btn_newaddresse";
             this.main_menu_addresse_btn_newaddresse.Size = new System.Drawing.Size(170, 43);
             this.main_menu_addresse_btn_newaddresse.TabIndex = 6;
-            this.main_menu_addresse_btn_newaddresse.Text = "ADD NEW ADDRESSE";
+            this.main_menu_addresse_btn_newaddresse.Text = "ADD NEW COORDINATOR";
             this.main_menu_addresse_btn_newaddresse.UseVisualStyleBackColor = false;
             this.main_menu_addresse_btn_newaddresse.Click += new System.EventHandler(this.main_menu_interns_btn_newaddresse_Click);
-            // 
-            // main_menu_addresse_search_univ
-            // 
-            this.main_menu_addresse_search_univ.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
-            this.main_menu_addresse_search_univ.Location = new System.Drawing.Point(887, 155);
-            this.main_menu_addresse_search_univ.Name = "main_menu_addresse_search_univ";
-            this.main_menu_addresse_search_univ.Size = new System.Drawing.Size(224, 31);
-            this.main_menu_addresse_search_univ.TabIndex = 5;
-            // 
-            // main_menu_addresse_univ_DataGrid
-            // 
-            this.main_menu_addresse_univ_DataGrid.AllowUserToAddRows = false;
-            this.main_menu_addresse_univ_DataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_menu_addresse_univ_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.main_menu_addresse_univ_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.main_menu_addresse_univ_DataGrid.DefaultCellStyle = dataGridViewCellStyle6;
-            this.main_menu_addresse_univ_DataGrid.EnableHeadersVisualStyles = false;
-            this.main_menu_addresse_univ_DataGrid.Location = new System.Drawing.Point(877, 203);
-            this.main_menu_addresse_univ_DataGrid.Name = "main_menu_addresse_univ_DataGrid";
-            this.main_menu_addresse_univ_DataGrid.ReadOnly = true;
-            this.main_menu_addresse_univ_DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.main_menu_addresse_univ_DataGrid.Size = new System.Drawing.Size(382, 354);
-            this.main_menu_addresse_univ_DataGrid.TabIndex = 4;
-            this.main_menu_addresse_univ_DataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_menu_addresse_univ_CellClick);
             // 
             // label5
             // 
@@ -438,23 +431,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.main_menu_univ_dataGridView.AllowUserToAddRows = false;
             this.main_menu_univ_dataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_menu_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.main_menu_univ_dataGridView.AllowUserToResizeColumns = false;
+            this.main_menu_univ_dataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_menu_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.main_menu_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.main_menu_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.main_menu_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.main_menu_univ_dataGridView.Location = new System.Drawing.Point(27, 186);
             this.main_menu_univ_dataGridView.Name = "main_menu_univ_dataGridView";
             this.main_menu_univ_dataGridView.ReadOnly = true;
@@ -502,35 +497,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // label10
+            // coordComboUniversity
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bell MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(393, 529);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(637, 42);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Intern Management Information System";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(469, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(471, 407);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 615);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
+            this.coordComboUniversity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.coordComboUniversity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.coordComboUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coordComboUniversity.FormattingEnabled = true;
+            this.coordComboUniversity.Location = new System.Drawing.Point(275, 186);
+            this.coordComboUniversity.Name = "coordComboUniversity";
+            this.coordComboUniversity.Size = new System.Drawing.Size(790, 28);
+            this.coordComboUniversity.TabIndex = 30;
             // 
             // Main_Menu
             // 
@@ -550,22 +526,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.Text = "Main_Menu";
             this.Load += new System.EventHandler(this.Main_Menu_Load);
             this.main_menu_panel_selectors.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.main_menu_welcome_panel.ResumeLayout(false);
             this.main_menu_welcome_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.main_menu_interns_panel.ResumeLayout(false);
             this.main_menu_interns_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).EndInit();
             this.main_menu_addresse_panel.ResumeLayout(false);
             this.main_menu_addresse_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_addresse_DataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.main_menu_addresse_univ_DataGrid)).EndInit();
             this.main_menu_univ_panel.ResumeLayout(false);
             this.main_menu_univ_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).EndInit();
             this.main_menu_reports_panel.ResumeLayout(false);
             this.main_menu_reports_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,8 +568,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Button main_menu_univ_btn_newUniv;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button main_menu_addresse_btn_newaddresse;
-        private System.Windows.Forms.TextBox main_menu_addresse_search_univ;
-        private System.Windows.Forms.DataGridView main_menu_addresse_univ_DataGrid;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_logout_panel;
@@ -605,5 +578,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ComboBox coordComboUniversity;
     }
 }

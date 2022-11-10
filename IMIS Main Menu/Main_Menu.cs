@@ -19,6 +19,9 @@ using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
 
+//CLASS
+using GJP_IMIS.IMIS_Class;
+
 namespace GJP_IMIS.IMIS_Main_Menu
 {
     public partial class Main_Menu : Form
@@ -43,7 +46,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
+
         }
 
         /* 
@@ -57,15 +61,35 @@ namespace GJP_IMIS.IMIS_Main_Menu
             internSelect();
 
             //Intern List
-            /*dataGridIntern.DataSource = menuQueries.viewInternPlain();*/
+            dataGridIntern.DataSource = menuQueries.viewInternPlain();
             dataGridIntern.ClearSelection();
             dataGridIntern.AutoResizeColumns();
             // loads the university data grid view
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
 
+            // intern datagridview resize column header
+            setInternDataGridHeaderSize();
+
+        }
+
+        private void setInternDataGridHeaderSize()
+        {
+            // column header size
+            Classes.setDataGridHeaderWidth(0, 100, dataGridIntern); // OJT NUMBER
+            Classes.setDataGridHeaderWidth(1, 120, dataGridIntern); // LAST NAME
+            Classes.setDataGridHeaderWidth(2, 120, dataGridIntern); // FIRST NAME
+            Classes.setDataGridHeaderWidth(3, 200, dataGridIntern); // COURSE
+            Classes.setDataGridHeaderWidth(4, 250, dataGridIntern); // UNIVERSITY
+            Classes.setDataGridHeaderWidth(5, 120, dataGridIntern); // COORDINATOR
+            Classes.setDataGridHeaderWidth(6, 240, dataGridIntern); // OFFICE DEPLOYED
+            Classes.setDataGridHeaderWidth(7, 100, dataGridIntern); // STATUS
+
+            // rows size
+            for (int i = 0; i < dataGridIntern.Rows.Count; i++)
+                Classes.setDataGridRowHeight(i, 50, dataGridIntern);
         }
 
         public void internRefreshTable()
@@ -83,27 +107,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
         }
 
         /*
-         * ADDRESSE PANEL
+         * COORDINATOR PANEL
          */
 
         // main_menu_univ_dataGridView
-        public void addresseData()
+        public void coordComboData()
         {
             /*main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.addresseDataGrid();
             main_menu_addresse_addresse_DataGrid.Columns["Addresse_ID"].Visible = false;
             main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
             main_menu_addresse_addresse_DataGrid.ClearSelection();*/
             
+            coordComboUniversity.DataSource = InternQueries.getUniversities();
+            coordComboUniversity.DisplayMember = "University_Name";
+            coordComboUniversity.ValueMember = "University_ID";
+            coordComboUniversity.SelectedIndex = -1;
         }
 
-        
-        private void main_menu_addresse_univ_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string addresseUnivID = main_menu_addresse_univ_DataGrid.SelectedRows[0].Cells[0].Value.ToString();
-
-            main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.filterAddresse(addresseUnivID);
-            main_menu_addresse_addresse_DataGrid.ClearSelection();
-        }
 
         private void btn_addresse_panel_Click(object sender, EventArgs e)
         {
@@ -115,7 +135,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
         }
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
@@ -130,7 +150,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
         }
 
         /*
@@ -147,36 +167,38 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
         }
 
         public void univPanelClicked()
         {
             main_menu_univ_panel.BringToFront();
-            
 
             // loads the university data grid view
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
         }
         
         public void universityData()
         {
-            /*main_menu_addresse_univ_DataGrid.DataSource = menuQueries.universityDataGrid();
             main_menu_univ_dataGridView.DataSource = menuQueries.universityDataGrid();
-
-            main_menu_addresse_univ_DataGrid.AutoResizeColumns();
             main_menu_univ_dataGridView.AutoResizeColumns();
+            main_menu_univ_dataGridView.ClearSelection();
 
-            main_menu_addresse_univ_DataGrid.ClearSelection();
-            main_menu_univ_dataGridView.ClearSelection();;
+            // univ id alignment center and resize
+            main_menu_univ_dataGridView.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Classes.setDataGridHeaderWidth(0, 150, main_menu_univ_dataGridView);
 
-            main_menu_addresse_univ_DataGrid.Columns["University_ID"].Visible = false;*/
+            // univ name resize
+            main_menu_univ_dataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            // resize all rows
+            for (int i = 0; i < main_menu_univ_dataGridView.Rows.Count; i++)
+                Classes.setDataGridRowHeight(i, 50, main_menu_univ_dataGridView);
+
         }
-        // main_menu_univ_dataGridView
-
 
         // ADD NEW UNIVERSITY BUTTON
         private void main_menu_interns_btn_newUniv_Click(object sender, EventArgs e)
@@ -199,7 +221,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            addresseData();
+            coordComboData();
         }
 
         private void btn_logout_panel_Click(object sender, EventArgs e)
