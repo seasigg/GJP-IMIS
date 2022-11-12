@@ -67,6 +67,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnTestReport = new System.Windows.Forms.Button();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -481,6 +482,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_reports_panel
             // 
             this.main_menu_reports_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_reports_panel.Controls.Add(this.btnTestReport);
             this.main_menu_reports_panel.Controls.Add(this.label9);
             this.main_menu_reports_panel.Controls.Add(this.label3);
             this.main_menu_reports_panel.Location = new System.Drawing.Point(191, 3);
@@ -508,6 +510,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
+            // btnTestReport
+            // 
+            this.btnTestReport.Location = new System.Drawing.Point(208, 149);
+            this.btnTestReport.Name = "btnTestReport";
+            this.btnTestReport.Size = new System.Drawing.Size(75, 23);
+            this.btnTestReport.TabIndex = 2;
+            this.btnTestReport.Text = "TestReport";
+            this.btnTestReport.UseVisualStyleBackColor = true;
+            this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
+            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -515,11 +527,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1558, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_interns_panel);
-            this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
+            this.Controls.Add(this.main_menu_interns_panel);
+            this.Controls.Add(this.main_menu_welcome_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -581,5 +593,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox coordComboUniversity;
+        private System.Windows.Forms.Button btnTestReport;
     }
 }

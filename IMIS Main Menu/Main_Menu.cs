@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using GJP_IMIS.IMIS_Main_Menu.Interns;
 using GJP_IMIS.IMIS_Main_Menu.University;
 using GJP_IMIS.IMIS_Main_Menu.Addresse;
+using GJP_IMIS.Reports;
 
 //QUERIES
 using GJP_IMIS.IMIS_Methods.Database_Connection;
@@ -273,6 +274,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             btn_reports_panel.BackColor = selectBackColor;
             btn_reports_panel.ForeColor = selectForeColor;
+        }
+
+        private void btnTestReport_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer("Acceptance_Letter");
+            rv.ShowDialog();
         }
     }
 }
