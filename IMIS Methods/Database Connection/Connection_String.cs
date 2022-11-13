@@ -11,7 +11,8 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
     {
 
         public static SqlConnection con;
-
+        //MIGGY
+        //public static String conn = @"Data Source=MIGGYPAREJA\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
         // MAB
         public static String conn = @"Data Source=DESKTOP-NAARK29\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
