@@ -16,28 +16,36 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
         public static string acceptLetter(string id)
         {
-            return ("SELECT DISTINCT Coordinator_Info.First_Name + ' ' + Coordinator_Info.Middle_Initial + '. ' + Coordinator_Info.Last_Name as 'Coord_Name', " +
+            return ("SELECT DISTINCT DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now', " +
+                "" +
+                "Coordinator_Info.First_Name + ' ' + Coordinator_Info.Middle_Initial + '. ' + Coordinator_Info.Last_Name AS 'Coord_Name', " +
                 "Coordinator_Info.Position, " +
-                "Coordinator_Info.Department, " +
                 "University.University_Name AS 'University', " +
                 "" +
                 "CASE " +
-                "WHEN Coordinator_Info.Gender = 'Male' THEN 'Mr. ' + Coordinator_Info.First_Name + ' ' + Coordinator_Info.Middle_Initial + '. ' + Coordinator_Info.Last_Name " +
-                "ELSE 'Ms. ' + Coordinator_Info.First_Name + ' ' + Coordinator_Info.Middle_Initial + '. ' + Coordinator_Info.Last_Name " +
+                "WHEN Coordinator_Info.Gender = 'Male' THEN 'Mr. ' + Coordinator_Info.Last_Name " +
+                "ELSE 'Ms. ' + Coordinator_Info.Last_Name " +
                 "END AS 'Coord_Intro', " +
                 "" +
-                "CASE " +
-                "WHEN Intern_Info.Gender = 'Male' THEN 'Mr. ' + Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '. ' + Intern_Info.Last_Name " +
-                "ELSE 'Ms. ' + Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '. ' + Intern_Info.Last_Name " +
-                "END AS 'Intern_Name', " +
-                "" +
+                "Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '. ' + Intern_Info.Last_Name AS 'Intern_Name', " +
                 "Course.Course_Name AS 'Intern_Course', " +
-                "Intern_Status.Start_Date AS 'Date_Start', " +
+                "" +
+                "CASE " +
+                "WHEN Intern_Info.Gender = 'Male' THEN 'Mr. ' + Intern_Info.Last_Name " +
+                "ELSE 'Ms. ' + Intern_Info.Last_Name " +
+                "END AS 'Intern_Intro', " +
+                "" +
+                "CASE " +
+                "WHEN Intern_Info.Gender = 'Male' THEN 'His' " +
+                "ELSE 'Her' " +
+                "END AS 'Intern_Pronoun', " +
+                "" +
                 "Intern_Status.Target_Hours, " +
-                "Office.Office_Name " +
+                "Office.Office_Name, " +
+                "Office.Office_Abr " +
                 "" +
                 "FROM Coordinator_Info, University, Intern_Info, Course, Intern_Status, Office " +
-                "WHERE Intern_Info.OJT_Number = '" + id + "' " +
+                "WHERE Intern_Info.OJT_Number = '"+id+"' " +
                 "AND Intern_Info.Coordinator_ID = Coordinator_Info.Coordinator_ID " +
                 "AND Intern_Info.University_ID = University.University_ID " +
                 "AND Intern_Info.Office_ID = Office.Office_ID " +
