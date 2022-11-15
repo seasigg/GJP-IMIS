@@ -49,7 +49,8 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "AND Intern_Info.Coordinator_ID = Coordinator_Info.Coordinator_ID " +
                 "AND Intern_Info.University_ID = University.University_ID " +
                 "AND Intern_Info.Office_ID = Office.Office_ID " +
-                "AND Intern_Info.Course_ID = Course.Course_ID");
+                "AND Intern_Info.Course_ID = Course.Course_ID " +
+                "AND Intern_Status.OJT_Number = Intern_Info.OJT_Number");
         } 
     }
 }
