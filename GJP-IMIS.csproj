@@ -120,6 +120,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportInterns.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportInterns.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ReportViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,10 @@
     <EmbeddedResource Include="Reports\ReportAcceptanceLetter.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportAcceptanceLetter.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportInterns.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportInterns.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewer.resx">
       <DependentUpon>ReportViewer.cs</DependentUpon>

@@ -65,9 +65,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_dataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
+            this.btnTestReport = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTestReport = new System.Windows.Forms.Button();
+            this.buttonInternReport = new System.Windows.Forms.Button();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -482,6 +483,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_reports_panel
             // 
             this.main_menu_reports_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_reports_panel.Controls.Add(this.buttonInternReport);
             this.main_menu_reports_panel.Controls.Add(this.btnTestReport);
             this.main_menu_reports_panel.Controls.Add(this.label9);
             this.main_menu_reports_panel.Controls.Add(this.label3);
@@ -489,6 +491,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.Name = "main_menu_reports_panel";
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_reports_panel.TabIndex = 7;
+            // 
+            // btnTestReport
+            // 
+            this.btnTestReport.Location = new System.Drawing.Point(208, 149);
+            this.btnTestReport.Name = "btnTestReport";
+            this.btnTestReport.Size = new System.Drawing.Size(75, 23);
+            this.btnTestReport.TabIndex = 2;
+            this.btnTestReport.Text = "TestReport";
+            this.btnTestReport.UseVisualStyleBackColor = true;
+            this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
             // 
             // label9
             // 
@@ -510,15 +522,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // btnTestReport
+            // buttonInternReport
             // 
-            this.btnTestReport.Location = new System.Drawing.Point(208, 149);
-            this.btnTestReport.Name = "btnTestReport";
-            this.btnTestReport.Size = new System.Drawing.Size(75, 23);
-            this.btnTestReport.TabIndex = 2;
-            this.btnTestReport.Text = "TestReport";
-            this.btnTestReport.UseVisualStyleBackColor = true;
-            this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
+            this.buttonInternReport.Location = new System.Drawing.Point(243, 203);
+            this.buttonInternReport.Name = "buttonInternReport";
+            this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
+            this.buttonInternReport.TabIndex = 3;
+            this.buttonInternReport.Text = "buttonInternReport";
+            this.buttonInternReport.UseVisualStyleBackColor = true;
+            this.buttonInternReport.Click += new System.EventHandler(this.buttonInternReport_Click);
             // 
             // Main_Menu
             // 
@@ -594,5 +606,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox coordComboUniversity;
         private System.Windows.Forms.Button btnTestReport;
+        private System.Windows.Forms.Button buttonInternReport;
     }
 }

@@ -281,5 +281,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ReportViewer rv = new ReportViewer("Acceptance_Letter");
             rv.ShowDialog();
         }
+
+        private void buttonInternReport_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer("Intern");
+            rv.ShowDialog();
+        }
     }
 }

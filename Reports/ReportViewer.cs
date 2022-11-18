@@ -30,6 +30,9 @@ namespace GJP_IMIS.Reports
                 case "Acceptance_Letter":
                     viewAcceptanceLetter();
                     break;
+                case "Intern":
+                    viewIntern();
+                    break;
                 default:
                     break;
             }
@@ -50,5 +53,22 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
         }
+
+        private void viewIntern()
+        {
+            ReportDataSet ds = new ReportDataSet();
+            ReportInterns ri = new ReportInterns();
+
+            Connection_String.dbConnection();
+            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.Intern(), Connection_String.con);
+            da.Fill(ds, "Interns");
+            Connection_String.con.Close();
+
+
+            ri.SetDataSource(ds.Tables["Interns"]);
+            crystalReportViewer1.ReportSource = ri;
+            crystalReportViewer1.Refresh();
+        }
+
     }
 }
