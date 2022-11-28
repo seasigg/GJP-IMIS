@@ -65,10 +65,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_dataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
+            this.buttonInternReport = new System.Windows.Forms.Button();
             this.btnTestReport = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonInternReport = new System.Windows.Forms.Button();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -492,6 +492,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_reports_panel.TabIndex = 7;
             // 
+            // buttonInternReport
+            // 
+            this.buttonInternReport.Location = new System.Drawing.Point(243, 203);
+            this.buttonInternReport.Name = "buttonInternReport";
+            this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
+            this.buttonInternReport.TabIndex = 3;
+            this.buttonInternReport.Text = "buttonInternReport";
+            this.buttonInternReport.UseVisualStyleBackColor = true;
+            this.buttonInternReport.Click += new System.EventHandler(this.buttonInternReport_Click);
+            // 
             // btnTestReport
             // 
             this.btnTestReport.Location = new System.Drawing.Point(208, 149);
@@ -522,16 +532,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label3.TabIndex = 0;
             this.label3.Text = "REPORTS";
             // 
-            // buttonInternReport
-            // 
-            this.buttonInternReport.Location = new System.Drawing.Point(243, 203);
-            this.buttonInternReport.Name = "buttonInternReport";
-            this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
-            this.buttonInternReport.TabIndex = 3;
-            this.buttonInternReport.Text = "buttonInternReport";
-            this.buttonInternReport.UseVisualStyleBackColor = true;
-            this.buttonInternReport.Click += new System.EventHandler(this.buttonInternReport_Click);
-            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,11 +539,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1558, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
+            this.Controls.Add(this.main_menu_reports_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
