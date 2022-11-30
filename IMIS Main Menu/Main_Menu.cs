@@ -287,5 +287,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ReportViewer rv = new ReportViewer("Intern");
             rv.ShowDialog();
         }
+
+        private void buttonInternFiltered_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer();
+            rv.viewInternGender();
+            rv.ShowDialog();
+        }
     }
 }
