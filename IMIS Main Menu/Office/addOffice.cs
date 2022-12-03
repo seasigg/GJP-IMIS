@@ -85,5 +85,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
             }
             this.Dispose();
         }
+
+        private void addOffice_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (fromAddIntern == true)
+                ai.clearOfficeCombo();
+            if (fromMainMenu == true)
+            {
+
+            }
+            this.Dispose();
+        }
     }
 }

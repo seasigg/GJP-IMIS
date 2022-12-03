@@ -145,6 +145,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addOffice";
             this.Text = "Add Office";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addOffice_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

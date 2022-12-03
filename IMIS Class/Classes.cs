@@ -75,5 +75,6 @@ namespace GJP_IMIS.IMIS_Class
             DataGridViewRow row = dg.Rows[r];
             row.Height = h;
         }
+
     }
 }

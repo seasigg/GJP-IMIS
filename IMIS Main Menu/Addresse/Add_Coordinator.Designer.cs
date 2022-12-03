@@ -293,6 +293,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
             this.Name = "Add_Coordinator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_Addresse";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Coordinator_FormClosing);
             this.Load += new System.EventHandler(this.Add_Addresse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

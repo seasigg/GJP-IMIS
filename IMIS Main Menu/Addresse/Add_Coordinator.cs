@@ -179,5 +179,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
                 radioFemale.Checked = false;
             }
         }
+
+        private void Add_Coordinator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (fromAddIntern == true)
+                ai.clearCoordinatorCombo();
+            if (fromMainMenu == true)
+            {
+
+            }
+            this.Dispose();
+        }
     }
 }

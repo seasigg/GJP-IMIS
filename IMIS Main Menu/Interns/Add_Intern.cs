@@ -164,6 +164,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             clearUniversityCombo();
             clearCourseCombo();
             clearOfficeCombo();
+            clearCoordinatorCombo();
 
             Classes.clearTextBox(this.Controls);
 
@@ -200,10 +201,19 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         public void clearCoordinatorCombo()
         {
             comboOJTCoordinator.DataSource = null;
-            if(comboUniversity.SelectedIndex != 1)
+            comboOJTCoordinator.SelectedIndex = -1;
+            comboOJTCoordinator.Enabled = false;
+
+            if(comboUniversity.SelectedIndex != -1)
             {
+                lblCoordinatorError.Text = null;
                 fillCoordinatorCombo();
             }
+            else
+            {
+                lblCoordinatorError.Text = "* Select a university first";
+            }
+            
         }
 
  
@@ -258,6 +268,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             }
         }
 
+        private void comboUniversity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*if (comboUniversity.SelectedIndex != -1)
+            {
+                fillCoordinatorCombo();
+            }*/
+        }
+
         private void btnUploadPicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
@@ -284,7 +302,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                     comboOJTCoordinator.DisplayMember = "FullName";
                     comboOJTCoordinator.ValueMember = "Coordinator_ID";
 
-                    lblCoordinatorError.Visible = false;
+                    lblCoordinatorError.Text = null;
                 }
                 else
                 {
@@ -329,5 +347,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             txtMiddleInitial.SelectionLength = 0;
         }
 
+        private void Add_Intern_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainMenu.internRefreshTable();
+            this.Dispose();
+        }
+
+        
     }
 }

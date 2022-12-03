@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GJP_IMIS.IMIS_Main_Menu;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Main_Menu.Interns;
+using GJP_IMIS;
 
 namespace GJP_IMIS.IMIS_Login
 {
@@ -27,14 +28,26 @@ namespace GJP_IMIS.IMIS_Login
              */
 
 
-            Main_Menu m = new Main_Menu();
-           this.Hide();
+           Main_Menu m = new Main_Menu();
+            
            m.Show();
+           this.Dispose();
+        }
 
-            /*
-            Add_Intern ai = new Add_Intern();
-            ai.ShowDialog();
-            */
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                this.Dispose();
+                Application.Exit();
+            }
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                IMIS wf = new IMIS();
+                wf.Show();
+                this.Dispose();
+            }
         }
     }
 }

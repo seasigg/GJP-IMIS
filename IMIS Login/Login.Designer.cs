@@ -44,7 +44,7 @@ namespace GJP_IMIS.IMIS_Login
             this.login_btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.login_btn_login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_btn_login.ForeColor = System.Drawing.Color.White;
-            this.login_btn_login.Location = new System.Drawing.Point(344, 456);
+            this.login_btn_login.Location = new System.Drawing.Point(192, 512);
             this.login_btn_login.Name = "login_btn_login";
             this.login_btn_login.Size = new System.Drawing.Size(162, 66);
             this.login_btn_login.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace GJP_IMIS.IMIS_Login
             // login_txtUsername
             // 
             this.login_txtUsername.Font = new System.Drawing.Font("Bell MT", 27.75F);
-            this.login_txtUsername.Location = new System.Drawing.Point(410, 256);
+            this.login_txtUsername.Location = new System.Drawing.Point(258, 312);
             this.login_txtUsername.Name = "login_txtUsername";
             this.login_txtUsername.Size = new System.Drawing.Size(337, 49);
             this.login_txtUsername.TabIndex = 2;
@@ -63,7 +63,7 @@ namespace GJP_IMIS.IMIS_Login
             // login_txtPass
             // 
             this.login_txtPass.Font = new System.Drawing.Font("Bell MT", 27.75F);
-            this.login_txtPass.Location = new System.Drawing.Point(410, 348);
+            this.login_txtPass.Location = new System.Drawing.Point(258, 404);
             this.login_txtPass.Name = "login_txtPass";
             this.login_txtPass.PasswordChar = '*';
             this.login_txtPass.Size = new System.Drawing.Size(337, 49);
@@ -73,7 +73,7 @@ namespace GJP_IMIS.IMIS_Login
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bell MT", 27.75F);
-            this.label2.Location = new System.Drawing.Point(213, 259);
+            this.label2.Location = new System.Drawing.Point(61, 315);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(181, 42);
             this.label2.TabIndex = 4;
@@ -83,7 +83,7 @@ namespace GJP_IMIS.IMIS_Login
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bell MT", 27.75F);
-            this.label3.Location = new System.Drawing.Point(220, 351);
+            this.label3.Location = new System.Drawing.Point(68, 407);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 42);
             this.label3.TabIndex = 5;
@@ -94,7 +94,7 @@ namespace GJP_IMIS.IMIS_Login
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(596, 456);
+            this.button1.Location = new System.Drawing.Point(444, 512);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(162, 66);
             this.button1.TabIndex = 6;
@@ -104,9 +104,9 @@ namespace GJP_IMIS.IMIS_Login
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(465, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(258, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(206, 215);
+            this.pictureBox1.Size = new System.Drawing.Size(246, 246);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -116,19 +116,20 @@ namespace GJP_IMIS.IMIS_Login
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1031, 620);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(689, 620);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.login_txtPass);
             this.Controls.Add(this.login_txtUsername);
             this.Controls.Add(this.login_btn_login);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

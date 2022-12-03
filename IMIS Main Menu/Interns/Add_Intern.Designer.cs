@@ -364,6 +364,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.comboUniversity.Name = "comboUniversity";
             this.comboUniversity.Size = new System.Drawing.Size(790, 28);
             this.comboUniversity.TabIndex = 2;
+            this.comboUniversity.SelectedIndexChanged += new System.EventHandler(this.comboUniversity_SelectedIndexChanged);
             this.comboUniversity.SelectionChangeCommitted += new System.EventHandler(this.comboUniversity_SelectionChangeCommitted);
             this.comboUniversity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboUniversity_KeyPress);
             // 
@@ -543,6 +544,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.MaximizeBox = false;
             this.Name = "Add_Intern";
             this.Text = "Add Intern";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Intern_FormClosing);
             this.Load += new System.EventHandler(this.Add_Intern_Load);
             this.groupBoxInternInfo.ResumeLayout(false);
             this.groupBoxInternInfo.PerformLayout();

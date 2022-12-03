@@ -49,20 +49,28 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         {
             return dataTable("select University_ID as 'University ID', University_Name as 'University Name' from University");
         }
-        //MAIN MENU - ADDRESSE PANEL - ADDRESSE DATA GRID
-        public static DataTable addresseDataGrid()
+
+        public static DataTable coordinatorDataGridUnfiltered()
         {
-            return dataTable("SELECT Addresse_ID, Addresse_Name as 'Addresse Name', Position, Department, Salutation, University.University_Name as 'University' " +
-                "FROM Addresse_Info " +
-                "INNER JOIN University ON Addresse_Info.University_ID = University.University_ID");
+            return dataTable("SELECT CONCAT(Coordinator_Info.First_Name, ' ' , Coordinator_Info.Middle_Initial, '. ' , Coordinator_Info.Last_Name) AS 'Coordinator Name', " +
+                "Coordinator_Info.Gender, " +
+                "Coordinator_Info.Position, " +
+                "Coordinator_Info.Department, " +
+                "University.University_Name " +
+                "FROM Coordinator_Info " +
+                "INNER JOIN University ON Coordinator_Info.University_ID = University.University_ID");
         }
 
-        //MAIN MENU - ADDRESSE PANEL - FILTER ADDRESE BY UNIVERSITY DATAGRID
-        public static DataTable filterAddresse(string univID)
+        public static DataTable coordinatorDataGridFiltered(int id)
         {
-            return dataTable("SELECT Addresse_ID, Addresse_Name as 'Addresse Name', Position, Department, Salutation, University.University_Name as 'University' " +
-                "FROM Addresse_Info " +
-                "INNER JOIN University ON Addresse_Info.University_ID = University.University_ID WHERE Addresse_Info.University_ID = '"+univID+"'");
+            return dataTable("SELECT CONCAT(Coordinator_Info.First_Name, ' ' , Coordinator_Info.Middle_Initial, '. ' , Coordinator_Info.Last_Name) AS 'Coordinator Name', " +
+                "Coordinator_Info.Gender, " +
+                "Coordinator_Info.Position, " +
+                "Coordinator_Info.Department, " +
+                "University.University_Name " +
+                "FROM Coordinator_Info " +
+                "INNER JOIN University ON Coordinator_Info.University_ID = University.University_ID " +
+                "WHERE Coordinator_Info.University_ID = '"+id+"'");
         }
     }
 }

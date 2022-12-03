@@ -87,5 +87,18 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
+
+        private void Add_University_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(fromAddIntern == true)
+            {
+                ai.clearUniversityCombo();
+            }
+            if(fromMainMenu == true)
+            {
+
+            }
+            this.Dispose();
+        }
     }
 }

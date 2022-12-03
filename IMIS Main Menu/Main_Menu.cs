@@ -47,7 +47,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             universityData();
 
             // loads the addresse data grid view
-            coordComboData();
+            coordinatorUniversityCombo();
 
         }
 
@@ -107,12 +107,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
          */
 
         // main_menu_univ_dataGridView
-        public void coordComboData()
+        public void coordinatorUniversityCombo()
         {       
             coordComboUniversity.DataSource = InternQueries.getUniversities();
             coordComboUniversity.DisplayMember = "University_Name";
             coordComboUniversity.ValueMember = "University_ID";
             coordComboUniversity.SelectedIndex = -1;
+        }
+
+        public void coordinatorDataGrid()
+        {
+            main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridUnfiltered();
+            main_menu_addresse_addresse_DataGrid.ClearSelection();
+            main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
+            main_menu_addresse_addresse_DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
 
@@ -126,7 +134,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             //universityData();
 
             // loads the addresse data grid view
-            coordComboData();
+            coordinatorUniversityCombo();
+            coordinatorDataGrid();
+
+        }
+        private void coordinatorDataGridFiltered(int id)
+        {
+            main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridFiltered(id);
+            main_menu_addresse_addresse_DataGrid.ClearSelection();
+            main_menu_addresse_addresse_DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
@@ -141,7 +157,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             //universityData();
 
             // loads the addresse data grid view
-            coordComboData();
+            coordinatorUniversityCombo();
+            coordinatorDataGrid();
         }
 
         /*
@@ -207,9 +224,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void btn_logout_panel_Click(object sender, EventArgs e)
         {
-            this.Hide();
             IMIS wf = new IMIS();
             wf.Show();
+            this.Dispose();
         }
 
         // intern button select color
@@ -293,6 +310,31 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ReportViewer rv = new ReportViewer();
             rv.viewInternGender();
             rv.ShowDialog();
+        }
+
+        private void Main_Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                this.Dispose();
+                Application.Exit();
+            }
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                IMIS wf = new IMIS();
+                wf.Show();
+                this.Dispose();
+            }
+        }
+
+        private void coordComboUniversity_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if(coordComboUniversity.SelectedIndex != -1)
+            {
+                int coordUnivFilter = Convert.ToInt32(coordComboUniversity.SelectedValue.ToString());
+                coordinatorDataGridFiltered(coordUnivFilter);
+            }
         }
     }
 }

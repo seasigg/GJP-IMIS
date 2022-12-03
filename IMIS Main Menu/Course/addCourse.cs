@@ -87,6 +87,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
-        
+        private void addCourse_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

@@ -125,6 +125,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
             this.Controls.Add(this.txtUniversity);
             this.Name = "Add_University";
             this.Text = "Add_University";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_University_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

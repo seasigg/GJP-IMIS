@@ -124,6 +124,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "addCourse";
             this.Text = "addCourse";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.addCourse_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
