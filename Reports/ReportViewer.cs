@@ -104,7 +104,7 @@ namespace GJP_IMIS.Reports
                 "AND Intern_Info.Course_ID = Course.Course_ID " +
                 "AND Intern_Info.University_ID = University.University_ID " +
                 "AND Intern_Info.Office_ID = Office.Office_ID";
-
+            /*
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(query2, Connection_String.con);
             da.Fill(ds, "Interns");
@@ -114,7 +114,23 @@ namespace GJP_IMIS.Reports
             ri.SetDataSource(ds.Tables["Interns"]);
             crystalReportViewer1.ReportSource = ri;
             crystalReportViewer1.Refresh();
+            */
         }
 
+        public void viewInternReport(string q)
+        {
+            ReportDataSet ds = new ReportDataSet();
+            ReportInterns ri = new ReportInterns();
+            
+
+            Connection_String.dbConnection();
+            SqlDataAdapter da = new SqlDataAdapter(q, Connection_String.con);
+            da.Fill(ds, "Interns");
+            Connection_String.con.Close();
+
+            ri.SetDataSource(ds.Tables["Interns"]);
+            crystalReportViewer1.ReportSource = ri;
+            crystalReportViewer1.Refresh();
+        }
     }
 }

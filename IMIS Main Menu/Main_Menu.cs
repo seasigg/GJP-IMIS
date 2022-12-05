@@ -307,9 +307,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void buttonInternFiltered_Click(object sender, EventArgs e)
         {
-            ReportViewer rv = new ReportViewer();
-            rv.viewInternGender();
-            rv.ShowDialog();
+            //ReportViewer rv = new ReportViewer();
+            //rv.viewInternGender();
+            //rv.ShowDialog();
+            Report_Filter rf = new Report_Filter();
+            rf.ShowDialog();
         }
 
         private void Main_Menu_FormClosing(object sender, FormClosingEventArgs e)

@@ -138,6 +138,12 @@
     <Compile Include="Reports\ReportViewerIntern.Designer.cs">
       <DependentUpon>ReportViewerIntern.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Report_Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Report_Filter.Designer.cs">
+      <DependentUpon>Report_Filter.cs</DependentUpon>
+    </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewerIntern.resx">
       <DependentUpon>ReportViewerIntern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report_Filter.resx">
+      <DependentUpon>Report_Filter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
