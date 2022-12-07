@@ -29,12 +29,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_logout_panel = new System.Windows.Forms.Button();
@@ -65,26 +65,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_dataGridView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.main_menu_reports_panel = new System.Windows.Forms.Panel();
-            this.buttonInternFiltered = new System.Windows.Forms.Button();
-            this.buttonInternReport = new System.Windows.Forms.Button();
-            this.btnTestReport = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.reports_btn_intern = new System.Windows.Forms.Button();
-            this.reports_btn_dtr = new System.Windows.Forms.Button();
-            this.reports_btn_stats = new System.Windows.Forms.Button();
-            this.reports_btn_cert = new System.Windows.Forms.Button();
             this.reports_btn_accept = new System.Windows.Forms.Button();
+            this.reports_btn_cert = new System.Windows.Forms.Button();
+            this.reports_btn_stats = new System.Windows.Forms.Button();
+            this.reports_btn_dtr = new System.Windows.Forms.Button();
+            this.reports_btn_intern = new System.Windows.Forms.Button();
             this.reports_intern_report_panel = new System.Windows.Forms.Panel();
+            this.buttonInternFiltered = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnTestReport = new System.Windows.Forms.Button();
+            this.buttonInternReport = new System.Windows.Forms.Button();
             this.reports_dtr_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.reports_status_panel = new System.Windows.Forms.Panel();
-            this.txtstats = new System.Windows.Forms.Label();
             this.reports_certificate_panel = new System.Windows.Forms.Panel();
             this.txtcert = new System.Windows.Forms.Label();
+            this.reports_status_panel = new System.Windows.Forms.Panel();
+            this.txtstats = new System.Windows.Forms.Label();
             this.reports_acceptance_panel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.reports_default_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.internCheckGender = new System.Windows.Forms.CheckBox();
+            this.internCheckUniversity = new System.Windows.Forms.CheckBox();
+            this.internCheckOffice = new System.Windows.Forms.CheckBox();
+            this.internCheckCourse = new System.Windows.Forms.CheckBox();
+            this.internRadioMale = new System.Windows.Forms.RadioButton();
+            this.internRadioFemale = new System.Windows.Forms.RadioButton();
+            this.internComboUniversity = new System.Windows.Forms.ComboBox();
+            this.internComboOffice = new System.Windows.Forms.ComboBox();
+            this.internComboCourse = new System.Windows.Forms.ComboBox();
+            this.internButtonGenerate = new System.Windows.Forms.Button();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -98,8 +108,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.SuspendLayout();
             this.reports_intern_report_panel.SuspendLayout();
             this.reports_dtr_panel.SuspendLayout();
-            this.reports_status_panel.SuspendLayout();
             this.reports_certificate_panel.SuspendLayout();
+            this.reports_status_panel.SuspendLayout();
             this.reports_acceptance_panel.SuspendLayout();
             this.reports_default_panel.SuspendLayout();
             this.SuspendLayout();
@@ -249,24 +259,24 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridIntern.AllowUserToResizeRows = false;
             this.dataGridIntern.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridIntern.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridIntern.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridIntern.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridIntern.ColumnHeadersHeight = 50;
             this.dataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridIntern.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridIntern.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridIntern.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridIntern.GridColor = System.Drawing.Color.White;
             this.dataGridIntern.Location = new System.Drawing.Point(14, 203);
@@ -354,23 +364,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.main_menu_addresse_addresse_DataGrid.AllowUserToAddRows = false;
             this.main_menu_addresse_addresse_DataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_menu_addresse_addresse_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_menu_addresse_addresse_DataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.main_menu_addresse_addresse_DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.main_menu_addresse_addresse_DataGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.main_menu_addresse_addresse_DataGrid.DefaultCellStyle = dataGridViewCellStyle34;
             this.main_menu_addresse_addresse_DataGrid.EnableHeadersVisualStyles = false;
             this.main_menu_addresse_addresse_DataGrid.Location = new System.Drawing.Point(65, 240);
             this.main_menu_addresse_addresse_DataGrid.Name = "main_menu_addresse_addresse_DataGrid";
@@ -469,23 +479,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_dataGridView.AllowUserToDeleteRows = false;
             this.main_menu_univ_dataGridView.AllowUserToResizeColumns = false;
             this.main_menu_univ_dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_menu_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_menu_univ_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.main_menu_univ_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.main_menu_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.main_menu_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle36;
             this.main_menu_univ_dataGridView.Location = new System.Drawing.Point(27, 186);
             this.main_menu_univ_dataGridView.Name = "main_menu_univ_dataGridView";
             this.main_menu_univ_dataGridView.ReadOnly = true;
@@ -522,87 +532,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_reports_panel.TabIndex = 7;
             // 
-            // buttonInternFiltered
+            // reports_btn_accept
             // 
-            this.buttonInternFiltered.Location = new System.Drawing.Point(1054, 220);
-            this.buttonInternFiltered.Name = "buttonInternFiltered";
-            this.buttonInternFiltered.Size = new System.Drawing.Size(136, 24);
-            this.buttonInternFiltered.TabIndex = 4;
-            this.buttonInternFiltered.Text = "buttonInternFiltered";
-            this.buttonInternFiltered.UseVisualStyleBackColor = true;
-            this.buttonInternFiltered.Click += new System.EventHandler(this.buttonInternFiltered_Click);
-            // 
-            // buttonInternReport
-            // 
-            this.buttonInternReport.Location = new System.Drawing.Point(941, 68);
-            this.buttonInternReport.Name = "buttonInternReport";
-            this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
-            this.buttonInternReport.TabIndex = 3;
-            this.buttonInternReport.Text = "buttonInternReport";
-            this.buttonInternReport.UseVisualStyleBackColor = true;
-            this.buttonInternReport.Click += new System.EventHandler(this.buttonInternReport_Click);
-            // 
-            // btnTestReport
-            // 
-            this.btnTestReport.Location = new System.Drawing.Point(362, 68);
-            this.btnTestReport.Name = "btnTestReport";
-            this.btnTestReport.Size = new System.Drawing.Size(75, 23);
-            this.btnTestReport.TabIndex = 2;
-            this.btnTestReport.Text = "TestReport";
-            this.btnTestReport.UseVisualStyleBackColor = true;
-            this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(489, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(371, 46);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "INTERN REPORTS";
-            // 
-            // reports_btn_intern
-            // 
-            this.reports_btn_intern.FlatAppearance.BorderSize = 0;
-            this.reports_btn_intern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reports_btn_intern.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_btn_intern.ForeColor = System.Drawing.Color.Black;
-            this.reports_btn_intern.Location = new System.Drawing.Point(14, 17);
-            this.reports_btn_intern.Name = "reports_btn_intern";
-            this.reports_btn_intern.Size = new System.Drawing.Size(185, 37);
-            this.reports_btn_intern.TabIndex = 13;
-            this.reports_btn_intern.Text = "INTERN REPORTS";
-            this.reports_btn_intern.UseVisualStyleBackColor = true;
-            this.reports_btn_intern.Click += new System.EventHandler(this.reports_btn_intern_Click);
-            // 
-            // reports_btn_dtr
-            // 
-            this.reports_btn_dtr.FlatAppearance.BorderSize = 0;
-            this.reports_btn_dtr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reports_btn_dtr.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_btn_dtr.ForeColor = System.Drawing.Color.Black;
-            this.reports_btn_dtr.Location = new System.Drawing.Point(205, 17);
-            this.reports_btn_dtr.Name = "reports_btn_dtr";
-            this.reports_btn_dtr.Size = new System.Drawing.Size(185, 37);
-            this.reports_btn_dtr.TabIndex = 14;
-            this.reports_btn_dtr.Text = "DTR";
-            this.reports_btn_dtr.UseVisualStyleBackColor = true;
-            this.reports_btn_dtr.Click += new System.EventHandler(this.reports_btn_dtr_Click);
-            // 
-            // reports_btn_stats
-            // 
-            this.reports_btn_stats.FlatAppearance.BorderSize = 0;
-            this.reports_btn_stats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reports_btn_stats.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_btn_stats.ForeColor = System.Drawing.Color.Black;
-            this.reports_btn_stats.Location = new System.Drawing.Point(396, 17);
-            this.reports_btn_stats.Name = "reports_btn_stats";
-            this.reports_btn_stats.Size = new System.Drawing.Size(185, 37);
-            this.reports_btn_stats.TabIndex = 15;
-            this.reports_btn_stats.Text = "STATUS";
-            this.reports_btn_stats.UseVisualStyleBackColor = true;
-            this.reports_btn_stats.Click += new System.EventHandler(this.reports_btn_stats_Click);
+            this.reports_btn_accept.FlatAppearance.BorderSize = 0;
+            this.reports_btn_accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_accept.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_accept.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_accept.Location = new System.Drawing.Point(778, 17);
+            this.reports_btn_accept.Name = "reports_btn_accept";
+            this.reports_btn_accept.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_accept.TabIndex = 17;
+            this.reports_btn_accept.Text = "ACCEPTANCE";
+            this.reports_btn_accept.UseVisualStyleBackColor = true;
+            this.reports_btn_accept.Click += new System.EventHandler(this.reports_btn_accept_Click);
             // 
             // reports_btn_cert
             // 
@@ -618,22 +560,60 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_cert.UseVisualStyleBackColor = true;
             this.reports_btn_cert.Click += new System.EventHandler(this.reports_btn_cert_Click);
             // 
-            // reports_btn_accept
+            // reports_btn_stats
             // 
-            this.reports_btn_accept.FlatAppearance.BorderSize = 0;
-            this.reports_btn_accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reports_btn_accept.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reports_btn_accept.ForeColor = System.Drawing.Color.Black;
-            this.reports_btn_accept.Location = new System.Drawing.Point(778, 17);
-            this.reports_btn_accept.Name = "reports_btn_accept";
-            this.reports_btn_accept.Size = new System.Drawing.Size(185, 37);
-            this.reports_btn_accept.TabIndex = 17;
-            this.reports_btn_accept.Text = "ACCEPTANCE";
-            this.reports_btn_accept.UseVisualStyleBackColor = true;
-            this.reports_btn_accept.Click += new System.EventHandler(this.reports_btn_accept_Click);
+            this.reports_btn_stats.FlatAppearance.BorderSize = 0;
+            this.reports_btn_stats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_stats.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_stats.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_stats.Location = new System.Drawing.Point(396, 17);
+            this.reports_btn_stats.Name = "reports_btn_stats";
+            this.reports_btn_stats.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_stats.TabIndex = 15;
+            this.reports_btn_stats.Text = "STATUS";
+            this.reports_btn_stats.UseVisualStyleBackColor = true;
+            this.reports_btn_stats.Click += new System.EventHandler(this.reports_btn_stats_Click);
+            // 
+            // reports_btn_dtr
+            // 
+            this.reports_btn_dtr.FlatAppearance.BorderSize = 0;
+            this.reports_btn_dtr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_dtr.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_dtr.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_dtr.Location = new System.Drawing.Point(205, 17);
+            this.reports_btn_dtr.Name = "reports_btn_dtr";
+            this.reports_btn_dtr.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_dtr.TabIndex = 14;
+            this.reports_btn_dtr.Text = "DTR";
+            this.reports_btn_dtr.UseVisualStyleBackColor = true;
+            this.reports_btn_dtr.Click += new System.EventHandler(this.reports_btn_dtr_Click);
+            // 
+            // reports_btn_intern
+            // 
+            this.reports_btn_intern.FlatAppearance.BorderSize = 0;
+            this.reports_btn_intern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_intern.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_intern.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_intern.Location = new System.Drawing.Point(14, 17);
+            this.reports_btn_intern.Name = "reports_btn_intern";
+            this.reports_btn_intern.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_intern.TabIndex = 13;
+            this.reports_btn_intern.Text = "INTERN REPORTS";
+            this.reports_btn_intern.UseVisualStyleBackColor = true;
+            this.reports_btn_intern.Click += new System.EventHandler(this.reports_btn_intern_Click);
             // 
             // reports_intern_report_panel
             // 
+            this.reports_intern_report_panel.Controls.Add(this.internButtonGenerate);
+            this.reports_intern_report_panel.Controls.Add(this.internComboCourse);
+            this.reports_intern_report_panel.Controls.Add(this.internComboOffice);
+            this.reports_intern_report_panel.Controls.Add(this.internComboUniversity);
+            this.reports_intern_report_panel.Controls.Add(this.internRadioFemale);
+            this.reports_intern_report_panel.Controls.Add(this.internRadioMale);
+            this.reports_intern_report_panel.Controls.Add(this.internCheckCourse);
+            this.reports_intern_report_panel.Controls.Add(this.internCheckOffice);
+            this.reports_intern_report_panel.Controls.Add(this.internCheckUniversity);
+            this.reports_intern_report_panel.Controls.Add(this.internCheckGender);
             this.reports_intern_report_panel.Controls.Add(this.buttonInternFiltered);
             this.reports_intern_report_panel.Controls.Add(this.label3);
             this.reports_intern_report_panel.Controls.Add(this.btnTestReport);
@@ -642,6 +622,46 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_intern_report_panel.Name = "reports_intern_report_panel";
             this.reports_intern_report_panel.Size = new System.Drawing.Size(1341, 716);
             this.reports_intern_report_panel.TabIndex = 18;
+            // 
+            // buttonInternFiltered
+            // 
+            this.buttonInternFiltered.Location = new System.Drawing.Point(1032, 68);
+            this.buttonInternFiltered.Name = "buttonInternFiltered";
+            this.buttonInternFiltered.Size = new System.Drawing.Size(136, 24);
+            this.buttonInternFiltered.TabIndex = 4;
+            this.buttonInternFiltered.Text = "buttonInternFiltered";
+            this.buttonInternFiltered.UseVisualStyleBackColor = true;
+            this.buttonInternFiltered.Click += new System.EventHandler(this.buttonInternFiltered_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(489, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(371, 46);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "INTERN REPORTS";
+            // 
+            // btnTestReport
+            // 
+            this.btnTestReport.Location = new System.Drawing.Point(362, 68);
+            this.btnTestReport.Name = "btnTestReport";
+            this.btnTestReport.Size = new System.Drawing.Size(75, 23);
+            this.btnTestReport.TabIndex = 2;
+            this.btnTestReport.Text = "TestReport";
+            this.btnTestReport.UseVisualStyleBackColor = true;
+            this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
+            // 
+            // buttonInternReport
+            // 
+            this.buttonInternReport.Location = new System.Drawing.Point(941, 68);
+            this.buttonInternReport.Name = "buttonInternReport";
+            this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
+            this.buttonInternReport.TabIndex = 3;
+            this.buttonInternReport.Text = "buttonInternReport";
+            this.buttonInternReport.UseVisualStyleBackColor = true;
+            this.buttonInternReport.Click += new System.EventHandler(this.buttonInternReport_Click);
             // 
             // reports_dtr_panel
             // 
@@ -661,24 +681,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label1.TabIndex = 1;
             this.label1.Text = "DTR";
             // 
-            // reports_status_panel
-            // 
-            this.reports_status_panel.Controls.Add(this.txtstats);
-            this.reports_status_panel.Location = new System.Drawing.Point(14, 60);
-            this.reports_status_panel.Name = "reports_status_panel";
-            this.reports_status_panel.Size = new System.Drawing.Size(1341, 716);
-            this.reports_status_panel.TabIndex = 2;
-            // 
-            // txtstats
-            // 
-            this.txtstats.AutoSize = true;
-            this.txtstats.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtstats.Location = new System.Drawing.Point(574, 61);
-            this.txtstats.Name = "txtstats";
-            this.txtstats.Size = new System.Drawing.Size(178, 46);
-            this.txtstats.TabIndex = 1;
-            this.txtstats.Text = "STATUS";
-            // 
             // reports_certificate_panel
             // 
             this.reports_certificate_panel.Controls.Add(this.txtcert);
@@ -696,6 +698,24 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtcert.Size = new System.Drawing.Size(292, 46);
             this.txtcert.TabIndex = 1;
             this.txtcert.Text = "CERTIFICATE";
+            // 
+            // reports_status_panel
+            // 
+            this.reports_status_panel.Controls.Add(this.txtstats);
+            this.reports_status_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_status_panel.Name = "reports_status_panel";
+            this.reports_status_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_status_panel.TabIndex = 2;
+            // 
+            // txtstats
+            // 
+            this.txtstats.AutoSize = true;
+            this.txtstats.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstats.Location = new System.Drawing.Point(574, 61);
+            this.txtstats.Name = "txtstats";
+            this.txtstats.Size = new System.Drawing.Size(178, 46);
+            this.txtstats.TabIndex = 1;
+            this.txtstats.Text = "STATUS";
             // 
             // reports_acceptance_panel
             // 
@@ -732,6 +752,115 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label9.Size = new System.Drawing.Size(624, 46);
             this.label9.TabIndex = 1;
             this.label9.Text = "REPORTS WELCOME MESSAGE";
+            // 
+            // internCheckGender
+            // 
+            this.internCheckGender.AutoSize = true;
+            this.internCheckGender.Location = new System.Drawing.Point(294, 143);
+            this.internCheckGender.Name = "internCheckGender";
+            this.internCheckGender.Size = new System.Drawing.Size(61, 17);
+            this.internCheckGender.TabIndex = 5;
+            this.internCheckGender.Text = "Gender";
+            this.internCheckGender.UseVisualStyleBackColor = true;
+            this.internCheckGender.CheckedChanged += new System.EventHandler(this.internCheckGender_CheckedChanged);
+            // 
+            // internCheckUniversity
+            // 
+            this.internCheckUniversity.AutoSize = true;
+            this.internCheckUniversity.Location = new System.Drawing.Point(294, 217);
+            this.internCheckUniversity.Name = "internCheckUniversity";
+            this.internCheckUniversity.Size = new System.Drawing.Size(72, 17);
+            this.internCheckUniversity.TabIndex = 6;
+            this.internCheckUniversity.Text = "University";
+            this.internCheckUniversity.UseVisualStyleBackColor = true;
+            this.internCheckUniversity.CheckedChanged += new System.EventHandler(this.internCheckUniversity_CheckedChanged);
+            // 
+            // internCheckOffice
+            // 
+            this.internCheckOffice.AutoSize = true;
+            this.internCheckOffice.Location = new System.Drawing.Point(294, 298);
+            this.internCheckOffice.Name = "internCheckOffice";
+            this.internCheckOffice.Size = new System.Drawing.Size(102, 17);
+            this.internCheckOffice.TabIndex = 7;
+            this.internCheckOffice.Text = "Office Deployed";
+            this.internCheckOffice.UseVisualStyleBackColor = true;
+            this.internCheckOffice.CheckedChanged += new System.EventHandler(this.internCheckOffice_CheckedChanged);
+            // 
+            // internCheckCourse
+            // 
+            this.internCheckCourse.AutoSize = true;
+            this.internCheckCourse.Location = new System.Drawing.Point(294, 376);
+            this.internCheckCourse.Name = "internCheckCourse";
+            this.internCheckCourse.Size = new System.Drawing.Size(59, 17);
+            this.internCheckCourse.TabIndex = 8;
+            this.internCheckCourse.Text = "Course";
+            this.internCheckCourse.UseVisualStyleBackColor = true;
+            this.internCheckCourse.CheckedChanged += new System.EventHandler(this.internCheckCourse_CheckedChanged);
+            // 
+            // internRadioMale
+            // 
+            this.internRadioMale.AutoSize = true;
+            this.internRadioMale.Location = new System.Drawing.Point(348, 166);
+            this.internRadioMale.Name = "internRadioMale";
+            this.internRadioMale.Size = new System.Drawing.Size(48, 17);
+            this.internRadioMale.TabIndex = 9;
+            this.internRadioMale.TabStop = true;
+            this.internRadioMale.Text = "Male";
+            this.internRadioMale.UseVisualStyleBackColor = true;
+            // 
+            // internRadioFemale
+            // 
+            this.internRadioFemale.AutoSize = true;
+            this.internRadioFemale.Location = new System.Drawing.Point(402, 166);
+            this.internRadioFemale.Name = "internRadioFemale";
+            this.internRadioFemale.Size = new System.Drawing.Size(59, 17);
+            this.internRadioFemale.TabIndex = 10;
+            this.internRadioFemale.TabStop = true;
+            this.internRadioFemale.Text = "Female";
+            this.internRadioFemale.UseVisualStyleBackColor = true;
+            // 
+            // internComboUniversity
+            // 
+            this.internComboUniversity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.internComboUniversity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.internComboUniversity.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.internComboUniversity.FormattingEnabled = true;
+            this.internComboUniversity.Location = new System.Drawing.Point(348, 240);
+            this.internComboUniversity.Name = "internComboUniversity";
+            this.internComboUniversity.Size = new System.Drawing.Size(605, 29);
+            this.internComboUniversity.TabIndex = 32;
+            // 
+            // internComboOffice
+            // 
+            this.internComboOffice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.internComboOffice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.internComboOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.internComboOffice.FormattingEnabled = true;
+            this.internComboOffice.Location = new System.Drawing.Point(348, 321);
+            this.internComboOffice.Name = "internComboOffice";
+            this.internComboOffice.Size = new System.Drawing.Size(605, 29);
+            this.internComboOffice.TabIndex = 33;
+            // 
+            // internComboCourse
+            // 
+            this.internComboCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.internComboCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.internComboCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.internComboCourse.FormattingEnabled = true;
+            this.internComboCourse.Location = new System.Drawing.Point(348, 399);
+            this.internComboCourse.Name = "internComboCourse";
+            this.internComboCourse.Size = new System.Drawing.Size(605, 29);
+            this.internComboCourse.TabIndex = 34;
+            // 
+            // internButtonGenerate
+            // 
+            this.internButtonGenerate.Location = new System.Drawing.Point(573, 469);
+            this.internButtonGenerate.Name = "internButtonGenerate";
+            this.internButtonGenerate.Size = new System.Drawing.Size(121, 23);
+            this.internButtonGenerate.TabIndex = 35;
+            this.internButtonGenerate.Text = "Generate Report";
+            this.internButtonGenerate.UseVisualStyleBackColor = true;
+            this.internButtonGenerate.Click += new System.EventHandler(this.internButtonGenerate_Click);
             // 
             // Main_Menu
             // 
@@ -772,10 +901,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_intern_report_panel.PerformLayout();
             this.reports_dtr_panel.ResumeLayout(false);
             this.reports_dtr_panel.PerformLayout();
-            this.reports_status_panel.ResumeLayout(false);
-            this.reports_status_panel.PerformLayout();
             this.reports_certificate_panel.ResumeLayout(false);
             this.reports_certificate_panel.PerformLayout();
+            this.reports_status_panel.ResumeLayout(false);
+            this.reports_status_panel.PerformLayout();
             this.reports_acceptance_panel.ResumeLayout(false);
             this.reports_acceptance_panel.PerformLayout();
             this.reports_default_panel.ResumeLayout(false);
@@ -836,5 +965,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel reports_default_panel;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox internCheckCourse;
+        private System.Windows.Forms.CheckBox internCheckOffice;
+        private System.Windows.Forms.CheckBox internCheckUniversity;
+        private System.Windows.Forms.CheckBox internCheckGender;
+        private System.Windows.Forms.RadioButton internRadioFemale;
+        private System.Windows.Forms.RadioButton internRadioMale;
+        private System.Windows.Forms.Button internButtonGenerate;
+        private System.Windows.Forms.ComboBox internComboCourse;
+        private System.Windows.Forms.ComboBox internComboOffice;
+        private System.Windows.Forms.ComboBox internComboUniversity;
     }
 }

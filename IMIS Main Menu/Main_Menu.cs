@@ -19,6 +19,7 @@ using GJP_IMIS.Reports;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
+using GJP_IMIS.IMIS_Methods.Report_Queries;
 
 //CLASS
 using GJP_IMIS.IMIS_Class;
@@ -115,7 +116,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             coordinatorDataGrid();
 
         }
-        
         public void coordinatorUniversityCombo()
         {       
             coordComboUniversity.DataSource = InternQueries.getUniversities();
@@ -123,7 +123,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             coordComboUniversity.ValueMember = "University_ID";
             coordComboUniversity.SelectedIndex = -1;
         }
-
         public void coordinatorDataGrid()
         {
             main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridUnfiltered();
@@ -137,9 +136,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_addresse_DataGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             main_menu_addresse_addresse_DataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
-
-
-        
         private void coordinatorDataGridFiltered(int id)
         {
             main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridFiltered(id);
@@ -256,6 +252,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     reports_btn_intern.BackColor = selectBackColor;
                     reports_btn_intern.ForeColor = selectForeColor;
                     reports_intern_report_panel.BringToFront();
+
+                    // Loading Combo Boxes with Data
+                    internReportPopulateCombos();
+
+                    // Gender Radio Buttons
+                    internRadioMale.Enabled = false;
+                    internRadioFemale.Enabled = false;
+
+                    //Combo Boxes
+                    internComboUniversity.Enabled = false;
+                    internComboOffice.Enabled = false;
+                    internComboCourse.Enabled = false;
+
+                    internComboUniversity.SelectedIndex = -1;
+                    internComboOffice.SelectedIndex = -1;
+                    internComboCourse.SelectedIndex = -1;
+
                     break;
                 case "dtr":
                     reports_btn_dtr.BackColor = selectBackColor;
@@ -281,6 +294,24 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     break;
             }
         }
+
+        // -------------------- Report Panel Intern Report Methods --------------------
+        private void internReportPopulateCombos()
+        {
+            internComboUniversity.DataSource = InternQueries.getUniversities();
+            internComboUniversity.DisplayMember = "University_Name";
+            internComboUniversity.ValueMember = "University_ID";
+
+            internComboOffice.DataSource = InternQueries.getOffices();
+            internComboOffice.DisplayMember = "Office_Name";
+            internComboOffice.ValueMember = "Office_ID";
+
+            internComboCourse.DataSource = InternQueries.getCourses();
+            internComboCourse.DisplayMember = "Course_Name";
+            internComboCourse.ValueMember = "Course_ID";
+        }
+
+        // -------------------- Report Panel Intern Report Methods --------------------
 
         // ============================== END REPORTS PANEL ==============================
 
@@ -411,6 +442,117 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
         }
 
+        // -------------------- Report Panel Intern Report Events --------------------
+        private void internCheckGender_CheckedChanged(object sender, EventArgs e)
+        {
+            if(internCheckGender.Checked)
+            {
+                internRadioMale.Enabled = true;
+                internRadioFemale.Enabled = true;
+                internRadioMale.Checked = true;
+            }
+            else
+            {
+                internRadioMale.Enabled = false;
+                internRadioFemale.Enabled = false;
+                internRadioFemale.Checked = false;
+                internRadioMale.Checked = false;
+            }
+        }
+
+        private void internCheckUniversity_CheckedChanged(object sender, EventArgs e)
+        {
+            if(internCheckUniversity.Checked)
+            {
+                internComboUniversity.Enabled = true;
+                internComboUniversity.SelectedIndex = 0;
+            }
+            else
+            {
+                internComboUniversity.Enabled = false;
+                internComboUniversity.SelectedIndex = -1;
+            }
+        }
+
+        private void internCheckOffice_CheckedChanged(object sender, EventArgs e)
+        {
+            if(internCheckOffice.Checked)
+            {
+                internComboOffice.Enabled = true;
+                internComboOffice.SelectedIndex = 0;
+            }
+            else
+            {
+                internComboOffice.Enabled = false;
+                internComboOffice.SelectedIndex = -1;
+            }
+        }
+
+        private void internCheckCourse_CheckedChanged(object sender, EventArgs e)
+        {
+            if(internCheckOffice.Checked)
+            {
+                internComboCourse.Enabled = true;
+                internComboCourse.SelectedIndex = 0;
+            }
+            else
+            {
+                internComboCourse.Enabled = false;
+                internComboCourse.SelectedIndex = -1;
+            }
+        }
+
+        private void internButtonGenerate_Click(object sender, EventArgs e)
+        {
+            string query = ReportQueries.reportsInternQuery();
+            string filter = "";
+
+            if (internCheckCourse.Checked || internCheckGender.Checked || internCheckOffice.Checked || internCheckUniversity.Checked)
+            {
+                if(internCheckGender.Checked)
+                {
+                    if (internRadioMale.Checked)
+                        filter = "Male";
+                    else if (internRadioFemale.Checked)
+                        filter = "Female";
+
+                    query += "AND Intern_Info.Gender = '" + filter + "' ";
+                }
+
+                if(internCheckUniversity.Checked)
+                {
+                    filter = internComboUniversity.SelectedValue.ToString();
+                    query += "AND Intern_Info.University_ID = " + filter + " ";
+                }
+
+                if(internCheckOffice.Checked)
+                {
+                    filter = internComboOffice.SelectedValue.ToString();
+                    query += "AND Intern_Info.Office_ID = " + filter + " ";
+                }
+
+                if(internCheckCourse.Checked)
+                {
+                    filter = internComboCourse.SelectedValue.ToString();
+                    query += "AND Intern_Info.Course_ID = " + filter + " ";
+                }
+
+                ReportViewer rv = new ReportViewer();
+                rv.viewInternReport(query);
+                rv.ShowDialog();
+            }
+            else
+            {
+                ReportViewer rv = new ReportViewer();
+                rv.viewInternReport(ReportQueries.reportsInternQuery());
+                rv.ShowDialog();
+            }
+        }
+
+        // -------------------- End Report Panel Intern Report Events --------------------
+
         // ============================== END EVENTS ==============================
+
+
     }
 }
