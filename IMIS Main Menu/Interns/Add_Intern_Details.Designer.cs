@@ -58,6 +58,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -221,7 +222,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             this.lblTargetHours.AutoSize = true;
             this.lblTargetHours.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTargetHours.ForeColor = System.Drawing.Color.Red;
+            this.lblTargetHours.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.lblTargetHours.Location = new System.Drawing.Point(157, 243);
             this.lblTargetHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTargetHours.Name = "lblTargetHours";
@@ -320,11 +321,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // lblOjt
             // 
             this.lblOjt.AutoSize = true;
-            this.lblOjt.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOjt.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOjt.Location = new System.Drawing.Point(118, 274);
             this.lblOjt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOjt.Name = "lblOjt";
-            this.lblOjt.Size = new System.Drawing.Size(86, 23);
+            this.lblOjt.Size = new System.Drawing.Size(90, 24);
             this.lblOjt.TabIndex = 12;
             this.lblOjt.Text = "/TEXT/";
             // 
@@ -367,7 +368,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(27, 300);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 265);
+            this.groupBox1.Size = new System.Drawing.Size(858, 265);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "University Information";
@@ -393,10 +394,24 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(303, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(535, 276);
+            this.groupBox2.Size = new System.Drawing.Size(582, 276);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Student Information";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Bell MT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(190, 572);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 58);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Cancel";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Add_Intern_Details
             // 
@@ -404,7 +419,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(850, 654);
+            this.ClientSize = new System.Drawing.Size(895, 654);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -455,5 +471,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
