@@ -289,6 +289,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     reports_btn_accept.BackColor = selectBackColor;
                     reports_btn_accept.ForeColor = selectForeColor;
                     reports_acceptance_panel.BringToFront();
+
+                    acceptanceDataGridIntern.DataSource = menuQueries.reportAcceptanceDataGrid();
+                    acceptanceDataGridIntern.ClearSelection();
+                    acceptanceDataGridIntern.AutoResizeColumns();
+
+                    acceptanceDataGridIntern.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    acceptanceDataGridIntern.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    acceptanceDataGridIntern.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
                     break;
                 default:
                     break;
@@ -396,27 +405,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
 
         // ============================== EVENTS ==============================
-        private void btnTestReport_Click(object sender, EventArgs e)
-        {
-            ReportViewer rv = new ReportViewer("Acceptance_Letter");
-            rv.ShowDialog();
-        }
-
-        private void buttonInternReport_Click(object sender, EventArgs e)
-        {
-            ReportViewer rv = new ReportViewer("Intern");
-            rv.ShowDialog();
-        }
-
-        private void buttonInternFiltered_Click(object sender, EventArgs e)
-        {
-            //ReportViewer rv = new ReportViewer();
-            //rv.viewInternGender();
-            //rv.ShowDialog();
-            Report_Filter rf = new Report_Filter();
-            rf.ShowDialog();
-        }
-
         private void Main_Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.WindowsShutDown)
@@ -549,7 +537,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
         }
 
+
+
         // -------------------- End Report Panel Intern Report Events --------------------
+
+        // -------------------- Report Panel Acceptance Letter Events --------------------
+
+        private void acceptanceDataGridIntern_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ReportViewer rv = new ReportViewer();
+            rv.viewAcceptanceLetter(acceptanceDataGridIntern.CurrentRow.Cells[0].Value.ToString());
+            rv.ShowDialog();
+        }
+
+        // -------------------- End Report Panel Acceptance Letter Events --------------------
 
         // ============================== END EVENTS ==============================
 

@@ -72,5 +72,13 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 "INNER JOIN University ON Coordinator_Info.University_ID = University.University_ID " +
                 "WHERE Coordinator_Info.University_ID = '"+id+"'");
         }
+
+        public static DataTable reportAcceptanceDataGrid()
+        {
+            return dataTable("SELECT DISTINCT " +
+                "OJT_Number AS 'OJT Number', " +
+                "CONCAT(First_Name, ' ' , Middle_Initial, '. ', Last_Name) AS 'Intern' " +
+                "FROM Intern_Info ");
+        }
     }
 }

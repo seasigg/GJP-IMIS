@@ -108,5 +108,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
+
     }
 }
