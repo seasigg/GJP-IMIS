@@ -96,5 +96,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
             }
             this.Dispose();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
