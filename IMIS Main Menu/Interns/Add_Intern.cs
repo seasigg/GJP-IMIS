@@ -81,15 +81,24 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             string startDate = dateTimeStartDate.Value.ToShortDateString();
             string targetDate = dateTimeTargetDate.Value.ToShortDateString();
 
+            
+            Add_Intern_Details aid = new Add_Intern_Details(ojtID, firstName, middleInit, lastName,
+                gender, univID, courseID, coordID, officeID, targetHours, startDate, targetDate,
+                getUnivName(), getCourseName(), getCoordName(), getOfficeName(),
+                pictureFile);
+            aid.ShowDialog();
+            
+            
+            /*
             string dg = "OJT Number: " + ojtID
                 + "\nFirst Name: " + firstName
                 + "\nMiddle Initial: " + middleInit
                 + "\nLast Name: " + lastName
                 + "\nGender: " + gender
-                + "\nCourse: " + this.comboCourse.GetItemText(this.comboCourse.SelectedItem)
-                + "\nUniversity: " + this.comboUniversity.GetItemText(this.comboUniversity.SelectedItem)
-                + "\nCoordinator: " + this.comboOJTCoordinator.GetItemText(this.comboOJTCoordinator.SelectedItem)
-                + "\nOffice Deployed: " + this.comboOfficeDeployed.GetItemText(this.comboOfficeDeployed.SelectedItem);
+                + "\nCourse: " + getCourseName()
+                + "\nUniversity: " + getUnivName()
+                + "\nCoordinator: " + getCoordName()
+                + "\nOffice Deployed: " + getOfficeName();
 
             DialogResult dr = MessageBox.Show("Add the following details to the database?\n" + dg, "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(dr == DialogResult.Yes)
@@ -100,8 +109,25 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 MessageBox.Show("Intern Successfully Registered on the Databse", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 clearEntry();
             }
+            */
         }
 
+        public string getCourseName()
+        {
+            return this.comboCourse.GetItemText(this.comboCourse.SelectedItem);
+        }
+        public string getUnivName()
+        {
+            return this.comboUniversity.GetItemText(this.comboUniversity.SelectedItem);
+        }
+        public string getCoordName()
+        {
+            return this.comboOJTCoordinator.GetItemText(this.comboOJTCoordinator.SelectedItem);
+        }
+        public string getOfficeName()
+        {
+            return this.comboOfficeDeployed.GetItemText(this.comboOfficeDeployed.SelectedItem);
+        }
         private string getGender()
         {
             string gender = null;
