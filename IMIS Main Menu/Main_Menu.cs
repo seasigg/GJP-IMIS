@@ -478,7 +478,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void internCheckCourse_CheckedChanged(object sender, EventArgs e)
         {
-            if(internCheckOffice.Checked)
+            if(internCheckCourse.Checked)
             {
                 internComboCourse.Enabled = true;
                 internComboCourse.SelectedIndex = 0;
