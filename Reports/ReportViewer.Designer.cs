@@ -52,6 +52,7 @@ namespace GJP_IMIS.Reports
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ReportViewer";
             this.Text = "ReportViewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReportViewer_FormClosing);
             this.ResumeLayout(false);
 
         }

@@ -43,34 +43,41 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             main_menu_welcome_panel.BringToFront();
 
-            // loads the university data grid view
-            universityData();
-
-            // loads the addresse data grid view
+            universityDataGrid();
             coordinatorUniversityCombo();
-
         }
 
-        /* --------------------INTERN PANEL---------------------  */
+
+
+        // ============================== INTERN PANEL ==============================
         public void btn_interns_panel_Click(object sender, EventArgs e)
         {
+            // Intern Panel Selection
             main_menu_interns_panel.BringToFront();
-
-            //intern button select
             internSelect();
 
-            //Intern List
+            //Intern Data Grid Query and Resize
             internDataGrid();
-            
-            // loads the university data grid view
-            //universityData();
-
-            // loads the addresse data grid view
-            //coordComboData();
-
-            // intern datagridview resize column header
             setInternDataGridHeaderSize();
+        }
 
+        public void internRefreshTable()
+        {
+            internDataGrid();
+        }
+
+        // Add Intern Button
+        private void main_menu_interns_btn_newintern_Click(object sender, EventArgs e)
+        {
+            Add_Intern ai = new Add_Intern(this);
+            ai.ShowDialog();
+        }
+
+        public void internDataGrid()
+        {
+            dataGridIntern.DataSource = menuQueries.viewInternPlain();
+            dataGridIntern.ClearSelection();
+            dataGridIntern.AutoResizeColumns();
         }
 
         private void setInternDataGridHeaderSize()
@@ -90,23 +97,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 Classes.setDataGridRowHeight(i, 50, dataGridIntern);
         }
 
-        public void internRefreshTable()
+        // ============================== END INTERN PANEL ==============================
+
+
+
+        // ============================== COORDINATOR PANEL ==============================
+        private void btn_addresse_panel_Click(object sender, EventArgs e)
         {
-            internDataGrid();
+            // Coordinator Panel Selection
+            main_menu_addresse_panel.BringToFront();
+            coordinatorSelect();
+
+            //University Combobox [Filter]
+            coordinatorUniversityCombo();
+
+            //Coordinator DataGrid Query
+            coordinatorDataGrid();
+
         }
-
-        // ADD NEW INTERN BUTTON
-        private void main_menu_interns_btn_newintern_Click(object sender, EventArgs e)
-        {
-            Add_Intern ai = new Add_Intern(this);
-            ai.ShowDialog();
-        }
-
-        /*
-         * COORDINATOR PANEL
-         */
-
-        // main_menu_univ_dataGridView
+        
         public void coordinatorUniversityCombo()
         {       
             coordComboUniversity.DataSource = InternQueries.getUniversities();
@@ -120,24 +129,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridUnfiltered();
             main_menu_addresse_addresse_DataGrid.ClearSelection();
             main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
-            main_menu_addresse_addresse_DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+
+            main_menu_addresse_addresse_DataGrid.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            main_menu_addresse_addresse_DataGrid.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            main_menu_addresse_addresse_DataGrid.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            main_menu_addresse_addresse_DataGrid.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            main_menu_addresse_addresse_DataGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            main_menu_addresse_addresse_DataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
 
-        private void btn_addresse_panel_Click(object sender, EventArgs e)
-        {
-            main_menu_addresse_panel.BringToFront();
-
-            // coordinator button select
-            coordinatorSelect();
-            // loads the university data grid view
-            //universityData();
-
-            // loads the addresse data grid view
-            coordinatorUniversityCombo();
-            coordinatorDataGrid();
-
-        }
+        
         private void coordinatorDataGridFiltered(int id)
         {
             main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridFiltered(id);
@@ -153,32 +155,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // CLEAR SELECTION OF ADDRESSE
         private void main_menu_addresse_btn_clearSelection_Click(object sender, EventArgs e)
         {
-            // loads the university data grid view
-            //universityData();
-
-            // loads the addresse data grid view
             coordinatorUniversityCombo();
             coordinatorDataGrid();
         }
 
-        /*
-         * UNIVERSITIES PANEL
-         */
+        // ============================== END COORDINATOR PANEL ==============================
+
+
+
+        // ============================== UNIVERSITY PANEL ==============================
         public void btn_univ_panel_Click(object sender, EventArgs e)
         {
+            // University Panel Selection
             main_menu_univ_panel.BringToFront();
-
-            // university button select
             universitySelect();
-
-            // loads the university data grid view
-            //universityData();
-
-            // loads the addresse data grid view
-            //coordComboData();
         }
         
-        public void universityData()
+        public void universityDataGrid()
         {
             main_menu_univ_dataGridView.DataSource = menuQueries.universityDataGrid();
             main_menu_univ_dataGridView.AutoResizeColumns();
@@ -197,23 +190,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         }
 
-        public void internDataGrid()
-        {
-            dataGridIntern.DataSource = menuQueries.viewInternPlain();
-            dataGridIntern.ClearSelection();
-            dataGridIntern.AutoResizeColumns();
-        }
-
-        // ADD NEW UNIVERSITY BUTTON
+        // ADD UNIVERSITY BUTTON
         private void main_menu_interns_btn_newUniv_Click(object sender, EventArgs e)
         {
             Add_University au = new Add_University(this);
             au.ShowDialog();
         }
 
-        /*
-         * REPORTS PANEL
-         */
+        // ============================== END UNIVERSITY PANEL ==============================
+
+
+
+        // ============================== REPORTS PANEL ==============================
         private void btn_reports_panel_Click(object sender, EventArgs e)
         {
             main_menu_reports_panel.BringToFront();
@@ -221,15 +209,22 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // reports button select
             reportSelect();
         }
+        // ============================== END REPORTS PANEL ==============================
 
+
+
+        // ============================== LOGOUT PANEL ==============================
         private void btn_logout_panel_Click(object sender, EventArgs e)
         {
             IMIS wf = new IMIS();
             wf.Show();
             this.Dispose();
         }
+        // ============================== END LOGOUT PANEL ==============================
 
-        // intern button select color
+
+
+        // ============================== PANEL SELECTION METHODS ==============================
         private void internSelect()
         {
             btn_interns_panel.BackColor = selectBackColor;
@@ -292,7 +287,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             btn_reports_panel.BackColor = selectBackColor;
             btn_reports_panel.ForeColor = selectForeColor;
         }
+        // ============================== END PANEL SELECTION METHODS ==============================
 
+
+
+        // ============================== EVENTS ==============================
         private void btnTestReport_Click(object sender, EventArgs e)
         {
             ReportViewer rv = new ReportViewer("Acceptance_Letter");
@@ -338,5 +337,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 coordinatorDataGridFiltered(coordUnivFilter);
             }
         }
+        // ============================== END EVENTS ==============================
     }
 }

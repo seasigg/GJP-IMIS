@@ -63,6 +63,7 @@ namespace GJP_IMIS.Reports
             if (checkBoxGender.Checked) {
                 radioMale.Enabled = true;
                 radioFemale.Enabled = true;
+                radioMale.Checked = true;
             } else
             {
                 radioMale.Enabled = false;
@@ -77,8 +78,7 @@ namespace GJP_IMIS.Reports
             if (checkBoxUniv.Checked)
             {
                 comboUniversity.Enabled = true;
-
-                
+                comboUniversity.SelectedIndex = 0;
             }
             else
             {
@@ -92,6 +92,7 @@ namespace GJP_IMIS.Reports
             if (checkBoxOffice.Checked)
             {
                 comboOffice.Enabled = true;
+                comboOffice.SelectedIndex = 0;
             }
             else
             {
@@ -106,6 +107,7 @@ namespace GJP_IMIS.Reports
             if (checkBoxCourse.Checked)
             {
                 comboCourse.Enabled = true;
+                comboCourse.SelectedIndex = 0;
             }
             else
             {
@@ -190,12 +192,11 @@ namespace GJP_IMIS.Reports
                 rv.viewInternReport(query1);
                 rv.ShowDialog();
             }
-
-
-            //ReportViewer rv = new ReportViewer();
-            //rv.viewInternGender();
-            //rv.ShowDialog();
         }
 
+        private void Report_Filter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

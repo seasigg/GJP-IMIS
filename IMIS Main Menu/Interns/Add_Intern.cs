@@ -38,7 +38,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         private void Add_Intern_Load(object sender, EventArgs e)
         {
             clearEntry();
-            lblCoordinatorError.Text = "* Select a University First";
+            /*lblCoordinatorError.Text = "* Select a University First";*/
 
             // one character only in middle initial
             txtMiddleInitial.MaxLength = 1;
@@ -59,10 +59,9 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 }
                 else
                     addIntern();
-                    
             }
             else
-                MessageBox.Show("Bawal pa");
+                MessageBox.Show("Please fill up all necessary fields before proceding.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
                 
         }
@@ -161,10 +160,11 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         public void clearEntry()
         {
+            clearCoordinatorCombo();
             clearUniversityCombo();
             clearCourseCombo();
             clearOfficeCombo();
-            clearCoordinatorCombo();
+            
 
             Classes.clearTextBox(this.Controls);
 
@@ -179,7 +179,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboCourse.DataSource = InternQueries.getCourses();
             comboCourse.DisplayMember = "Course_Name";
             comboCourse.ValueMember = "Course_ID";
-            comboCourse.SelectedIndex = -1;
+            comboCourse.SelectedIndex = 0;
         }
 
         public void clearOfficeCombo()
@@ -187,7 +187,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboOfficeDeployed.DataSource = InternQueries.getOffices();
             comboOfficeDeployed.DisplayMember = "Office_Name";
             comboOfficeDeployed.ValueMember = "Office_ID";
-            comboOfficeDeployed.SelectedIndex = -1;
+            comboOfficeDeployed.SelectedIndex = 0;
         }
 
         public void clearUniversityCombo()
@@ -195,7 +195,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboUniversity.DataSource = InternQueries.getUniversities();
             comboUniversity.DisplayMember = "University_Name";
             comboUniversity.ValueMember = "University_ID";
-            comboUniversity.SelectedIndex = -1;
+            comboUniversity.SelectedIndex = 0;
         }
 
         public void clearCoordinatorCombo()
@@ -270,10 +270,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private void comboUniversity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*if (comboUniversity.SelectedIndex != -1)
+            if (comboUniversity.SelectedIndex != -1)
             {
-                fillCoordinatorCombo();
-            }*/
+                MessageBox.Show(comboUniversity.SelectedValue.ToString());
+            }
         }
 
         private void btnUploadPicture_Click(object sender, EventArgs e)

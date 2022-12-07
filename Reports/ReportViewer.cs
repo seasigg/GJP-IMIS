@@ -132,5 +132,10 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.ReportSource = ri;
             crystalReportViewer1.Refresh();
         }
+
+        private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

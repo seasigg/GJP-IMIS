@@ -130,11 +130,11 @@ namespace GJP_IMIS.Reports
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(669, 388);
+            this.btnSubmit.Location = new System.Drawing.Point(628, 388);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(116, 23);
             this.btnSubmit.TabIndex = 34;
-            this.btnSubmit.Text = "SUBMIT";
+            this.btnSubmit.Text = "Generate Report";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
@@ -176,8 +176,11 @@ namespace GJP_IMIS.Reports
             this.Controls.Add(this.radioMale);
             this.Controls.Add(this.checkBoxGender);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Report_Filter";
-            this.Text = "Report_Filter";
+            this.Text = "Intern Report Filter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Report_Filter_FormClosing);
             this.Load += new System.EventHandler(this.Report_Filter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

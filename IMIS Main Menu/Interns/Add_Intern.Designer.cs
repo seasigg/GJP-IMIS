@@ -412,10 +412,25 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             // 
             this.numericTargetHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericTargetHours.Location = new System.Drawing.Point(26, 132);
+            this.numericTargetHours.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericTargetHours.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericTargetHours.Name = "numericTargetHours";
             this.numericTargetHours.Size = new System.Drawing.Size(120, 26);
             this.numericTargetHours.TabIndex = 14;
             this.numericTargetHours.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericTargetHours.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // btnAddOffice
             // 
