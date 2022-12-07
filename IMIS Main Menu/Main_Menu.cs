@@ -205,10 +205,83 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btn_reports_panel_Click(object sender, EventArgs e)
         {
             main_menu_reports_panel.BringToFront();
-
+            reports_default_panel.BringToFront();
+            reportsSelection("");
             // reports button select
             reportSelect();
         }
+        // INTERN REPORTS BUTTON
+        private void reports_btn_intern_Click(object sender, EventArgs e)
+        {
+            reportsSelection("intern");
+        }
+        // DTR BUTTON
+        private void reports_btn_dtr_Click(object sender, EventArgs e)
+        {
+            reportsSelection("dtr");
+        }
+        // STATUS BUTTON
+        private void reports_btn_stats_Click(object sender, EventArgs e)
+        {
+            reportsSelection("status");
+        }
+        // CERTIFICATE BUTTON
+        private void reports_btn_cert_Click(object sender, EventArgs e)
+        {
+            reportsSelection("certificate");
+        }
+        // ACCEPTANCE BUTTON
+        private void reports_btn_accept_Click(object sender, EventArgs e)
+        {
+            reportsSelection("acceptance");
+        }
+
+        private void reportsSelection(string b)
+        {
+            reports_btn_intern.BackColor = deSelectBackColor;
+            reports_btn_dtr.BackColor = deSelectBackColor;
+            reports_btn_stats.BackColor = deSelectBackColor;
+            reports_btn_cert.BackColor = deSelectBackColor;
+            reports_btn_accept.BackColor = deSelectBackColor;
+
+            reports_btn_intern.ForeColor = deSelectForeColor;
+            reports_btn_dtr.ForeColor = deSelectForeColor;
+            reports_btn_stats.ForeColor = deSelectForeColor;
+            reports_btn_cert.ForeColor = deSelectForeColor;
+            reports_btn_accept.ForeColor = deSelectForeColor;
+
+            switch (b)
+            {
+                case "intern":
+                    reports_btn_intern.BackColor = selectBackColor;
+                    reports_btn_intern.ForeColor = selectForeColor;
+                    reports_intern_report_panel.BringToFront();
+                    break;
+                case "dtr":
+                    reports_btn_dtr.BackColor = selectBackColor;
+                    reports_btn_dtr.ForeColor = selectForeColor;
+                    reports_dtr_panel.BringToFront();
+                    break;
+                case "status":
+                    reports_btn_stats.BackColor = selectBackColor;
+                    reports_btn_stats.ForeColor = selectForeColor;
+                    reports_status_panel.BringToFront();
+                    break;
+                case "certificate":
+                    reports_btn_cert.BackColor = selectBackColor;
+                    reports_btn_cert.ForeColor = selectForeColor;
+                    reports_certificate_panel.BringToFront();
+                    break;
+                case "acceptance":
+                    reports_btn_accept.BackColor = selectBackColor;
+                    reports_btn_accept.ForeColor = selectForeColor;
+                    reports_acceptance_panel.BringToFront();
+                    break;
+                default:
+                    break;
+            }
+        }
+
         // ============================== END REPORTS PANEL ==============================
 
 
@@ -337,6 +410,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 coordinatorDataGridFiltered(coordUnivFilter);
             }
         }
+
         // ============================== END EVENTS ==============================
     }
 }

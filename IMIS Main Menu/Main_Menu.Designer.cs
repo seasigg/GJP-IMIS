@@ -68,8 +68,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.buttonInternFiltered = new System.Windows.Forms.Button();
             this.buttonInternReport = new System.Windows.Forms.Button();
             this.btnTestReport = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.reports_btn_intern = new System.Windows.Forms.Button();
+            this.reports_btn_dtr = new System.Windows.Forms.Button();
+            this.reports_btn_stats = new System.Windows.Forms.Button();
+            this.reports_btn_cert = new System.Windows.Forms.Button();
+            this.reports_btn_accept = new System.Windows.Forms.Button();
+            this.reports_intern_report_panel = new System.Windows.Forms.Panel();
+            this.reports_dtr_panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.reports_status_panel = new System.Windows.Forms.Panel();
+            this.txtstats = new System.Windows.Forms.Label();
+            this.reports_certificate_panel = new System.Windows.Forms.Panel();
+            this.txtcert = new System.Windows.Forms.Label();
+            this.reports_acceptance_panel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.reports_default_panel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -81,6 +96,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).BeginInit();
             this.main_menu_reports_panel.SuspendLayout();
+            this.reports_intern_report_panel.SuspendLayout();
+            this.reports_dtr_panel.SuspendLayout();
+            this.reports_status_panel.SuspendLayout();
+            this.reports_certificate_panel.SuspendLayout();
+            this.reports_acceptance_panel.SuspendLayout();
+            this.reports_default_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_menu_panel_selectors
@@ -485,11 +506,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_reports_panel
             // 
             this.main_menu_reports_panel.BackColor = System.Drawing.Color.White;
-            this.main_menu_reports_panel.Controls.Add(this.buttonInternFiltered);
-            this.main_menu_reports_panel.Controls.Add(this.buttonInternReport);
-            this.main_menu_reports_panel.Controls.Add(this.btnTestReport);
-            this.main_menu_reports_panel.Controls.Add(this.label9);
-            this.main_menu_reports_panel.Controls.Add(this.label3);
+            this.main_menu_reports_panel.Controls.Add(this.reports_btn_accept);
+            this.main_menu_reports_panel.Controls.Add(this.reports_btn_cert);
+            this.main_menu_reports_panel.Controls.Add(this.reports_btn_stats);
+            this.main_menu_reports_panel.Controls.Add(this.reports_btn_dtr);
+            this.main_menu_reports_panel.Controls.Add(this.reports_btn_intern);
+            this.main_menu_reports_panel.Controls.Add(this.reports_intern_report_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_dtr_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_certificate_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_status_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_acceptance_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_default_panel);
             this.main_menu_reports_panel.Location = new System.Drawing.Point(191, 3);
             this.main_menu_reports_panel.Name = "main_menu_reports_panel";
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1367, 788);
@@ -497,7 +524,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // buttonInternFiltered
             // 
-            this.buttonInternFiltered.Location = new System.Drawing.Point(238, 428);
+            this.buttonInternFiltered.Location = new System.Drawing.Point(1054, 220);
             this.buttonInternFiltered.Name = "buttonInternFiltered";
             this.buttonInternFiltered.Size = new System.Drawing.Size(136, 24);
             this.buttonInternFiltered.TabIndex = 4;
@@ -507,7 +534,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // buttonInternReport
             // 
-            this.buttonInternReport.Location = new System.Drawing.Point(212, 301);
+            this.buttonInternReport.Location = new System.Drawing.Point(941, 68);
             this.buttonInternReport.Name = "buttonInternReport";
             this.buttonInternReport.Size = new System.Drawing.Size(75, 23);
             this.buttonInternReport.TabIndex = 3;
@@ -517,7 +544,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // btnTestReport
             // 
-            this.btnTestReport.Location = new System.Drawing.Point(208, 149);
+            this.btnTestReport.Location = new System.Drawing.Point(362, 68);
             this.btnTestReport.Name = "btnTestReport";
             this.btnTestReport.Size = new System.Drawing.Size(75, 23);
             this.btnTestReport.TabIndex = 2;
@@ -525,25 +552,186 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btnTestReport.UseVisualStyleBackColor = true;
             this.btnTestReport.Click += new System.EventHandler(this.btnTestReport_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(550, 388);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(307, 46);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "COMING SOON";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(574, 60);
+            this.label3.Location = new System.Drawing.Point(489, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 46);
+            this.label3.Size = new System.Drawing.Size(371, 46);
             this.label3.TabIndex = 0;
-            this.label3.Text = "REPORTS";
+            this.label3.Text = "INTERN REPORTS";
+            // 
+            // reports_btn_intern
+            // 
+            this.reports_btn_intern.FlatAppearance.BorderSize = 0;
+            this.reports_btn_intern.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_intern.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_intern.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_intern.Location = new System.Drawing.Point(14, 17);
+            this.reports_btn_intern.Name = "reports_btn_intern";
+            this.reports_btn_intern.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_intern.TabIndex = 13;
+            this.reports_btn_intern.Text = "INTERN REPORTS";
+            this.reports_btn_intern.UseVisualStyleBackColor = true;
+            this.reports_btn_intern.Click += new System.EventHandler(this.reports_btn_intern_Click);
+            // 
+            // reports_btn_dtr
+            // 
+            this.reports_btn_dtr.FlatAppearance.BorderSize = 0;
+            this.reports_btn_dtr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_dtr.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_dtr.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_dtr.Location = new System.Drawing.Point(205, 17);
+            this.reports_btn_dtr.Name = "reports_btn_dtr";
+            this.reports_btn_dtr.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_dtr.TabIndex = 14;
+            this.reports_btn_dtr.Text = "DTR";
+            this.reports_btn_dtr.UseVisualStyleBackColor = true;
+            this.reports_btn_dtr.Click += new System.EventHandler(this.reports_btn_dtr_Click);
+            // 
+            // reports_btn_stats
+            // 
+            this.reports_btn_stats.FlatAppearance.BorderSize = 0;
+            this.reports_btn_stats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_stats.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_stats.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_stats.Location = new System.Drawing.Point(396, 17);
+            this.reports_btn_stats.Name = "reports_btn_stats";
+            this.reports_btn_stats.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_stats.TabIndex = 15;
+            this.reports_btn_stats.Text = "STATUS";
+            this.reports_btn_stats.UseVisualStyleBackColor = true;
+            this.reports_btn_stats.Click += new System.EventHandler(this.reports_btn_stats_Click);
+            // 
+            // reports_btn_cert
+            // 
+            this.reports_btn_cert.FlatAppearance.BorderSize = 0;
+            this.reports_btn_cert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_cert.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_cert.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_cert.Location = new System.Drawing.Point(587, 17);
+            this.reports_btn_cert.Name = "reports_btn_cert";
+            this.reports_btn_cert.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_cert.TabIndex = 16;
+            this.reports_btn_cert.Text = "CERTIFICATE";
+            this.reports_btn_cert.UseVisualStyleBackColor = true;
+            this.reports_btn_cert.Click += new System.EventHandler(this.reports_btn_cert_Click);
+            // 
+            // reports_btn_accept
+            // 
+            this.reports_btn_accept.FlatAppearance.BorderSize = 0;
+            this.reports_btn_accept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reports_btn_accept.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reports_btn_accept.ForeColor = System.Drawing.Color.Black;
+            this.reports_btn_accept.Location = new System.Drawing.Point(778, 17);
+            this.reports_btn_accept.Name = "reports_btn_accept";
+            this.reports_btn_accept.Size = new System.Drawing.Size(185, 37);
+            this.reports_btn_accept.TabIndex = 17;
+            this.reports_btn_accept.Text = "ACCEPTANCE";
+            this.reports_btn_accept.UseVisualStyleBackColor = true;
+            this.reports_btn_accept.Click += new System.EventHandler(this.reports_btn_accept_Click);
+            // 
+            // reports_intern_report_panel
+            // 
+            this.reports_intern_report_panel.Controls.Add(this.buttonInternFiltered);
+            this.reports_intern_report_panel.Controls.Add(this.label3);
+            this.reports_intern_report_panel.Controls.Add(this.btnTestReport);
+            this.reports_intern_report_panel.Controls.Add(this.buttonInternReport);
+            this.reports_intern_report_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_intern_report_panel.Name = "reports_intern_report_panel";
+            this.reports_intern_report_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_intern_report_panel.TabIndex = 18;
+            // 
+            // reports_dtr_panel
+            // 
+            this.reports_dtr_panel.Controls.Add(this.label1);
+            this.reports_dtr_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_dtr_panel.Name = "reports_dtr_panel";
+            this.reports_dtr_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_dtr_panel.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(642, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 46);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "DTR";
+            // 
+            // reports_status_panel
+            // 
+            this.reports_status_panel.Controls.Add(this.txtstats);
+            this.reports_status_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_status_panel.Name = "reports_status_panel";
+            this.reports_status_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_status_panel.TabIndex = 2;
+            // 
+            // txtstats
+            // 
+            this.txtstats.AutoSize = true;
+            this.txtstats.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtstats.Location = new System.Drawing.Point(574, 61);
+            this.txtstats.Name = "txtstats";
+            this.txtstats.Size = new System.Drawing.Size(178, 46);
+            this.txtstats.TabIndex = 1;
+            this.txtstats.Text = "STATUS";
+            // 
+            // reports_certificate_panel
+            // 
+            this.reports_certificate_panel.Controls.Add(this.txtcert);
+            this.reports_certificate_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_certificate_panel.Name = "reports_certificate_panel";
+            this.reports_certificate_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_certificate_panel.TabIndex = 2;
+            // 
+            // txtcert
+            // 
+            this.txtcert.AutoSize = true;
+            this.txtcert.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcert.Location = new System.Drawing.Point(489, 68);
+            this.txtcert.Name = "txtcert";
+            this.txtcert.Size = new System.Drawing.Size(292, 46);
+            this.txtcert.TabIndex = 1;
+            this.txtcert.Text = "CERTIFICATE";
+            // 
+            // reports_acceptance_panel
+            // 
+            this.reports_acceptance_panel.Controls.Add(this.label4);
+            this.reports_acceptance_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_acceptance_panel.Name = "reports_acceptance_panel";
+            this.reports_acceptance_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_acceptance_panel.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(489, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(290, 46);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "ACCEPTANCE";
+            // 
+            // reports_default_panel
+            // 
+            this.reports_default_panel.Controls.Add(this.label9);
+            this.reports_default_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_default_panel.Name = "reports_default_panel";
+            this.reports_default_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_default_panel.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(354, 275);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(624, 46);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "REPORTS WELCOME MESSAGE";
             // 
             // Main_Menu
             // 
@@ -580,7 +768,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).EndInit();
             this.main_menu_reports_panel.ResumeLayout(false);
-            this.main_menu_reports_panel.PerformLayout();
+            this.reports_intern_report_panel.ResumeLayout(false);
+            this.reports_intern_report_panel.PerformLayout();
+            this.reports_dtr_panel.ResumeLayout(false);
+            this.reports_dtr_panel.PerformLayout();
+            this.reports_status_panel.ResumeLayout(false);
+            this.reports_status_panel.PerformLayout();
+            this.reports_certificate_panel.ResumeLayout(false);
+            this.reports_certificate_panel.PerformLayout();
+            this.reports_acceptance_panel.ResumeLayout(false);
+            this.reports_acceptance_panel.PerformLayout();
+            this.reports_default_panel.ResumeLayout(false);
+            this.reports_default_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -609,7 +808,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button main_menu_addresse_btn_newaddresse;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btn_logout_panel;
         private System.Windows.Forms.TextBox main_menu_addresse_search_addresse;
         private System.Windows.Forms.DataGridView main_menu_addresse_addresse_DataGrid;
@@ -622,5 +820,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Button btnTestReport;
         private System.Windows.Forms.Button buttonInternReport;
         private System.Windows.Forms.Button buttonInternFiltered;
+        private System.Windows.Forms.Button reports_btn_accept;
+        private System.Windows.Forms.Button reports_btn_cert;
+        private System.Windows.Forms.Button reports_btn_stats;
+        private System.Windows.Forms.Button reports_btn_dtr;
+        private System.Windows.Forms.Button reports_btn_intern;
+        private System.Windows.Forms.Panel reports_certificate_panel;
+        private System.Windows.Forms.Label txtcert;
+        private System.Windows.Forms.Panel reports_status_panel;
+        private System.Windows.Forms.Label txtstats;
+        private System.Windows.Forms.Panel reports_acceptance_panel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel reports_intern_report_panel;
+        private System.Windows.Forms.Panel reports_dtr_panel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel reports_default_panel;
+        private System.Windows.Forms.Label label9;
     }
 }
