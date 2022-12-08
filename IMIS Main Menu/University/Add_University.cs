@@ -52,7 +52,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
 
             if(fromAddIntern == true)
             {
-                ai.clearUniversityCombo();
+                ai.fillUniversityCombo();
             }
             this.Dispose();
         }
@@ -92,7 +92,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
         {
             if(fromAddIntern == true)
             {
-                ai.clearUniversityCombo();
+                ai.fillUniversityCombo();
             }
             if(fromMainMenu == true)
             {

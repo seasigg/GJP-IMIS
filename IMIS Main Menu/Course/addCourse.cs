@@ -76,7 +76,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
  
             if(fromAddIntern == true)
             {
-                ai.clearCourseCombo();
+                ai.fillCourseCombo();
             }
                 
             this.Dispose();

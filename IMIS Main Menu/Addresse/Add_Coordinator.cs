@@ -82,7 +82,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
             }
             if(fromAddIntern == true)
             {
-                ai.clearCoordinatorCombo();
+                ai.fillCoordinatorCombo();
             }
             this.Dispose();
         }
@@ -183,7 +183,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         private void Add_Coordinator_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (fromAddIntern == true)
-                ai.clearCoordinatorCombo();
+                ai.fillCoordinatorCombo();
             if (fromMainMenu == true)
             {
 

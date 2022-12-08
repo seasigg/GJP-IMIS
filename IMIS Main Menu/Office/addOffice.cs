@@ -81,7 +81,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
 
             if(fromAddIntern == true)
             {
-                ai.clearOfficeCombo();
+                ai.fillOfficeCombo();
             }
             this.Dispose();
         }
@@ -89,7 +89,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
         private void addOffice_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (fromAddIntern == true)
-                ai.clearOfficeCombo();
+                ai.fillOfficeCombo();
             if (fromMainMenu == true)
             {
 

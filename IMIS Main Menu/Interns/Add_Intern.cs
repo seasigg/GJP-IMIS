@@ -37,10 +37,12 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         private void Add_Intern_Load(object sender, EventArgs e)
         {
+            fillUniversityCombo();
+            fillCourseCombo();
+            fillOfficeCombo();
             clearEntry();
-            /*lblCoordinatorError.Text = "* Select a University First";*/
 
-            // one character only in middle initial
+
             txtMiddleInitial.MaxLength = 1;
         }
 
@@ -186,10 +188,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         public void clearEntry()
         {
-            clearCoordinatorCombo();
             clearUniversityCombo();
             clearCourseCombo();
             clearOfficeCombo();
+            fillCoordinatorCombo();
             
 
             Classes.clearTextBox(this.Controls);
@@ -202,13 +204,63 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         public void clearCourseCombo()
         {
+            comboCourse.SelectedIndex = 0;
+        }
+
+        public void clearOfficeCombo()
+        {
+            comboOfficeDeployed.SelectedIndex = 0;
+        }
+
+        public void clearUniversityCombo()
+        {
+            comboUniversity.SelectedIndex = 0;
+        }
+
+        public void fillUniversityCombo()
+        {
+            comboUniversity.ValueMember = "University_ID";
+            comboUniversity.DisplayMember = "University_Name";
+            comboUniversity.DataSource = InternQueries.getUniversities();
+            comboUniversity.SelectedIndex = 0;
+        }
+        
+        public void fillCourseCombo()
+        {
             comboCourse.DataSource = InternQueries.getCourses();
             comboCourse.DisplayMember = "Course_Name";
             comboCourse.ValueMember = "Course_ID";
             comboCourse.SelectedIndex = 0;
         }
 
-        public void clearOfficeCombo()
+        public void fillCoordinatorCombo()
+        {
+            int comboValue = Convert.ToInt32(comboUniversity.SelectedValue.ToString());
+            DataTable dt = InternQueries.checkCoordinator(comboValue);
+
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    comboOJTCoordinator.Enabled = true;
+                    comboOJTCoordinator.DataSource = dt;
+                    comboOJTCoordinator.DisplayMember = "FullName";
+                    comboOJTCoordinator.ValueMember = "Coordinator_ID";
+
+                    lblCoordinatorError.Text = null;
+                }
+                else
+                {
+                    comboOJTCoordinator.Enabled = false;
+                    comboOJTCoordinator.DataSource = null;
+                    comboOJTCoordinator.Items.Clear();
+
+                    lblCoordinatorError.Text = "* No Coordinator within selected university";
+                }
+            }
+        }
+
+        public void fillOfficeCombo()
         {
             comboOfficeDeployed.DataSource = InternQueries.getOffices();
             comboOfficeDeployed.DisplayMember = "Office_Name";
@@ -216,31 +268,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboOfficeDeployed.SelectedIndex = 0;
         }
 
-        public void clearUniversityCombo()
-        {
-            comboUniversity.DataSource = InternQueries.getUniversities();
-            comboUniversity.DisplayMember = "University_Name";
-            comboUniversity.ValueMember = "University_ID";
-            comboUniversity.SelectedIndex = 0;
-        }
 
-        public void clearCoordinatorCombo()
-        {
-            comboOJTCoordinator.DataSource = null;
-            comboOJTCoordinator.SelectedIndex = -1;
-            comboOJTCoordinator.Enabled = false;
-
-            if(comboUniversity.SelectedIndex != -1)
-            {
-                lblCoordinatorError.Text = null;
-                fillCoordinatorCombo();
-            }
-            else
-            {
-                lblCoordinatorError.Text = "* Select a university first";
-            }
-            
-        }
 
  
 
@@ -290,7 +318,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             if (comboUniversity.SelectedIndex != -1)
             {
-                fillCoordinatorCombo();
+                
             }
         }
 
@@ -298,7 +326,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         {
             if (comboUniversity.SelectedIndex != -1)
             {
-                MessageBox.Show(comboUniversity.SelectedValue.ToString());
+                fillCoordinatorCombo();
             }
         }
 
@@ -314,32 +342,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             }
         }
 
-        private void fillCoordinatorCombo()
-        {
-            int comboValue = Convert.ToInt32(comboUniversity.SelectedValue.ToString());
-            DataTable dt = InternQueries.checkCoordinator(comboValue);
-
-            if (dt != null)
-            {
-                if (dt.Rows.Count > 0)
-                {
-                    comboOJTCoordinator.Enabled = true;
-                    comboOJTCoordinator.DataSource = dt;
-                    comboOJTCoordinator.DisplayMember = "FullName";
-                    comboOJTCoordinator.ValueMember = "Coordinator_ID";
-
-                    lblCoordinatorError.Text = null;
-                }
-                else
-                {
-                    comboOJTCoordinator.Enabled = false;
-                    comboOJTCoordinator.DataSource = null;
-                    comboOJTCoordinator.Items.Clear();
-
-                    lblCoordinatorError.Text = "* No Coordinator within selected university";
-                }
-            }
-        }
+        
 
         private void btnClearPicture_Click(object sender, EventArgs e)
         {
