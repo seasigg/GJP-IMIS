@@ -78,7 +78,8 @@ namespace GJP_IMIS.IMIS_Main_Menu.Addresse
         {
             if(fromMainMenu == true)
             {
-
+                mainMenu.coordinatorUniversityCombo();
+                mainMenu.coordinatorDataGrid();
             }
             if(fromAddIntern == true)
             {

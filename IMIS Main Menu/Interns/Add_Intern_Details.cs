@@ -21,6 +21,14 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
         string ojtId, fName, midInit, lName, g, uId,
             courseId, coordId, offId, tHours, sDate,
             tDate,pic;
+
+
+
+        private void Add_Intern_Details_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public Add_Intern_Details(string ojtId, string fName, string midInit, string lName, string g, string uId,
             string courseId, string coordId, string offId, string tHours, string sDate, string tDate,
             string univName, string courseName, string coordName, string officeName, // DISPLAY ONLY
@@ -54,7 +62,10 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             this.sDate = sDate;
             this.tDate = tDate;
             this.pic = pic;
-            
+
+            if (pic != null && pic != "none")
+                pictureBox1.Image = new Bitmap(pic);
+
         }
 
         
@@ -71,7 +82,16 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 
                 this.Dispose();
             }
-            
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void Add_Intern_Details_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

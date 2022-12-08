@@ -145,7 +145,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ADD NEW ADDRESSE BUTTON
         private void main_menu_interns_btn_newaddresse_Click(object sender, EventArgs e)
         {
-            Add_Coordinator aa = new Add_Coordinator();
+            Add_Coordinator aa = new Add_Coordinator(this);
             aa.ShowDialog();
         }
         // CLEAR SELECTION OF ADDRESSE
