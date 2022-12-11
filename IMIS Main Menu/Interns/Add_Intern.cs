@@ -42,12 +42,23 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             fillOfficeCombo();
             clearEntry();
 
-
+            comboBoxDefault();
             txtMiddleInitial.MaxLength = 1;
         }
 
         string pictureFile = "none";
 
+        private void comboBoxDefault()
+        {
+            comboUniversity.SelectedIndex = -1;
+            comboCourse.SelectedIndex = -1;
+            comboOfficeDeployed.SelectedIndex = -1;
+            comboOJTCoordinator.SelectedIndex = -1;
+
+            comboUniversity.Text = "--- SELECT UNIVERSITY ---";
+            comboCourse.Text = "--- SELECT COURSE ---";
+            comboOfficeDeployed.Text = "--- SELECT OFFICE ---";
+        }
 
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
@@ -63,9 +74,47 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                     addIntern();
             }
             else
-                MessageBox.Show("Please fill up all necessary fields before proceding.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
-                
+            {
+                string errorHandling = "Please fill up the following first before proceeding:\n\n";
+
+                if (!checkTextbox())
+                {
+                    if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+                        errorHandling += "* First Name\n";
+                    if (string.IsNullOrWhiteSpace(txtMiddleInitial.Text))
+                        errorHandling += "* Middle Initial\n";
+                    if (string.IsNullOrWhiteSpace(txtLastName.Text))
+                        errorHandling += "* Last Name\n";
+                    if (numericTargetHours.Value <= 0)
+                        errorHandling += "* Target Hours\n";
+                }
+
+                if (!checkCombo())
+                {
+                    if (comboUniversity.SelectedIndex == -1)
+                        errorHandling += "* University\n";
+                    if (comboCourse.SelectedIndex == -1)
+                        errorHandling += "* Course\n";
+                    if (comboOJTCoordinator.SelectedIndex == -1)
+                        errorHandling += "* Coordinator\n";
+                    if (comboOfficeDeployed.SelectedIndex == -1)
+                        errorHandling += "* Office\n";
+                }
+                if (!checkGender())
+                {
+                    if (!radioMale.Checked || !radioFemale.Checked)
+                        errorHandling += "* Gender\n";
+                }
+
+                MessageBox.Show(errorHandling);
+                // in specific error handling
+                // please fill up the following
+                // - first name
+                // - etc.
+                //MessageBox.Show("Please fill up all necessary fields before proceding.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
         }
 
         private void addIntern()
@@ -222,7 +271,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboUniversity.ValueMember = "University_ID";
             comboUniversity.DisplayMember = "University_Name";
             comboUniversity.DataSource = InternQueries.getUniversities();
-            comboUniversity.SelectedIndex = 0;
+            //comboUniversity.SelectedIndex = 0;
         }
         
         public void fillCourseCombo()
@@ -230,7 +279,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboCourse.DataSource = InternQueries.getCourses();
             comboCourse.DisplayMember = "Course_Name";
             comboCourse.ValueMember = "Course_ID";
-            comboCourse.SelectedIndex = 0;
+            //comboCourse.SelectedIndex = 0;
         }
 
         public void fillCoordinatorCombo()
@@ -265,7 +314,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             comboOfficeDeployed.DataSource = InternQueries.getOffices();
             comboOfficeDeployed.DisplayMember = "Office_Name";
             comboOfficeDeployed.ValueMember = "Office_ID";
-            comboOfficeDeployed.SelectedIndex = 0;
+            //comboOfficeDeployed.SelectedIndex = 0;
         }
 
 

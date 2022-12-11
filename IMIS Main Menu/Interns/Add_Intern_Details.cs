@@ -22,8 +22,6 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             courseId, coordId, offId, tHours, sDate,
             tDate,pic;
 
-
-
         private void Add_Intern_Details_Load(object sender, EventArgs e)
         {
 

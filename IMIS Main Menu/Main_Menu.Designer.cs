@@ -529,12 +529,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.Controls.Add(this.reports_btn_stats);
             this.main_menu_reports_panel.Controls.Add(this.reports_btn_dtr);
             this.main_menu_reports_panel.Controls.Add(this.reports_btn_intern);
+            this.main_menu_reports_panel.Controls.Add(this.reports_acceptance_panel);
+            this.main_menu_reports_panel.Controls.Add(this.reports_default_panel);
             this.main_menu_reports_panel.Controls.Add(this.reports_intern_report_panel);
             this.main_menu_reports_panel.Controls.Add(this.reports_dtr_panel);
             this.main_menu_reports_panel.Controls.Add(this.reports_certificate_panel);
             this.main_menu_reports_panel.Controls.Add(this.reports_status_panel);
-            this.main_menu_reports_panel.Controls.Add(this.reports_acceptance_panel);
-            this.main_menu_reports_panel.Controls.Add(this.reports_default_panel);
             this.main_menu_reports_panel.Location = new System.Drawing.Point(191, 3);
             this.main_menu_reports_panel.Name = "main_menu_reports_panel";
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1367, 788);
@@ -871,11 +871,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1443, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_interns_panel);
-            this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
+            this.Controls.Add(this.main_menu_interns_panel);
+            this.Controls.Add(this.main_menu_welcome_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
