@@ -136,6 +136,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_addresse_DataGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             main_menu_addresse_addresse_DataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
+
         private void coordinatorDataGridFiltered(int id)
         {
             main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridFiltered(id);
