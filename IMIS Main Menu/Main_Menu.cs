@@ -34,6 +34,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
         Color deSelectBackColor = Color.FromArgb(255,255,255);
         Color deSelectForeColor = Color.FromArgb(0,0,0);
 
+        //Data Tables for multiple sources
+        public static DataTable universityDataTable = InternQueries.getUniversities();
+        public static DataTable internDataTable = menuQueries.viewInternPlain();
+        public static DataTable coordinatorDataTable = menuQueries.coordinatorDataGridUnfiltered();
+        public static DataTable officeDataTable = InternQueries.getOffices();
+        public static DataTable courseDataTable = InternQueries.getCourses();
 
         public Main_Menu()
         {
@@ -76,7 +82,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         public void internDataGrid()
         {
-            dataGridIntern.DataSource = menuQueries.viewInternPlain();
+            dataGridIntern.DataSource = internDataTable;
             dataGridIntern.ClearSelection();
             dataGridIntern.AutoResizeColumns();
         }
@@ -117,15 +123,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         }
         public void coordinatorUniversityCombo()
-        {       
-            coordComboUniversity.DataSource = InternQueries.getUniversities();
+        {
+            coordComboUniversity.DataSource = universityDataTable;
             coordComboUniversity.DisplayMember = "University_Name";
             coordComboUniversity.ValueMember = "University_ID";
             coordComboUniversity.SelectedIndex = -1;
         }
         public void coordinatorDataGrid()
         {
-            main_menu_addresse_addresse_DataGrid.DataSource = menuQueries.coordinatorDataGridUnfiltered();
+            main_menu_addresse_addresse_DataGrid.DataSource = coordinatorDataTable;
             main_menu_addresse_addresse_DataGrid.ClearSelection();
             main_menu_addresse_addresse_DataGrid.AutoResizeColumns();
 
@@ -170,7 +176,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         
         public void universityDataGrid()
         {
-            main_menu_univ_dataGridView.DataSource = menuQueries.universityDataGrid();
+            main_menu_univ_dataGridView.DataSource = universityDataTable;
             main_menu_univ_dataGridView.AutoResizeColumns();
             main_menu_univ_dataGridView.ClearSelection();
 
@@ -184,7 +190,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // resize all rows
             for (int i = 0; i < main_menu_univ_dataGridView.Rows.Count; i++)
                 Classes.setDataGridRowHeight(i, 50, main_menu_univ_dataGridView);
-
         }
 
         // ADD UNIVERSITY BUTTON
@@ -308,15 +313,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // -------------------- Report Panel Intern Report Methods --------------------
         private void internReportPopulateCombos()
         {
-            internComboUniversity.DataSource = InternQueries.getUniversities();
+            internComboUniversity.DataSource = universityDataTable;
             internComboUniversity.DisplayMember = "University_Name";
             internComboUniversity.ValueMember = "University_ID";
 
-            internComboOffice.DataSource = InternQueries.getOffices();
+            internComboOffice.DataSource = officeDataTable;
             internComboOffice.DisplayMember = "Office_Name";
             internComboOffice.ValueMember = "Office_ID";
 
-            internComboCourse.DataSource = InternQueries.getCourses();
+            internComboCourse.DataSource = courseDataTable;
             internComboCourse.DisplayMember = "Course_Name";
             internComboCourse.ValueMember = "Course_ID";
         }
