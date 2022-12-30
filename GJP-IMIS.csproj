@@ -109,6 +109,12 @@
     <Compile Include="IMIS Main Menu\University\Add_University.Designer.cs">
       <DependentUpon>Add_University.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Main Menu\University\Edit_University.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMIS Main Menu\University\Edit_University.Designer.cs">
+      <DependentUpon>Edit_University.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMIS Methods\Coordinator Queries\CoordinatorQueries.cs" />
     <Compile Include="IMIS Methods\Course Queries\courseQueries.cs" />
     <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
@@ -177,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\University\Add_University.resx">
       <DependentUpon>Add_University.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMIS Main Menu\University\Edit_University.resx">
+      <DependentUpon>Edit_University.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

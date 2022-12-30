@@ -238,6 +238,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
 
         // ============================== UNIVERSITY PANEL ==============================
+        string selectedUniv = "";
         public void btn_univ_panel_Click(object sender, EventArgs e)
         {
             // University Panel Selection
@@ -270,9 +271,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
             au.ShowDialog();
         }
 
+        // EDIT UNIVERSITY BUTTON
+        private void main_menu_univ_btn_editUniv_Click(object sender, EventArgs e)
+        {
+            if (selectedUniv != "")
+            {
+                Edit_University eu = new Edit_University(selectedUniv);
+                eu.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("SELECT UNIVERSITY FIRST");
+            }
+        }
+
+        private void main_menu_univ_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedUniv = main_menu_univ_dataGridView.CurrentRow.Cells[0].Value.ToString();
+        }
+
         // ============================== END UNIVERSITY PANEL ==============================
 
+        // ============================== OFFICE PANEL ==============================
 
+        private void btn_office_panel_Click(object sender, EventArgs e)
+        {
+            main_menu_office_panel.BringToFront();
+            officeSelect();
+        }
+
+        // ============================== END OF OFFICE PANEL ==============================
 
         // ============================== REPORTS PANEL ==============================
         private void btn_reports_panel_Click(object sender, EventArgs e)
@@ -426,6 +454,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             btn_univ_panel.BackColor = deSelectBackColor;
             btn_univ_panel.ForeColor = deSelectForeColor;
 
+            btn_office_panel.BackColor = deSelectBackColor;
+            btn_office_panel.ForeColor = deSelectForeColor;
+
             btn_reports_panel.BackColor = deSelectBackColor;
             btn_reports_panel.ForeColor = deSelectForeColor;
         }
@@ -441,6 +472,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             btn_univ_panel.BackColor = deSelectBackColor;
             btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_office_panel.BackColor = deSelectBackColor;
+            btn_office_panel.ForeColor = deSelectForeColor;
 
             btn_reports_panel.BackColor = deSelectBackColor;
             btn_reports_panel.ForeColor = deSelectForeColor;
@@ -458,6 +492,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
             btn_univ_panel.BackColor = selectBackColor;
             btn_univ_panel.ForeColor = selectForeColor;
 
+            btn_office_panel.BackColor = deSelectBackColor;
+            btn_office_panel.ForeColor = deSelectForeColor;
+
+            btn_reports_panel.BackColor = deSelectBackColor;
+            btn_reports_panel.ForeColor = deSelectForeColor;
+        }
+
+        // office button select color
+        private void officeSelect()
+        {
+            btn_interns_panel.BackColor = deSelectBackColor;
+            btn_interns_panel.ForeColor = deSelectForeColor;
+
+            btn_addresse_panel.BackColor = deSelectBackColor;
+            btn_addresse_panel.ForeColor = deSelectForeColor;
+
+            btn_univ_panel.BackColor = deSelectBackColor;
+            btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_office_panel.BackColor = selectBackColor;
+            btn_office_panel.ForeColor = selectForeColor;
+
             btn_reports_panel.BackColor = deSelectBackColor;
             btn_reports_panel.ForeColor = deSelectForeColor;
         }
@@ -473,6 +529,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             btn_univ_panel.BackColor = deSelectBackColor;
             btn_univ_panel.ForeColor = deSelectForeColor;
+
+            btn_office_panel.BackColor = deSelectBackColor;
+            btn_office_panel.ForeColor = deSelectForeColor;
 
             btn_reports_panel.BackColor = selectBackColor;
             btn_reports_panel.ForeColor = selectForeColor;

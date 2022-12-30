@@ -47,6 +47,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
                 comboOJTCoordinator.SelectedValue = int.Parse(dr["Coordinator_ID"].ToString());
                 comboOfficeDeployed.SelectedValue = int.Parse(dr["Office_ID"].ToString());
             }
+            Connection_String.con.Close();
         }
 
         private void editGender(string g)
