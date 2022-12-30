@@ -37,21 +37,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_logout_panel = new System.Windows.Forms.Button();
             this.btn_reports_panel = new System.Windows.Forms.Button();
             this.btn_univ_panel = new System.Windows.Forms.Button();
             this.btn_addresse_panel = new System.Windows.Forms.Button();
             this.btn_interns_panel = new System.Windows.Forms.Button();
             this.main_menu_welcome_panel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.main_menu_interns_panel = new System.Windows.Forms.Panel();
+            this.main_menu_interns_btn_deleteintern = new System.Windows.Forms.Button();
+            this.main_menu_interns_btn_editintern = new System.Windows.Forms.Button();
             this.dataGridIntern = new System.Windows.Forms.DataGridView();
             this.main_menu_interns_btn_newintern = new System.Windows.Forms.Button();
             this.main_menu_interns_search_intern = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.main_menu_addresse_panel = new System.Windows.Forms.Panel();
+            this.main_menu_addresse_btn_deleteaddresse = new System.Windows.Forms.Button();
+            this.main_menu_addresse_btn_editaddresse = new System.Windows.Forms.Button();
             this.coordComboUniversity = new System.Windows.Forms.ComboBox();
             this.main_menu_addresse_btn_clearSelection = new System.Windows.Forms.Button();
             this.main_menu_addresse_addresse_DataGrid = new System.Windows.Forms.DataGridView();
@@ -61,6 +63,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_newaddresse = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.main_menu_univ_panel = new System.Windows.Forms.Panel();
+            this.main_menu_univ_btn_deleteUniv = new System.Windows.Forms.Button();
+            this.main_menu_univ_btn_editUniv = new System.Windows.Forms.Button();
             this.main_menu_univ_btn_newUniv = new System.Windows.Forms.Button();
             this.main_menu_univ_find_univ = new System.Windows.Forms.TextBox();
             this.main_menu_univ_dataGridView = new System.Windows.Forms.DataGridView();
@@ -71,6 +75,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_stats = new System.Windows.Forms.Button();
             this.reports_btn_dtr = new System.Windows.Forms.Button();
             this.reports_btn_intern = new System.Windows.Forms.Button();
+            this.reports_acceptance_panel = new System.Windows.Forms.Panel();
+            this.acceptanceDataGridIntern = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.reports_default_panel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.reports_intern_report_panel = new System.Windows.Forms.Panel();
             this.internButtonGenerate = new System.Windows.Forms.Button();
             this.internComboCourse = new System.Windows.Forms.ComboBox();
@@ -89,15 +98,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtcert = new System.Windows.Forms.Label();
             this.reports_status_panel = new System.Windows.Forms.Panel();
             this.txtstats = new System.Windows.Forms.Label();
-            this.reports_acceptance_panel = new System.Windows.Forms.Panel();
-            this.acceptanceDataGridIntern = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.reports_default_panel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.main_menu_panel_selectors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.main_menu_interns_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).BeginInit();
             this.main_menu_addresse_panel.SuspendLayout();
@@ -105,13 +109,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).BeginInit();
             this.main_menu_reports_panel.SuspendLayout();
+            this.reports_acceptance_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptanceDataGridIntern)).BeginInit();
+            this.reports_default_panel.SuspendLayout();
             this.reports_intern_report_panel.SuspendLayout();
             this.reports_dtr_panel.SuspendLayout();
             this.reports_certificate_panel.SuspendLayout();
             this.reports_status_panel.SuspendLayout();
-            this.reports_acceptance_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptanceDataGridIntern)).BeginInit();
-            this.reports_default_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // main_menu_panel_selectors
@@ -128,16 +134,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(185, 788);
             this.main_menu_panel_selectors.TabIndex = 0;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 615);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
             // 
             // btn_logout_panel
             // 
@@ -224,16 +220,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_welcome_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_welcome_panel.TabIndex = 2;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(469, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(442, 407);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -247,6 +233,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_interns_panel
             // 
             this.main_menu_interns_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_interns_panel.Controls.Add(this.main_menu_interns_btn_deleteintern);
+            this.main_menu_interns_panel.Controls.Add(this.main_menu_interns_btn_editintern);
             this.main_menu_interns_panel.Controls.Add(this.dataGridIntern);
             this.main_menu_interns_panel.Controls.Add(this.main_menu_interns_btn_newintern);
             this.main_menu_interns_panel.Controls.Add(this.main_menu_interns_search_intern);
@@ -255,6 +243,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_panel.Name = "main_menu_interns_panel";
             this.main_menu_interns_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_interns_panel.TabIndex = 4;
+            // 
+            // main_menu_interns_btn_deleteintern
+            // 
+            this.main_menu_interns_btn_deleteintern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_interns_btn_deleteintern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_interns_btn_deleteintern.ForeColor = System.Drawing.Color.White;
+            this.main_menu_interns_btn_deleteintern.Location = new System.Drawing.Point(308, 147);
+            this.main_menu_interns_btn_deleteintern.Name = "main_menu_interns_btn_deleteintern";
+            this.main_menu_interns_btn_deleteintern.Size = new System.Drawing.Size(132, 39);
+            this.main_menu_interns_btn_deleteintern.TabIndex = 6;
+            this.main_menu_interns_btn_deleteintern.Text = "DELETE INTERN";
+            this.main_menu_interns_btn_deleteintern.UseVisualStyleBackColor = false;
+            this.main_menu_interns_btn_deleteintern.Click += new System.EventHandler(this.main_menu_interns_btn_deleteintern_Click);
+            // 
+            // main_menu_interns_btn_editintern
+            // 
+            this.main_menu_interns_btn_editintern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_interns_btn_editintern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_interns_btn_editintern.ForeColor = System.Drawing.Color.White;
+            this.main_menu_interns_btn_editintern.Location = new System.Drawing.Point(161, 147);
+            this.main_menu_interns_btn_editintern.Name = "main_menu_interns_btn_editintern";
+            this.main_menu_interns_btn_editintern.Size = new System.Drawing.Size(132, 39);
+            this.main_menu_interns_btn_editintern.TabIndex = 5;
+            this.main_menu_interns_btn_editintern.Text = "EDIT INTERN";
+            this.main_menu_interns_btn_editintern.UseVisualStyleBackColor = false;
+            this.main_menu_interns_btn_editintern.Click += new System.EventHandler(this.main_menu_interns_btn_editintern_Click);
             // 
             // dataGridIntern
             // 
@@ -293,6 +307,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridIntern.Size = new System.Drawing.Size(1289, 567);
             this.dataGridIntern.TabIndex = 4;
+            this.dataGridIntern.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridIntern_CellClick);
             // 
             // main_menu_interns_btn_newintern
             // 
@@ -328,6 +343,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_addresse_panel
             // 
             this.main_menu_addresse_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_deleteaddresse);
+            this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_editaddresse);
             this.main_menu_addresse_panel.Controls.Add(this.coordComboUniversity);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_clearSelection);
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_addresse_DataGrid);
@@ -340,6 +357,30 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_panel.Name = "main_menu_addresse_panel";
             this.main_menu_addresse_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_addresse_panel.TabIndex = 5;
+            // 
+            // main_menu_addresse_btn_deleteaddresse
+            // 
+            this.main_menu_addresse_btn_deleteaddresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_addresse_btn_deleteaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_addresse_btn_deleteaddresse.ForeColor = System.Drawing.Color.White;
+            this.main_menu_addresse_btn_deleteaddresse.Location = new System.Drawing.Point(444, 705);
+            this.main_menu_addresse_btn_deleteaddresse.Name = "main_menu_addresse_btn_deleteaddresse";
+            this.main_menu_addresse_btn_deleteaddresse.Size = new System.Drawing.Size(170, 43);
+            this.main_menu_addresse_btn_deleteaddresse.TabIndex = 32;
+            this.main_menu_addresse_btn_deleteaddresse.Text = "DELETE COORDINATOR";
+            this.main_menu_addresse_btn_deleteaddresse.UseVisualStyleBackColor = false;
+            // 
+            // main_menu_addresse_btn_editaddresse
+            // 
+            this.main_menu_addresse_btn_editaddresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_addresse_btn_editaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_addresse_btn_editaddresse.ForeColor = System.Drawing.Color.White;
+            this.main_menu_addresse_btn_editaddresse.Location = new System.Drawing.Point(255, 705);
+            this.main_menu_addresse_btn_editaddresse.Name = "main_menu_addresse_btn_editaddresse";
+            this.main_menu_addresse_btn_editaddresse.Size = new System.Drawing.Size(170, 43);
+            this.main_menu_addresse_btn_editaddresse.TabIndex = 31;
+            this.main_menu_addresse_btn_editaddresse.Text = "EDIT COORDINATOR";
+            this.main_menu_addresse_btn_editaddresse.UseVisualStyleBackColor = false;
             // 
             // coordComboUniversity
             // 
@@ -429,7 +470,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_newaddresse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.main_menu_addresse_btn_newaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_newaddresse.ForeColor = System.Drawing.Color.White;
-            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(1171, 705);
+            this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(65, 705);
             this.main_menu_addresse_btn_newaddresse.Name = "main_menu_addresse_btn_newaddresse";
             this.main_menu_addresse_btn_newaddresse.Size = new System.Drawing.Size(170, 43);
             this.main_menu_addresse_btn_newaddresse.TabIndex = 6;
@@ -450,6 +491,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // main_menu_univ_panel
             // 
             this.main_menu_univ_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_btn_deleteUniv);
+            this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_btn_editUniv);
             this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_btn_newUniv);
             this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_find_univ);
             this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_dataGridView);
@@ -458,6 +501,30 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.Name = "main_menu_univ_panel";
             this.main_menu_univ_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_univ_panel.TabIndex = 6;
+            // 
+            // main_menu_univ_btn_deleteUniv
+            // 
+            this.main_menu_univ_btn_deleteUniv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_univ_btn_deleteUniv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_univ_btn_deleteUniv.ForeColor = System.Drawing.Color.White;
+            this.main_menu_univ_btn_deleteUniv.Location = new System.Drawing.Point(422, 128);
+            this.main_menu_univ_btn_deleteUniv.Name = "main_menu_univ_btn_deleteUniv";
+            this.main_menu_univ_btn_deleteUniv.Size = new System.Drawing.Size(183, 46);
+            this.main_menu_univ_btn_deleteUniv.TabIndex = 7;
+            this.main_menu_univ_btn_deleteUniv.Text = "DELETE UNIVERSITY";
+            this.main_menu_univ_btn_deleteUniv.UseVisualStyleBackColor = false;
+            // 
+            // main_menu_univ_btn_editUniv
+            // 
+            this.main_menu_univ_btn_editUniv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.main_menu_univ_btn_editUniv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.main_menu_univ_btn_editUniv.ForeColor = System.Drawing.Color.White;
+            this.main_menu_univ_btn_editUniv.Location = new System.Drawing.Point(226, 128);
+            this.main_menu_univ_btn_editUniv.Name = "main_menu_univ_btn_editUniv";
+            this.main_menu_univ_btn_editUniv.Size = new System.Drawing.Size(183, 46);
+            this.main_menu_univ_btn_editUniv.TabIndex = 6;
+            this.main_menu_univ_btn_editUniv.Text = "EDIT UNIVERSITY";
+            this.main_menu_univ_btn_editUniv.UseVisualStyleBackColor = false;
             // 
             // main_menu_univ_btn_newUniv
             // 
@@ -609,6 +676,58 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_intern.Text = "INTERN REPORTS";
             this.reports_btn_intern.UseVisualStyleBackColor = true;
             this.reports_btn_intern.Click += new System.EventHandler(this.reports_btn_intern_Click);
+            // 
+            // reports_acceptance_panel
+            // 
+            this.reports_acceptance_panel.Controls.Add(this.acceptanceDataGridIntern);
+            this.reports_acceptance_panel.Controls.Add(this.label4);
+            this.reports_acceptance_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_acceptance_panel.Name = "reports_acceptance_panel";
+            this.reports_acceptance_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_acceptance_panel.TabIndex = 2;
+            // 
+            // acceptanceDataGridIntern
+            // 
+            this.acceptanceDataGridIntern.AllowUserToAddRows = false;
+            this.acceptanceDataGridIntern.AllowUserToDeleteRows = false;
+            this.acceptanceDataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.acceptanceDataGridIntern.Location = new System.Drawing.Point(13, 97);
+            this.acceptanceDataGridIntern.MultiSelect = false;
+            this.acceptanceDataGridIntern.Name = "acceptanceDataGridIntern";
+            this.acceptanceDataGridIntern.ReadOnly = true;
+            this.acceptanceDataGridIntern.RowHeadersWidth = 51;
+            this.acceptanceDataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.acceptanceDataGridIntern.Size = new System.Drawing.Size(1314, 580);
+            this.acceptanceDataGridIntern.TabIndex = 35;
+            this.acceptanceDataGridIntern.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.acceptanceDataGridIntern_CellClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(400, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(526, 46);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "LETTER OF ACCEPTANCE";
+            // 
+            // reports_default_panel
+            // 
+            this.reports_default_panel.Controls.Add(this.label9);
+            this.reports_default_panel.Location = new System.Drawing.Point(14, 60);
+            this.reports_default_panel.Name = "reports_default_panel";
+            this.reports_default_panel.Size = new System.Drawing.Size(1341, 716);
+            this.reports_default_panel.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(354, 275);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(624, 46);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "REPORTS WELCOME MESSAGE";
             // 
             // reports_intern_report_panel
             // 
@@ -810,57 +929,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtstats.TabIndex = 1;
             this.txtstats.Text = "STATUS";
             // 
-            // reports_acceptance_panel
+            // pictureBox2
             // 
-            this.reports_acceptance_panel.Controls.Add(this.acceptanceDataGridIntern);
-            this.reports_acceptance_panel.Controls.Add(this.label4);
-            this.reports_acceptance_panel.Location = new System.Drawing.Point(14, 60);
-            this.reports_acceptance_panel.Name = "reports_acceptance_panel";
-            this.reports_acceptance_panel.Size = new System.Drawing.Size(1341, 716);
-            this.reports_acceptance_panel.TabIndex = 2;
+            this.pictureBox2.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 615);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(179, 170);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
-            // acceptanceDataGridIntern
+            // pictureBox1
             // 
-            this.acceptanceDataGridIntern.AllowUserToAddRows = false;
-            this.acceptanceDataGridIntern.AllowUserToDeleteRows = false;
-            this.acceptanceDataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.acceptanceDataGridIntern.Location = new System.Drawing.Point(13, 97);
-            this.acceptanceDataGridIntern.MultiSelect = false;
-            this.acceptanceDataGridIntern.Name = "acceptanceDataGridIntern";
-            this.acceptanceDataGridIntern.ReadOnly = true;
-            this.acceptanceDataGridIntern.RowHeadersWidth = 51;
-            this.acceptanceDataGridIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.acceptanceDataGridIntern.Size = new System.Drawing.Size(1314, 580);
-            this.acceptanceDataGridIntern.TabIndex = 35;
-            this.acceptanceDataGridIntern.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.acceptanceDataGridIntern_CellClick);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(526, 46);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "LETTER OF ACCEPTANCE";
-            // 
-            // reports_default_panel
-            // 
-            this.reports_default_panel.Controls.Add(this.label9);
-            this.reports_default_panel.Location = new System.Drawing.Point(14, 60);
-            this.reports_default_panel.Name = "reports_default_panel";
-            this.reports_default_panel.Size = new System.Drawing.Size(1341, 716);
-            this.reports_default_panel.TabIndex = 19;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(354, 275);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(624, 46);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "REPORTS WELCOME MESSAGE";
+            this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(469, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(442, 407);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Main_Menu
             // 
@@ -871,11 +958,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1443, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
+            this.Controls.Add(this.main_menu_interns_panel);
+            this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
-            this.Controls.Add(this.main_menu_interns_panel);
-            this.Controls.Add(this.main_menu_welcome_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -886,10 +973,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Menu_FormClosing);
             this.Load += new System.EventHandler(this.Main_Menu_Load);
             this.main_menu_panel_selectors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.main_menu_welcome_panel.ResumeLayout(false);
             this.main_menu_welcome_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.main_menu_interns_panel.ResumeLayout(false);
             this.main_menu_interns_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIntern)).EndInit();
@@ -900,6 +985,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_menu_univ_dataGridView)).EndInit();
             this.main_menu_reports_panel.ResumeLayout(false);
+            this.reports_acceptance_panel.ResumeLayout(false);
+            this.reports_acceptance_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.acceptanceDataGridIntern)).EndInit();
+            this.reports_default_panel.ResumeLayout(false);
+            this.reports_default_panel.PerformLayout();
             this.reports_intern_report_panel.ResumeLayout(false);
             this.reports_intern_report_panel.PerformLayout();
             this.reports_dtr_panel.ResumeLayout(false);
@@ -908,11 +998,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_certificate_panel.PerformLayout();
             this.reports_status_panel.ResumeLayout(false);
             this.reports_status_panel.PerformLayout();
-            this.reports_acceptance_panel.ResumeLayout(false);
-            this.reports_acceptance_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.acceptanceDataGridIntern)).EndInit();
-            this.reports_default_panel.ResumeLayout(false);
-            this.reports_default_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -977,5 +1064,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.ComboBox internComboOffice;
         private System.Windows.Forms.ComboBox internComboUniversity;
         private System.Windows.Forms.DataGridView acceptanceDataGridIntern;
+        private System.Windows.Forms.Button main_menu_interns_btn_deleteintern;
+        private System.Windows.Forms.Button main_menu_interns_btn_editintern;
+        private System.Windows.Forms.Button main_menu_univ_btn_deleteUniv;
+        private System.Windows.Forms.Button main_menu_univ_btn_editUniv;
+        private System.Windows.Forms.Button main_menu_addresse_btn_deleteaddresse;
+        private System.Windows.Forms.Button main_menu_addresse_btn_editaddresse;
     }
 }

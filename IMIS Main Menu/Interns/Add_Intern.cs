@@ -48,17 +48,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
 
         string pictureFile = "none";
 
-        private void comboBoxDefault()
-        {
-            comboUniversity.SelectedIndex = -1;
-            comboCourse.SelectedIndex = -1;
-            comboOfficeDeployed.SelectedIndex = -1;
-            comboOJTCoordinator.SelectedIndex = -1;
-
-            comboUniversity.Text = "--- SELECT UNIVERSITY ---";
-            comboCourse.Text = "--- SELECT COURSE ---";
-            comboOfficeDeployed.Text = "--- SELECT OFFICE ---";
-        }
+        
 
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
@@ -317,9 +307,19 @@ namespace GJP_IMIS.IMIS_Main_Menu.Interns
             //comboOfficeDeployed.SelectedIndex = 0;
         }
 
+        private void comboBoxDefault()
+        {
+            comboUniversity.SelectedIndex = -1;
+            comboCourse.SelectedIndex = -1;
+            comboOfficeDeployed.SelectedIndex = -1;
+            comboOJTCoordinator.SelectedIndex = -1;
+
+            comboUniversity.Text = "--- SELECT UNIVERSITY ---";
+            comboCourse.Text = "--- SELECT COURSE ---";
+            comboOfficeDeployed.Text = "--- SELECT OFFICE ---";
+        }
 
 
- 
 
 
         /* TextBox Alphabets Only Input */

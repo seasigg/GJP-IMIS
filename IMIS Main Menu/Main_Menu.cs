@@ -46,6 +46,52 @@ namespace GJP_IMIS.IMIS_Main_Menu
             InitializeComponent();
         }
 
+        public Main_Menu(String type)
+        {
+            InitializeComponent();
+            switch (type)
+            {
+                case "Super Admin":
+                    
+                    break;
+
+                case "Admin":
+                    adminAccount();
+                    break;
+
+                case "User":
+                    userAccount();
+                    break;
+            }
+        }
+
+        private void adminAccount()
+        {
+            main_menu_interns_btn_editintern.Visible = false;
+            main_menu_interns_btn_deleteintern.Visible = false;
+
+            main_menu_univ_btn_editUniv.Visible = false;
+            main_menu_univ_btn_deleteUniv.Visible = false;
+
+            main_menu_addresse_btn_editaddresse.Visible = false;
+            main_menu_addresse_btn_deleteaddresse.Visible = false;
+        }
+
+        private void userAccount()
+        {
+            main_menu_interns_btn_newintern.Visible = false;
+            main_menu_interns_btn_editintern.Visible = false;
+            main_menu_interns_btn_deleteintern.Visible = false;
+
+            main_menu_univ_btn_newUniv.Visible = false;
+            main_menu_univ_btn_editUniv.Visible = false;
+            main_menu_univ_btn_deleteUniv.Visible = false;
+
+            main_menu_addresse_btn_newaddresse.Visible = false;
+            main_menu_addresse_btn_editaddresse.Visible = false;
+            main_menu_addresse_btn_deleteaddresse.Visible = false;
+        }
+
         private void Main_Menu_Load(object sender, EventArgs e)
         {
             main_menu_welcome_panel.BringToFront();
@@ -54,9 +100,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             coordinatorUniversityCombo();
         }
 
-
-
         // ============================== INTERN PANEL ==============================
+        String ojt_ID = "";
+
         public void btn_interns_panel_Click(object sender, EventArgs e)
         {
             // Intern Panel Selection
@@ -102,6 +148,31 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // rows size
             for (int i = 0; i < dataGridIntern.Rows.Count; i++)
                 Classes.setDataGridRowHeight(i, 50, dataGridIntern);
+        }
+        
+        // EDIT INTERN BUTTON
+        private void main_menu_interns_btn_editintern_Click(object sender, EventArgs e)
+        {
+            if (ojt_ID != "")
+            {
+                Edit_Intern ei = new Edit_Intern(ojt_ID);
+                ei.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("SELECT INTERN FIRST BEFORE EDIT.");
+            }
+        }
+
+        // DELETE INTERN BUTTON
+        private void main_menu_interns_btn_deleteintern_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridIntern_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ojt_ID = dataGridIntern.CurrentRow.Cells[0].Value.ToString();
         }
 
         // ============================== END INTERN PANEL ==============================
