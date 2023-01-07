@@ -52,7 +52,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
             DialogResult dr = MessageBox.Show("Confirm update the "+univ+" to "+newUniv+"?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.Yes)
             {
-                universityClass.editUniversity(newUniv, univId);
+                universityClass.updateUniversity(newUniv, univId);
                 MessageBox.Show("SUCCESSFUL UPDATED UNIVERSITY NAME.");
             }
         }

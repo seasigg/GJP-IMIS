@@ -19,5 +19,21 @@ namespace GJP_IMIS.IMIS_Methods.Course_Queries
             cmd.ExecuteNonQuery();
             Connection_String.con.Close();
         }
+
+        public static void updateCourse(string cId, string cName)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("UPDATE Course SET Course_Name = '" + cName + "' WHERE Course_ID = '" + cId + "'", Connection_String.con);
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Close();
+        }
+
+        public static void deleteCourse(string cId)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Course WHERE Course_ID = '" + cId + "'", Connection_String.con);
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Close();
+        }
     }
 }

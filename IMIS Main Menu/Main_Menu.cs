@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using GJP_IMIS.IMIS_Main_Menu.Interns;
 using GJP_IMIS.IMIS_Main_Menu.University;
 using GJP_IMIS.IMIS_Main_Menu.Addresse;
+using GJP_IMIS.IMIS_Main_Menu.Office;
+using GJP_IMIS.IMIS_Main_Menu.Course;
 using GJP_IMIS.Reports;
 
 //QUERIES
@@ -20,6 +22,8 @@ using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
 using GJP_IMIS.IMIS_Methods.Report_Queries;
+using GJP_IMIS.IMIS_Methods.Office_Queries;
+using GJP_IMIS.IMIS_Methods.Course_Queries;
 
 //CLASS
 using GJP_IMIS.IMIS_Class;
@@ -97,7 +101,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_welcome_panel.BringToFront();
 
             universityDataGrid();
+            courseDataGrid();
             coordinatorUniversityCombo();
+            officeDataGrid();
         }
 
         // ============================== INTERN PANEL ==============================
@@ -292,12 +298,117 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ============================== END UNIVERSITY PANEL ==============================
 
+        // ============================== COURSE PANEL ==============================
+        string selectedCourseId = "";
+        string selectedCourseName = "";
+        private void btn_course_panel_Click(object sender, EventArgs e)
+        {
+            courseSelect();
+            main_menu_course_panel.BringToFront();
+        }
+
+        private void courseDataGrid()
+        {
+            main_menu_course_dataGridView.DataSource = courseDataTable;
+            main_menu_course_dataGridView.AutoResizeColumns();
+            main_menu_course_dataGridView.ClearSelection();
+        }
+
+        private void course_addCourse_Click(object sender, EventArgs e)
+        {
+            addCourse ac = new addCourse();
+            ac.ShowDialog();
+        }
+
+        private void course_editCourse_Click(object sender, EventArgs e)
+        {
+            if (selectedCourseId != "")
+            {
+                editCourse ec = new editCourse(selectedCourseId);
+                ec.ShowDialog();
+            }
+            else
+                MessageBox.Show("SELECT COURSE FIRST.");
+            
+        }
+
+        private void course_deleteCourse_Click(object sender, EventArgs e)
+        {
+            if (selectedCourseId != "")
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + selectedCourseName + " ?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    courseQueries.deleteCourse(selectedCourseId);
+                    MessageBox.Show("SUCCESSFULLY DELETED COURSE.");
+                }
+            }
+            else
+                MessageBox.Show("SELECT COURSE FIRST.");
+        }
+
+        private void main_menu_course_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedCourseId = main_menu_course_dataGridView.CurrentRow.Cells[0].Value.ToString();
+            selectedCourseName = main_menu_course_dataGridView.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        // ============================== END COURSE PANEL ==============================
+
         // ============================== OFFICE PANEL ==============================
 
+        string selectedOfficeId = "";
+        string selectedOfficeName = "";
         private void btn_office_panel_Click(object sender, EventArgs e)
         {
             main_menu_office_panel.BringToFront();
             officeSelect();
+        }
+
+        private void officeDataGrid()
+        {
+            main_menu_office_dataGridView.DataSource = officeDataTable;
+            main_menu_office_dataGridView.AutoResizeColumns();
+            main_menu_office_dataGridView.ClearSelection();
+        }
+
+        private void office_addNewOffice_Click(object sender, EventArgs e)
+        {
+            addOffice ao = new addOffice();
+            ao.ShowDialog();
+        }
+
+        private void office_editOffice_Click(object sender, EventArgs e)
+        {
+            if (selectedOfficeId != "")
+            {
+                editOffice eo = new editOffice(selectedOfficeId);
+                eo.ShowDialog();
+            }
+            else
+                MessageBox.Show("SELECT OFFICE FIRST.");
+
+        }
+
+        private void office_deleteOffice_Click(object sender, EventArgs e)
+        {
+            if (selectedOfficeId != "")
+            {
+                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + selectedOfficeName + " ?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    OfficeQueries.deleteOffice(selectedOfficeId);
+                    MessageBox.Show("Successfully deleted the " + selectedOfficeName + ".");
+                }
+            }
+            else
+                MessageBox.Show("SELECT OFFICE FIRST.");
+        }
+
+        private void main_menu_office_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedOfficeId = main_menu_office_dataGridView.CurrentRow.Cells[0].Value.ToString();
+            selectedOfficeName = main_menu_office_dataGridView.CurrentRow.Cells[1].Value.ToString();
         }
 
         // ============================== END OF OFFICE PANEL ==============================
@@ -443,10 +554,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
 
         // ============================== PANEL SELECTION METHODS ==============================
-        private void internSelect()
+        private void deSelectPanel()
         {
-            btn_interns_panel.BackColor = selectBackColor;
-            btn_interns_panel.ForeColor = selectForeColor;
+            btn_interns_panel.BackColor = deSelectBackColor;
+            btn_interns_panel.ForeColor = deSelectForeColor;
 
             btn_addresse_panel.BackColor = deSelectBackColor;
             btn_addresse_panel.ForeColor = deSelectForeColor;
@@ -454,85 +565,58 @@ namespace GJP_IMIS.IMIS_Main_Menu
             btn_univ_panel.BackColor = deSelectBackColor;
             btn_univ_panel.ForeColor = deSelectForeColor;
 
+            btn_course_panel.BackColor = deSelectBackColor;
+            btn_course_panel.ForeColor = deSelectForeColor;
+
             btn_office_panel.BackColor = deSelectBackColor;
             btn_office_panel.ForeColor = deSelectForeColor;
 
             btn_reports_panel.BackColor = deSelectBackColor;
             btn_reports_panel.ForeColor = deSelectForeColor;
+        }
+
+        private void internSelect()
+        {
+            deSelectPanel();
+            btn_interns_panel.BackColor = selectBackColor;
+            btn_interns_panel.ForeColor = selectForeColor;
         }
 
         // coordinator button select color
         private void coordinatorSelect()
         {
-            btn_interns_panel.BackColor = deSelectBackColor;
-            btn_interns_panel.ForeColor = deSelectForeColor;
-
+            deSelectPanel();
             btn_addresse_panel.BackColor = selectBackColor;
             btn_addresse_panel.ForeColor = selectForeColor;
-
-            btn_univ_panel.BackColor = deSelectBackColor;
-            btn_univ_panel.ForeColor = deSelectForeColor;
-
-            btn_office_panel.BackColor = deSelectBackColor;
-            btn_office_panel.ForeColor = deSelectForeColor;
-
-            btn_reports_panel.BackColor = deSelectBackColor;
-            btn_reports_panel.ForeColor = deSelectForeColor;
         }
 
         // university button select color
         private void universitySelect()
         {
-            btn_interns_panel.BackColor = deSelectBackColor;
-            btn_interns_panel.ForeColor = deSelectForeColor;
-
-            btn_addresse_panel.BackColor = deSelectBackColor;
-            btn_addresse_panel.ForeColor = deSelectForeColor;
-
+            deSelectPanel();
             btn_univ_panel.BackColor = selectBackColor;
             btn_univ_panel.ForeColor = selectForeColor;
-
-            btn_office_panel.BackColor = deSelectBackColor;
-            btn_office_panel.ForeColor = deSelectForeColor;
-
-            btn_reports_panel.BackColor = deSelectBackColor;
-            btn_reports_panel.ForeColor = deSelectForeColor;
         }
 
+        // course button select color
+        private void courseSelect()
+        {
+            deSelectPanel();
+            btn_course_panel.BackColor = selectBackColor;
+            btn_course_panel.ForeColor = selectForeColor;
+        }
         // office button select color
         private void officeSelect()
         {
-            btn_interns_panel.BackColor = deSelectBackColor;
-            btn_interns_panel.ForeColor = deSelectForeColor;
-
-            btn_addresse_panel.BackColor = deSelectBackColor;
-            btn_addresse_panel.ForeColor = deSelectForeColor;
-
-            btn_univ_panel.BackColor = deSelectBackColor;
-            btn_univ_panel.ForeColor = deSelectForeColor;
-
+            deSelectPanel();
             btn_office_panel.BackColor = selectBackColor;
             btn_office_panel.ForeColor = selectForeColor;
-
-            btn_reports_panel.BackColor = deSelectBackColor;
-            btn_reports_panel.ForeColor = deSelectForeColor;
         }
 
         // report button select color
         private void reportSelect()
         {
-            btn_interns_panel.BackColor = deSelectBackColor;
-            btn_interns_panel.ForeColor = deSelectForeColor;
-
-            btn_addresse_panel.BackColor = deSelectBackColor;
-            btn_addresse_panel.ForeColor = deSelectForeColor;
-
-            btn_univ_panel.BackColor = deSelectBackColor;
-            btn_univ_panel.ForeColor = deSelectForeColor;
-
-            btn_office_panel.BackColor = deSelectBackColor;
-            btn_office_panel.ForeColor = deSelectForeColor;
-
+            deSelectPanel();
             btn_reports_panel.BackColor = selectBackColor;
             btn_reports_panel.ForeColor = selectForeColor;
         }
@@ -685,6 +769,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             rv.viewAcceptanceLetter(acceptanceDataGridIntern.CurrentRow.Cells[0].Value.ToString());
             rv.ShowDialog();
         }
+
+
 
         // -------------------- End Report Panel Acceptance Letter Events --------------------
 

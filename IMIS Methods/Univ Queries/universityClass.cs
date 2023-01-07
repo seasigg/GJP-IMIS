@@ -20,7 +20,7 @@ namespace GJP_IMIS.IMIS_Methods.Univ_Queries
             Connection_String.con.Close();
         }
 
-        public static void editUniversity(string university, string univId)
+        public static void updateUniversity(string university, string univId)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("UPDATE University SET University_Name = '"+ university + "' WHERE University_Id = '"+univId+"'", Connection_String.con);

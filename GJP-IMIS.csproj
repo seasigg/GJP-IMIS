@@ -73,6 +73,12 @@
     <Compile Include="IMIS Main Menu\Course\addCourse.Designer.cs">
       <DependentUpon>addCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Main Menu\Course\editCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Course\editCourse.Designer.cs">
+      <DependentUpon>editCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMIS Main Menu\Interns\Add_Intern.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="IMIS Main Menu\Office\addOffice.Designer.cs">
       <DependentUpon>addOffice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Office\editOffice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Office\editOffice.Designer.cs">
+      <DependentUpon>editOffice.cs</DependentUpon>
     </Compile>
     <Compile Include="IMIS Main Menu\University\Add_University.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,9 @@
     <EmbeddedResource Include="IMIS Main Menu\Course\addCourse.resx">
       <DependentUpon>addCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IMIS Main Menu\Course\editCourse.resx">
+      <DependentUpon>editCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern.resx">
       <DependentUpon>Add_Intern.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Office\addOffice.resx">
       <DependentUpon>addOffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMIS Main Menu\Office\editOffice.resx">
+      <DependentUpon>editOffice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\University\Add_University.resx">
       <DependentUpon>Add_University.cs</DependentUpon>

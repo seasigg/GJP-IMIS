@@ -35,8 +35,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
+            this.btn_office_panel = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_logout_panel = new System.Windows.Forms.Button();
             this.btn_reports_panel = new System.Windows.Forms.Button();
@@ -100,9 +105,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtcert = new System.Windows.Forms.Label();
             this.reports_status_panel = new System.Windows.Forms.Panel();
             this.txtstats = new System.Windows.Forms.Label();
-            this.btn_office_panel = new System.Windows.Forms.Button();
             this.main_menu_office_panel = new System.Windows.Forms.Panel();
+            this.office_deleteOffice = new System.Windows.Forms.Button();
+            this.office_editOffice = new System.Windows.Forms.Button();
+            this.office_addNewOffice = new System.Windows.Forms.Button();
+            this.main_menu_office_dataGridView = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_course_panel = new System.Windows.Forms.Button();
+            this.main_menu_course_panel = new System.Windows.Forms.Panel();
+            this.course_deleteCourse = new System.Windows.Forms.Button();
+            this.course_editCourse = new System.Windows.Forms.Button();
+            this.course_addCourse = new System.Windows.Forms.Button();
+            this.main_menu_course_dataGridView = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
             this.main_menu_panel_selectors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.main_menu_welcome_panel.SuspendLayout();
@@ -122,11 +137,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_certificate_panel.SuspendLayout();
             this.reports_status_panel.SuspendLayout();
             this.main_menu_office_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_office_dataGridView)).BeginInit();
+            this.main_menu_course_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_course_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // main_menu_panel_selectors
             // 
             this.main_menu_panel_selectors.BackColor = System.Drawing.Color.White;
+            this.main_menu_panel_selectors.Controls.Add(this.btn_course_panel);
             this.main_menu_panel_selectors.Controls.Add(this.btn_office_panel);
             this.main_menu_panel_selectors.Controls.Add(this.pictureBox2);
             this.main_menu_panel_selectors.Controls.Add(this.btn_logout_panel);
@@ -139,6 +158,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(185, 788);
             this.main_menu_panel_selectors.TabIndex = 0;
+            // 
+            // btn_office_panel
+            // 
+            this.btn_office_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_office_panel.FlatAppearance.BorderSize = 0;
+            this.btn_office_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_office_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_office_panel.ForeColor = System.Drawing.Color.Black;
+            this.btn_office_panel.Location = new System.Drawing.Point(0, 231);
+            this.btn_office_panel.Name = "btn_office_panel";
+            this.btn_office_panel.Size = new System.Drawing.Size(185, 37);
+            this.btn_office_panel.TabIndex = 13;
+            this.btn_office_panel.Text = "OFFICES";
+            this.btn_office_panel.UseVisualStyleBackColor = true;
+            this.btn_office_panel.Click += new System.EventHandler(this.btn_office_panel_Click);
             // 
             // pictureBox2
             // 
@@ -157,7 +191,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_logout_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_logout_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_logout_panel.Location = new System.Drawing.Point(3, 326);
+            this.btn_logout_panel.Location = new System.Drawing.Point(0, 339);
             this.btn_logout_panel.Name = "btn_logout_panel";
             this.btn_logout_panel.Size = new System.Drawing.Size(185, 40);
             this.btn_logout_panel.TabIndex = 11;
@@ -172,7 +206,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_reports_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reports_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reports_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_reports_panel.Location = new System.Drawing.Point(0, 263);
+            this.btn_reports_panel.Location = new System.Drawing.Point(3, 285);
             this.btn_reports_panel.Name = "btn_reports_panel";
             this.btn_reports_panel.Size = new System.Drawing.Size(185, 37);
             this.btn_reports_panel.TabIndex = 9;
@@ -187,7 +221,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_univ_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_univ_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_univ_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_univ_panel.Location = new System.Drawing.Point(0, 143);
+            this.btn_univ_panel.Location = new System.Drawing.Point(3, 125);
             this.btn_univ_panel.Name = "btn_univ_panel";
             this.btn_univ_panel.Size = new System.Drawing.Size(185, 35);
             this.btn_univ_panel.TabIndex = 7;
@@ -202,7 +236,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_addresse_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addresse_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addresse_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_addresse_panel.Location = new System.Drawing.Point(0, 87);
+            this.btn_addresse_panel.Location = new System.Drawing.Point(0, 78);
             this.btn_addresse_panel.Name = "btn_addresse_panel";
             this.btn_addresse_panel.Size = new System.Drawing.Size(185, 31);
             this.btn_addresse_panel.TabIndex = 5;
@@ -956,29 +990,89 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtstats.TabIndex = 1;
             this.txtstats.Text = "STATUS";
             // 
-            // btn_office_panel
-            // 
-            this.btn_office_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_office_panel.FlatAppearance.BorderSize = 0;
-            this.btn_office_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_office_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_office_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_office_panel.Location = new System.Drawing.Point(0, 202);
-            this.btn_office_panel.Name = "btn_office_panel";
-            this.btn_office_panel.Size = new System.Drawing.Size(185, 37);
-            this.btn_office_panel.TabIndex = 13;
-            this.btn_office_panel.Text = "OFFICES";
-            this.btn_office_panel.UseVisualStyleBackColor = true;
-            this.btn_office_panel.Click += new System.EventHandler(this.btn_office_panel_Click);
-            // 
             // main_menu_office_panel
             // 
             this.main_menu_office_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_office_panel.Controls.Add(this.office_deleteOffice);
+            this.main_menu_office_panel.Controls.Add(this.office_editOffice);
+            this.main_menu_office_panel.Controls.Add(this.office_addNewOffice);
+            this.main_menu_office_panel.Controls.Add(this.main_menu_office_dataGridView);
             this.main_menu_office_panel.Controls.Add(this.label11);
             this.main_menu_office_panel.Location = new System.Drawing.Point(191, 3);
             this.main_menu_office_panel.Name = "main_menu_office_panel";
             this.main_menu_office_panel.Size = new System.Drawing.Size(1367, 788);
             this.main_menu_office_panel.TabIndex = 4;
+            // 
+            // office_deleteOffice
+            // 
+            this.office_deleteOffice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.office_deleteOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.office_deleteOffice.ForeColor = System.Drawing.Color.White;
+            this.office_deleteOffice.Location = new System.Drawing.Point(444, 94);
+            this.office_deleteOffice.Name = "office_deleteOffice";
+            this.office_deleteOffice.Size = new System.Drawing.Size(183, 46);
+            this.office_deleteOffice.TabIndex = 8;
+            this.office_deleteOffice.Text = "DELETE OFFICE";
+            this.office_deleteOffice.UseVisualStyleBackColor = false;
+            this.office_deleteOffice.Click += new System.EventHandler(this.office_deleteOffice_Click);
+            // 
+            // office_editOffice
+            // 
+            this.office_editOffice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.office_editOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.office_editOffice.ForeColor = System.Drawing.Color.White;
+            this.office_editOffice.Location = new System.Drawing.Point(242, 94);
+            this.office_editOffice.Name = "office_editOffice";
+            this.office_editOffice.Size = new System.Drawing.Size(183, 46);
+            this.office_editOffice.TabIndex = 7;
+            this.office_editOffice.Text = "EDIT OFFICE";
+            this.office_editOffice.UseVisualStyleBackColor = false;
+            this.office_editOffice.Click += new System.EventHandler(this.office_editOffice_Click);
+            // 
+            // office_addNewOffice
+            // 
+            this.office_addNewOffice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.office_addNewOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.office_addNewOffice.ForeColor = System.Drawing.Color.White;
+            this.office_addNewOffice.Location = new System.Drawing.Point(27, 94);
+            this.office_addNewOffice.Name = "office_addNewOffice";
+            this.office_addNewOffice.Size = new System.Drawing.Size(183, 46);
+            this.office_addNewOffice.TabIndex = 6;
+            this.office_addNewOffice.Text = "ADD OFFICE";
+            this.office_addNewOffice.UseVisualStyleBackColor = false;
+            this.office_addNewOffice.Click += new System.EventHandler(this.office_addNewOffice_Click);
+            // 
+            // main_menu_office_dataGridView
+            // 
+            this.main_menu_office_dataGridView.AllowUserToAddRows = false;
+            this.main_menu_office_dataGridView.AllowUserToDeleteRows = false;
+            this.main_menu_office_dataGridView.AllowUserToResizeColumns = false;
+            this.main_menu_office_dataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_menu_office_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.main_menu_office_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.main_menu_office_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.main_menu_office_dataGridView.Location = new System.Drawing.Point(27, 155);
+            this.main_menu_office_dataGridView.Name = "main_menu_office_dataGridView";
+            this.main_menu_office_dataGridView.ReadOnly = true;
+            this.main_menu_office_dataGridView.RowHeadersWidth = 51;
+            this.main_menu_office_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.main_menu_office_dataGridView.Size = new System.Drawing.Size(1314, 584);
+            this.main_menu_office_dataGridView.TabIndex = 4;
+            this.main_menu_office_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_menu_office_dataGridView_CellClick);
             // 
             // label11
             // 
@@ -990,6 +1084,115 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label11.TabIndex = 2;
             this.label11.Text = "OFFICES";
             // 
+            // btn_course_panel
+            // 
+            this.btn_course_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_course_panel.FlatAppearance.BorderSize = 0;
+            this.btn_course_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_course_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_course_panel.ForeColor = System.Drawing.Color.Black;
+            this.btn_course_panel.Location = new System.Drawing.Point(0, 177);
+            this.btn_course_panel.Name = "btn_course_panel";
+            this.btn_course_panel.Size = new System.Drawing.Size(185, 40);
+            this.btn_course_panel.TabIndex = 14;
+            this.btn_course_panel.Text = "COURSES";
+            this.btn_course_panel.UseVisualStyleBackColor = true;
+            this.btn_course_panel.Click += new System.EventHandler(this.btn_course_panel_Click);
+            // 
+            // main_menu_course_panel
+            // 
+            this.main_menu_course_panel.BackColor = System.Drawing.Color.White;
+            this.main_menu_course_panel.Controls.Add(this.course_deleteCourse);
+            this.main_menu_course_panel.Controls.Add(this.course_editCourse);
+            this.main_menu_course_panel.Controls.Add(this.course_addCourse);
+            this.main_menu_course_panel.Controls.Add(this.main_menu_course_dataGridView);
+            this.main_menu_course_panel.Controls.Add(this.label12);
+            this.main_menu_course_panel.Location = new System.Drawing.Point(191, 3);
+            this.main_menu_course_panel.Name = "main_menu_course_panel";
+            this.main_menu_course_panel.Size = new System.Drawing.Size(1367, 788);
+            this.main_menu_course_panel.TabIndex = 9;
+            // 
+            // course_deleteCourse
+            // 
+            this.course_deleteCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.course_deleteCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.course_deleteCourse.ForeColor = System.Drawing.Color.White;
+            this.course_deleteCourse.Location = new System.Drawing.Point(444, 94);
+            this.course_deleteCourse.Name = "course_deleteCourse";
+            this.course_deleteCourse.Size = new System.Drawing.Size(183, 46);
+            this.course_deleteCourse.TabIndex = 8;
+            this.course_deleteCourse.Text = "DELETE COURSE";
+            this.course_deleteCourse.UseVisualStyleBackColor = false;
+            this.course_deleteCourse.Click += new System.EventHandler(this.course_deleteCourse_Click);
+            // 
+            // course_editCourse
+            // 
+            this.course_editCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.course_editCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.course_editCourse.ForeColor = System.Drawing.Color.White;
+            this.course_editCourse.Location = new System.Drawing.Point(242, 94);
+            this.course_editCourse.Name = "course_editCourse";
+            this.course_editCourse.Size = new System.Drawing.Size(183, 46);
+            this.course_editCourse.TabIndex = 7;
+            this.course_editCourse.Text = "EDIT COURSE";
+            this.course_editCourse.UseVisualStyleBackColor = false;
+            this.course_editCourse.Click += new System.EventHandler(this.course_editCourse_Click);
+            // 
+            // course_addCourse
+            // 
+            this.course_addCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.course_addCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
+            this.course_addCourse.ForeColor = System.Drawing.Color.White;
+            this.course_addCourse.Location = new System.Drawing.Point(27, 94);
+            this.course_addCourse.Name = "course_addCourse";
+            this.course_addCourse.Size = new System.Drawing.Size(183, 46);
+            this.course_addCourse.TabIndex = 6;
+            this.course_addCourse.Text = "ADD COURSE";
+            this.course_addCourse.UseVisualStyleBackColor = false;
+            this.course_addCourse.Click += new System.EventHandler(this.course_addCourse_Click);
+            // 
+            // main_menu_course_dataGridView
+            // 
+            this.main_menu_course_dataGridView.AllowUserToAddRows = false;
+            this.main_menu_course_dataGridView.AllowUserToDeleteRows = false;
+            this.main_menu_course_dataGridView.AllowUserToResizeColumns = false;
+            this.main_menu_course_dataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_menu_course_dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.main_menu_course_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.main_menu_course_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
+            this.main_menu_course_dataGridView.Location = new System.Drawing.Point(27, 155);
+            this.main_menu_course_dataGridView.Name = "main_menu_course_dataGridView";
+            this.main_menu_course_dataGridView.ReadOnly = true;
+            this.main_menu_course_dataGridView.RowHeadersWidth = 51;
+            this.main_menu_course_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.main_menu_course_dataGridView.Size = new System.Drawing.Size(1314, 584);
+            this.main_menu_course_dataGridView.TabIndex = 4;
+            this.main_menu_course_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_menu_course_dataGridView_CellClick);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Bell MT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(518, 45);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(184, 42);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "COURSES";
+            // 
             // Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -999,12 +1202,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1443, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_addresse_panel);
-            this.Controls.Add(this.main_menu_interns_panel);
+            this.Controls.Add(this.main_menu_course_panel);
             this.Controls.Add(this.main_menu_office_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
+            this.Controls.Add(this.main_menu_addresse_panel);
+            this.Controls.Add(this.main_menu_interns_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1044,6 +1248,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_status_panel.PerformLayout();
             this.main_menu_office_panel.ResumeLayout(false);
             this.main_menu_office_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_office_dataGridView)).EndInit();
+            this.main_menu_course_panel.ResumeLayout(false);
+            this.main_menu_course_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_menu_course_dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1117,5 +1325,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Button btn_office_panel;
         private System.Windows.Forms.Panel main_menu_office_panel;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView main_menu_office_dataGridView;
+        private System.Windows.Forms.Button office_deleteOffice;
+        private System.Windows.Forms.Button office_editOffice;
+        private System.Windows.Forms.Button office_addNewOffice;
+        private System.Windows.Forms.Button btn_course_panel;
+        private System.Windows.Forms.Panel main_menu_course_panel;
+        private System.Windows.Forms.Button course_deleteCourse;
+        private System.Windows.Forms.Button course_editCourse;
+        private System.Windows.Forms.Button course_addCourse;
+        private System.Windows.Forms.DataGridView main_menu_course_dataGridView;
+        private System.Windows.Forms.Label label12;
     }
 }
