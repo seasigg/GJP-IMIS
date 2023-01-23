@@ -41,6 +41,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu));
             this.main_menu_panel_selectors = new System.Windows.Forms.Panel();
+            this.btn_course_panel = new System.Windows.Forms.Button();
             this.btn_office_panel = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_logout_panel = new System.Windows.Forms.Button();
@@ -111,7 +112,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.office_addNewOffice = new System.Windows.Forms.Button();
             this.main_menu_office_dataGridView = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_course_panel = new System.Windows.Forms.Button();
             this.main_menu_course_panel = new System.Windows.Forms.Panel();
             this.course_deleteCourse = new System.Windows.Forms.Button();
             this.course_editCourse = new System.Windows.Forms.Button();
@@ -158,6 +158,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(185, 788);
             this.main_menu_panel_selectors.TabIndex = 0;
+            // 
+            // btn_course_panel
+            // 
+            this.btn_course_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_course_panel.FlatAppearance.BorderSize = 0;
+            this.btn_course_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_course_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_course_panel.ForeColor = System.Drawing.Color.Black;
+            this.btn_course_panel.Location = new System.Drawing.Point(0, 177);
+            this.btn_course_panel.Name = "btn_course_panel";
+            this.btn_course_panel.Size = new System.Drawing.Size(185, 40);
+            this.btn_course_panel.TabIndex = 14;
+            this.btn_course_panel.Text = "COURSES";
+            this.btn_course_panel.UseVisualStyleBackColor = true;
+            this.btn_course_panel.Click += new System.EventHandler(this.btn_course_panel_Click);
             // 
             // btn_office_panel
             // 
@@ -1084,21 +1099,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label11.TabIndex = 2;
             this.label11.Text = "OFFICES";
             // 
-            // btn_course_panel
-            // 
-            this.btn_course_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_course_panel.FlatAppearance.BorderSize = 0;
-            this.btn_course_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_course_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_course_panel.ForeColor = System.Drawing.Color.Black;
-            this.btn_course_panel.Location = new System.Drawing.Point(0, 177);
-            this.btn_course_panel.Name = "btn_course_panel";
-            this.btn_course_panel.Size = new System.Drawing.Size(185, 40);
-            this.btn_course_panel.TabIndex = 14;
-            this.btn_course_panel.Text = "COURSES";
-            this.btn_course_panel.UseVisualStyleBackColor = true;
-            this.btn_course_panel.Click += new System.EventHandler(this.btn_course_panel_Click);
-            // 
             // main_menu_course_panel
             // 
             this.main_menu_course_panel.BackColor = System.Drawing.Color.White;
@@ -1202,13 +1202,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1443, 791);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_course_panel);
             this.Controls.Add(this.main_menu_office_panel);
             this.Controls.Add(this.main_menu_welcome_panel);
             this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
+            this.Controls.Add(this.main_menu_course_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

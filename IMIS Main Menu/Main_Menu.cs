@@ -79,6 +79,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             main_menu_addresse_btn_editaddresse.Visible = false;
             main_menu_addresse_btn_deleteaddresse.Visible = false;
+
+            course_editCourse.Visible = false;
+            course_deleteCourse.Visible = false;
+
+            office_editOffice.Visible = false;
+            office_deleteOffice.Visible = false;
         }
 
         private void userAccount()
