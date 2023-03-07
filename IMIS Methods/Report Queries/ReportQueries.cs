@@ -16,7 +16,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
         public static string acceptLetter(string id)
         {
-            return ("SELECT DISTINCT DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now', " +
+            return ("SELECT DISTINCT DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now', " +
                 "" +
                 "Coordinator_Info.First_Name + ' ' + Coordinator_Info.Middle_Initial + '. ' + Coordinator_Info.Last_Name AS 'Coord_Name', " +
                 "Coordinator_Info.Position, " +

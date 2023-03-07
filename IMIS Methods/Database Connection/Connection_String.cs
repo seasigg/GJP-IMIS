@@ -23,7 +23,11 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
 
         //ETO TEST APDATE
         //Earl Test Database
-        public static String conn = @"Data Source=DESKTOP-DC45MHQ\SQLEXPRESS;Initial Catalog=IMIS_Test;Integrated Security=True";
+        //public static String conn = @"Data Source=DESKTOP-DC45MHQ\SQLEXPRESS;Initial Catalog=IMIS_Test;Integrated Security=True";
+
+
+        // OFFICE DB
+        public static String conn = @"Data Source=HRMS-SARAH\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         public static void dbConnection()
         {

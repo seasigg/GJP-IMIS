@@ -100,6 +100,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             main_menu_addresse_btn_newaddresse.Visible = false;
             main_menu_addresse_btn_editaddresse.Visible = false;
             main_menu_addresse_btn_deleteaddresse.Visible = false;
+
+            // disable report button
+            btn_reports_panel.Visible = false;
+            // 247, 46
+            btn_interns_panel.Dock = DockStyle.Top;
+            btn_addresse_panel.Dock = DockStyle.Top;
+            btn_univ_panel.Dock = DockStyle.Top;
+            btn_course_panel.Dock = DockStyle.Top;
+            btn_office_panel.Dock = DockStyle.Top;
+
+            btn_logout_panel.Dock = DockStyle.Top;
         }
 
         private void Main_Menu_Load(object sender, EventArgs e)

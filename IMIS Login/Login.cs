@@ -33,15 +33,16 @@ namespace GJP_IMIS.IMIS_Login
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read())
+            {
                 acc_type = dr["user_type"].ToString();
-            
-            dr.Close();
-
-            //MessageBox.Show(acc_type);
-
+                
+            }
+            //else
+            //    MessageBox.Show("Incorrect Credentials.");
             Main_Menu m = new Main_Menu(acc_type);
             m.Show();
             this.Dispose();
+            dr.Close();
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
