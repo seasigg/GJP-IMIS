@@ -562,9 +562,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ============================== LOGOUT PANEL ==============================
         private void btn_logout_panel_Click(object sender, EventArgs e)
         {
-            IMIS wf = new IMIS();
+            /*IMIS wf = new IMIS();
             wf.Show();
-            this.Dispose();
+            this.Dispose();*/
+            Application.Restart();
         }
         // ============================== END LOGOUT PANEL ==============================
 
@@ -652,9 +653,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                IMIS wf = new IMIS();
-                wf.Show();
-                this.Dispose();
+                Application.Restart();
             }
         }
 

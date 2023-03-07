@@ -17,7 +17,7 @@ namespace GJP_IMIS.IMIS_Methods.Course_Queries
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("INSERT INTO Course VALUES ('" + c + "')", Connection_String.con);
             cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         public static void updateCourse(string cId, string cName)
@@ -25,7 +25,7 @@ namespace GJP_IMIS.IMIS_Methods.Course_Queries
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("UPDATE Course SET Course_Name = '" + cName + "' WHERE Course_ID = '" + cId + "'", Connection_String.con);
             cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         public static void deleteCourse(string cId)
@@ -33,7 +33,7 @@ namespace GJP_IMIS.IMIS_Methods.Course_Queries
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("DELETE FROM Course WHERE Course_ID = '" + cId + "'", Connection_String.con);
             cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
     }
 }

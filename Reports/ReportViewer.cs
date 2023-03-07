@@ -29,7 +29,7 @@ namespace GJP_IMIS.Reports
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(ReportQueries.acceptLetter(ojtID), Connection_String.con);
             da.Fill(ds, "AcceptanceTable");
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
 
             rt.SetDataSource(ds.Tables["AcceptanceTable"]);
@@ -45,7 +45,7 @@ namespace GJP_IMIS.Reports
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(ReportQueries.Intern(), Connection_String.con);
             da.Fill(ds, "Interns");
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
 
             ri.SetDataSource(ds.Tables["Interns"]);
@@ -62,7 +62,7 @@ namespace GJP_IMIS.Reports
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(q, Connection_String.con);
             da.Fill(ds, "Interns");
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             ri.SetDataSource(ds.Tables["Interns"]);
             crystalReportViewer1.ReportSource = ri;

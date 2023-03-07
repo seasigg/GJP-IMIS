@@ -40,7 +40,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Course
             {
                 txtCourse.Text = dr["Course_Name"].ToString();
             }
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
         }
 

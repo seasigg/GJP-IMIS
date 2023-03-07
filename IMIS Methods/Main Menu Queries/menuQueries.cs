@@ -19,7 +19,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             return dt;
         }

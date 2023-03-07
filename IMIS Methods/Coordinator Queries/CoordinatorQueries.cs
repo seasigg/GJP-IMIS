@@ -20,7 +20,7 @@ namespace GJP_IMIS.IMIS_Methods.Coordinator_Queries
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             return dt;
         }
@@ -32,7 +32,7 @@ namespace GJP_IMIS.IMIS_Methods.Coordinator_Queries
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
 
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         public static DataTable getUniversity()

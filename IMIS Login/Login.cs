@@ -24,8 +24,34 @@ namespace GJP_IMIS.IMIS_Login
 
         private void login_btn_login_Click(object sender, EventArgs e)
         {
+            using(var con = new SqlConnection(Connection_String.conn))
+            {
+                con.Open();
+                String user = login_txtUsername.Text;
+                String pass = login_txtPass.Text;
+                String acc_type = "";
 
-            Connection_String.dbConnection();
+                using (SqlCommand cmd = new SqlCommand("SELECT * from User_Account where username = '" + user + "' and password = '" + pass + "'", con))
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        acc_type = dr["user_type"].ToString();
+                        Main_Menu m = new Main_Menu(acc_type);
+                        m.Show();
+                        this.Dispose();
+
+                        con.Dispose();
+                    }
+                    else
+                        MessageBox.Show("Incorrect Credentials.");
+
+                }
+                
+            }
+
+
+           /* Connection_String.dbConnection();
             String user = login_txtUsername.Text;
             String pass = login_txtPass.Text;
             String acc_type = "";
@@ -42,7 +68,7 @@ namespace GJP_IMIS.IMIS_Login
             Main_Menu m = new Main_Menu(acc_type);
             m.Show();
             this.Dispose();
-            dr.Close();
+            dr.Close();*/
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

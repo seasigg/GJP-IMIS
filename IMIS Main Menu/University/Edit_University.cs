@@ -42,7 +42,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.University
                 txtUniversity.Text = dr["University_Name"].ToString();
                 univ = dr["University_Name"].ToString();
             }
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         private void edit_univ_confirm_Click(object sender, EventArgs e)

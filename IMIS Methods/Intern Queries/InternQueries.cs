@@ -19,7 +19,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(dt);
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             return dt;
         }
@@ -38,7 +38,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             if (dr.Read())
                 return true;
 
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             return false;
         }
@@ -57,7 +57,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             int incremented = Convert.ToInt32(currentID);
             incremented++;
 
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
             return incremented.ToString("D3");
         }
@@ -71,7 +71,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
 
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         public static void addInternStatus(string o, string start, string targetD, string targetH)
@@ -85,7 +85,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
 
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         /////////////////////////////////////////////////

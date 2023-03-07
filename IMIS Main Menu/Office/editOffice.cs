@@ -44,7 +44,7 @@ namespace GJP_IMIS.IMIS_Main_Menu.Office
                 txtOfficeName.Text = dr["Office_Name"].ToString();
                 txtOfficeAbbr.Text = dr["Office_Abr"].ToString();
             }
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
 
         }
 

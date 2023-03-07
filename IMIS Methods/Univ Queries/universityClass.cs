@@ -17,7 +17,7 @@ namespace GJP_IMIS.IMIS_Methods.Univ_Queries
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("INSERT into University VALUES ('" + university + "')", Connection_String.con);
             cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
 
         public static void updateUniversity(string university, string univId)
@@ -25,7 +25,7 @@ namespace GJP_IMIS.IMIS_Methods.Univ_Queries
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand("UPDATE University SET University_Name = '"+ university + "' WHERE University_Id = '"+univId+"'", Connection_String.con);
             cmd.ExecuteNonQuery();
-            Connection_String.con.Close();
+            Connection_String.con.Dispose();
         }
     }
 }
