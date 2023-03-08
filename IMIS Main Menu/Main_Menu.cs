@@ -308,6 +308,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
         }
 
+        // DELETE UNIVERSITY BUTTOn
+        private void main_menu_univ_btn_deleteUniv_Click(object sender, EventArgs e)
+        {
+            if (selectedUniv != "")
+            {
+                
+            }
+            else
+            {
+                MessageBox.Show("SELECT UNIVERSITY FIRST");
+            }
+        }
         private void main_menu_univ_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedUniv = main_menu_univ_dataGridView.CurrentRow.Cells[0].Value.ToString();
@@ -411,12 +423,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             if (selectedOfficeId != "")
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to delete " + selectedOfficeName + " ?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
-                {
-                    OfficeQueries.deleteOffice(selectedOfficeId);
-                    MessageBox.Show("Successfully deleted the " + selectedOfficeName + ".");
+                if (!OfficeQueries.isOffice(selectedOfficeId)) {
+                    DialogResult dr = MessageBox.Show("Are you sure you want to delete " + selectedOfficeName + " ?", "Clear Entry", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
+                    {
+                        OfficeQueries.deleteOffice(selectedOfficeId);
+                        MessageBox.Show("Successfully deleted the " + selectedOfficeName + ".");
+                    }
                 }
+                else
+                    MessageBox.Show("Unable to delete office.");
             }
             else
                 MessageBox.Show("SELECT OFFICE FIRST.");
@@ -785,6 +801,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             rv.viewAcceptanceLetter(acceptanceDataGridIntern.CurrentRow.Cells[0].Value.ToString());
             rv.ShowDialog();
         }
+
+        
 
 
 

@@ -31,9 +31,25 @@ namespace GJP_IMIS.IMIS_Methods.Office_Queries
         public static void deleteOffice(string oId)
         {
             Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("DELETE FROM Office WHERE Office_ID = '"+oId+"'", Connection_String.con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM Office WHERE Office_ID = '" + oId + "'", Connection_String.con);
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
+        }
+
+        public static bool isOffice(string oId)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) as 'count' FROM Intern_Info WHERE Intern_Info.Office_ID = '" + oId + "'", Connection_String.con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                int c = Convert.ToInt32(dr["count"]);
+                if (c > 0)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

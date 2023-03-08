@@ -155,7 +155,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_panel_selectors.Controls.Add(this.btn_interns_panel);
             this.main_menu_panel_selectors.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F);
             this.main_menu_panel_selectors.Location = new System.Drawing.Point(0, 4);
-            this.main_menu_panel_selectors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_panel_selectors.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_panel_selectors.Name = "main_menu_panel_selectors";
             this.main_menu_panel_selectors.Size = new System.Drawing.Size(247, 970);
             this.main_menu_panel_selectors.TabIndex = 0;
@@ -168,7 +168,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_course_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_course_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_course_panel.Location = new System.Drawing.Point(0, 218);
-            this.btn_course_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_course_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_course_panel.Name = "btn_course_panel";
             this.btn_course_panel.Size = new System.Drawing.Size(247, 49);
             this.btn_course_panel.TabIndex = 14;
@@ -184,7 +184,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_office_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_office_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_office_panel.Location = new System.Drawing.Point(0, 284);
-            this.btn_office_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_office_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_office_panel.Name = "btn_office_panel";
             this.btn_office_panel.Size = new System.Drawing.Size(247, 46);
             this.btn_office_panel.TabIndex = 13;
@@ -196,7 +196,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.pictureBox2.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
             this.pictureBox2.Location = new System.Drawing.Point(4, 757);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(239, 209);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,7 +212,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_logout_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_logout_panel.ForeColor = System.Drawing.Color.BlanchedAlmond;
             this.btn_logout_panel.Location = new System.Drawing.Point(-3, 676);
-            this.btn_logout_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_logout_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_logout_panel.Name = "btn_logout_panel";
             this.btn_logout_panel.Size = new System.Drawing.Size(247, 49);
             this.btn_logout_panel.TabIndex = 11;
@@ -228,7 +228,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_reports_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_reports_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_reports_panel.Location = new System.Drawing.Point(4, 351);
-            this.btn_reports_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_reports_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_reports_panel.Name = "btn_reports_panel";
             this.btn_reports_panel.Size = new System.Drawing.Size(247, 46);
             this.btn_reports_panel.TabIndex = 9;
@@ -244,7 +244,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_univ_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_univ_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_univ_panel.Location = new System.Drawing.Point(4, 154);
-            this.btn_univ_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_univ_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_univ_panel.Name = "btn_univ_panel";
             this.btn_univ_panel.Size = new System.Drawing.Size(247, 43);
             this.btn_univ_panel.TabIndex = 7;
@@ -260,7 +260,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_addresse_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_addresse_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_addresse_panel.Location = new System.Drawing.Point(0, 96);
-            this.btn_addresse_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addresse_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addresse_panel.Name = "btn_addresse_panel";
             this.btn_addresse_panel.Size = new System.Drawing.Size(247, 38);
             this.btn_addresse_panel.TabIndex = 5;
@@ -276,7 +276,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btn_interns_panel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_interns_panel.ForeColor = System.Drawing.Color.Black;
             this.btn_interns_panel.Location = new System.Drawing.Point(0, 37);
-            this.btn_interns_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_interns_panel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_interns_panel.Name = "btn_interns_panel";
             this.btn_interns_panel.Size = new System.Drawing.Size(247, 41);
             this.btn_interns_panel.TabIndex = 4;
@@ -290,7 +290,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_welcome_panel.Controls.Add(this.pictureBox1);
             this.main_menu_welcome_panel.Controls.Add(this.label10);
             this.main_menu_welcome_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_welcome_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_welcome_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_welcome_panel.Name = "main_menu_welcome_panel";
             this.main_menu_welcome_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_welcome_panel.TabIndex = 2;
@@ -299,7 +299,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
             this.pictureBox1.Location = new System.Drawing.Point(625, 119);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(589, 501);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -327,7 +327,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_panel.Controls.Add(this.main_menu_interns_search_intern);
             this.main_menu_interns_panel.Controls.Add(this.label6);
             this.main_menu_interns_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_interns_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_interns_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_interns_panel.Name = "main_menu_interns_panel";
             this.main_menu_interns_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_interns_panel.TabIndex = 4;
@@ -338,7 +338,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_btn_deleteintern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_interns_btn_deleteintern.ForeColor = System.Drawing.Color.White;
             this.main_menu_interns_btn_deleteintern.Location = new System.Drawing.Point(411, 181);
-            this.main_menu_interns_btn_deleteintern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_interns_btn_deleteintern.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_interns_btn_deleteintern.Name = "main_menu_interns_btn_deleteintern";
             this.main_menu_interns_btn_deleteintern.Size = new System.Drawing.Size(176, 48);
             this.main_menu_interns_btn_deleteintern.TabIndex = 6;
@@ -352,7 +352,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_btn_editintern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_interns_btn_editintern.ForeColor = System.Drawing.Color.White;
             this.main_menu_interns_btn_editintern.Location = new System.Drawing.Point(215, 181);
-            this.main_menu_interns_btn_editintern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_interns_btn_editintern.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_interns_btn_editintern.Name = "main_menu_interns_btn_editintern";
             this.main_menu_interns_btn_editintern.Size = new System.Drawing.Size(176, 48);
             this.main_menu_interns_btn_editintern.TabIndex = 5;
@@ -389,7 +389,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridIntern.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridIntern.GridColor = System.Drawing.Color.White;
             this.dataGridIntern.Location = new System.Drawing.Point(19, 250);
-            this.dataGridIntern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridIntern.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridIntern.MultiSelect = false;
             this.dataGridIntern.Name = "dataGridIntern";
             this.dataGridIntern.ReadOnly = true;
@@ -406,7 +406,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_interns_btn_newintern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_interns_btn_newintern.ForeColor = System.Drawing.Color.White;
             this.main_menu_interns_btn_newintern.Location = new System.Drawing.Point(19, 181);
-            this.main_menu_interns_btn_newintern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_interns_btn_newintern.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_interns_btn_newintern.Name = "main_menu_interns_btn_newintern";
             this.main_menu_interns_btn_newintern.Size = new System.Drawing.Size(176, 48);
             this.main_menu_interns_btn_newintern.TabIndex = 3;
@@ -418,7 +418,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.main_menu_interns_search_intern.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.main_menu_interns_search_intern.Location = new System.Drawing.Point(1439, 183);
-            this.main_menu_interns_search_intern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_interns_search_intern.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_interns_search_intern.Name = "main_menu_interns_search_intern";
             this.main_menu_interns_search_intern.Size = new System.Drawing.Size(297, 36);
             this.main_menu_interns_search_intern.TabIndex = 2;
@@ -448,7 +448,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_panel.Controls.Add(this.main_menu_addresse_btn_newaddresse);
             this.main_menu_addresse_panel.Controls.Add(this.label5);
             this.main_menu_addresse_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_addresse_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_panel.Name = "main_menu_addresse_panel";
             this.main_menu_addresse_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_addresse_panel.TabIndex = 5;
@@ -459,7 +459,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_deleteaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_deleteaddresse.ForeColor = System.Drawing.Color.White;
             this.main_menu_addresse_btn_deleteaddresse.Location = new System.Drawing.Point(592, 868);
-            this.main_menu_addresse_btn_deleteaddresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_btn_deleteaddresse.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_btn_deleteaddresse.Name = "main_menu_addresse_btn_deleteaddresse";
             this.main_menu_addresse_btn_deleteaddresse.Size = new System.Drawing.Size(227, 53);
             this.main_menu_addresse_btn_deleteaddresse.TabIndex = 32;
@@ -472,7 +472,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_editaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_editaddresse.ForeColor = System.Drawing.Color.White;
             this.main_menu_addresse_btn_editaddresse.Location = new System.Drawing.Point(340, 868);
-            this.main_menu_addresse_btn_editaddresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_btn_editaddresse.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_btn_editaddresse.Name = "main_menu_addresse_btn_editaddresse";
             this.main_menu_addresse_btn_editaddresse.Size = new System.Drawing.Size(227, 53);
             this.main_menu_addresse_btn_editaddresse.TabIndex = 31;
@@ -486,7 +486,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.coordComboUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coordComboUniversity.FormattingEnabled = true;
             this.coordComboUniversity.Location = new System.Drawing.Point(377, 149);
-            this.coordComboUniversity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coordComboUniversity.Margin = new System.Windows.Forms.Padding(4);
             this.coordComboUniversity.Name = "coordComboUniversity";
             this.coordComboUniversity.Size = new System.Drawing.Size(1052, 33);
             this.coordComboUniversity.TabIndex = 30;
@@ -498,7 +498,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_clearSelection.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_clearSelection.ForeColor = System.Drawing.Color.White;
             this.main_menu_addresse_btn_clearSelection.Location = new System.Drawing.Point(1303, 868);
-            this.main_menu_addresse_btn_clearSelection.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_btn_clearSelection.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_btn_clearSelection.Name = "main_menu_addresse_btn_clearSelection";
             this.main_menu_addresse_btn_clearSelection.Size = new System.Drawing.Size(229, 53);
             this.main_menu_addresse_btn_clearSelection.TabIndex = 29;
@@ -529,7 +529,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_addresse_DataGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.main_menu_addresse_addresse_DataGrid.EnableHeadersVisualStyles = false;
             this.main_menu_addresse_addresse_DataGrid.Location = new System.Drawing.Point(87, 295);
-            this.main_menu_addresse_addresse_DataGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_addresse_DataGrid.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_addresse_DataGrid.Name = "main_menu_addresse_addresse_DataGrid";
             this.main_menu_addresse_addresse_DataGrid.ReadOnly = true;
             this.main_menu_addresse_addresse_DataGrid.RowHeadersWidth = 51;
@@ -541,7 +541,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.main_menu_addresse_search_addresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.main_menu_addresse_search_addresse.Location = new System.Drawing.Point(87, 250);
-            this.main_menu_addresse_search_addresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_search_addresse.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_search_addresse.Name = "main_menu_addresse_search_addresse";
             this.main_menu_addresse_search_addresse.Size = new System.Drawing.Size(508, 36);
             this.main_menu_addresse_search_addresse.TabIndex = 27;
@@ -574,7 +574,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_addresse_btn_newaddresse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_addresse_btn_newaddresse.ForeColor = System.Drawing.Color.White;
             this.main_menu_addresse_btn_newaddresse.Location = new System.Drawing.Point(87, 868);
-            this.main_menu_addresse_btn_newaddresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_addresse_btn_newaddresse.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_addresse_btn_newaddresse.Name = "main_menu_addresse_btn_newaddresse";
             this.main_menu_addresse_btn_newaddresse.Size = new System.Drawing.Size(227, 53);
             this.main_menu_addresse_btn_newaddresse.TabIndex = 6;
@@ -603,7 +603,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_panel.Controls.Add(this.main_menu_univ_dataGridView);
             this.main_menu_univ_panel.Controls.Add(this.label2);
             this.main_menu_univ_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_univ_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_panel.Name = "main_menu_univ_panel";
             this.main_menu_univ_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_univ_panel.TabIndex = 6;
@@ -614,12 +614,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_btn_deleteUniv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_univ_btn_deleteUniv.ForeColor = System.Drawing.Color.White;
             this.main_menu_univ_btn_deleteUniv.Location = new System.Drawing.Point(563, 158);
-            this.main_menu_univ_btn_deleteUniv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_btn_deleteUniv.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_btn_deleteUniv.Name = "main_menu_univ_btn_deleteUniv";
             this.main_menu_univ_btn_deleteUniv.Size = new System.Drawing.Size(244, 57);
             this.main_menu_univ_btn_deleteUniv.TabIndex = 7;
             this.main_menu_univ_btn_deleteUniv.Text = "DELETE UNIVERSITY";
             this.main_menu_univ_btn_deleteUniv.UseVisualStyleBackColor = false;
+            this.main_menu_univ_btn_deleteUniv.Click += new System.EventHandler(this.main_menu_univ_btn_deleteUniv_Click);
             // 
             // main_menu_univ_btn_editUniv
             // 
@@ -627,7 +628,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_btn_editUniv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_univ_btn_editUniv.ForeColor = System.Drawing.Color.White;
             this.main_menu_univ_btn_editUniv.Location = new System.Drawing.Point(301, 158);
-            this.main_menu_univ_btn_editUniv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_btn_editUniv.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_btn_editUniv.Name = "main_menu_univ_btn_editUniv";
             this.main_menu_univ_btn_editUniv.Size = new System.Drawing.Size(244, 57);
             this.main_menu_univ_btn_editUniv.TabIndex = 6;
@@ -641,7 +642,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_univ_btn_newUniv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.main_menu_univ_btn_newUniv.ForeColor = System.Drawing.Color.White;
             this.main_menu_univ_btn_newUniv.Location = new System.Drawing.Point(36, 158);
-            this.main_menu_univ_btn_newUniv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_btn_newUniv.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_btn_newUniv.Name = "main_menu_univ_btn_newUniv";
             this.main_menu_univ_btn_newUniv.Size = new System.Drawing.Size(244, 57);
             this.main_menu_univ_btn_newUniv.TabIndex = 5;
@@ -653,7 +654,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.main_menu_univ_find_univ.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F);
             this.main_menu_univ_find_univ.Location = new System.Drawing.Point(1489, 176);
-            this.main_menu_univ_find_univ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_find_univ.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_find_univ.Name = "main_menu_univ_find_univ";
             this.main_menu_univ_find_univ.Size = new System.Drawing.Size(297, 36);
             this.main_menu_univ_find_univ.TabIndex = 4;
@@ -682,7 +683,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.main_menu_univ_dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.main_menu_univ_dataGridView.Location = new System.Drawing.Point(36, 229);
-            this.main_menu_univ_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_univ_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_univ_dataGridView.Name = "main_menu_univ_dataGridView";
             this.main_menu_univ_dataGridView.ReadOnly = true;
             this.main_menu_univ_dataGridView.RowHeadersWidth = 51;
@@ -717,7 +718,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_reports_panel.Controls.Add(this.reports_certificate_panel);
             this.main_menu_reports_panel.Controls.Add(this.reports_status_panel);
             this.main_menu_reports_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_reports_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_reports_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_reports_panel.Name = "main_menu_reports_panel";
             this.main_menu_reports_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_reports_panel.TabIndex = 7;
@@ -729,7 +730,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_accept.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reports_btn_accept.ForeColor = System.Drawing.Color.Black;
             this.reports_btn_accept.Location = new System.Drawing.Point(1037, 21);
-            this.reports_btn_accept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_btn_accept.Margin = new System.Windows.Forms.Padding(4);
             this.reports_btn_accept.Name = "reports_btn_accept";
             this.reports_btn_accept.Size = new System.Drawing.Size(247, 46);
             this.reports_btn_accept.TabIndex = 17;
@@ -744,7 +745,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_cert.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reports_btn_cert.ForeColor = System.Drawing.Color.Black;
             this.reports_btn_cert.Location = new System.Drawing.Point(783, 21);
-            this.reports_btn_cert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_btn_cert.Margin = new System.Windows.Forms.Padding(4);
             this.reports_btn_cert.Name = "reports_btn_cert";
             this.reports_btn_cert.Size = new System.Drawing.Size(247, 46);
             this.reports_btn_cert.TabIndex = 16;
@@ -759,7 +760,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_stats.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reports_btn_stats.ForeColor = System.Drawing.Color.Black;
             this.reports_btn_stats.Location = new System.Drawing.Point(528, 21);
-            this.reports_btn_stats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_btn_stats.Margin = new System.Windows.Forms.Padding(4);
             this.reports_btn_stats.Name = "reports_btn_stats";
             this.reports_btn_stats.Size = new System.Drawing.Size(247, 46);
             this.reports_btn_stats.TabIndex = 15;
@@ -774,7 +775,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_dtr.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reports_btn_dtr.ForeColor = System.Drawing.Color.Black;
             this.reports_btn_dtr.Location = new System.Drawing.Point(273, 21);
-            this.reports_btn_dtr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_btn_dtr.Margin = new System.Windows.Forms.Padding(4);
             this.reports_btn_dtr.Name = "reports_btn_dtr";
             this.reports_btn_dtr.Size = new System.Drawing.Size(247, 46);
             this.reports_btn_dtr.TabIndex = 14;
@@ -789,7 +790,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_btn_intern.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reports_btn_intern.ForeColor = System.Drawing.Color.Black;
             this.reports_btn_intern.Location = new System.Drawing.Point(19, 21);
-            this.reports_btn_intern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_btn_intern.Margin = new System.Windows.Forms.Padding(4);
             this.reports_btn_intern.Name = "reports_btn_intern";
             this.reports_btn_intern.Size = new System.Drawing.Size(247, 46);
             this.reports_btn_intern.TabIndex = 13;
@@ -802,7 +803,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_acceptance_panel.Controls.Add(this.acceptanceDataGridIntern);
             this.reports_acceptance_panel.Controls.Add(this.label4);
             this.reports_acceptance_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_acceptance_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_acceptance_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_acceptance_panel.Name = "reports_acceptance_panel";
             this.reports_acceptance_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_acceptance_panel.TabIndex = 2;
@@ -813,7 +814,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptanceDataGridIntern.AllowUserToDeleteRows = false;
             this.acceptanceDataGridIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.acceptanceDataGridIntern.Location = new System.Drawing.Point(17, 119);
-            this.acceptanceDataGridIntern.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.acceptanceDataGridIntern.Margin = new System.Windows.Forms.Padding(4);
             this.acceptanceDataGridIntern.MultiSelect = false;
             this.acceptanceDataGridIntern.Name = "acceptanceDataGridIntern";
             this.acceptanceDataGridIntern.ReadOnly = true;
@@ -838,7 +839,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.reports_default_panel.Controls.Add(this.label9);
             this.reports_default_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_default_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_default_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_default_panel.Name = "reports_default_panel";
             this.reports_default_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_default_panel.TabIndex = 19;
@@ -868,7 +869,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reports_intern_report_panel.Controls.Add(this.internCheckGender);
             this.reports_intern_report_panel.Controls.Add(this.label3);
             this.reports_intern_report_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_intern_report_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_intern_report_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_intern_report_panel.Name = "reports_intern_report_panel";
             this.reports_intern_report_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_intern_report_panel.TabIndex = 18;
@@ -879,7 +880,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internButtonGenerate.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internButtonGenerate.ForeColor = System.Drawing.Color.White;
             this.internButtonGenerate.Location = new System.Drawing.Point(1108, 554);
-            this.internButtonGenerate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internButtonGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.internButtonGenerate.Name = "internButtonGenerate";
             this.internButtonGenerate.Size = new System.Drawing.Size(161, 39);
             this.internButtonGenerate.TabIndex = 35;
@@ -894,7 +895,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internComboCourse.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internComboCourse.FormattingEnabled = true;
             this.internComboCourse.Location = new System.Drawing.Point(464, 498);
-            this.internComboCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internComboCourse.Margin = new System.Windows.Forms.Padding(4);
             this.internComboCourse.Name = "internComboCourse";
             this.internComboCourse.Size = new System.Drawing.Size(805, 28);
             this.internComboCourse.TabIndex = 34;
@@ -906,7 +907,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internComboOffice.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internComboOffice.FormattingEnabled = true;
             this.internComboOffice.Location = new System.Drawing.Point(464, 402);
-            this.internComboOffice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internComboOffice.Margin = new System.Windows.Forms.Padding(4);
             this.internComboOffice.Name = "internComboOffice";
             this.internComboOffice.Size = new System.Drawing.Size(805, 28);
             this.internComboOffice.TabIndex = 33;
@@ -918,7 +919,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internComboUniversity.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internComboUniversity.FormattingEnabled = true;
             this.internComboUniversity.Location = new System.Drawing.Point(464, 303);
-            this.internComboUniversity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internComboUniversity.Margin = new System.Windows.Forms.Padding(4);
             this.internComboUniversity.Name = "internComboUniversity";
             this.internComboUniversity.Size = new System.Drawing.Size(805, 28);
             this.internComboUniversity.TabIndex = 32;
@@ -928,7 +929,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internRadioFemale.AutoSize = true;
             this.internRadioFemale.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internRadioFemale.Location = new System.Drawing.Point(543, 222);
-            this.internRadioFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internRadioFemale.Margin = new System.Windows.Forms.Padding(4);
             this.internRadioFemale.Name = "internRadioFemale";
             this.internRadioFemale.Size = new System.Drawing.Size(79, 24);
             this.internRadioFemale.TabIndex = 10;
@@ -941,7 +942,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internRadioMale.AutoSize = true;
             this.internRadioMale.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internRadioMale.Location = new System.Drawing.Point(464, 222);
-            this.internRadioMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internRadioMale.Margin = new System.Windows.Forms.Padding(4);
             this.internRadioMale.Name = "internRadioMale";
             this.internRadioMale.Size = new System.Drawing.Size(64, 24);
             this.internRadioMale.TabIndex = 9;
@@ -954,7 +955,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internCheckCourse.AutoSize = true;
             this.internCheckCourse.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internCheckCourse.Location = new System.Drawing.Point(392, 463);
-            this.internCheckCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internCheckCourse.Margin = new System.Windows.Forms.Padding(4);
             this.internCheckCourse.Name = "internCheckCourse";
             this.internCheckCourse.Size = new System.Drawing.Size(93, 28);
             this.internCheckCourse.TabIndex = 8;
@@ -967,7 +968,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internCheckOffice.AutoSize = true;
             this.internCheckOffice.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internCheckOffice.Location = new System.Drawing.Point(392, 367);
-            this.internCheckOffice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internCheckOffice.Margin = new System.Windows.Forms.Padding(4);
             this.internCheckOffice.Name = "internCheckOffice";
             this.internCheckOffice.Size = new System.Drawing.Size(176, 28);
             this.internCheckOffice.TabIndex = 7;
@@ -980,7 +981,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internCheckUniversity.AutoSize = true;
             this.internCheckUniversity.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internCheckUniversity.Location = new System.Drawing.Point(392, 267);
-            this.internCheckUniversity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internCheckUniversity.Margin = new System.Windows.Forms.Padding(4);
             this.internCheckUniversity.Name = "internCheckUniversity";
             this.internCheckUniversity.Size = new System.Drawing.Size(124, 28);
             this.internCheckUniversity.TabIndex = 6;
@@ -993,7 +994,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internCheckGender.AutoSize = true;
             this.internCheckGender.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.internCheckGender.Location = new System.Drawing.Point(392, 176);
-            this.internCheckGender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.internCheckGender.Margin = new System.Windows.Forms.Padding(4);
             this.internCheckGender.Name = "internCheckGender";
             this.internCheckGender.Size = new System.Drawing.Size(98, 28);
             this.internCheckGender.TabIndex = 5;
@@ -1016,7 +1017,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.reports_dtr_panel.Controls.Add(this.label1);
             this.reports_dtr_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_dtr_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_dtr_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_dtr_panel.Name = "reports_dtr_panel";
             this.reports_dtr_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_dtr_panel.TabIndex = 5;
@@ -1036,7 +1037,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.reports_certificate_panel.Controls.Add(this.txtcert);
             this.reports_certificate_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_certificate_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_certificate_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_certificate_panel.Name = "reports_certificate_panel";
             this.reports_certificate_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_certificate_panel.TabIndex = 2;
@@ -1056,7 +1057,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.reports_status_panel.Controls.Add(this.txtstats);
             this.reports_status_panel.Location = new System.Drawing.Point(19, 74);
-            this.reports_status_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reports_status_panel.Margin = new System.Windows.Forms.Padding(4);
             this.reports_status_panel.Name = "reports_status_panel";
             this.reports_status_panel.Size = new System.Drawing.Size(1788, 881);
             this.reports_status_panel.TabIndex = 2;
@@ -1081,7 +1082,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_office_panel.Controls.Add(this.main_menu_office_dataGridView);
             this.main_menu_office_panel.Controls.Add(this.label11);
             this.main_menu_office_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_office_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_office_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_office_panel.Name = "main_menu_office_panel";
             this.main_menu_office_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_office_panel.TabIndex = 4;
@@ -1092,7 +1093,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.office_deleteOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.office_deleteOffice.ForeColor = System.Drawing.Color.White;
             this.office_deleteOffice.Location = new System.Drawing.Point(592, 116);
-            this.office_deleteOffice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.office_deleteOffice.Margin = new System.Windows.Forms.Padding(4);
             this.office_deleteOffice.Name = "office_deleteOffice";
             this.office_deleteOffice.Size = new System.Drawing.Size(244, 57);
             this.office_deleteOffice.TabIndex = 8;
@@ -1106,7 +1107,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.office_editOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.office_editOffice.ForeColor = System.Drawing.Color.White;
             this.office_editOffice.Location = new System.Drawing.Point(323, 116);
-            this.office_editOffice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.office_editOffice.Margin = new System.Windows.Forms.Padding(4);
             this.office_editOffice.Name = "office_editOffice";
             this.office_editOffice.Size = new System.Drawing.Size(244, 57);
             this.office_editOffice.TabIndex = 7;
@@ -1120,7 +1121,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.office_addNewOffice.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.office_addNewOffice.ForeColor = System.Drawing.Color.White;
             this.office_addNewOffice.Location = new System.Drawing.Point(36, 116);
-            this.office_addNewOffice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.office_addNewOffice.Margin = new System.Windows.Forms.Padding(4);
             this.office_addNewOffice.Name = "office_addNewOffice";
             this.office_addNewOffice.Size = new System.Drawing.Size(244, 57);
             this.office_addNewOffice.TabIndex = 6;
@@ -1152,7 +1153,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.main_menu_office_dataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.main_menu_office_dataGridView.Location = new System.Drawing.Point(36, 191);
-            this.main_menu_office_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_office_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_office_dataGridView.Name = "main_menu_office_dataGridView";
             this.main_menu_office_dataGridView.ReadOnly = true;
             this.main_menu_office_dataGridView.RowHeadersWidth = 51;
@@ -1181,7 +1182,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.main_menu_course_panel.Controls.Add(this.main_menu_course_dataGridView);
             this.main_menu_course_panel.Controls.Add(this.label12);
             this.main_menu_course_panel.Location = new System.Drawing.Point(255, 4);
-            this.main_menu_course_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_course_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_course_panel.Name = "main_menu_course_panel";
             this.main_menu_course_panel.Size = new System.Drawing.Size(1823, 970);
             this.main_menu_course_panel.TabIndex = 9;
@@ -1192,7 +1193,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.course_deleteCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.course_deleteCourse.ForeColor = System.Drawing.Color.White;
             this.course_deleteCourse.Location = new System.Drawing.Point(592, 116);
-            this.course_deleteCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.course_deleteCourse.Margin = new System.Windows.Forms.Padding(4);
             this.course_deleteCourse.Name = "course_deleteCourse";
             this.course_deleteCourse.Size = new System.Drawing.Size(244, 57);
             this.course_deleteCourse.TabIndex = 8;
@@ -1206,7 +1207,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.course_editCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.course_editCourse.ForeColor = System.Drawing.Color.White;
             this.course_editCourse.Location = new System.Drawing.Point(323, 116);
-            this.course_editCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.course_editCourse.Margin = new System.Windows.Forms.Padding(4);
             this.course_editCourse.Name = "course_editCourse";
             this.course_editCourse.Size = new System.Drawing.Size(244, 57);
             this.course_editCourse.TabIndex = 7;
@@ -1220,7 +1221,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.course_addCourse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F);
             this.course_addCourse.ForeColor = System.Drawing.Color.White;
             this.course_addCourse.Location = new System.Drawing.Point(36, 116);
-            this.course_addCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.course_addCourse.Margin = new System.Windows.Forms.Padding(4);
             this.course_addCourse.Name = "course_addCourse";
             this.course_addCourse.Size = new System.Drawing.Size(244, 57);
             this.course_addCourse.TabIndex = 6;
@@ -1252,7 +1253,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.main_menu_course_dataGridView.DefaultCellStyle = dataGridViewCellStyle10;
             this.main_menu_course_dataGridView.Location = new System.Drawing.Point(36, 191);
-            this.main_menu_course_dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_menu_course_dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.main_menu_course_dataGridView.Name = "main_menu_course_dataGridView";
             this.main_menu_course_dataGridView.ReadOnly = true;
             this.main_menu_course_dataGridView.RowHeadersWidth = 51;
@@ -1281,17 +1282,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1924, 974);
             this.Controls.Add(this.main_menu_panel_selectors);
-            this.Controls.Add(this.main_menu_office_panel);
-            this.Controls.Add(this.main_menu_welcome_panel);
-            this.Controls.Add(this.main_menu_reports_panel);
             this.Controls.Add(this.main_menu_univ_panel);
             this.Controls.Add(this.main_menu_addresse_panel);
             this.Controls.Add(this.main_menu_interns_panel);
             this.Controls.Add(this.main_menu_course_panel);
+            this.Controls.Add(this.main_menu_office_panel);
+            this.Controls.Add(this.main_menu_welcome_panel);
+            this.Controls.Add(this.main_menu_reports_panel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Main_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
