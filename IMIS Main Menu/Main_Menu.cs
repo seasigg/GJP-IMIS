@@ -320,6 +320,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 MessageBox.Show("SELECT UNIVERSITY FIRST");
             }
         }
+
         private void main_menu_univ_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedUniv = main_menu_univ_dataGridView.CurrentRow.Cells[0].Value.ToString();

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using GJP_IMIS.IMIS_Login;
 using GJP_IMIS.IMIS_Class;
+using GJP_IMIS.IMIS_Main_Menu;
 
 namespace GJP_IMIS
 {
@@ -22,8 +23,10 @@ namespace GJP_IMIS
 
         private void wc_btn_proceed_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
-            l.Show();
+            /*Login l = new Login();
+            l.Show();*/
+            Main_Menu_Remastered mmr = new Main_Menu_Remastered();
+            mmr.Show();
             this.Hide();
         }
 

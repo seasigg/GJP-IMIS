@@ -103,6 +103,12 @@
     <Compile Include="IMIS Main Menu\Main_Menu.Designer.cs">
       <DependentUpon>Main_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Main Menu\Main_Menu_Remastered.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IMIS Main Menu\Main_Menu_Remastered.Designer.cs">
+      <DependentUpon>Main_Menu_Remastered.cs</DependentUpon>
+    </Compile>
     <Compile Include="IMIS Main Menu\Office\addOffice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Main_Menu.resx">
       <DependentUpon>Main_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IMIS Main Menu\Main_Menu_Remastered.resx">
+      <DependentUpon>Main_Menu_Remastered.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Office\addOffice.resx">
       <DependentUpon>addOffice.cs</DependentUpon>
