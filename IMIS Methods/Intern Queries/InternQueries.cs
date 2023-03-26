@@ -63,7 +63,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
         
         // ------------------------ Adding of Interns ------------------------ //
-        
+        // IMIS
         public static void addInternData(string o, string f, string m, string l, string g, string c, string univ, string coo, string off, string pic)
         {
             Connection_String.dbConnection();
@@ -73,7 +73,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             Connection_String.con.Dispose();
         }
-
         public static void addInternStatus(string o, string start, string targetD, string targetH)
         {
             string status = "INCOMPLETE";
@@ -88,6 +87,115 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             Connection_String.con.Dispose();
         }
 
+        // ------- IMIS REMASTERED -------
+        public static Boolean isInternExist(string ojt)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand("SELECT OJT_Number from Intern_Info1 WHERE OJT_Number LIKE '" + ojt + "'", Connection_String.con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+                return true;
+
+            Connection_String.con.Dispose();
+
+            return false;
+        }
+
+        // add intern data
+        public static void addInternData1(string ojt, string f, string m, string l, string g,
+            int c, string u, string coo, string o)
+        {
+            Connection_String.dbConnection();
+            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+coo+ "', '"+o+"')";
+            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            cmd.ExecuteNonQuery();
+
+            Connection_String.con.Dispose();
+        }
+
+        // add intern status
+        public static void addInternStatus1(string ojt, string date, string hrs)
+        {
+            string status = "INCOMPLETE";
+
+            Connection_String.dbConnection();
+            string query = "INSERT INTO Intern_Status1 VALUES ('"+ojt+ "', '"+date+ "', '"+hrs+ "', '"+status+"')";
+            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            cmd.ExecuteNonQuery();
+
+            Connection_String.con.Dispose();
+
+        }
+
+        // update intern data
+        public static void updateInternData(string ojt, string f, string m,
+            string l, string g, string u, string coord,
+            int c, string o)
+        {
+            Connection_String.dbConnection();
+            string query = updateInternDataQuery(ojt, f, m, l, g, u, coord, c, o);
+            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Dispose();
+        }
+
+        // update intern status
+        public static void updateInternStatus(string ojt, string h, string status)
+        {
+            Connection_String.dbConnection();
+            string query = updateInternStatusQuery(ojt, h, status);
+            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Dispose();
+        }
+
+        // query for update intern data
+        public static string updateInternDataQuery(string ojt, string f, string m,
+            string l, string g, string u, string coord,
+            int c, string o)
+        {
+            return "update Intern_Info1 SET " +
+                "First_Name = '"+f+"', " +
+                "Middle_Initial = '"+m+"', " +
+                "Last_Name = '"+l+"', " +
+                "Gender = '"+g+"', " +
+                "Course_ID = '"+c+"', " +
+                "University_Name = '"+u+"', " +
+                "Coordinator_Name = '"+coord+"', " +
+                "Office_Name = '"+o+"' " +
+                "WHERE OJT_Number = '"+ojt+"' ";
+        }
+
+        // query for update intern status
+        public static string updateInternStatusQuery(string ojt, string hours, string status)
+        {
+            return "update Intern_Status1 SET " +
+                "Target_Hours = '"+ hours + "', " +
+                "Status = '"+ status + "' " +
+                "WHERE OJT_Number = '"+ ojt + "'";
+        }
+        // query for edit intern
+        public static string editInternQuery(string ojt)
+        {
+            return "SELECT Intern_Info1.OJT_Number as 'OJT ID'," +
+                        "Intern_Info1.Last_Name as 'Last Name'," +
+                        "Intern_Info1.Middle_Initial as 'Middle Initial'," +
+                        "Intern_Info1.First_Name as 'First Name'," +
+                        "Intern_Info1.Gender as 'Gender'," +
+                        "Course.Course_ID as 'Course'," +
+                        "Intern_Info1.University_Name as 'University'," +
+                        "Intern_Info1.Coordinator_Name as 'Coordinator Name'," +
+                        "Intern_Info1.Office_Name as 'Office'," +
+                        "Intern_Status1.Target_Hours as 'Target Hours'," +
+                        "Intern_Status1.Status as 'Status'" +
+                        "FROM Intern_Info1 " +
+                        "INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID " +
+                        "INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number " +
+                        "WHERE Intern_Info1.OJT_Number = '"+ojt+"'";
+        }
+
+        // ------- END OF IMIS REMASTERED -------
         /////////////////////////////////////////////////
         public static DataTable getUniversities()
         {
