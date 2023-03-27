@@ -124,6 +124,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtSearchIntern = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.internButtonGenerate = new System.Windows.Forms.Button();
+            this.reportCourseCombo = new System.Windows.Forms.ComboBox();
+            this.reportOfficeCombo = new System.Windows.Forms.ComboBox();
+            this.reportFemale = new System.Windows.Forms.RadioButton();
+            this.reportMale = new System.Windows.Forms.RadioButton();
+            this.reportCourse = new System.Windows.Forms.CheckBox();
+            this.reportOffice = new System.Windows.Forms.CheckBox();
+            this.reportUniv = new System.Windows.Forms.CheckBox();
+            this.reportGender = new System.Windows.Forms.CheckBox();
+            this.reportUnivCombo = new System.Windows.Forms.ComboBox();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -963,6 +973,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // reportsPanel
             // 
+            this.reportsPanel.Controls.Add(this.reportUnivCombo);
+            this.reportsPanel.Controls.Add(this.internButtonGenerate);
+            this.reportsPanel.Controls.Add(this.reportCourseCombo);
+            this.reportsPanel.Controls.Add(this.reportOfficeCombo);
+            this.reportsPanel.Controls.Add(this.reportFemale);
+            this.reportsPanel.Controls.Add(this.reportMale);
+            this.reportsPanel.Controls.Add(this.reportCourse);
+            this.reportsPanel.Controls.Add(this.reportOffice);
+            this.reportsPanel.Controls.Add(this.reportUniv);
+            this.reportsPanel.Controls.Add(this.reportGender);
             this.reportsPanel.Controls.Add(this.label8);
             this.reportsPanel.Location = new System.Drawing.Point(0, 81);
             this.reportsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1010,7 +1030,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStripSplitButton2,
             this.toolStripSeparator3,
             this.reportsToolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1584, 47);
             this.toolStrip1.TabIndex = 12;
@@ -1131,7 +1151,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1584, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1584, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1141,7 +1161,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.logoutToolStripMenuItem,
             this.eXITToolStripMenuItem});
             this.aCCOUNTToolStripMenuItem.Name = "aCCOUNTToolStripMenuItem";
-            this.aCCOUNTToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
+            this.aCCOUNTToolStripMenuItem.Size = new System.Drawing.Size(91, 26);
             this.aCCOUNTToolStripMenuItem.Text = "ACCOUNT";
             // 
             // logoutToolStripMenuItem
@@ -1209,6 +1229,134 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label42.Size = new System.Drawing.Size(93, 17);
             this.label42.TabIndex = 0;
             this.label42.Text = "Search Intern";
+            // 
+            // internButtonGenerate
+            // 
+            this.internButtonGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.internButtonGenerate.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.internButtonGenerate.ForeColor = System.Drawing.Color.White;
+            this.internButtonGenerate.Location = new System.Drawing.Point(1097, 474);
+            this.internButtonGenerate.Margin = new System.Windows.Forms.Padding(4);
+            this.internButtonGenerate.Name = "internButtonGenerate";
+            this.internButtonGenerate.Size = new System.Drawing.Size(161, 39);
+            this.internButtonGenerate.TabIndex = 44;
+            this.internButtonGenerate.Text = "Generate Report";
+            this.internButtonGenerate.UseVisualStyleBackColor = false;
+            this.internButtonGenerate.Click += new System.EventHandler(this.internButtonGenerate_Click);
+            // 
+            // reportCourseCombo
+            // 
+            this.reportCourseCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.reportCourseCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.reportCourseCombo.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportCourseCombo.FormattingEnabled = true;
+            this.reportCourseCombo.Location = new System.Drawing.Point(453, 418);
+            this.reportCourseCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.reportCourseCombo.Name = "reportCourseCombo";
+            this.reportCourseCombo.Size = new System.Drawing.Size(805, 28);
+            this.reportCourseCombo.TabIndex = 43;
+            // 
+            // reportOfficeCombo
+            // 
+            this.reportOfficeCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.reportOfficeCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.reportOfficeCombo.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportOfficeCombo.FormattingEnabled = true;
+            this.reportOfficeCombo.Location = new System.Drawing.Point(453, 322);
+            this.reportOfficeCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.reportOfficeCombo.Name = "reportOfficeCombo";
+            this.reportOfficeCombo.Size = new System.Drawing.Size(805, 28);
+            this.reportOfficeCombo.TabIndex = 42;
+            // 
+            // reportFemale
+            // 
+            this.reportFemale.AutoSize = true;
+            this.reportFemale.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportFemale.Location = new System.Drawing.Point(532, 142);
+            this.reportFemale.Margin = new System.Windows.Forms.Padding(4);
+            this.reportFemale.Name = "reportFemale";
+            this.reportFemale.Size = new System.Drawing.Size(79, 24);
+            this.reportFemale.TabIndex = 41;
+            this.reportFemale.TabStop = true;
+            this.reportFemale.Text = "Female";
+            this.reportFemale.UseVisualStyleBackColor = true;
+            // 
+            // reportMale
+            // 
+            this.reportMale.AutoSize = true;
+            this.reportMale.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportMale.Location = new System.Drawing.Point(453, 142);
+            this.reportMale.Margin = new System.Windows.Forms.Padding(4);
+            this.reportMale.Name = "reportMale";
+            this.reportMale.Size = new System.Drawing.Size(64, 24);
+            this.reportMale.TabIndex = 40;
+            this.reportMale.TabStop = true;
+            this.reportMale.Text = "Male";
+            this.reportMale.UseVisualStyleBackColor = true;
+            // 
+            // reportCourse
+            // 
+            this.reportCourse.AutoSize = true;
+            this.reportCourse.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportCourse.Location = new System.Drawing.Point(381, 383);
+            this.reportCourse.Margin = new System.Windows.Forms.Padding(4);
+            this.reportCourse.Name = "reportCourse";
+            this.reportCourse.Size = new System.Drawing.Size(93, 28);
+            this.reportCourse.TabIndex = 39;
+            this.reportCourse.Text = "Course";
+            this.reportCourse.UseVisualStyleBackColor = true;
+            this.reportCourse.CheckedChanged += new System.EventHandler(this.reportCourse_CheckedChanged);
+            // 
+            // reportOffice
+            // 
+            this.reportOffice.AutoSize = true;
+            this.reportOffice.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportOffice.Location = new System.Drawing.Point(381, 287);
+            this.reportOffice.Margin = new System.Windows.Forms.Padding(4);
+            this.reportOffice.Name = "reportOffice";
+            this.reportOffice.Size = new System.Drawing.Size(176, 28);
+            this.reportOffice.TabIndex = 38;
+            this.reportOffice.Text = "Office Deployed";
+            this.reportOffice.UseVisualStyleBackColor = true;
+            this.reportOffice.CheckedChanged += new System.EventHandler(this.reportOffice_CheckedChanged);
+            // 
+            // reportUniv
+            // 
+            this.reportUniv.AutoSize = true;
+            this.reportUniv.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportUniv.Location = new System.Drawing.Point(381, 187);
+            this.reportUniv.Margin = new System.Windows.Forms.Padding(4);
+            this.reportUniv.Name = "reportUniv";
+            this.reportUniv.Size = new System.Drawing.Size(124, 28);
+            this.reportUniv.TabIndex = 37;
+            this.reportUniv.Text = "University";
+            this.reportUniv.UseVisualStyleBackColor = true;
+            this.reportUniv.CheckedChanged += new System.EventHandler(this.reportUniv_CheckedChanged);
+            // 
+            // reportGender
+            // 
+            this.reportGender.AutoSize = true;
+            this.reportGender.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportGender.Location = new System.Drawing.Point(381, 96);
+            this.reportGender.Margin = new System.Windows.Forms.Padding(4);
+            this.reportGender.Name = "reportGender";
+            this.reportGender.Size = new System.Drawing.Size(98, 28);
+            this.reportGender.TabIndex = 36;
+            this.reportGender.Text = "Gender";
+            this.reportGender.UseVisualStyleBackColor = true;
+            this.reportGender.CheckedChanged += new System.EventHandler(this.reportGender_CheckedChanged);
+            // 
+            // reportUnivCombo
+            // 
+            this.reportUnivCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.reportUnivCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.reportUnivCombo.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportUnivCombo.FormattingEnabled = true;
+            this.reportUnivCombo.Location = new System.Drawing.Point(453, 239);
+            this.reportUnivCombo.Margin = new System.Windows.Forms.Padding(4);
+            this.reportUnivCombo.Name = "reportUnivCombo";
+            this.reportUnivCombo.Size = new System.Drawing.Size(805, 28);
+            this.reportUnivCombo.TabIndex = 45;
             // 
             // Main_Menu_Remastered
             // 
@@ -1350,5 +1498,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.RadioButton radioEditincomplete;
         private System.Windows.Forms.Panel editStatusPanel;
         private System.Windows.Forms.Panel editPanelGender;
+        private System.Windows.Forms.Button internButtonGenerate;
+        private System.Windows.Forms.ComboBox reportCourseCombo;
+        private System.Windows.Forms.ComboBox reportOfficeCombo;
+        private System.Windows.Forms.RadioButton reportFemale;
+        private System.Windows.Forms.RadioButton reportMale;
+        private System.Windows.Forms.CheckBox reportCourse;
+        private System.Windows.Forms.CheckBox reportOffice;
+        private System.Windows.Forms.CheckBox reportUniv;
+        private System.Windows.Forms.CheckBox reportGender;
+        private System.Windows.Forms.ComboBox reportUnivCombo;
     }
 }

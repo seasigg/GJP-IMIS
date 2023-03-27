@@ -217,5 +217,17 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
 
+        public static DataTable getUniversities1()
+        {
+            return dataTable("SELECT Intern_Info1.University_Name FROM Intern_Info1;");
+        }
+        public static DataTable getOffices1()
+        {
+            return dataTable("SELECT Intern_Info1.Office_Name FROM Intern_Info1;");
+        }
+        public static DataTable getCourses1()
+        {
+            return dataTable("SELECT DISTINCT Course.Course_Name FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
+        }
     }
 }

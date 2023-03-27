@@ -58,7 +58,6 @@ namespace GJP_IMIS.Reports
             ReportDataSet ds = new ReportDataSet();
             ReportInterns ri = new ReportInterns();
             
-
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(q, Connection_String.con);
             da.Fill(ds, "Interns");

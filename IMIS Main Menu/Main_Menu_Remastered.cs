@@ -16,6 +16,8 @@ using GJP_IMIS.IMIS_Methods.Intern_Queries;
 
 using GJP_IMIS.IMIS_Class;
 using System.Data.SqlClient;
+using GJP_IMIS.IMIS_Methods.Report_Queries;
+using GJP_IMIS.Reports;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
@@ -23,6 +25,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
     {
         // DATA TABLES
         public static DataTable internData = menuQueries.viewInternPlain1();
+        public static DataTable universityData = InternQueries.getUniversities1();
+        public static DataTable officeData = InternQueries.getOffices1();
+        public static DataTable courseData = InternQueries.getCourses1();
 
         public Main_Menu_Remastered()
         {
@@ -36,6 +41,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // edit intern strip
             editInternStrip();
+
+            // report strip
+            defaultReport();
         }
 
 
@@ -540,6 +548,149 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void reportsToolStripButton2_Click(object sender, EventArgs e)
         {
             reportsPanel.BringToFront();
+        }
+
+        private void reportGender_CheckedChanged(object sender, EventArgs e)
+        {
+            if (reportGender.Checked)
+            {
+                reportMale.Enabled = true;
+                reportFemale.Enabled = true;
+                reportMale.Checked = true;
+            } else
+            {
+                reportMale.Enabled = false;
+                reportFemale.Enabled = false;
+                reportMale.Checked = false;
+                reportFemale.Checked = false;
+            }
+        }
+
+        private void defaultReport()
+        {
+            populateComboBoxes();
+            // gender radio buttons
+            reportMale.Enabled = false;
+            reportFemale.Enabled = false;
+
+            // combo boxes
+            reportUnivCombo.Enabled = false;
+            reportOfficeCombo.Enabled = false;
+            reportCourseCombo.Enabled = false;
+
+            reportUnivCombo.SelectedIndex = -1;
+            reportOfficeCombo.SelectedIndex = -1;
+            reportCourseCombo.SelectedIndex = -1;
+
+            reportUnivCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            reportOfficeCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            reportCourseCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        private void populateComboBoxes()
+        {
+            // UNIV
+            reportUnivCombo.DataSource = universityData;
+            reportUnivCombo.DisplayMember = "University_Name";
+            reportUnivCombo.ValueMember = "University_Name";
+            // OFFICE
+            reportOfficeCombo.DataSource = officeData;
+            reportOfficeCombo.DisplayMember = "Office_Name";
+            reportOfficeCombo.ValueMember = "Office_Name";
+            // COURSE
+            reportCourseCombo.DataSource = courseData;
+            reportCourseCombo.DisplayMember = "Course_Name";
+            reportCourseCombo.ValueMember = "Course_Name";
+        }
+
+        private void reportUniv_CheckedChanged(object sender, EventArgs e)
+        {
+            if (reportUniv.Checked)
+            {
+                reportUnivCombo.Enabled = true;
+                reportUnivCombo.SelectedIndex = 0;
+            }
+            else
+            {
+                reportUnivCombo.Enabled = false;
+                reportUnivCombo.SelectedIndex = -1;
+            }
+        }
+
+        private void reportOffice_CheckedChanged(object sender, EventArgs e)
+        {
+            if (reportOffice.Checked)
+            {
+                reportOfficeCombo.Enabled = true;
+                reportOfficeCombo.SelectedIndex = 0;
+            }
+            else
+            {
+                reportOfficeCombo.Enabled = false;
+                reportOfficeCombo.SelectedIndex = -1;
+            }
+        }
+
+        private void reportCourse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (reportCourse.Checked)
+            {
+                reportCourseCombo.Enabled = true;
+                reportCourseCombo.SelectedIndex = 0;
+            }
+            else
+            {
+                reportCourseCombo.Enabled = false;
+                reportCourseCombo.SelectedIndex = -1;
+            }
+        }
+
+        private void internButtonGenerate_Click(object sender, EventArgs e)
+        {
+            string query = ReportQueries.reportsInternQuery1();
+            string filter = "";
+
+            if (reportCourse.Checked || reportGender.Checked || reportOffice.Checked || reportUniv.Checked)
+            {
+                if (reportGender.Checked)
+                {
+                    if (reportMale.Checked)
+                        filter = "Male";
+                    else if (reportFemale.Checked)
+                        filter = "Female";
+
+                    query += "AND Intern_Info1.Gender = '" + filter + "' ";
+                }
+
+                if (reportUniv.Checked)
+                {
+                    filter = reportUnivCombo.SelectedValue.ToString();
+                    query += "AND Intern_Info1.University_Name = '" + filter + "' ";
+                }
+
+                if (reportOffice.Checked)
+                {
+                    filter = reportOfficeCombo.SelectedValue.ToString();
+                    query += "AND Intern_Info1.Office_Name = '" + filter + "' ";
+                }
+
+                if (reportCourse.Checked)
+                {
+                    filter = reportCourseCombo.SelectedValue.ToString();
+                    query += "AND Intern_Info1.Course_ID = '" + filter + "' ";
+                }
+
+                ReportViewer rv = new ReportViewer();
+                rv.viewInternReport(query);
+                rv.ShowDialog();
+            }
+            else
+            {
+                ReportViewer rv = new ReportViewer();
+                rv.viewInternReport(ReportQueries.reportsInternQuery1());
+                rv.ShowDialog();
+            }
         }
 
 

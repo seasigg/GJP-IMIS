@@ -86,5 +86,18 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "AND Intern_Info.University_ID = University.University_ID " +
                 "AND Intern_Info.Office_ID = Office.Office_ID ";
         }
+
+        public static string reportsInternQuery1()
+        {
+            return "SELECT DISTINCT " +
+                "Intern_Info1.Last_Name + ', ' + Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '.' AS 'Intern Name', " +
+                "Intern_Info1.Gender AS 'Gender', " +
+                "Course.Course_Name AS 'Course', " +
+                "Intern_Info1.University_Name AS 'University', " +
+                "Intern_Info1.Office_Name AS 'Office Deployed' " +
+                "FROM Intern_Info1, Course " +
+                "WHERE " +
+                "Intern_Info1.Course_ID = Course.Course_ID ";
+        }
     }
 }
