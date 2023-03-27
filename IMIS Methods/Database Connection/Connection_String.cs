@@ -16,7 +16,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         //public static String conn = @"Data Source=MIGGYPAREJA\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         // MAB
-        public static String conn = @"Data Source=DESKTOP-IOF93CS\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
+        //public static String conn = @"Data Source=DESKTOP-IOF93CS\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         //Earl
         //public static String conn = @"Data Source=DESKTOP-S9H3AS7\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
@@ -27,7 +27,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
 
 
         // OFFICE DB
-        //public static String conn = @"Data Source=HRMS-SARAH\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
+        public static String conn = @"Data Source=HRMS-SARAH\SQLEXPRESS;Initial Catalog=IMIS;Integrated Security=True";
 
         public static void dbConnection()
         {

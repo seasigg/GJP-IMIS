@@ -33,6 +33,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // add intern strip
             addInternStrip();
+
+            // edit intern strip
+            editInternStrip();
         }
 
 
@@ -283,6 +286,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ********** EDIT INTERN **********
 
+        private void editInternStrip()
+        {
+            txtEditmini.MaxLength = 1;
+        }
         private void btnSearchIntern_Click(object sender, EventArgs e)
         {
             string ojtNum = txtSearchIntern.Text;
@@ -327,6 +334,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             Connection_String.con.Dispose();
         }
 
+        // edit gender
         private void genderEdit(string g)
         {
             if (g == "Male")
@@ -334,6 +342,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (g == "Female")
                 radioEditfemale.Checked = true;
         }
+        // edit status 
         private void statusEdit(string s)
         {
             if (s == "COMPLETE")
@@ -341,11 +350,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (s == "INCOMPLETE")
                 radioEditincomplete.Checked = true;
         }
+        // edit search intern fields
         private Boolean searchInternField()
         {
             return !(string.IsNullOrWhiteSpace(txtSearchIntern.Text));
         }
 
+        // search of intern
         private void txtSearchIntern_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -446,8 +457,47 @@ namespace GJP_IMIS.IMIS_Main_Menu
             return g;
         }
 
+        // intern edit first name
+        private void txtEditfname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+        }
+
+        // intern edit last name
+        private void txtEditlname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+        }
+
+        // intern edit middle initial
+        private void txtEditmini_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+        }
+        private void txtEditmini_TextChanged(object sender, EventArgs e)
+        {
+            txtEditmini.Text = txtEditmini.Text.ToUpper();
+            txtEditmini.SelectionStart = txtEditmini.Text.Length;
+            txtEditmini.SelectionLength = 0;
+        }
+
+        // intern edit university
+        private void txtEdituniv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+        }
+
+        // intern edit coordinator
+        private void txtEditcoord_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+        }
+
         // ********** END OF EDIT INTERN **********
 
+        // ********** DELETE INTERN **********
+
+        // ********** END OF DELETE INTERN **********
         // -------------------- END OF INTERN STRIP --------------------
 
         // ---------------------- MENU STRIP MENU ----------------------
@@ -491,6 +541,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             reportsPanel.BringToFront();
         }
+
+
+
+
+
 
 
 
