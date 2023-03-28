@@ -27,7 +27,7 @@ namespace GJP_IMIS.Reports
             ReportAcceptanceLetter rt = new ReportAcceptanceLetter();
 
             Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.acceptLetter(ojtID), Connection_String.con);
+            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.acceptanceLetter(ojtID), Connection_String.con);
             da.Fill(ds, "AcceptanceTable");
             Connection_String.con.Dispose();
 

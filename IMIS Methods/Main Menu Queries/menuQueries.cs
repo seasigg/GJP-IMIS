@@ -46,7 +46,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         
         public static DataTable viewInternPlain1()
         {
-            String query = "SELECT Intern_Info1.OJT_Number as 'OJT ID',"+
+            String query = "SELECT DISTINCT Intern_Info1.OJT_Number as 'OJT ID',"+
                         "Intern_Info1.Last_Name as 'Last Name'," +
                         "Intern_Info1.First_Name as 'First Name'," +
                         "Course.Course_Name as 'Course'," +
@@ -96,6 +96,14 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 "OJT_Number AS 'OJT Number', " +
                 "CONCAT(First_Name, ' ' , Middle_Initial, '. ', Last_Name) AS 'Intern' " +
                 "FROM Intern_Info ");
+        }
+
+        public static DataTable reportAcceptanceDataGrid1()
+        {
+            return dataTable("SELECT DISTINCT " +
+                "OJT_Number AS 'OJT Number', " +
+                "CONCAT(First_Name, ' ' , Middle_Initial, '. ', Last_Name) AS 'Intern' " +
+                "FROM Intern_Info1 ");
         }
     }
 }

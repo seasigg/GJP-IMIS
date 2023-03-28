@@ -104,10 +104,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // add intern data
         public static void addInternData1(string ojt, string f, string m, string l, string g,
-            int c, string u, string coo, string o)
+            int c, string u, string coo, string cooG, string cooPos, string cooDept, string o)
         {
             Connection_String.dbConnection();
-            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+coo+ "', '"+o+"')";
+            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+coo+ "','"+cooG+"', '"+cooPos+"', '"+cooDept+"', '" + o+"')";
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
 
@@ -227,7 +227,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
         public static DataTable getCourses1()
         {
-            return dataTable("SELECT DISTINCT Course.Course_Name FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
+            return dataTable("SELECT DISTINCT Course.Course_Name, Course.Course_ID FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
         }
     }
 }
