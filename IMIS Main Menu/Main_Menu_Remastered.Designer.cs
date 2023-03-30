@@ -32,7 +32,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
             this.viewInternPanel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridInterns = new System.Windows.Forms.DataGridView();
             this.addInternPanel = new System.Windows.Forms.Panel();
             this.label35 = new System.Windows.Forms.Label();
             this.txtCoordinatorLname = new System.Windows.Forms.TextBox();
@@ -165,8 +164,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label44 = new System.Windows.Forms.Label();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnViewDtr = new System.Windows.Forms.Button();
+            this.dataGridInterns = new System.Windows.Forms.DataGridView();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
             this.addCoordGenderPanel.SuspendLayout();
             this.addInternGenderPanel.SuspendLayout();
@@ -191,12 +194,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanelWelcome.SuspendLayout();
             this.reportsPanelWelcome.SuspendLayout();
             this.imisWelcome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
             // 
-            this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
+            this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Location = new System.Drawing.Point(0, 81);
             this.viewInternPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.viewInternPanel.Name = "viewInternPanel";
@@ -213,21 +217,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label9.Size = new System.Drawing.Size(248, 56);
             this.label9.TabIndex = 2;
             this.label9.Text = "INTERNS";
-            // 
-            // dataGridInterns
-            // 
-            this.dataGridInterns.AllowUserToAddRows = false;
-            this.dataGridInterns.AllowUserToDeleteRows = false;
-            this.dataGridInterns.ColumnHeadersHeight = 29;
-            this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridInterns.Location = new System.Drawing.Point(4, 63);
-            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridInterns.Name = "dataGridInterns";
-            this.dataGridInterns.ReadOnly = true;
-            this.dataGridInterns.RowHeadersWidth = 51;
-            this.dataGridInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridInterns.Size = new System.Drawing.Size(1576, 646);
-            this.dataGridInterns.TabIndex = 1;
             // 
             // addInternPanel
             // 
@@ -1328,9 +1317,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
-            this.mainPanel.Controls.Add(this.imisWelcome);
-            this.mainPanel.Controls.Add(this.internsPanelWelcome);
             this.mainPanel.Controls.Add(this.deleteInternPanel);
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.acceptancePanel);
@@ -1342,11 +1328,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.reportsPanelWelcome);
             this.mainPanel.Controls.Add(this.letterPanelWelcome);
+            this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
+            this.mainPanel.Controls.Add(this.imisWelcome);
+            this.mainPanel.Controls.Add(this.internsPanelWelcome);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1602, 810);
+            this.mainPanel.Size = new System.Drawing.Size(1590, 800);
             this.mainPanel.TabIndex = 11;
             // 
             // toolStrip1
@@ -1362,7 +1351,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsToolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1602, 47);
+            this.toolStrip1.Size = new System.Drawing.Size(1590, 47);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1483,7 +1472,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1602, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1590, 30);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1632,6 +1621,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // internsPanelWelcome
             // 
+            this.internsPanelWelcome.Controls.Add(this.label48);
             this.internsPanelWelcome.Controls.Add(this.label38);
             this.internsPanelWelcome.Location = new System.Drawing.Point(0, 81);
             this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1650,6 +1640,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // viewDTRPanelWelcome
             // 
+            this.viewDTRPanelWelcome.Controls.Add(this.label47);
             this.viewDTRPanelWelcome.Controls.Add(this.btnViewDtr);
             this.viewDTRPanelWelcome.Controls.Add(this.label39);
             this.viewDTRPanelWelcome.Location = new System.Drawing.Point(0, 81);
@@ -1669,6 +1660,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // letterPanelWelcome
             // 
+            this.letterPanelWelcome.Controls.Add(this.label46);
             this.letterPanelWelcome.Controls.Add(this.label40);
             this.letterPanelWelcome.Location = new System.Drawing.Point(0, 81);
             this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1687,6 +1679,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // reportsPanelWelcome
             // 
+            this.reportsPanelWelcome.Controls.Add(this.label45);
             this.reportsPanelWelcome.Controls.Add(this.btnReports);
             this.reportsPanelWelcome.Controls.Add(this.label43);
             this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 81);
@@ -1725,7 +1718,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // btnReports
             // 
-            this.btnReports.Location = new System.Drawing.Point(783, 220);
+            this.btnReports.Location = new System.Drawing.Point(1159, 474);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(75, 23);
             this.btnReports.TabIndex = 1;
@@ -1743,11 +1736,60 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btnViewDtr.UseVisualStyleBackColor = true;
             this.btnViewDtr.Click += new System.EventHandler(this.btnViewDtr_Click);
             // 
+            // dataGridInterns
+            // 
+            this.dataGridInterns.AllowUserToAddRows = false;
+            this.dataGridInterns.AllowUserToDeleteRows = false;
+            this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridInterns.Location = new System.Drawing.Point(12, 65);
+            this.dataGridInterns.Name = "dataGridInterns";
+            this.dataGridInterns.ReadOnly = true;
+            this.dataGridInterns.RowHeadersWidth = 51;
+            this.dataGridInterns.RowTemplate.Height = 24;
+            this.dataGridInterns.Size = new System.Drawing.Size(1566, 642);
+            this.dataGridInterns.TabIndex = 3;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(634, 182);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(331, 17);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "SOME INFORMATION ABOUT WHAT IS REPORTS";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(634, 244);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(366, 17);
+            this.label46.TabIndex = 1;
+            this.label46.Text = "SOME INFORMATION ABOUT THE KINDS OF LETTERS";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(622, 177);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(331, 17);
+            this.label47.TabIndex = 2;
+            this.label47.Text = "SOME INFORMATION ABOUT WHAT IS VIEW DTR";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(645, 214);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(263, 17);
+            this.label48.TabIndex = 1;
+            this.label48.Text = "SOME INFORMATION ABOUT INTERNS";
+            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1602, 810);
+            this.ClientSize = new System.Drawing.Size(1590, 800);
             this.Controls.Add(this.mainPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main_Menu_Remastered";
@@ -1755,7 +1797,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.Text = "Main Menu";
             this.viewInternPanel.ResumeLayout(false);
             this.viewInternPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).EndInit();
             this.addInternPanel.ResumeLayout(false);
             this.addInternPanel.PerformLayout();
             this.addCoordGenderPanel.ResumeLayout(false);
@@ -1801,6 +1842,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanelWelcome.PerformLayout();
             this.imisWelcome.ResumeLayout(false);
             this.imisWelcome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1840,7 +1882,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.ToolStripMenuItem aCCOUNTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXITToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridInterns;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton radioFemale;
         private System.Windows.Forms.RadioButton radioMale;
@@ -1941,5 +1982,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnViewDtr;
+        private System.Windows.Forms.DataGridView dataGridInterns;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
     }
 }
