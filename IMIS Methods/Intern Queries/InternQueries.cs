@@ -104,10 +104,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // add intern data
         public static void addInternData1(string ojt, string f, string m, string l, string g,
-            int c, string u, string coo, string cooG, string cooPos, string cooDept, string o)
+            int c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o)
         {
             Connection_String.dbConnection();
-            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+coo+ "','"+cooG+"', '"+cooPos+"', '"+cooDept+"', '" + o+"')";
+            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+cooF+ "', '"+cooL+"', '"+cooG+"', '"+cooPos+"', '"+cooDept+"', '" + o+"')";
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
 
@@ -130,11 +130,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // update intern data
         public static void updateInternData(string ojt, string f, string m,
-            string l, string g, string u, string coord,
+            string l, string g, string u, string coordF, string coordL, string coordG,
             int c, string o)
         {
             Connection_String.dbConnection();
-            string query = updateInternDataQuery(ojt, f, m, l, g, u, coord, c, o);
+            string query = updateInternDataQuery(ojt, f, m, l, g, u, coordF, coordL, coordG, c, o);
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
@@ -152,7 +152,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // query for update intern data
         public static string updateInternDataQuery(string ojt, string f, string m,
-            string l, string g, string u, string coord,
+            string l, string g, string u, string coordF, string coordL, string coordG,
             int c, string o)
         {
             return "update Intern_Info1 SET " +
@@ -161,9 +161,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                 "Last_Name = '"+l+"', " +
                 "Gender = '"+g+"', " +
                 "Course_ID = '"+c+"', " +
-                "University_Name = '"+u+"', " +
-                "Coordinator_Name = '"+coord+"', " +
-                "Office_Name = '"+o+"' " +
+                "School_Name = '"+u+"', " +
+                "Coordinator_FirstName = '"+coordF+"', " +
+                "Coordinator_LastName = '"+coordL+"', " +
+                "Coordinator_Gender = '" + coordG + "', " +
+                "Office_Name = '" +o+"' " +
                 "WHERE OJT_Number = '"+ojt+"' ";
         }
 
@@ -175,6 +177,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                 "Status = '"+ status + "' " +
                 "WHERE OJT_Number = '"+ ojt + "'";
         }
+        
         // query for edit intern
         public static string editInternQuery(string ojt)
         {
@@ -184,8 +187,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         "Intern_Info1.First_Name as 'First Name'," +
                         "Intern_Info1.Gender as 'Gender'," +
                         "Course.Course_ID as 'Course'," +
-                        "Intern_Info1.University_Name as 'University'," +
-                        "Intern_Info1.Coordinator_Name as 'Coordinator Name'," +
+                        "Intern_Info1.School_Name as 'University'," +
+                        "Intern_Info1.Coordinator_FirstName as 'Coordinator FirstName'," +
+                        "Intern_Info1.Coordinator_LastName as 'Coordinator LastName'," +
+                        "Intern_Info1.Coordinator_Gender as 'Coordinator Gender'," +
                         "Intern_Info1.Office_Name as 'Office'," +
                         "Intern_Status1.Target_Hours as 'Target Hours'," +
                         "Intern_Status1.Status as 'Status'" +
@@ -219,7 +224,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         public static DataTable getUniversities1()
         {
-            return dataTable("SELECT Intern_Info1.University_Name FROM Intern_Info1;");
+            return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");
         }
         public static DataTable getOffices1()
         {

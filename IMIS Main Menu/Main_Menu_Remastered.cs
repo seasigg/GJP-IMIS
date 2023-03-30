@@ -35,7 +35,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public Main_Menu_Remastered()
         {
             InitializeComponent();
-
+            imisWelcome.BringToFront();
             // view intern strip
             viewInternStrip();
 
@@ -58,7 +58,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ********** VIEW INTERN **********
         private void viewInternStrip()
         {
-            viewInternPanel.BringToFront();
+            
 
             dataGridInterns.DataSource = internData;
             dataGridInterns.ClearSelection();
@@ -88,7 +88,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ********** ADD INTERN **********
         private void addInternStrip()
         {
-            txtMinitial.MaxLength = 1;
+            
             courseCombo();
         }
 
@@ -202,7 +202,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Last Name\n";
                 if (string.IsNullOrWhiteSpace(txtUniversity.Text))
                     errorHandling += "* University\n";
-                if (string.IsNullOrWhiteSpace(txtCoordinator.Text))
+                if (string.IsNullOrWhiteSpace(txtCoordinatorFname.Text))
                     errorHandling += "* Coordinator Name\n";
                 if (string.IsNullOrWhiteSpace(txtCoordDept.Text))
                     errorHandling += "* Coordinator Department\n";
@@ -246,7 +246,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             string lname = txtLname.Text;
             string gender = getGender();
             string univ = txtUniversity.Text;
-            string coord = txtCoordinator.Text;
+            string coordF = txtCoordinatorFname.Text;
+            string coordL = txtCoordinatorLname.Text;
             string coordGender = getCoordGender();
             string coordPos = txtCoordPosition.Text;
             string coordDept = txtCoordDept.Text;
@@ -260,7 +261,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 DialogResult dr = MessageBox.Show("CONFIRM ADD INTERN", "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    InternQueries.addInternData1(ojtNumber, fname, mini, lname, gender, course, univ, coord, coordGender, coordPos, coordDept, office);
+                    InternQueries.addInternData1(ojtNumber, fname, mini, lname, gender, course, univ, coordF, coordL, coordGender, coordPos, coordDept, office);
                     InternQueries.addInternStatus1(ojtNumber, startDate, hours);
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -269,7 +270,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 }
             }
             else
-                MessageBox.Show("INTERN ALREADY EXISTED.");
+                MessageBox.Show("OJT NUMBER ALREADY EXISTED.");
             
         }
 
@@ -309,7 +310,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 string.IsNullOrWhiteSpace(txtLname.Text) ||
                 string.IsNullOrWhiteSpace(txtOffice.Text) ||
                 string.IsNullOrWhiteSpace(txtUniversity.Text) ||
-                string.IsNullOrWhiteSpace(txtCoordinator.Text) ||
+                string.IsNullOrWhiteSpace(txtCoordinatorFname.Text) ||
                 string.IsNullOrWhiteSpace(txtCoordPosition.Text) ||
                 string.IsNullOrWhiteSpace(txtCoordPosition.Text) ||
                 numericTargetHours.Value <= 0
@@ -376,7 +377,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtEditlname.Text = dr["Last Name"].ToString();
                 genderEdit(dr["Gender"].ToString());
                 txtEdituniv.Text = dr["University"].ToString();
-                txtEditcoord.Text = dr["Coordinator Name"].ToString();
+                txtEditCoordFname.Text = dr["Coordinator FirstName"].ToString();
+                txtEditCoordLname.Text = dr["Coordinator LastName"].ToString();
+                genderCoordEdit(dr["Coordinator Gender"].ToString());
                 comboEditcourse.SelectedValue = int.Parse(dr["Course"].ToString());
                 txtEditoffice.Text = dr["Office"].ToString();
                 numericEdit.Value = int.Parse(dr["Target Hours"].ToString());
@@ -392,6 +395,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 radioEditmale.Checked = true;
             if (g == "Female")
                 radioEditfemale.Checked = true;
+        }
+        private void genderCoordEdit(string g)
+        {
+            if (g == "Male")
+                radioCoordEditMale.Checked = true;
+            if (g == "Female")
+                radioCoordEditFemale.Checked = true;
         }
         // edit status 
         private void statusEdit(string s)
@@ -436,7 +446,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string lname = txtEditlname.Text;
                     string gender = getGenderEdit();
                     string univ = txtEdituniv.Text;
-                    string coord = txtEditcoord.Text;
+                    string coordFname = txtEditCoordFname.Text;
+                    string coordLname = txtEditCoordLname.Text;
+                    string coordGender = getCoordGenderEdit();
                     int course = Int32.Parse(comboEditcourse.SelectedValue.ToString());
                     string office = txtEditoffice.Text;
                     //string startDate = dateTimeStartDate.Value.ToShortDateString();
@@ -444,7 +456,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string status = getStatusEdit();
 
                     InternQueries.updateInternData(ojtNumber, fname, mini,
-                        lname, gender, univ, coord, course, office);
+                        lname, gender, univ, coordFname, coordLname, coordGender, course, office);
 
                     InternQueries.updateInternStatus(ojtNumber, hours, status);
 
@@ -477,7 +489,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Last Name\n";
                 if (string.IsNullOrWhiteSpace(txtEdituniv.Text))
                     errorHandling += "* University\n";
-                if (string.IsNullOrWhiteSpace(txtEditcoord.Text))
+                if (string.IsNullOrWhiteSpace(txtEditCoordFname.Text))
                     errorHandling += "* Coordinator\n";
                 if (string.IsNullOrWhiteSpace(txtEditoffice.Text))
                     errorHandling += "* Office\n";
@@ -493,7 +505,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 string.IsNullOrWhiteSpace(txtEditmini.Text) ||
                 string.IsNullOrWhiteSpace(txtEditlname.Text) ||
                 string.IsNullOrWhiteSpace(txtEditoffice.Text) ||
-                string.IsNullOrWhiteSpace(txtEditcoord.Text) ||
+                string.IsNullOrWhiteSpace(txtEditCoordFname.Text) ||
                 string.IsNullOrWhiteSpace(txtEdituniv.Text) ||
                 numericTargetHours.Value <= 0
                 );
@@ -504,6 +516,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (radioEditmale.Checked)
                 g = "Male";
             if (radioEditfemale.Checked)
+                g = "Female";
+            return g;
+        }
+        private string getCoordGenderEdit()
+        {
+            string g = "";
+            if (radioCoordEditMale.Checked)
+                g = "Male";
+            if (radioCoordEditFemale.Checked)
                 g = "Female";
             return g;
         }
@@ -575,7 +596,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void viewDtrToolStripButton1_Click(object sender, EventArgs e)
         {
-            viewDtrPanel.BringToFront();
+            //viewDtrPanel.BringToFront();
+            viewDTRPanelWelcome.BringToFront();
         }
 
         private void acceptanceLetterToolStripMenuItem_Click(object sender, EventArgs e)
@@ -654,8 +676,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             // UNIV
             reportUnivCombo.DataSource = universityData;
-            reportUnivCombo.DisplayMember = "University_Name";
-            reportUnivCombo.ValueMember = "University_Name";
+            reportUnivCombo.DisplayMember = "School_Name";
+            reportUnivCombo.ValueMember = "School_Name";
             // OFFICE
             reportOfficeCombo.DataSource = officeData;
             reportOfficeCombo.DisplayMember = "Office_Name";
@@ -728,7 +750,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 if (reportUniv.Checked)
                 {
                     filter = reportUnivCombo.SelectedValue.ToString();
-                    query += "AND Intern_Info1.University_Name = '" + filter + "' ";
+                    query += "AND Intern_Info1.School_Name = '" + filter + "' ";
                 }
 
                 if (reportOffice.Checked)
@@ -755,7 +777,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
         }
 
-        
+        private void toolStripSplitIntern_ButtonClick(object sender, EventArgs e)
+        {
+            internsPanelWelcome.BringToFront();
+        }
+
+        private void toolStripSplitLetter_ButtonClick(object sender, EventArgs e)
+        {
+            letterPanelWelcome.BringToFront();
+        }
+
+        private void reportsToolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            reportsPanelWelcome.BringToFront();
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            reportsPanel.BringToFront();
+        }
+
+        private void btnViewDtr_Click(object sender, EventArgs e)
+        {
+            viewDtrPanel.BringToFront();
+        }
+
+
 
 
         // -------------------- REPORT STRIP --------------------

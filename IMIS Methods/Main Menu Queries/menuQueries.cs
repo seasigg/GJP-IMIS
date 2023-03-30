@@ -50,8 +50,8 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                         "Intern_Info1.Last_Name as 'Last Name'," +
                         "Intern_Info1.First_Name as 'First Name'," +
                         "Course.Course_Name as 'Course'," +
-                        "Intern_Info1.University_Name as 'University'," +
-                        "Intern_Info1.Coordinator_Name as 'Coordinator Name'," +
+                        "Intern_Info1.School_Name as 'University'," +
+                        "Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name'," +
                         "Intern_Info1.Office_Name as 'Office'," +
                         "Intern_Status1.Target_Hours as 'Target Hours'," +
                         "Intern_Status1.Status as 'Status'" +

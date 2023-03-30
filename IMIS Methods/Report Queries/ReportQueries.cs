@@ -58,13 +58,13 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
         {
             return ("SELECT DISTINCT DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now', " +
                 "" +
-                "Intern_Info1.Coordinator_Name AS 'Coord_Name', " +
+                "Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName AS 'Coord_Name', " +
                 "Intern_Info1.Coordinator_Position AS 'Position', " +
-                "Intern_Info1.University_Name AS 'University', " +
+                "Intern_Info1.School_Name AS 'University', " +
                 "" +
                 "CASE " +
-                "WHEN Intern_Info1.Coordinator_Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Coordinator_Name " + // COORDINATOR SURNAME
-                "ELSE 'Ms. ' + Intern_Info1.Coordinator_Name " +
+                "WHEN Intern_Info1.Coordinator_Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Coordinator_LastName " + // COORDINATOR SURNAME
+                "ELSE 'Ms. ' + Intern_Info1.Coordinator_LastName " +
                 "END AS 'Coord_Intro', " +
                 "" +
                 "Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '. ' + Intern_Info1.Last_Name AS 'Intern_Name', " +
@@ -82,7 +82,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "" +
                 "Intern_Status1.Target_Hours, " +
                 "Intern_Info1.Office_Name, " +
-                "Intern_Info1.Office_Name AS 'Office_Abr'" + // OFFICE ABBREVIATION DAPAT TO
+                "Intern_Info1.Office_Name AS 'Office_Abr'" + // OFFICE ABBREVIATION DAPAT TO (CLEARED)
                 "" +
                 "FROM Intern_Info1, Course, Intern_Status1 " +
                 "WHERE Intern_Info1.OJT_Number = '" + ojtid + "' " +
@@ -130,7 +130,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "Intern_Info1.Last_Name + ', ' + Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '.' AS 'Intern Name', " +
                 "Intern_Info1.Gender AS 'Gender', " +
                 "Course.Course_Name AS 'Course', " +
-                "Intern_Info1.University_Name AS 'University', " +
+                "Intern_Info1.School_Name AS 'University', " +
                 "Intern_Info1.Office_Name AS 'Office Deployed' " +
                 "FROM Intern_Info1, Course " +
                 "WHERE " +
