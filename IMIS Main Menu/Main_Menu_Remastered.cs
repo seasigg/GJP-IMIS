@@ -18,6 +18,7 @@ using GJP_IMIS.IMIS_Class;
 using System.Data.SqlClient;
 using GJP_IMIS.IMIS_Methods.Report_Queries;
 using GJP_IMIS.Reports;
+using System.IO;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
@@ -800,6 +801,89 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btnViewDtr_Click(object sender, EventArgs e)
         {
             viewDtrPanel.BringToFront();
+        }
+
+        private void Main_Menu_Remastered_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                this.Dispose();
+                Application.Exit();
+            }
+
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                this.Dispose();
+                Application.Restart();
+            }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void updateDTRToolStripButton1_Click(object sender, EventArgs e)
+        {
+            string selectedFile = "";
+
+            OpenFileDialog csvFilePath = new OpenFileDialog();
+
+            csvFilePath.InitialDirectory = "C:\\";
+            csvFilePath.Filter = "Csv Files (*.csv) | *.csv";
+            csvFilePath.FilterIndex = 0;
+            csvFilePath.RestoreDirectory = true;
+
+            if (csvFilePath.ShowDialog() == DialogResult.OK)
+            {
+                selectedFile = csvFilePath.FileName;
+
+                DataTable csvDataTable = new DataTable();
+
+                csvDataTable.Columns.Add("Date");
+                csvDataTable.Columns.Add("Time");
+                csvDataTable.Columns.Add("User ID");
+                csvDataTable.Columns.Add("Name");
+
+                StreamReader streamReader = new StreamReader(csvFilePath.FileName);
+                string[] totalData = new string[File.ReadAllLines(csvFilePath.FileName).Length];
+                totalData = streamReader.ReadLine().Split(',');
+
+                while (!streamReader.EndOfStream)
+                {
+                    totalData = streamReader.ReadLine().Split(',');
+                    csvDataTable.Rows.Add(totalData[0], totalData[1], totalData[3], totalData[4]);
+                }
+
+
+                using (SqlConnection con = new SqlConnection(Connection_String.conn))
+                {
+                    con.Open();
+
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+                    {
+                        bulkCopy.DestinationTableName = "Log_Placeholder";
+                        bulkCopy.BatchSize = csvDataTable.Rows.Count;
+                        bulkCopy.WriteToServer(csvDataTable);
+                        bulkCopy.Close();
+
+                        string mergeCommand = "insert into Intern_DTR select Date, Time, UserID, Name from Log_Placeholder where not exists(select * from Intern_DTR where (Log_Placeholder.Date = Intern_DTR.Date  and Log_Placeholder.Time = Intern_DTR.Time and Log_Placeholder.UserID = Intern_DTR.UserID and Log_Placeholder.Name = Intern_DTR.Name))";
+                        string truncateTable = "TRUNCATE TABLE Log_Placeholder";
+
+                        SqlCommand cmd = new SqlCommand(mergeCommand, con);
+                        SqlCommand cmd2 = new SqlCommand(truncateTable, con);
+
+                        MessageBox.Show("Rows Affected: " + cmd.ExecuteNonQuery().ToString());
+                        cmd2.ExecuteNonQuery();
+
+                        cmd.Dispose();
+                        cmd2.Dispose();
+
+                        csvDataTable.Dispose();
+                    }
+                }
+            }
+                
         }
 
 
