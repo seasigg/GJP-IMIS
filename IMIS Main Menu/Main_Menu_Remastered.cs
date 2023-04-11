@@ -843,7 +843,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 csvDataTable.Columns.Add("Date");
                 csvDataTable.Columns.Add("Time");
                 csvDataTable.Columns.Add("User ID");
-                csvDataTable.Columns.Add("Name");
+                csvDataTable.Columns.Add("Result");
 
                 StreamReader streamReader = new StreamReader(csvFilePath.FileName);
                 string[] totalData = new string[File.ReadAllLines(csvFilePath.FileName).Length];
@@ -852,7 +852,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 while (!streamReader.EndOfStream)
                 {
                     totalData = streamReader.ReadLine().Split(',');
-                    csvDataTable.Rows.Add(totalData[0], totalData[1], totalData[3], totalData[4]);
+                    csvDataTable.Rows.Add(totalData[0], totalData[1], totalData[3], totalData[10]);
                 }
 
 
@@ -867,14 +867,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
                         bulkCopy.WriteToServer(csvDataTable);
                         bulkCopy.Close();
 
-                        string mergeCommand = "insert into Intern_DTR select Date, Time, UserID, Name from Log_Placeholder where not exists(select * from Intern_DTR where (Log_Placeholder.Date = Intern_DTR.Date  and Log_Placeholder.Time = Intern_DTR.Time and Log_Placeholder.UserID = Intern_DTR.UserID and Log_Placeholder.Name = Intern_DTR.Name))";
+                        string mergeCommand = "insert into Intern_DTR select Date, Time, UserID, Result from Log_Placeholder where not exists(select * from Intern_DTR where (Log_Placeholder.Date = Intern_DTR.Date  and Log_Placeholder.Time = Intern_DTR.Time and Log_Placeholder.UserID = Intern_DTR.UserID and Log_PlaceHolder.Result = 'Success' and Log_Placeholder.Result = Intern_DTR.Result))";
                         string truncateTable = "TRUNCATE TABLE Log_Placeholder";
 
                         SqlCommand cmd = new SqlCommand(mergeCommand, con);
                         SqlCommand cmd2 = new SqlCommand(truncateTable, con);
 
                         MessageBox.Show("Rows Affected: " + cmd.ExecuteNonQuery().ToString());
-                        cmd2.ExecuteNonQuery();
+                        //cmd2.ExecuteNonQuery();
 
                         cmd.Dispose();
                         cmd2.Dispose();
