@@ -12,6 +12,7 @@ using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
 using GJP_IMIS.IMIS_Methods.Course_Queries;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
+using GJP_IMIS.IMIS_Methods.Stored_Queries;
 
 
 using GJP_IMIS.IMIS_Class;
@@ -867,17 +868,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
                         bulkCopy.WriteToServer(csvDataTable);
                         bulkCopy.Close();
 
-                        string mergeCommand = "insert into Intern_DTR select Date, Time, UserID, Result from Log_Placeholder where not exists(select * from Intern_DTR where (Log_Placeholder.Date = Intern_DTR.Date  and Log_Placeholder.Time = Intern_DTR.Time and Log_Placeholder.UserID = Intern_DTR.UserID and Log_PlaceHolder.Result = 'Success' and Log_Placeholder.Result = Intern_DTR.Result))";
-                        string truncateTable = "TRUNCATE TABLE Log_Placeholder";
-
-                        SqlCommand cmd = new SqlCommand(mergeCommand, con);
-                        SqlCommand cmd2 = new SqlCommand(truncateTable, con);
+                        SqlCommand cmd = new SqlCommand(storedQueries.mergeLogs, con);
+                        SqlCommand cmd2 = new SqlCommand(storedQueries.truncatePlaceholder, con);
+                        SqlCommand cmd3 = new SqlCommand(storedQueries.insertDTR_fromLogs, con);
 
                         MessageBox.Show("Rows Affected: " + cmd.ExecuteNonQuery().ToString());
-                        //cmd2.ExecuteNonQuery();
+                        cmd2.ExecuteNonQuery();
+                        cmd3.ExecuteNonQuery();
 
                         cmd.Dispose();
                         cmd2.Dispose();
+                        cmd3.Dispose();
 
                         csvDataTable.Dispose();
                     }

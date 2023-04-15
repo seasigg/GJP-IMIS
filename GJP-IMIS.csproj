@@ -141,6 +141,7 @@
     <Compile Include="IMIS Methods\Main Menu Queries\menuQueries.cs" />
     <Compile Include="IMIS Methods\Office Queries\OfficeQueries.cs" />
     <Compile Include="IMIS Methods\Report Queries\ReportQueries.cs" />
+    <Compile Include="IMIS Methods\Stored Queries\storedQueries.cs" />
     <Compile Include="IMIS Methods\Univ Queries\universityClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

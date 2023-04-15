@@ -137,6 +137,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteInternToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.viewDtrToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSplitLetter = new System.Windows.Forms.ToolStripSplitButton();
@@ -144,6 +145,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterOfCompletionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.reportsToolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,8 +171,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -204,7 +204,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
             this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewInternPanel.Name = "viewInternPanel";
             this.viewInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewInternPanel.TabIndex = 3;
@@ -215,7 +215,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns.AllowUserToDeleteRows = false;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 53);
-            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
             this.dataGridInterns.ReadOnly = true;
             this.dataGridInterns.RowHeadersWidth = 51;
@@ -268,7 +268,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Controls.Add(this.label15);
             this.addInternPanel.Controls.Add(this.label2);
             this.addInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternPanel.Name = "addInternPanel";
             this.addInternPanel.Size = new System.Drawing.Size(1188, 577);
             this.addInternPanel.TabIndex = 4;
@@ -347,7 +347,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addCoordGenderPanel.Controls.Add(this.radioMaleCoord);
             this.addCoordGenderPanel.Controls.Add(this.radioFemaleCoord);
             this.addCoordGenderPanel.Location = new System.Drawing.Point(542, 336);
-            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addCoordGenderPanel.Name = "addCoordGenderPanel";
             this.addCoordGenderPanel.Size = new System.Drawing.Size(172, 39);
             this.addCoordGenderPanel.TabIndex = 31;
@@ -381,7 +381,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternGenderPanel.Controls.Add(this.radioMale);
             this.addInternGenderPanel.Controls.Add(this.radioFemale);
             this.addInternGenderPanel.Location = new System.Drawing.Point(95, 336);
-            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternGenderPanel.Name = "addInternGenderPanel";
             this.addInternGenderPanel.Size = new System.Drawing.Size(166, 34);
             this.addInternGenderPanel.TabIndex = 30;
@@ -691,7 +691,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.label30);
             this.editInternPanel.Controls.Add(this.label3);
             this.editInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
@@ -1082,7 +1082,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.deleteInternPanel.Controls.Add(this.label4);
             this.deleteInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.deleteInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.deleteInternPanel.Name = "deleteInternPanel";
             this.deleteInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.deleteInternPanel.TabIndex = 6;
@@ -1101,7 +1101,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.viewDtrPanel.Controls.Add(this.label5);
             this.viewDtrPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewDtrPanel.Name = "viewDtrPanel";
             this.viewDtrPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewDtrPanel.TabIndex = 7;
@@ -1122,7 +1122,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptancePanel.Controls.Add(this.dataGridAccept);
             this.acceptancePanel.Controls.Add(this.label6);
             this.acceptancePanel.Location = new System.Drawing.Point(0, 66);
-            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2);
             this.acceptancePanel.Name = "acceptancePanel";
             this.acceptancePanel.Size = new System.Drawing.Size(1188, 579);
             this.acceptancePanel.TabIndex = 8;
@@ -1130,7 +1130,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnAcceptance
             // 
             this.btnAcceptance.Location = new System.Drawing.Point(1077, 24);
-            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2);
             this.btnAcceptance.Name = "btnAcceptance";
             this.btnAcceptance.Size = new System.Drawing.Size(79, 19);
             this.btnAcceptance.TabIndex = 2;
@@ -1142,9 +1142,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.dataGridAccept.AllowUserToAddRows = false;
             this.dataGridAccept.AllowUserToDeleteRows = false;
+            this.dataGridAccept.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridAccept.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridAccept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccept.Location = new System.Drawing.Point(3, 53);
-            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridAccept.Name = "dataGridAccept";
             this.dataGridAccept.ReadOnly = true;
             this.dataGridAccept.RowHeadersWidth = 51;
@@ -1167,7 +1172,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.completionPanel.Controls.Add(this.label7);
             this.completionPanel.Location = new System.Drawing.Point(0, 66);
-            this.completionPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.completionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.completionPanel.Name = "completionPanel";
             this.completionPanel.Size = new System.Drawing.Size(1188, 579);
             this.completionPanel.TabIndex = 9;
@@ -1196,7 +1201,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanel.Controls.Add(this.reportGender);
             this.reportsPanel.Controls.Add(this.label8);
             this.reportsPanel.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.reportsPanel.Name = "reportsPanel";
             this.reportsPanel.Size = new System.Drawing.Size(1188, 579);
             this.reportsPanel.TabIndex = 10;
@@ -1333,8 +1338,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.deleteInternPanel);
-            this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.acceptancePanel);
             this.mainPanel.Controls.Add(this.completionPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
@@ -1347,9 +1350,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
             this.mainPanel.Controls.Add(this.imisWelcome);
             this.mainPanel.Controls.Add(this.internsPanelWelcome);
+            this.mainPanel.Controls.Add(this.deleteInternPanel);
+            this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1192, 650);
             this.mainPanel.TabIndex = 11;
@@ -1393,28 +1398,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // viewInternToolStripMenuItem
             // 
             this.viewInternToolStripMenuItem.Name = "viewInternToolStripMenuItem";
-            this.viewInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewInternToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.viewInternToolStripMenuItem.Text = "View Intern";
             this.viewInternToolStripMenuItem.Click += new System.EventHandler(this.viewInternToolStripMenuItem_Click);
             // 
             // addInternToolStripMenuItem
             // 
             this.addInternToolStripMenuItem.Name = "addInternToolStripMenuItem";
-            this.addInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addInternToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.addInternToolStripMenuItem.Text = "Add Intern";
             this.addInternToolStripMenuItem.Click += new System.EventHandler(this.addInternToolStripMenuItem_Click);
             // 
             // editInternToolStripMenuItem
             // 
             this.editInternToolStripMenuItem.Name = "editInternToolStripMenuItem";
-            this.editInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editInternToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.editInternToolStripMenuItem.Text = "Edit Intern";
             this.editInternToolStripMenuItem.Click += new System.EventHandler(this.editInternToolStripMenuItem_Click);
             // 
             // deleteInternToolStripMenuItem
             // 
             this.deleteInternToolStripMenuItem.Name = "deleteInternToolStripMenuItem";
-            this.deleteInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteInternToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.deleteInternToolStripMenuItem.Text = "Delete Intern";
             this.deleteInternToolStripMenuItem.Click += new System.EventHandler(this.deleteInternToolStripMenuItem_Click);
             // 
@@ -1422,6 +1427,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 42);
+            // 
+            // updateDTRToolStripButton1
+            // 
+            this.updateDTRToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("updateDTRToolStripButton1.Image")));
+            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
+            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(72, 39);
+            this.updateDTRToolStripButton1.Text = "Update DTR";
+            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
             // 
             // viewDtrToolStripButton1
             // 
@@ -1483,6 +1500,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsToolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.reportsToolStripButton2.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 42);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1507,13 +1529,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             // 
             // editInternPanelFind
@@ -1523,7 +1545,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanelFind.Controls.Add(this.label41);
             this.editInternPanelFind.Controls.Add(this.label42);
             this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanelFind.Name = "editInternPanelFind";
             this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanelFind.TabIndex = 52;
@@ -1574,7 +1596,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanelWelcome.Controls.Add(this.btnReports);
             this.reportsPanelWelcome.Controls.Add(this.label43);
             this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.reportsPanelWelcome.Name = "reportsPanelWelcome";
             this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.reportsPanelWelcome.TabIndex = 7;
@@ -1592,7 +1614,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnReports
             // 
             this.btnReports.Location = new System.Drawing.Point(869, 385);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(56, 19);
             this.btnReports.TabIndex = 1;
@@ -1615,7 +1637,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanelWelcome.Controls.Add(this.label46);
             this.letterPanelWelcome.Controls.Add(this.label40);
             this.letterPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.letterPanelWelcome.Name = "letterPanelWelcome";
             this.letterPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.letterPanelWelcome.TabIndex = 7;
@@ -1646,7 +1668,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.Controls.Add(this.btnViewDtr);
             this.viewDTRPanelWelcome.Controls.Add(this.label39);
             this.viewDTRPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.viewDTRPanelWelcome.Name = "viewDTRPanelWelcome";
             this.viewDTRPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.viewDTRPanelWelcome.TabIndex = 7;
@@ -1664,7 +1686,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnViewDtr
             // 
             this.btnViewDtr.Location = new System.Drawing.Point(620, 223);
-            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDtr.Name = "btnViewDtr";
             this.btnViewDtr.Size = new System.Drawing.Size(87, 19);
             this.btnViewDtr.TabIndex = 1;
@@ -1686,7 +1708,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.imisWelcome.Controls.Add(this.label44);
             this.imisWelcome.Location = new System.Drawing.Point(0, 66);
-            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.imisWelcome.Name = "imisWelcome";
             this.imisWelcome.Size = new System.Drawing.Size(1188, 579);
             this.imisWelcome.TabIndex = 8;
@@ -1707,7 +1729,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome.Controls.Add(this.label48);
             this.internsPanelWelcome.Controls.Add(this.label38);
             this.internsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.internsPanelWelcome.Name = "internsPanelWelcome";
             this.internsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.internsPanelWelcome.TabIndex = 7;
@@ -1732,30 +1754,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label38.TabIndex = 0;
             this.label38.Text = "THIS IS INTERN PANEL";
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 42);
-            // 
-            // updateDTRToolStripButton1
-            // 
-            this.updateDTRToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("updateDTRToolStripButton1.Image")));
-            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
-            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(72, 39);
-            this.updateDTRToolStripButton1.Text = "Update DTR";
-            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
-            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1192, 650);
             this.Controls.Add(this.mainPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main_Menu_Remastered";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Menu";
