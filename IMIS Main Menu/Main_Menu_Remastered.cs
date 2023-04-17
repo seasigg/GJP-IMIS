@@ -837,51 +837,59 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             if (csvFilePath.ShowDialog() == DialogResult.OK)
             {
-                selectedFile = csvFilePath.FileName;
-
-                DataTable csvDataTable = new DataTable();
-
-                csvDataTable.Columns.Add("Date");
-                csvDataTable.Columns.Add("Time");
-                csvDataTable.Columns.Add("User ID");
-                csvDataTable.Columns.Add("Result");
-
-                StreamReader streamReader = new StreamReader(csvFilePath.FileName);
-                string[] totalData = new string[File.ReadAllLines(csvFilePath.FileName).Length];
-                totalData = streamReader.ReadLine().Split(',');
-
-                while (!streamReader.EndOfStream)
+                try
                 {
+                    selectedFile = csvFilePath.FileName;
+
+                    DataTable csvDataTable = new DataTable();
+
+                    csvDataTable.Columns.Add("Date");
+                    csvDataTable.Columns.Add("Time");
+                    csvDataTable.Columns.Add("User ID");
+                    csvDataTable.Columns.Add("Name");
+                    csvDataTable.Columns.Add("Result");
+
+                    StreamReader streamReader = new StreamReader(csvFilePath.FileName);
+                    string[] totalData = new string[File.ReadAllLines(csvFilePath.FileName).Length];
                     totalData = streamReader.ReadLine().Split(',');
-                    csvDataTable.Rows.Add(totalData[0], totalData[1], totalData[3], totalData[10]);
-                }
 
-
-                using (SqlConnection con = new SqlConnection(Connection_String.conn))
-                {
-                    con.Open();
-
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+                    while (!streamReader.EndOfStream)
                     {
-                        bulkCopy.DestinationTableName = "Log_Placeholder";
-                        bulkCopy.BatchSize = csvDataTable.Rows.Count;
-                        bulkCopy.WriteToServer(csvDataTable);
-                        bulkCopy.Close();
-
-                        SqlCommand cmd = new SqlCommand(storedQueries.mergeLogs, con);
-                        SqlCommand cmd2 = new SqlCommand(storedQueries.truncatePlaceholder, con);
-                        SqlCommand cmd3 = new SqlCommand(storedQueries.insertDTR_fromLogs, con);
-
-                        MessageBox.Show("Rows Affected: " + cmd.ExecuteNonQuery().ToString());
-                        cmd2.ExecuteNonQuery();
-                        cmd3.ExecuteNonQuery();
-
-                        cmd.Dispose();
-                        cmd2.Dispose();
-                        cmd3.Dispose();
-
-                        csvDataTable.Dispose();
+                        totalData = streamReader.ReadLine().Split(',');
+                        csvDataTable.Rows.Add(totalData[0], totalData[1], totalData[3], totalData[4], totalData[10]);
                     }
+
+
+                    using (SqlConnection con = new SqlConnection(Connection_String.conn))
+                    {
+                        con.Open();
+
+                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+                        {
+                            bulkCopy.DestinationTableName = "Log_Placeholder";
+                            bulkCopy.BatchSize = csvDataTable.Rows.Count;
+                            bulkCopy.WriteToServer(csvDataTable);
+                            bulkCopy.Close();
+
+                            SqlCommand cmd = new SqlCommand(storedQueries.mergeLogs, con);
+                            SqlCommand cmd2 = new SqlCommand(storedQueries.truncatePlaceholder, con);
+                            //SqlCommand cmd3 = new SqlCommand(storedQueries.insertDTR_fromLogs, con);
+
+                            MessageBox.Show("Rows Added: " + cmd.ExecuteNonQuery().ToString());
+                            cmd2.ExecuteNonQuery();
+                            //cmd3.ExecuteNonQuery();
+
+                            cmd.Dispose();
+                            cmd2.Dispose();
+                            //cmd3.Dispose();
+
+                            csvDataTable.Dispose();
+                        }
+                    }
+                }
+                catch(Exception er)
+                {
+                    MessageBox.Show(er.Message, "Update Logs Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
                 

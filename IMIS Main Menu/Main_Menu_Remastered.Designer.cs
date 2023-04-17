@@ -1433,8 +1433,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.updateDTRToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("updateDTRToolStripButton1.Image")));
             this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
-            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(72, 39);
-            this.updateDTRToolStripButton1.Text = "Update DTR";
+            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(77, 39);
+            this.updateDTRToolStripButton1.Text = "Update Logs";
             this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
