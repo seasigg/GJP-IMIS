@@ -27,7 +27,12 @@ namespace GJP_IMIS.Reports
             ReportAcceptanceLetter rt = new ReportAcceptanceLetter();
 
             Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.acceptanceLetter(ojtID), Connection_String.con);
+
+            SqlCommand cmd = new SqlCommand(ReportQueries.acceptanceLetter(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters["@ojtID"].Value = ojtID;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            
             da.Fill(ds, "AcceptanceTable");
             Connection_String.con.Dispose();
 

@@ -54,7 +54,46 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
         }
 
         // IMIS REMASTERED
-        public static string acceptanceLetter(string ojtid)
+        public static string acceptanceLetter()
+        {
+            return (@"SELECT DISTINCT 
+				DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now',
+                
+                Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName AS 'Coord_Name',
+                Intern_Info1.Coordinator_Position AS 'Position',
+                Intern_Info1.School_Name AS 'University',
+                
+                CASE
+                WHEN Intern_Info1.Coordinator_Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Coordinator_LastName
+                ELSE 'Ms. ' + Intern_Info1.Coordinator_LastName
+                END AS 'Coord_Intro',
+                
+                Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '. ' + Intern_Info1.Last_Name AS 'Intern_Name',
+                Course.Course_Name AS 'Intern_Course',
+                
+                CASE
+                WHEN Intern_Info1.Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Last_Name
+                ELSE 'Ms. ' + Intern_Info1.Last_Name
+                END AS 'Intern_Intro',
+                
+                CASE
+                WHEN Intern_Info1.Gender = 'Male' THEN 'His'
+                ELSE 'Her'
+                END AS 'Intern_Pronoun',
+                
+                Intern_Status1.Target_Hours,
+                Intern_Info1.Office_Name,
+                Intern_Info1.Office_Name AS 'Office_Abr'
+                
+                FROM Intern_Info1, Course, Intern_Status1
+                WHERE Intern_Info1.OJT_Number = @ojtID
+                
+                AND Intern_Info1.Course_ID = Course.Course_ID
+                AND Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
+        }
+
+
+        /*public static string acceptanceLetter(string ojtid)
         {
             return ("SELECT DISTINCT DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now', " +
                 "" +
@@ -88,8 +127,8 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "WHERE Intern_Info1.OJT_Number = '" + ojtid + "' " +
                 
                 "AND Intern_Info1.Course_ID = Course.Course_ID " +
-                "AND Intern_Status1.OJT_Number = Intern_Info1.OJT_Number"); ;
-        }
+                "AND Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
+        }*/
         public static string Intern()
         {
             return "SELECT DISTINCT " +
