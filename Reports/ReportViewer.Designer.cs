@@ -30,6 +30,8 @@ namespace GJP_IMIS.Reports
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.ReportAcceptanceLetter1 = new GJP_IMIS.Reports.ReportAcceptanceLetter();
+            this.ReportAcceptanceLetter2 = new GJP_IMIS.Reports.ReportAcceptanceLetter();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -60,5 +62,7 @@ namespace GJP_IMIS.Reports
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private ReportAcceptanceLetter ReportAcceptanceLetter1;
+        private ReportAcceptanceLetter ReportAcceptanceLetter2;
     }
 }

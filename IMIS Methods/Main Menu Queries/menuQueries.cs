@@ -44,20 +44,21 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             return dataTable(query);
         }
         
+        // IMIS REMASTERED
         public static DataTable viewInternPlain1()
         {
-            String query = "SELECT DISTINCT Intern_Info1.OJT_Number as 'OJT ID',"+
-                        "Intern_Info1.Last_Name as 'Last Name'," +
-                        "Intern_Info1.First_Name as 'First Name'," +
-                        "Course.Course_Name as 'Course'," +
-                        "Intern_Info1.School_Name as 'University'," +
-                        "Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name'," +
-                        "Intern_Info1.Office_Name as 'Office'," +
-                        "Intern_Status1.Target_Hours as 'Target Hours'," +
-                        "Intern_Status1.Status as 'Status'" +
-                        "FROM Intern_Info1 " +
-                        "INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID " +
-                        "INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number";
+            String query = @"SELECT DISTINCT Intern_Info1.OJT_Number as 'OJT ID',
+                        Intern_Info1.Last_Name as 'Last Name',
+                        Intern_Info1.First_Name as 'First Name',
+                        Course.Course_Name as 'Course',
+                        Intern_Info1.School_Name as 'University',
+                        Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name',
+                        Intern_Info1.Office_Name as 'Office',
+                        Intern_Status1.Target_Hours as 'Target Hours',
+                        Intern_Status1.Status as 'Status'
+                        FROM Intern_Info1
+                        INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID
+                        INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number";
             return dataTable(query);
         }
 

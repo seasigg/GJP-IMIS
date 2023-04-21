@@ -86,9 +86,10 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 Intern_Info1.Office_Name AS 'Office_Abr'
                 
                 FROM Intern_Info1, Course, Intern_Status1
-                WHERE Intern_Info1.OJT_Number = @ojtID
+
+                --WHERE Intern_Info1.OJT_Number = @ojtID
                 
-                AND Intern_Info1.Course_ID = Course.Course_ID
+                WHERE Intern_Info1.Course_ID = Course.Course_ID
                 AND Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
         }
 

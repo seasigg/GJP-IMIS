@@ -91,7 +91,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static Boolean isInternExist(string ojt)
         {
             Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT OJT_Number from Intern_Info1 WHERE OJT_Number LIKE '" + ojt + "'", Connection_String.con);
+            SqlCommand cmd = new SqlCommand(@"SELECT OJT_Number from Intern_Info1 WHERE OJT_Number LIKE @ojtID", Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters["@ojtID"].Value = ojt;
+
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read())
@@ -107,100 +110,204 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             int c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o)
         {
             Connection_String.dbConnection();
-            string query = "INSERT into Intern_Info1 VALUES('"+ojt+ "', '"+f+ "', '"+m+ "', '"+l+ "', '"+g+ "', '"+c+ "', '"+u+ "', '"+cooF+ "', '"+cooL+"', '"+cooG+"', '"+cooPos+"', '"+cooDept+"', '" + o+"')";
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            SqlCommand cmd = new SqlCommand(addInternQuery(), Connection_String.con);
+
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@fname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@course", SqlDbType.Int);
+            cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordG", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordPos", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordDept", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@office", SqlDbType.NVarChar);
+
+            cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@fname"].Value = f;
+            cmd.Parameters["@mname"].Value = m;
+            cmd.Parameters["@lname"].Value = l;
+            cmd.Parameters["@gender"].Value = g;
+            cmd.Parameters["@course"].Value = c;
+            cmd.Parameters["@univ"].Value = u;
+            cmd.Parameters["@coordF"].Value = cooF;
+            cmd.Parameters["@coordL"].Value = cooL;
+            cmd.Parameters["@coordG"].Value = cooG;
+            cmd.Parameters["@coordPos"].Value = cooPos;
+            cmd.Parameters["@coordDept"].Value = cooDept;
+            cmd.Parameters["@office"].Value = o;
+
             cmd.ExecuteNonQuery();
 
             Connection_String.con.Dispose();
+        }
+
+        private static string addInternQuery()
+        {
+            return @"INSERT into Intern_Info1
+                    VALUES (@ojtID, @fname, @mname, @lname, @gender, @course,
+                    @univ, @coordF, @coordL, @coordG, @coordPos, @coordDept, @office)";
         }
 
         // add intern status
         public static void addInternStatus1(string ojt, string date, string hrs)
         {
             string status = "INCOMPLETE";
-
             Connection_String.dbConnection();
-            string query = "INSERT INTO Intern_Status1 VALUES ('"+ojt+ "', '"+date+ "', '"+hrs+ "', '"+status+"')";
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            SqlCommand cmd = new SqlCommand(addInternStatusQuery(), Connection_String.con);
+
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@start", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@hours", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@status", SqlDbType.NVarChar);
+
+            cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@start"].Value = date;
+            cmd.Parameters["@hours"].Value = hrs;
+            cmd.Parameters["@status"].Value = status;
+
             cmd.ExecuteNonQuery();
 
             Connection_String.con.Dispose();
 
         }
 
+        private static string addInternStatusQuery()
+        {
+            return @"INSERT into Intern_Status1
+                    VALUES 
+                    (@ojtID, @start, @hours, @status)";
+        }
+
         // update intern data
         public static void updateInternData(string ojt, string f, string m,
-            string l, string g, string u, string coordF, string coordL, string coordG,
+            string l, string g, string u,
+            string coordF, string coordL, string coordG, string coordPos, string coordDept,
             int c, string o)
         {
             Connection_String.dbConnection();
-            string query = updateInternDataQuery(ojt, f, m, l, g, u, coordF, coordL, coordG, c, o);
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            SqlCommand cmd = new SqlCommand(updateInternDataQuery(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@fname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@course", SqlDbType.Int);
+            cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordG", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordPos", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordDept", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@office", SqlDbType.NVarChar);
+
+            cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@fname"].Value = f;
+            cmd.Parameters["@mname"].Value = m;
+            cmd.Parameters["@lname"].Value = l;
+            cmd.Parameters["@gender"].Value = g;
+            cmd.Parameters["@course"].Value = c;
+            cmd.Parameters["@univ"].Value = u;
+            cmd.Parameters["@coordF"].Value = coordF;
+            cmd.Parameters["@coordL"].Value = coordL;
+            cmd.Parameters["@coordG"].Value = coordG;
+            cmd.Parameters["@coordPos"].Value = coordPos;
+            cmd.Parameters["@coordDept"].Value = coordDept;
+            cmd.Parameters["@office"].Value = o;
+
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
+        }
+
+        // update intern query
+        private static string updateInternDataQuery()
+        {
+            return @"UPDATE intern_Info1 SET 
+                    First_Name = @fname,
+                    Middle_Initial = @mname,
+                    Last_Name = @lname,
+                    Gender = @gender,
+                    Course_ID = @course,
+                    School_Name = @univ,
+                    Coordinator_FirstName = @coordF,
+                    Coordinator_LastName = @coordL,
+                    Coordinator_Gender = @coordG,
+                    Coordinator_Position = @coordPos,
+                    Coordinator_Department = @coordDept,
+                    Office_Name = @office 
+
+                    WHERE OJT_Number = @ojtID";
         }
 
         // update intern status
         public static void updateInternStatus(string ojt, string h, string status)
         {
             Connection_String.dbConnection();
-            string query = updateInternStatusQuery(ojt, h, status);
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            SqlCommand cmd = new SqlCommand(updateInternStatusQuery(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@targetHrs", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@status", SqlDbType.NVarChar);
+
+            cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@targetHrs"].Value = h;
+            cmd.Parameters["@status"].Value = status;
+
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
         }
-
-        // query for update intern data
-        public static string updateInternDataQuery(string ojt, string f, string m,
-            string l, string g, string u, string coordF, string coordL, string coordG,
-            int c, string o)
+        // update intern status query
+        private static string updateInternStatusQuery()
         {
-            return "update Intern_Info1 SET " +
-                "First_Name = '"+f+"', " +
-                "Middle_Initial = '"+m+"', " +
-                "Last_Name = '"+l+"', " +
-                "Gender = '"+g+"', " +
-                "Course_ID = '"+c+"', " +
-                "School_Name = '"+u+"', " +
-                "Coordinator_FirstName = '"+coordF+"', " +
-                "Coordinator_LastName = '"+coordL+"', " +
-                "Coordinator_Gender = '" + coordG + "', " +
-                "Office_Name = '" +o+"' " +
-                "WHERE OJT_Number = '"+ojt+"' ";
-        }
-
-        // query for update intern status
-        public static string updateInternStatusQuery(string ojt, string hours, string status)
-        {
-            return "update Intern_Status1 SET " +
-                "Target_Hours = '"+ hours + "', " +
-                "Status = '"+ status + "' " +
-                "WHERE OJT_Number = '"+ ojt + "'";
+            return @"UPDATE Intern_status1
+                    SET
+                    Target_Hours = @targetHrs, 
+                    Status = @status 
+                    WHERE OJT_Number = @ojtID";
         }
         
         // query for edit intern
-        public static string editInternQuery(string ojt)
+        public static string editInternQuery()
         {
-            return "SELECT Intern_Info1.OJT_Number as 'OJT ID'," +
-                        "Intern_Info1.Last_Name as 'Last Name'," +
-                        "Intern_Info1.Middle_Initial as 'Middle Initial'," +
-                        "Intern_Info1.First_Name as 'First Name'," +
-                        "Intern_Info1.Gender as 'Gender'," +
-                        "Course.Course_ID as 'Course'," +
-                        "Intern_Info1.School_Name as 'University'," +
-                        "Intern_Info1.Coordinator_FirstName as 'Coordinator FirstName'," +
-                        "Intern_Info1.Coordinator_LastName as 'Coordinator LastName'," +
-                        "Intern_Info1.Coordinator_Gender as 'Coordinator Gender'," +
-                        "Intern_Info1.Office_Name as 'Office'," +
-                        "Intern_Status1.Target_Hours as 'Target Hours'," +
-                        "Intern_Status1.Status as 'Status'" +
-                        "FROM Intern_Info1 " +
-                        "INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID " +
-                        "INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number " +
-                        "WHERE Intern_Info1.OJT_Number = '"+ojt+"'";
+            return @"SELECT Intern_Info1.OJT_Number as 'OJT ID',
+                        Intern_Info1.Last_Name as 'Last Name',
+                        Intern_Info1.Middle_Initial as 'Middle Initial',
+                        Intern_Info1.First_Name as 'First Name',
+                        Intern_Info1.Gender as 'Gender',
+                        Course.Course_ID as 'Course',
+                        Intern_Info1.School_Name as 'University',
+                        Intern_Info1.Coordinator_FirstName as 'Coordinator FirstName',
+                        Intern_Info1.Coordinator_LastName as 'Coordinator LastName',
+                        Intern_Info1.Coordinator_Gender as 'Coordinator Gender',
+                        Intern_Info1.Coordinator_Position as 'Coordinator Position',
+						Intern_Info1.Coordinator_Department as 'Coordinator Department',
+                        Intern_Info1.Office_Name as 'Office',
+                        Intern_Status1.Target_Hours as 'Target Hours',
+						--Intern_Status1.Start_Date as 'Start Date',
+                        Intern_Status1.Status as 'Status'
+                        FROM Intern_Info1
+                        INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID
+                        INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number
+                        WHERE Intern_Info1.OJT_Number = @ojtID";
+        }
+
+        public static DataTable getUniversities1()
+        {
+            return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");
+        }
+        public static DataTable getOffices1()
+        {
+            return dataTable("SELECT Intern_Info1.Office_Name FROM Intern_Info1;");
+        }
+        public static DataTable getCourses1()
+        {
+            return dataTable("SELECT DISTINCT Course.Course_Name, Course.Course_ID FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
         }
 
         // ------- END OF IMIS REMASTERED -------
+
         /////////////////////////////////////////////////
         public static DataTable getUniversities()
         {
@@ -222,17 +329,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
 
-        public static DataTable getUniversities1()
-        {
-            return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");
-        }
-        public static DataTable getOffices1()
-        {
-            return dataTable("SELECT Intern_Info1.Office_Name FROM Intern_Info1;");
-        }
-        public static DataTable getCourses1()
-        {
-            return dataTable("SELECT DISTINCT Course.Course_Name, Course.Course_ID FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
-        }
+        
     }
 }

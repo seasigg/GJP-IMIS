@@ -367,8 +367,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void editIntern(string o)
         {
             Connection_String.dbConnection();
-            String query = InternQueries.editInternQuery(o);
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
+            //String query = InternQueries.editInternQuery(o);
+            SqlCommand cmd = new SqlCommand(InternQueries.editInternQuery(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters["@ojtID"].Value = o;
+
             SqlDataReader dr = cmd.ExecuteReader();
 
             if (dr.Read())
@@ -382,9 +385,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtEditCoordFname.Text = dr["Coordinator FirstName"].ToString();
                 txtEditCoordLname.Text = dr["Coordinator LastName"].ToString();
                 genderCoordEdit(dr["Coordinator Gender"].ToString());
+                txtEditCoordPos.Text = dr["Coordinator Position"].ToString();
+                txtEditCoordDept.Text = dr["Coordinator Department"].ToString();
                 comboEditcourse.SelectedValue = int.Parse(dr["Course"].ToString());
                 txtEditoffice.Text = dr["Office"].ToString();
                 numericEdit.Value = int.Parse(dr["Target Hours"].ToString());
+                
                 statusEdit(dr["Status"].ToString());
             }
             Connection_String.con.Dispose();
@@ -451,6 +457,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string coordFname = txtEditCoordFname.Text;
                     string coordLname = txtEditCoordLname.Text;
                     string coordGender = getCoordGenderEdit();
+                    string coordPos = txtEditCoordPos.Text;
+                    string coordDept = txtEditCoordDept.Text;
                     int course = Int32.Parse(comboEditcourse.SelectedValue.ToString());
                     string office = txtEditoffice.Text;
                     //string startDate = dateTimeStartDate.Value.ToShortDateString();
@@ -458,7 +466,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string status = getStatusEdit();
 
                     InternQueries.updateInternData(ojtNumber, fname, mini,
-                        lname, gender, univ, coordFname, coordLname, coordGender, course, office);
+                        lname, gender, univ, coordFname, coordLname, coordGender, coordPos, coordDept,
+                        course, office);
 
                     InternQueries.updateInternStatus(ojtNumber, hours, status);
 
