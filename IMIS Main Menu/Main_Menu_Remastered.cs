@@ -27,6 +27,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
     {
         // DATA TABLES
         public static DataTable internData = menuQueries.viewInternPlain1();
+        public static DataTable internUnregData = menuQueries.viewUnregInternPlain();
         public static DataTable universityData = InternQueries.getUniversities1();
         public static DataTable officeData = InternQueries.getOffices1();
         public static DataTable courseData = InternQueries.getCourses1();
@@ -90,8 +91,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ********** ADD INTERN **********
         private void addInternStrip()
         {
-            
             courseCombo();
+
+            dataGridUnregInterns.DataSource = internUnregData;
+            dataGridUnregInterns.ClearSelection();
+            dataGridUnregInterns.AutoResizeColumns();
         }
 
         // ojt number
@@ -591,7 +595,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void addInternToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addInternPanel.BringToFront();
+            addInternUnreg.BringToFront();
+            addInternStrip();
             addInternClearFields();
         }
 
@@ -904,6 +909,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 
         }
 
+        // -------------------- ADDING UNREGISTERED INTERNS --------------------
+
+        private void addUnregIntern_Click(object sender, EventArgs e)
+        {
+            addInternPanel.BringToFront();
+            txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString();
+            txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        // -------------------- END OF ADDING UNREGISTERED INTERNS --------------------
 
 
 

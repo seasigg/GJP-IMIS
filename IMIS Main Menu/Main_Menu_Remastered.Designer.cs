@@ -71,6 +71,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
+            this.label50 = new System.Windows.Forms.Label();
+            this.txtEditCoordDept = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.txtEditCoordPos = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioCoordEditMale = new System.Windows.Forms.RadioButton();
             this.radioCoordEditFemale = new System.Windows.Forms.RadioButton();
@@ -171,10 +175,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.txtEditCoordPos = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.txtEditCoordDept = new System.Windows.Forms.TextBox();
+            this.addInternUnreg = new System.Windows.Forms.Panel();
+            this.addUnregIntern = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
+            this.txtTerminalName = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -201,6 +207,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.SuspendLayout();
             this.imisWelcome.SuspendLayout();
             this.internsPanelWelcome.SuspendLayout();
+            this.addInternUnreg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -208,7 +216,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
             this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewInternPanel.Name = "viewInternPanel";
             this.viewInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewInternPanel.TabIndex = 3;
@@ -219,7 +227,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns.AllowUserToDeleteRows = false;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 53);
-            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
             this.dataGridInterns.ReadOnly = true;
             this.dataGridInterns.RowHeadersWidth = 51;
@@ -239,6 +247,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // addInternPanel
             // 
+            this.addInternPanel.Controls.Add(this.txtTerminalName);
+            this.addInternPanel.Controls.Add(this.label51);
             this.addInternPanel.Controls.Add(this.label35);
             this.addInternPanel.Controls.Add(this.txtCoordinatorLname);
             this.addInternPanel.Controls.Add(this.label34);
@@ -272,7 +282,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Controls.Add(this.label15);
             this.addInternPanel.Controls.Add(this.label2);
             this.addInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternPanel.Name = "addInternPanel";
             this.addInternPanel.Size = new System.Drawing.Size(1188, 577);
             this.addInternPanel.TabIndex = 4;
@@ -351,7 +361,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addCoordGenderPanel.Controls.Add(this.radioMaleCoord);
             this.addCoordGenderPanel.Controls.Add(this.radioFemaleCoord);
             this.addCoordGenderPanel.Location = new System.Drawing.Point(542, 336);
-            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addCoordGenderPanel.Name = "addCoordGenderPanel";
             this.addCoordGenderPanel.Size = new System.Drawing.Size(172, 39);
             this.addCoordGenderPanel.TabIndex = 31;
@@ -384,8 +394,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.addInternGenderPanel.Controls.Add(this.radioMale);
             this.addInternGenderPanel.Controls.Add(this.radioFemale);
-            this.addInternGenderPanel.Location = new System.Drawing.Point(95, 336);
-            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternGenderPanel.Location = new System.Drawing.Point(115, 337);
+            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternGenderPanel.Name = "addInternGenderPanel";
             this.addInternGenderPanel.Size = new System.Drawing.Size(166, 34);
             this.addInternGenderPanel.TabIndex = 30;
@@ -431,16 +441,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // dateTimeStartDate
             // 
             this.dateTimeStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeStartDate.Location = new System.Drawing.Point(28, 499);
+            this.dateTimeStartDate.Location = new System.Drawing.Point(469, 163);
             this.dateTimeStartDate.Name = "dateTimeStartDate";
-            this.dateTimeStartDate.Size = new System.Drawing.Size(396, 26);
+            this.dateTimeStartDate.Size = new System.Drawing.Size(308, 26);
             this.dateTimeStartDate.TabIndex = 28;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(24, 475);
+            this.label14.Location = new System.Drawing.Point(465, 139);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 20);
             this.label14.TabIndex = 27;
@@ -449,7 +459,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // numericTargetHours
             // 
             this.numericTargetHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericTargetHours.Location = new System.Drawing.Point(913, 72);
+            this.numericTargetHours.Location = new System.Drawing.Point(949, 418);
             this.numericTargetHours.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -474,7 +484,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(909, 49);
+            this.label13.Location = new System.Drawing.Point(945, 395);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(130, 20);
             this.label13.TabIndex = 25;
@@ -484,7 +494,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(24, 395);
+            this.label12.Location = new System.Drawing.Point(22, 390);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 20);
             this.label12.TabIndex = 24;
@@ -494,9 +504,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtOffice.BackColor = System.Drawing.Color.White;
             this.txtOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOffice.Location = new System.Drawing.Point(28, 418);
+            this.txtOffice.Location = new System.Drawing.Point(26, 418);
             this.txtOffice.Name = "txtOffice";
-            this.txtOffice.Size = new System.Drawing.Size(368, 26);
+            this.txtOffice.Size = new System.Drawing.Size(249, 26);
             this.txtOffice.TabIndex = 23;
             // 
             // comboCourse
@@ -506,16 +516,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.comboCourse.BackColor = System.Drawing.Color.White;
             this.comboCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCourse.FormattingEnabled = true;
-            this.comboCourse.Location = new System.Drawing.Point(471, 144);
+            this.comboCourse.Location = new System.Drawing.Point(873, 171);
             this.comboCourse.Name = "comboCourse";
-            this.comboCourse.Size = new System.Drawing.Size(381, 28);
+            this.comboCourse.Size = new System.Drawing.Size(286, 28);
             this.comboCourse.TabIndex = 22;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(466, 125);
+            this.label11.Location = new System.Drawing.Point(868, 152);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 20);
             this.label11.TabIndex = 21;
@@ -545,7 +555,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(466, 49);
+            this.label1.Location = new System.Drawing.Point(24, 457);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 20);
             this.label1.TabIndex = 18;
@@ -555,7 +565,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtUniversity.BackColor = System.Drawing.Color.White;
             this.txtUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUniversity.Location = new System.Drawing.Point(470, 72);
+            this.txtUniversity.Location = new System.Drawing.Point(28, 480);
             this.txtUniversity.Name = "txtUniversity";
             this.txtUniversity.Size = new System.Drawing.Size(368, 26);
             this.txtUniversity.TabIndex = 17;
@@ -565,7 +575,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(24, 343);
+            this.label19.Location = new System.Drawing.Point(24, 345);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(71, 20);
             this.label19.TabIndex = 14;
@@ -575,7 +585,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtLname.BackColor = System.Drawing.Color.White;
             this.txtLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLname.Location = new System.Drawing.Point(26, 281);
+            this.txtLname.Location = new System.Drawing.Point(26, 287);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(368, 26);
             this.txtLname.TabIndex = 13;
@@ -585,7 +595,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtMinitial.BackColor = System.Drawing.Color.White;
             this.txtMinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinitial.Location = new System.Drawing.Point(26, 213);
+            this.txtMinitial.Location = new System.Drawing.Point(26, 219);
             this.txtMinitial.Name = "txtMinitial";
             this.txtMinitial.Size = new System.Drawing.Size(94, 26);
             this.txtMinitial.TabIndex = 12;
@@ -596,7 +606,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtFname.BackColor = System.Drawing.Color.White;
             this.txtFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFname.Location = new System.Drawing.Point(28, 146);
+            this.txtFname.Location = new System.Drawing.Point(28, 152);
             this.txtFname.Name = "txtFname";
             this.txtFname.Size = new System.Drawing.Size(368, 26);
             this.txtFname.TabIndex = 11;
@@ -606,7 +616,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(22, 258);
+            this.label16.Location = new System.Drawing.Point(22, 264);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 20);
             this.label16.TabIndex = 10;
@@ -616,7 +626,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(24, 190);
+            this.label17.Location = new System.Drawing.Point(24, 196);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(96, 20);
             this.label17.TabIndex = 9;
@@ -626,7 +636,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(24, 123);
+            this.label18.Location = new System.Drawing.Point(24, 129);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(86, 20);
             this.label18.TabIndex = 8;
@@ -635,6 +645,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // txtOjtNum
             // 
             this.txtOjtNum.BackColor = System.Drawing.Color.White;
+            this.txtOjtNum.Enabled = false;
             this.txtOjtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOjtNum.Location = new System.Drawing.Point(28, 72);
             this.txtOjtNum.Name = "txtOjtNum";
@@ -699,10 +710,48 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.label30);
             this.editInternPanel.Controls.Add(this.label3);
             this.editInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(449, 415);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(181, 20);
+            this.label50.TabIndex = 67;
+            this.label50.Text = "Coordinator Department";
+            // 
+            // txtEditCoordDept
+            // 
+            this.txtEditCoordDept.BackColor = System.Drawing.Color.White;
+            this.txtEditCoordDept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditCoordDept.Location = new System.Drawing.Point(454, 438);
+            this.txtEditCoordDept.Name = "txtEditCoordDept";
+            this.txtEditCoordDept.Size = new System.Drawing.Size(368, 26);
+            this.txtEditCoordDept.TabIndex = 66;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(448, 345);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(152, 20);
+            this.label49.TabIndex = 65;
+            this.label49.Text = "Coordinator Position";
+            // 
+            // txtEditCoordPos
+            // 
+            this.txtEditCoordPos.BackColor = System.Drawing.Color.White;
+            this.txtEditCoordPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditCoordPos.Location = new System.Drawing.Point(453, 368);
+            this.txtEditCoordPos.Name = "txtEditCoordPos";
+            this.txtEditCoordPos.Size = new System.Drawing.Size(368, 26);
+            this.txtEditCoordPos.TabIndex = 64;
             // 
             // panel1
             // 
@@ -1092,7 +1141,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.deleteInternPanel.Controls.Add(this.label4);
             this.deleteInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.deleteInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.deleteInternPanel.Name = "deleteInternPanel";
             this.deleteInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.deleteInternPanel.TabIndex = 6;
@@ -1111,7 +1160,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.viewDtrPanel.Controls.Add(this.label5);
             this.viewDtrPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewDtrPanel.Name = "viewDtrPanel";
             this.viewDtrPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewDtrPanel.TabIndex = 7;
@@ -1132,7 +1181,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptancePanel.Controls.Add(this.dataGridAccept);
             this.acceptancePanel.Controls.Add(this.label6);
             this.acceptancePanel.Location = new System.Drawing.Point(0, 66);
-            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2);
             this.acceptancePanel.Name = "acceptancePanel";
             this.acceptancePanel.Size = new System.Drawing.Size(1188, 579);
             this.acceptancePanel.TabIndex = 8;
@@ -1140,7 +1189,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnAcceptance
             // 
             this.btnAcceptance.Location = new System.Drawing.Point(1077, 24);
-            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2);
             this.btnAcceptance.Name = "btnAcceptance";
             this.btnAcceptance.Size = new System.Drawing.Size(79, 19);
             this.btnAcceptance.TabIndex = 2;
@@ -1159,7 +1208,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridAccept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccept.Location = new System.Drawing.Point(3, 53);
-            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridAccept.Name = "dataGridAccept";
             this.dataGridAccept.ReadOnly = true;
             this.dataGridAccept.RowHeadersWidth = 51;
@@ -1182,7 +1231,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.completionPanel.Controls.Add(this.label7);
             this.completionPanel.Location = new System.Drawing.Point(0, 66);
-            this.completionPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.completionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.completionPanel.Name = "completionPanel";
             this.completionPanel.Size = new System.Drawing.Size(1188, 579);
             this.completionPanel.TabIndex = 9;
@@ -1211,7 +1260,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanel.Controls.Add(this.reportGender);
             this.reportsPanel.Controls.Add(this.label8);
             this.reportsPanel.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.reportsPanel.Name = "reportsPanel";
             this.reportsPanel.Size = new System.Drawing.Size(1188, 579);
             this.reportsPanel.TabIndex = 10;
@@ -1348,10 +1397,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.acceptancePanel);
-            this.mainPanel.Controls.Add(this.completionPanel);
-            this.mainPanel.Controls.Add(this.reportsPanel);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Controls.Add(this.editInternPanel);
@@ -1362,11 +1407,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.internsPanelWelcome);
             this.mainPanel.Controls.Add(this.deleteInternPanel);
             this.mainPanel.Controls.Add(this.viewDtrPanel);
+            this.mainPanel.Controls.Add(this.acceptancePanel);
+            this.mainPanel.Controls.Add(this.completionPanel);
+            this.mainPanel.Controls.Add(this.reportsPanel);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1192, 650);
+            this.mainPanel.Size = new System.Drawing.Size(1193, 648);
             this.mainPanel.TabIndex = 11;
             // 
             // toolStrip1
@@ -1384,7 +1434,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1192, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1193, 42);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -1523,7 +1573,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1192, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1193, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1555,7 +1605,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanelFind.Controls.Add(this.label41);
             this.editInternPanelFind.Controls.Add(this.label42);
             this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanelFind.Name = "editInternPanelFind";
             this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanelFind.TabIndex = 52;
@@ -1606,7 +1656,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanelWelcome.Controls.Add(this.btnReports);
             this.reportsPanelWelcome.Controls.Add(this.label43);
             this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.reportsPanelWelcome.Name = "reportsPanelWelcome";
             this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.reportsPanelWelcome.TabIndex = 7;
@@ -1624,7 +1674,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnReports
             // 
             this.btnReports.Location = new System.Drawing.Point(869, 385);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(56, 19);
             this.btnReports.TabIndex = 1;
@@ -1647,7 +1697,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanelWelcome.Controls.Add(this.label46);
             this.letterPanelWelcome.Controls.Add(this.label40);
             this.letterPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.letterPanelWelcome.Name = "letterPanelWelcome";
             this.letterPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.letterPanelWelcome.TabIndex = 7;
@@ -1678,7 +1728,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.Controls.Add(this.btnViewDtr);
             this.viewDTRPanelWelcome.Controls.Add(this.label39);
             this.viewDTRPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.viewDTRPanelWelcome.Name = "viewDTRPanelWelcome";
             this.viewDTRPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.viewDTRPanelWelcome.TabIndex = 7;
@@ -1696,7 +1746,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnViewDtr
             // 
             this.btnViewDtr.Location = new System.Drawing.Point(620, 223);
-            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDtr.Name = "btnViewDtr";
             this.btnViewDtr.Size = new System.Drawing.Size(87, 19);
             this.btnViewDtr.TabIndex = 1;
@@ -1718,7 +1768,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.imisWelcome.Controls.Add(this.label44);
             this.imisWelcome.Location = new System.Drawing.Point(0, 66);
-            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.imisWelcome.Name = "imisWelcome";
             this.imisWelcome.Size = new System.Drawing.Size(1188, 579);
             this.imisWelcome.TabIndex = 8;
@@ -1739,7 +1789,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome.Controls.Add(this.label48);
             this.internsPanelWelcome.Controls.Add(this.label38);
             this.internsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.internsPanelWelcome.Name = "internsPanelWelcome";
             this.internsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.internsPanelWelcome.TabIndex = 7;
@@ -1764,51 +1814,80 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label38.TabIndex = 0;
             this.label38.Text = "THIS IS INTERN PANEL";
             // 
-            // label49
+            // addInternUnreg
             // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(448, 345);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(152, 20);
-            this.label49.TabIndex = 65;
-            this.label49.Text = "Coordinator Position";
+            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
+            this.addInternUnreg.Controls.Add(this.addUnregIntern);
+            this.addInternUnreg.Controls.Add(this.label66);
+            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
+            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
+            this.addInternUnreg.Name = "addInternUnreg";
+            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
+            this.addInternUnreg.TabIndex = 39;
             // 
-            // txtEditCoordPos
+            // addUnregIntern
             // 
-            this.txtEditCoordPos.BackColor = System.Drawing.Color.White;
-            this.txtEditCoordPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordPos.Location = new System.Drawing.Point(453, 368);
-            this.txtEditCoordPos.Name = "txtEditCoordPos";
-            this.txtEditCoordPos.Size = new System.Drawing.Size(368, 26);
-            this.txtEditCoordPos.TabIndex = 64;
+            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
+            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
+            this.addUnregIntern.Name = "addUnregIntern";
+            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
+            this.addUnregIntern.TabIndex = 29;
+            this.addUnregIntern.Text = "ADD";
+            this.addUnregIntern.UseVisualStyleBackColor = false;
+            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
             // 
-            // label50
+            // label66
             // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(449, 415);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(181, 20);
-            this.label50.TabIndex = 67;
-            this.label50.Text = "Coordinator Department";
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(522, 15);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(144, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "UNREGISTERED INTERNS";
             // 
-            // txtEditCoordDept
+            // dataGridUnregInterns
             // 
-            this.txtEditCoordDept.BackColor = System.Drawing.Color.White;
-            this.txtEditCoordDept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordDept.Location = new System.Drawing.Point(454, 438);
-            this.txtEditCoordDept.Name = "txtEditCoordDept";
-            this.txtEditCoordDept.Size = new System.Drawing.Size(368, 26);
-            this.txtEditCoordDept.TabIndex = 66;
+            this.dataGridUnregInterns.AllowUserToAddRows = false;
+            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
+            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
+            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
+            this.dataGridUnregInterns.ReadOnly = true;
+            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
+            this.dataGridUnregInterns.TabIndex = 30;
+            // 
+            // txtTerminalName
+            // 
+            this.txtTerminalName.BackColor = System.Drawing.Color.White;
+            this.txtTerminalName.Enabled = false;
+            this.txtTerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTerminalName.Location = new System.Drawing.Point(417, 72);
+            this.txtTerminalName.Name = "txtTerminalName";
+            this.txtTerminalName.Size = new System.Drawing.Size(368, 26);
+            this.txtTerminalName.TabIndex = 40;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(413, 49);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(115, 20);
+            this.label51.TabIndex = 39;
+            this.label51.Text = "Terminal Name";
             // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 650);
+            this.ClientSize = new System.Drawing.Size(1193, 648);
             this.Controls.Add(this.mainPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main_Menu_Remastered";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Menu";
@@ -1861,6 +1940,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome.PerformLayout();
             this.internsPanelWelcome.ResumeLayout(false);
             this.internsPanelWelcome.PerformLayout();
+            this.addInternUnreg.ResumeLayout(false);
+            this.addInternUnreg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2011,5 +2093,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.TextBox txtEditCoordDept;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox txtEditCoordPos;
+        private System.Windows.Forms.Panel addInternUnreg;
+        private System.Windows.Forms.Button addUnregIntern;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.DataGridView dataGridUnregInterns;
+        private System.Windows.Forms.TextBox txtTerminalName;
+        private System.Windows.Forms.Label label51;
     }
 }

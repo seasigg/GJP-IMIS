@@ -62,6 +62,18 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             return dataTable(query);
         }
 
+        public static DataTable viewUnregInternPlain()
+        {
+            String query = @"SELECT DISTINCT
+		                        i.UserID, i.Name
+
+                            from Intern_Logs i
+                            left join Intern_Info1 n
+		                        on i.UserID = n.OJT_Number
+
+                            where n.OJT_Number is null and i.UserID != 1";
+            return dataTable(query);
+        }
         //MAIN MENU - UNIVERSITY PANEL/ADDRESSE PANEL - UNIVERSITY DATA GRID
         public static DataTable universityDataGrid()
         {
