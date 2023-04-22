@@ -107,7 +107,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // add intern data
         public static void addInternData1(string ojt, string f, string m, string l, string g,
-            int c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o)
+            int c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o, string oT)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(addInternQuery(), Connection_String.con);
@@ -125,6 +125,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@coordPos", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordDept", SqlDbType.NVarChar);
             cmd.Parameters.Add("@office", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@ojtTerminal", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
             cmd.Parameters["@fname"].Value = f;
@@ -139,6 +140,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters["@coordPos"].Value = cooPos;
             cmd.Parameters["@coordDept"].Value = cooDept;
             cmd.Parameters["@office"].Value = o;
+            cmd.Parameters["@ojtTerminal"].Value = oT;
 
             cmd.ExecuteNonQuery();
 
@@ -149,7 +151,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             return @"INSERT into Intern_Info1
                     VALUES (@ojtID, @fname, @mname, @lname, @gender, @course,
-                    @univ, @coordF, @coordL, @coordG, @coordPos, @coordDept, @office)";
+                    @univ, @coordF, @coordL, @coordG, @coordPos, @coordDept, @office, @ojtTerminal)";
         }
 
         // add intern status
@@ -292,6 +294,35 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number
                         WHERE Intern_Info1.OJT_Number = @ojtID";
         }
+
+        public static void insertInternLog(int ojtID, string date, string time, string name)
+        {
+            string res = "Success";
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand(insertInternLogQuery(), Connection_String.con);
+            cmd.Parameters.Add("@date", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@time", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters.Add("@res", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@name", SqlDbType.NVarChar);
+
+            cmd.Parameters["@date"].Value = date;
+            cmd.Parameters["@time"].Value = time;
+            cmd.Parameters["@ojtID"].Value = ojtID;
+            cmd.Parameters["@res"].Value = res;
+            cmd.Parameters["@name"].Value = name;
+
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Dispose();
+        }
+
+        private static string insertInternLogQuery()
+        {
+            return @"INSERT into Intern_Logs
+                    VALUES
+                    (@date, @time, @ojtID, @name, @res)";
+        }
+
 
         public static DataTable getUniversities1()
         {

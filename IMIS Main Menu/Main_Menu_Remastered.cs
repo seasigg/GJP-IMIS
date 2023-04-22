@@ -31,6 +31,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public static DataTable universityData = InternQueries.getUniversities1();
         public static DataTable officeData = InternQueries.getOffices1();
         public static DataTable courseData = InternQueries.getCourses1();
+        public static DataTable addLogData = menuQueries.insertInternLogDataGrid();
 
         // reports
         public static DataTable internAcceptData = menuQueries.reportAcceptanceDataGrid1();
@@ -261,13 +262,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             string office = txtOffice.Text;
             string startDate = dateTimeStartDate.Value.ToShortDateString();
             string hours = numericTargetHours.Value.ToString();
+            string ojtTerminal = txtTerminalName.Text;
 
             if (!InternQueries.isInternExist(ojtNumber))
             {
                 DialogResult dr = MessageBox.Show("CONFIRM ADD INTERN", "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    InternQueries.addInternData1(ojtNumber, fname, mini, lname, gender, course, univ, coordF, coordL, coordGender, coordPos, coordDept, office);
+                    InternQueries.addInternData1(ojtNumber, fname, mini, lname, gender, course, univ, coordF, coordL, coordGender, coordPos, coordDept, office, ojtTerminal);
                     InternQueries.addInternStatus1(ojtNumber, startDate, hours);
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -342,29 +344,37 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ********** END OF ADD INTERN **********
 
+
         // ********** EDIT INTERN **********
 
         private void editInternStrip()
         {
-            txtEditmini.MaxLength = 1;
+            dataGridModiftIntern.DataSource = internAcceptData;
+            dataGridModiftIntern.ClearSelection();
+
+            dataGridAddLog.DataSource = addLogData;
+            dataGridAddLog.ClearSelection();
+
+            addLogDate.Format = DateTimePickerFormat.Custom;
+            addLogDate.CustomFormat = "yyyy-MM-dd";
+
+            addLogTime.Format = DateTimePickerFormat.Time;
+            addLogTime.ShowUpDown = true;
         }
+
         private void btnSearchIntern_Click(object sender, EventArgs e)
         {
-            string ojtNum = txtSearchIntern.Text;
-            
-            if (searchInternField())
-            {
-                if (InternQueries.isInternExist(ojtNum))
-                {
+            string ojtNum = dataGridModiftIntern.CurrentRow.Cells[0].Value.ToString();
 
-                    editIntern(ojtNum);
-                    editInternPanel.BringToFront();
-                }
-                else
-                    MessageBox.Show("INTERN DOES NOT EXIST.");
+            if (ojtNum != null)
+            {
+                editIntern(ojtNum);
+                editInternPanel.BringToFront();
             }
             else
-                MessageBox.Show("Enter OJT Number First.");
+                MessageBox.Show("SELECT INTERN FIRST.");
+            
+            
 
         }
 
@@ -423,11 +433,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (s == "INCOMPLETE")
                 radioEditincomplete.Checked = true;
         }
-        // edit search intern fields
-        private Boolean searchInternField()
-        {
-            return !(string.IsNullOrWhiteSpace(txtSearchIntern.Text));
-        }
+        
 
         // search of intern
         private void txtSearchIntern_KeyPress(object sender, KeyPressEventArgs e)
@@ -605,10 +611,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             editInternPanelFind.BringToFront();
         }
 
-        private void deleteInternToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleteInternPanel.BringToFront();
-        }
+        
 
         private void viewDtrToolStripButton1_Click(object sender, EventArgs e)
         {
@@ -918,9 +921,45 @@ namespace GJP_IMIS.IMIS_Main_Menu
             txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
         }
 
+
+
         // -------------------- END OF ADDING UNREGISTERED INTERNS --------------------
 
+        // -------------------- ADD LOG STRIP --------------------
+        private void addLogToolStrip_Click(object sender, EventArgs e)
+        {
+            addLogPanel.BringToFront();
+        }
 
+        private void btnAddLog_Click(object sender, EventArgs e)
+        {
+            string d = addLogDate.Text;
+            string t = addLogTime.Text;
+            int oId = Int32.Parse(addLogOjtID.Text);
+            string tName = addLogTerminal.Text;
+
+            InternQueries.insertInternLog(oId, d, t, tName);
+
+            MessageBox.Show("LOG ADDED.");
+        }
+
+        private void dataGridAddLog_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            addLogOjtID.Text = dataGridAddLog.CurrentRow.Cells[0].Value.ToString();
+            addLogOJTName.Text = dataGridAddLog.CurrentRow.Cells[1].Value.ToString();
+            addLogTerminal.Text = dataGridAddLog.CurrentRow.Cells[2].Value.ToString();
+
+            addLogOjtID.Visible = true;
+            addLogOJTName.Visible = true;
+            addLogTerminal.Visible = true;
+
+            addLogDate.Enabled = true;
+            addLogTime.Enabled = true;
+
+            btnAddLog.Enabled = true;
+        }
+
+        // -------------------- END OF ADD LOG STRIP --------------------
 
         // -------------------- REPORT STRIP --------------------
 

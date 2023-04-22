@@ -74,6 +74,28 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                             where n.OJT_Number is null and i.UserID != 1";
             return dataTable(query);
         }
+
+        // acceptance letter data grid query
+        public static DataTable reportAcceptanceDataGrid1()
+        {
+            return dataTable(@"SELECT DISTINCT
+                OJT_Number AS 'OJT Number',
+                CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern'
+                FROM Intern_Info1 ");
+        }
+
+        public static DataTable insertInternLogDataGrid()
+        {
+            return dataTable(@"SELECT DISTINCT
+                OJT_Number AS 'OJT Number',
+                CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern',
+                OJT_Terminal AS 'Terminal Name'
+                FROM Intern_Info1 ");
+        }
+
+
+
+
         //MAIN MENU - UNIVERSITY PANEL/ADDRESSE PANEL - UNIVERSITY DATA GRID
         public static DataTable universityDataGrid()
         {
@@ -111,12 +133,6 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 "FROM Intern_Info ");
         }
 
-        public static DataTable reportAcceptanceDataGrid1()
-        {
-            return dataTable("SELECT DISTINCT " +
-                "OJT_Number AS 'OJT Number', " +
-                "CONCAT(First_Name, ' ' , Middle_Initial, '. ', Last_Name) AS 'Intern' " +
-                "FROM Intern_Info1 ");
-        }
+        
     }
 }
