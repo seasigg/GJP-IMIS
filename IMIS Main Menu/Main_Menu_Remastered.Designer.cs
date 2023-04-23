@@ -2243,6 +2243,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridLogs.Size = new System.Drawing.Size(463, 195);
             this.dataGridLogs.TabIndex = 15;
+            this.dataGridLogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLogs_CellClick);
             // 
             // Main_Menu_Remastered
             // 

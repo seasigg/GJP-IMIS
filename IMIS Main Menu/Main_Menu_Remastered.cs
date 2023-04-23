@@ -993,6 +993,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
         }
 
+        private void dataGridLogs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
         // -------------------- END OF MODIFY LOG STRIP --------------------
 
 
