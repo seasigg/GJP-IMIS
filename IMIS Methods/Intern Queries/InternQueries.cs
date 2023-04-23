@@ -323,7 +323,32 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     (@date, @time, @ojtID, @name, @res)";
         }
 
+        public static DataTable internLogsData(int id)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand(internLogsQuery(), Connection_String.con);
+            cmd.Parameters.Add("@ojtId", SqlDbType.Int);
+            cmd.Parameters["@ojtId"].Value = id;
 
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            Connection_String.con.Dispose();
+
+            return dt;
+        }
+
+        private static string internLogsQuery()
+        {
+            return @"select Date as 'Date',
+                    Time as 'Time',
+                    UserID as 'OJT ID',
+                    Name as 'Terminal Name' 
+
+                    FROM Intern_Logs
+                    WHERE userid = @ojtId
+                    ORDER BY Date DESC";
+        }
         public static DataTable getUniversities1()
         {
             return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");

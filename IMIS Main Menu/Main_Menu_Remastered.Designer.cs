@@ -154,11 +154,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsPanelWelcome = new System.Windows.Forms.Panel();
-            this.label45 = new System.Windows.Forms.Label();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.label43 = new System.Windows.Forms.Label();
             this.addLogPanel = new System.Windows.Forms.Panel();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.addLogTime = new System.Windows.Forms.DateTimePicker();
+            this.addLogDate = new System.Windows.Forms.DateTimePicker();
+            this.addLogTerminal = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
             this.btnAddLog = new System.Windows.Forms.Button();
             this.addLogOJTName = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
@@ -186,12 +188,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
             this.btnSearchIntern = new System.Windows.Forms.Button();
             this.label42 = new System.Windows.Forms.Label();
-            this.addLogTerminal = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.addLogDate = new System.Windows.Forms.DateTimePicker();
-            this.addLogTime = new System.Windows.Forms.DateTimePicker();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
+            this.reportsPanelWelcome = new System.Windows.Forms.Panel();
+            this.label45 = new System.Windows.Forms.Label();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.label43 = new System.Windows.Forms.Label();
+            this.panelModifLog = new System.Windows.Forms.Panel();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.modifLogTerminal = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.modifLogOjtName = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.modifLogOjtId = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.datagridModifLog = new System.Windows.Forms.DataGridView();
+            this.label64 = new System.Windows.Forms.Label();
+            this.toolStripButtonModifLog = new System.Windows.Forms.ToolStripButton();
+            this.dataGridLogs = new System.Windows.Forms.DataGridView();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -211,7 +227,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.reportsPanelWelcome.SuspendLayout();
             this.addLogPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAddLog)).BeginInit();
             this.letterPanelWelcome.SuspendLayout();
@@ -222,6 +237,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.editInternPanelFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
+            this.reportsPanelWelcome.SuspendLayout();
+            this.panelModifLog.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -1410,6 +1429,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.panelModifLog);
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
             this.mainPanel.Controls.Add(this.addLogPanel);
@@ -1431,7 +1451,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1192, 648);
+            this.mainPanel.Size = new System.Drawing.Size(1190, 648);
             this.mainPanel.TabIndex = 11;
             // 
             // toolStrip1
@@ -1442,6 +1462,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStripSeparator1,
             this.updateDTRToolStripButton1,
             this.addLogToolStrip,
+            this.toolStripButtonModifLog,
             this.viewDtrToolStripButton1,
             this.toolStripSeparator2,
             this.toolStripSplitLetter,
@@ -1450,7 +1471,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1192, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1190, 42);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -1592,7 +1613,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1192, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1190, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1617,48 +1638,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             // 
-            // reportsPanelWelcome
-            // 
-            this.reportsPanelWelcome.Controls.Add(this.label45);
-            this.reportsPanelWelcome.Controls.Add(this.btnReports);
-            this.reportsPanelWelcome.Controls.Add(this.label43);
-            this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
-            this.reportsPanelWelcome.Name = "reportsPanelWelcome";
-            this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
-            this.reportsPanelWelcome.TabIndex = 7;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(476, 148);
-            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(260, 13);
-            this.label45.TabIndex = 2;
-            this.label45.Text = "SOME INFORMATION ABOUT WHAT IS REPORTS";
-            // 
-            // btnReports
-            // 
-            this.btnReports.Location = new System.Drawing.Point(869, 385);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(56, 19);
-            this.btnReports.TabIndex = 1;
-            this.btnReports.Text = "Reports";
-            this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(528, 15);
-            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(138, 13);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "THIS IS REPORTS PANEL";
-            // 
             // addLogPanel
             // 
             this.addLogPanel.Controls.Add(this.label55);
@@ -1679,6 +1658,60 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addLogPanel.Name = "addLogPanel";
             this.addLogPanel.Size = new System.Drawing.Size(1188, 579);
             this.addLogPanel.TabIndex = 8;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(337, 358);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(33, 13);
+            this.label55.TabIndex = 14;
+            this.label55.Text = "Time:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(26, 353);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(33, 13);
+            this.label52.TabIndex = 13;
+            this.label52.Text = "Date:";
+            // 
+            // addLogTime
+            // 
+            this.addLogTime.Enabled = false;
+            this.addLogTime.Location = new System.Drawing.Point(378, 380);
+            this.addLogTime.Name = "addLogTime";
+            this.addLogTime.Size = new System.Drawing.Size(200, 20);
+            this.addLogTime.TabIndex = 12;
+            // 
+            // addLogDate
+            // 
+            this.addLogDate.Enabled = false;
+            this.addLogDate.Location = new System.Drawing.Point(66, 379);
+            this.addLogDate.Name = "addLogDate";
+            this.addLogDate.Size = new System.Drawing.Size(200, 20);
+            this.addLogDate.TabIndex = 11;
+            // 
+            // addLogTerminal
+            // 
+            this.addLogTerminal.AutoSize = true;
+            this.addLogTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addLogTerminal.Location = new System.Drawing.Point(758, 302);
+            this.addLogTerminal.Name = "addLogTerminal";
+            this.addLogTerminal.Size = new System.Drawing.Size(135, 25);
+            this.addLogTerminal.TabIndex = 10;
+            this.addLogTerminal.Text = "// ojt terminal";
+            this.addLogTerminal.Visible = false;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(681, 282);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(81, 13);
+            this.label53.TabIndex = 9;
+            this.label53.Text = "Terminal Name:";
             // 
             // btnAddLog
             // 
@@ -1982,65 +2015,240 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label42.TabIndex = 0;
             this.label42.Text = "Search Intern";
             // 
-            // addLogTerminal
+            // reportsPanelWelcome
             // 
-            this.addLogTerminal.AutoSize = true;
-            this.addLogTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addLogTerminal.Location = new System.Drawing.Point(758, 302);
-            this.addLogTerminal.Name = "addLogTerminal";
-            this.addLogTerminal.Size = new System.Drawing.Size(135, 25);
-            this.addLogTerminal.TabIndex = 10;
-            this.addLogTerminal.Text = "// ojt terminal";
-            this.addLogTerminal.Visible = false;
+            this.reportsPanelWelcome.Controls.Add(this.label45);
+            this.reportsPanelWelcome.Controls.Add(this.btnReports);
+            this.reportsPanelWelcome.Controls.Add(this.label43);
+            this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
+            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
+            this.reportsPanelWelcome.Name = "reportsPanelWelcome";
+            this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
+            this.reportsPanelWelcome.TabIndex = 7;
             // 
-            // label53
+            // label45
             // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(681, 282);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(81, 13);
-            this.label53.TabIndex = 9;
-            this.label53.Text = "Terminal Name:";
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(476, 148);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(260, 13);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "SOME INFORMATION ABOUT WHAT IS REPORTS";
             // 
-            // addLogDate
+            // btnReports
             // 
-            this.addLogDate.Enabled = false;
-            this.addLogDate.Location = new System.Drawing.Point(66, 379);
-            this.addLogDate.Name = "addLogDate";
-            this.addLogDate.Size = new System.Drawing.Size(200, 20);
-            this.addLogDate.TabIndex = 11;
+            this.btnReports.Location = new System.Drawing.Point(869, 385);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(56, 19);
+            this.btnReports.TabIndex = 1;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
-            // addLogTime
+            // label43
             // 
-            this.addLogTime.Enabled = false;
-            this.addLogTime.Location = new System.Drawing.Point(378, 380);
-            this.addLogTime.Name = "addLogTime";
-            this.addLogTime.Size = new System.Drawing.Size(200, 20);
-            this.addLogTime.TabIndex = 12;
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(528, 15);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(138, 13);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "THIS IS REPORTS PANEL";
             // 
-            // label52
+            // panelModifLog
             // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(26, 353);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(33, 13);
-            this.label52.TabIndex = 13;
-            this.label52.Text = "Date:";
+            this.panelModifLog.Controls.Add(this.dataGridLogs);
+            this.panelModifLog.Controls.Add(this.label56);
+            this.panelModifLog.Controls.Add(this.label57);
+            this.panelModifLog.Controls.Add(this.dateTimePicker1);
+            this.panelModifLog.Controls.Add(this.dateTimePicker2);
+            this.panelModifLog.Controls.Add(this.modifLogTerminal);
+            this.panelModifLog.Controls.Add(this.label59);
+            this.panelModifLog.Controls.Add(this.button1);
+            this.panelModifLog.Controls.Add(this.modifLogOjtName);
+            this.panelModifLog.Controls.Add(this.label61);
+            this.panelModifLog.Controls.Add(this.modifLogOjtId);
+            this.panelModifLog.Controls.Add(this.label63);
+            this.panelModifLog.Controls.Add(this.datagridModifLog);
+            this.panelModifLog.Controls.Add(this.label64);
+            this.panelModifLog.Location = new System.Drawing.Point(0, 66);
+            this.panelModifLog.Margin = new System.Windows.Forms.Padding(2);
+            this.panelModifLog.Name = "panelModifLog";
+            this.panelModifLog.Size = new System.Drawing.Size(1188, 579);
+            this.panelModifLog.TabIndex = 15;
             // 
-            // label55
+            // label56
             // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(337, 358);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(33, 13);
-            this.label55.TabIndex = 14;
-            this.label55.Text = "Time:";
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(337, 451);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(33, 13);
+            this.label56.TabIndex = 14;
+            this.label56.Text = "Time:";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(26, 446);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(33, 13);
+            this.label57.TabIndex = 13;
+            this.label57.Text = "Date:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(378, 473);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 12;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Enabled = false;
+            this.dateTimePicker2.Location = new System.Drawing.Point(66, 472);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 11;
+            // 
+            // modifLogTerminal
+            // 
+            this.modifLogTerminal.AutoSize = true;
+            this.modifLogTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifLogTerminal.Location = new System.Drawing.Point(758, 395);
+            this.modifLogTerminal.Name = "modifLogTerminal";
+            this.modifLogTerminal.Size = new System.Drawing.Size(135, 25);
+            this.modifLogTerminal.TabIndex = 10;
+            this.modifLogTerminal.Text = "// ojt terminal";
+            this.modifLogTerminal.Visible = false;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(681, 375);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(81, 13);
+            this.label59.TabIndex = 9;
+            this.label59.Text = "Terminal Name:";
+            // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(1084, 530);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "ADD LOG";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // modifLogOjtName
+            // 
+            this.modifLogOjtName.AutoSize = true;
+            this.modifLogOjtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifLogOjtName.Location = new System.Drawing.Point(373, 391);
+            this.modifLogOjtName.Name = "modifLogOjtName";
+            this.modifLogOjtName.Size = new System.Drawing.Size(112, 25);
+            this.modifLogOjtName.TabIndex = 6;
+            this.modifLogOjtName.Text = "// ojt name";
+            this.modifLogOjtName.Visible = false;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(329, 375);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(38, 13);
+            this.label61.TabIndex = 5;
+            this.label61.Text = "Name:";
+            // 
+            // modifLogOjtId
+            // 
+            this.modifLogOjtId.AutoSize = true;
+            this.modifLogOjtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifLogOjtId.Location = new System.Drawing.Point(68, 389);
+            this.modifLogOjtId.Name = "modifLogOjtId";
+            this.modifLogOjtId.Size = new System.Drawing.Size(76, 25);
+            this.modifLogOjtId.TabIndex = 4;
+            this.modifLogOjtId.Text = "// ojt id";
+            this.modifLogOjtId.Visible = false;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(26, 373);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(44, 13);
+            this.label63.TabIndex = 3;
+            this.label63.Text = "OJT ID:";
+            // 
+            // datagridModifLog
+            // 
+            this.datagridModifLog.AllowUserToAddRows = false;
+            this.datagridModifLog.AllowUserToDeleteRows = false;
+            this.datagridModifLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datagridModifLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridModifLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.datagridModifLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridModifLog.Location = new System.Drawing.Point(17, 108);
+            this.datagridModifLog.Margin = new System.Windows.Forms.Padding(2);
+            this.datagridModifLog.Name = "datagridModifLog";
+            this.datagridModifLog.ReadOnly = true;
+            this.datagridModifLog.RowHeadersWidth = 51;
+            this.datagridModifLog.RowTemplate.Height = 24;
+            this.datagridModifLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.datagridModifLog.Size = new System.Drawing.Size(463, 195);
+            this.datagridModifLog.TabIndex = 2;
+            this.datagridModifLog.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridModifLog_CellClick);
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(575, 15);
+            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(73, 13);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "MODIFY LOG";
+            // 
+            // toolStripButtonModifLog
+            // 
+            this.toolStripButtonModifLog.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonModifLog.Image")));
+            this.toolStripButtonModifLog.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonModifLog.Name = "toolStripButtonModifLog";
+            this.toolStripButtonModifLog.Size = new System.Drawing.Size(72, 39);
+            this.toolStripButtonModifLog.Text = "Modify Log";
+            this.toolStripButtonModifLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonModifLog.Click += new System.EventHandler(this.toolStripButtonModifLog_Click);
+            // 
+            // dataGridLogs
+            // 
+            this.dataGridLogs.AllowUserToAddRows = false;
+            this.dataGridLogs.AllowUserToDeleteRows = false;
+            this.dataGridLogs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridLogs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridLogs.Location = new System.Drawing.Point(684, 108);
+            this.dataGridLogs.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridLogs.Name = "dataGridLogs";
+            this.dataGridLogs.ReadOnly = true;
+            this.dataGridLogs.RowHeadersWidth = 51;
+            this.dataGridLogs.RowTemplate.Height = 24;
+            this.dataGridLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridLogs.Size = new System.Drawing.Size(463, 195);
+            this.dataGridLogs.TabIndex = 15;
             // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1192, 648);
+            this.ClientSize = new System.Drawing.Size(1190, 648);
             this.Controls.Add(this.mainPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main_Menu_Remastered";
@@ -2081,8 +2289,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.reportsPanelWelcome.ResumeLayout(false);
-            this.reportsPanelWelcome.PerformLayout();
             this.addLogPanel.ResumeLayout(false);
             this.addLogPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAddLog)).EndInit();
@@ -2100,6 +2306,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanelFind.ResumeLayout(false);
             this.editInternPanelFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
+            this.reportsPanelWelcome.ResumeLayout(false);
+            this.reportsPanelWelcome.PerformLayout();
+            this.panelModifLog.ResumeLayout(false);
+            this.panelModifLog.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2267,5 +2479,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.DateTimePicker addLogTime;
         private System.Windows.Forms.DateTimePicker addLogDate;
+        private System.Windows.Forms.Panel panelModifLog;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label modifLogTerminal;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label modifLogOjtName;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label modifLogOjtId;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.DataGridView datagridModifLog;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.ToolStripButton toolStripButtonModifLog;
+        private System.Windows.Forms.DataGridView dataGridLogs;
     }
 }

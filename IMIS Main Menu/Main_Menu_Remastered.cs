@@ -355,6 +355,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridAddLog.DataSource = addLogData;
             dataGridAddLog.ClearSelection();
 
+            datagridModifLog.DataSource = addLogData;
+            datagridModifLog.ClearSelection();
+
             addLogDate.Format = DateTimePickerFormat.Custom;
             addLogDate.CustomFormat = "yyyy-MM-dd";
 
@@ -959,7 +962,39 @@ namespace GJP_IMIS.IMIS_Main_Menu
             btnAddLog.Enabled = true;
         }
 
+
         // -------------------- END OF ADD LOG STRIP --------------------
+
+
+        // -------------------- MODIFY LOG STRIP --------------------
+        private void toolStripButtonModifLog_Click(object sender, EventArgs e)
+        {
+            panelModifLog.BringToFront();
+        }
+
+        private void datagridModifLog_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            modifLogOjtId.Text = datagridModifLog.CurrentRow.Cells[0].Value.ToString();
+            modifLogOjtName.Text = datagridModifLog.CurrentRow.Cells[1].Value.ToString();
+            modifLogTerminal.Text = datagridModifLog.CurrentRow.Cells[2].Value.ToString();
+
+            modifLogOjtId.Visible = true;
+            modifLogOjtName.Visible = true;
+            modifLogTerminal.Visible = true;
+
+            logsDataGrid();
+        }
+
+        private void logsDataGrid()
+        {
+            int ojtID = Int32.Parse(datagridModifLog.CurrentRow.Cells[0].Value.ToString());
+
+            dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
+        }
+
+        // -------------------- END OF MODIFY LOG STRIP --------------------
+
 
         // -------------------- REPORT STRIP --------------------
 
