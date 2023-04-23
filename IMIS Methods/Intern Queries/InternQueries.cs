@@ -349,6 +349,41 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     WHERE userid = @ojtId
                     ORDER BY Date DESC";
         }
+
+        public static void updateInternLog(int ojtID,
+            string oldTime, string oldDate,
+            string newTime, string newDate)
+        {
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand(updateInternLogQuery(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters.Add("@oldTime", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@oldDate", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@newTime", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@newDate", SqlDbType.NVarChar);
+
+            cmd.Parameters["@ojtID"].Value = ojtID;
+            cmd.Parameters["@oldTime"].Value = oldTime;
+            cmd.Parameters["@oldDate"].Value = oldDate;
+            cmd.Parameters["@newTime"].Value = newTime;
+            cmd.Parameters["@newDate"].Value = newDate;
+
+            cmd.ExecuteNonQuery();
+            Connection_String.con.Dispose();
+        }
+
+        private static string updateInternLogQuery()
+        {
+            return @"UPDATE Intern_Logs 
+                    SET 
+                    Date = @newDate, 
+                    Time = @newTime 
+                    WHERE 
+                    UserID = @ojtID 
+                    AND Date = @oldDate 
+                    AND Time = @oldTime ";
+        }
+
         public static DataTable getUniversities1()
         {
             return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");

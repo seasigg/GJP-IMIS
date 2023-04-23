@@ -195,11 +195,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelModifLog = new System.Windows.Forms.Panel();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.modifLogTerminal = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdateLog = new System.Windows.Forms.Button();
             this.modifLogOjtName = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.modifLogOjtId = new System.Windows.Forms.Label();
@@ -208,6 +208,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label64 = new System.Windows.Forms.Label();
             this.toolStripButtonModifLog = new System.Windows.Forms.ToolStripButton();
             this.dataGridLogs = new System.Windows.Forms.DataGridView();
+            this.modifDate = new System.Windows.Forms.Label();
+            this.modifTime = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -2059,14 +2063,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // panelModifLog
             // 
+            this.panelModifLog.Controls.Add(this.label58);
+            this.panelModifLog.Controls.Add(this.label60);
+            this.panelModifLog.Controls.Add(this.modifTime);
+            this.panelModifLog.Controls.Add(this.modifDate);
             this.panelModifLog.Controls.Add(this.dataGridLogs);
             this.panelModifLog.Controls.Add(this.label56);
             this.panelModifLog.Controls.Add(this.label57);
-            this.panelModifLog.Controls.Add(this.dateTimePicker1);
-            this.panelModifLog.Controls.Add(this.dateTimePicker2);
+            this.panelModifLog.Controls.Add(this.dateTimePickerTime);
+            this.panelModifLog.Controls.Add(this.dateTimePickerDate);
             this.panelModifLog.Controls.Add(this.modifLogTerminal);
             this.panelModifLog.Controls.Add(this.label59);
-            this.panelModifLog.Controls.Add(this.button1);
+            this.panelModifLog.Controls.Add(this.btnUpdateLog);
             this.panelModifLog.Controls.Add(this.modifLogOjtName);
             this.panelModifLog.Controls.Add(this.label61);
             this.panelModifLog.Controls.Add(this.modifLogOjtId);
@@ -2082,7 +2090,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(337, 451);
+            this.label56.Location = new System.Drawing.Point(263, 464);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(33, 13);
             this.label56.TabIndex = 14;
@@ -2091,27 +2099,27 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(26, 446);
+            this.label57.Location = new System.Drawing.Point(46, 457);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(33, 13);
             this.label57.TabIndex = 13;
             this.label57.Text = "Date:";
             // 
-            // dateTimePicker1
+            // dateTimePickerTime
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(378, 473);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePickerTime.Enabled = false;
+            this.dateTimePickerTime.Location = new System.Drawing.Point(857, 486);
+            this.dateTimePickerTime.Name = "dateTimePickerTime";
+            this.dateTimePickerTime.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerTime.TabIndex = 12;
             // 
-            // dateTimePicker2
+            // dateTimePickerDate
             // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(66, 472);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 11;
+            this.dateTimePickerDate.Enabled = false;
+            this.dateTimePickerDate.Location = new System.Drawing.Point(545, 485);
+            this.dateTimePickerDate.Name = "dateTimePickerDate";
+            this.dateTimePickerDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDate.TabIndex = 11;
             // 
             // modifLogTerminal
             // 
@@ -2133,15 +2141,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label59.TabIndex = 9;
             this.label59.Text = "Terminal Name:";
             // 
-            // button1
+            // btnUpdateLog
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(1084, 530);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "ADD LOG";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdateLog.Enabled = false;
+            this.btnUpdateLog.Location = new System.Drawing.Point(1053, 530);
+            this.btnUpdateLog.Name = "btnUpdateLog";
+            this.btnUpdateLog.Size = new System.Drawing.Size(94, 23);
+            this.btnUpdateLog.TabIndex = 8;
+            this.btnUpdateLog.Text = "UPDATE LOG";
+            this.btnUpdateLog.UseVisualStyleBackColor = true;
+            this.btnUpdateLog.Click += new System.EventHandler(this.btnUpdateLog_Click);
             // 
             // modifLogOjtName
             // 
@@ -2244,6 +2253,46 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridLogs.Size = new System.Drawing.Size(463, 195);
             this.dataGridLogs.TabIndex = 15;
             this.dataGridLogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLogs_CellClick);
+            // 
+            // modifDate
+            // 
+            this.modifDate.AutoSize = true;
+            this.modifDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifDate.Location = new System.Drawing.Point(68, 481);
+            this.modifDate.Name = "modifDate";
+            this.modifDate.Size = new System.Drawing.Size(72, 25);
+            this.modifDate.TabIndex = 16;
+            this.modifDate.Text = "// date";
+            this.modifDate.Visible = false;
+            // 
+            // modifTime
+            // 
+            this.modifTime.AutoSize = true;
+            this.modifTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifTime.Location = new System.Drawing.Point(294, 483);
+            this.modifTime.Name = "modifTime";
+            this.modifTime.Size = new System.Drawing.Size(70, 25);
+            this.modifTime.TabIndex = 17;
+            this.modifTime.Text = "// time";
+            this.modifTime.Visible = false;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(838, 464);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(33, 13);
+            this.label58.TabIndex = 19;
+            this.label58.Text = "Time:";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(542, 459);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(33, 13);
+            this.label60.TabIndex = 18;
+            this.label60.Text = "Date:";
             // 
             // Main_Menu_Remastered
             // 
@@ -2483,11 +2532,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Panel panelModifLog;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDate;
         private System.Windows.Forms.Label modifLogTerminal;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateLog;
         private System.Windows.Forms.Label modifLogOjtName;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label modifLogOjtId;
@@ -2496,5 +2545,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.ToolStripButton toolStripButtonModifLog;
         private System.Windows.Forms.DataGridView dataGridLogs;
+        private System.Windows.Forms.Label modifTime;
+        private System.Windows.Forms.Label modifDate;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label60;
     }
 }

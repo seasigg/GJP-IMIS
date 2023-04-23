@@ -995,7 +995,39 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void dataGridLogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            modifDate.Text = dataGridLogs.CurrentRow.Cells[0].Value.ToString();
+            modifTime.Text = dataGridLogs.CurrentRow.Cells[1].Value.ToString();
+            modifDate.Visible = true;
+            modifTime.Visible = true;
 
+            dateTimePickerDate.Enabled = true;
+            dateTimePickerTime.Enabled = true;
+
+            btnUpdateLog.Enabled = true;
+
+            dateTimePickerDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDate.CustomFormat = "yyyy-MM-dd";
+
+            dateTimePickerTime.Format = DateTimePickerFormat.Time;
+            dateTimePickerTime.ShowUpDown = true;
+        }
+
+        private void btnUpdateLog_Click(object sender, EventArgs e)
+        {
+            //dateTimePickerTime.Value.ToLongTimeString()
+            //dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd")
+            int ojtID = Int32.Parse(modifLogOjtId.Text);
+            string oldDate = modifDate.Text;
+            string oldTime = modifTime.Text;
+            string newDate = dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd");
+            string newTime = dateTimePickerTime.Value.ToLongTimeString();
+
+            InternQueries.updateInternLog(ojtID, oldTime, oldDate, newTime, newDate);
+
+            MessageBox.Show("LOG UPDATED.");
+
+            // REFRESH THE LOG DATA
+            dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
         }
 
         // -------------------- END OF MODIFY LOG STRIP --------------------
