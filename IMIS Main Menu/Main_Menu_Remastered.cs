@@ -361,7 +361,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             addLogDate.Format = DateTimePickerFormat.Custom;
             addLogDate.CustomFormat = "yyyy-MM-dd";
 
-            addLogTime.Format = DateTimePickerFormat.Time;
+            addLogTime.Format = DateTimePickerFormat.Custom;
+            addLogTime.CustomFormat = "HH:mm:ss";
             addLogTime.ShowUpDown = true;
         }
 
@@ -983,6 +984,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             modifLogOjtName.Visible = true;
             modifLogTerminal.Visible = true;
 
+            btnUpdateLog.Enabled = true;
+
+            dateTimePickerDate.Enabled = true;
+            dateTimePickerTime.Enabled = true;
+
+            dateTimePickerDate.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDate.CustomFormat = "yyyy-MM-dd";
+
+            dateTimePickerTime.Format = DateTimePickerFormat.Custom;
+            dateTimePickerTime.CustomFormat = "HH:mm:ss";
+            dateTimePickerTime.ShowUpDown = true;
+
             logsDataGrid();
         }
 
@@ -995,10 +1008,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void dataGridLogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            modifDate.Text = dataGridLogs.CurrentRow.Cells[0].Value.ToString();
+            /*modifDate.Text = dataGridLogs.CurrentRow.Cells[0].Value.ToString();
             modifTime.Text = dataGridLogs.CurrentRow.Cells[1].Value.ToString();
             modifDate.Visible = true;
-            modifTime.Visible = true;
+            modifTime.Visible = true;*/
 
             dateTimePickerDate.Enabled = true;
             dateTimePickerTime.Enabled = true;
@@ -1008,7 +1021,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dateTimePickerDate.Format = DateTimePickerFormat.Custom;
             dateTimePickerDate.CustomFormat = "yyyy-MM-dd";
 
-            dateTimePickerTime.Format = DateTimePickerFormat.Time;
+            dateTimePickerTime.Format = DateTimePickerFormat.Custom;
+            dateTimePickerTime.CustomFormat = "HH:mm:ss";
             dateTimePickerTime.ShowUpDown = true;
         }
 
@@ -1016,16 +1030,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             //dateTimePickerTime.Value.ToLongTimeString()
             //dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd")
-            int ojtID = Int32.Parse(modifLogOjtId.Text);
-            string oldDate = modifDate.Text;
-            string oldTime = modifTime.Text;
-            string newDate = dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd");
-            string newTime = dateTimePickerTime.Value.ToLongTimeString();
 
-            InternQueries.updateInternLog(ojtID, oldTime, oldDate, newTime, newDate);
+            int ojtID = Int32.Parse(modifLogOjtId.Text);
+            /*string oldDate = modifDate.Text;
+            string oldTime = modifTime.Text;*/
+            string newDate = dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd");
+            string newTime = dateTimePickerTime.Value.ToString("HH:mm:ss");
+            string terminal = modifLogTerminal.Text;
+
+            /*InternQueries.updateInternLog(ojtID, oldTime, oldDate, newTime, newDate);
 
             MessageBox.Show("LOG UPDATED.");
 
+            string time = dataGridLogs.CurrentRow.Cells[1].Value.ToString();
+            string[] timeSplit = time.Split(':');
+
+            string hour = timeSplit[0].ToString();
+
+            MessageBox.Show(hour);*/
+
+            InternQueries.insertInternLog(ojtID, newDate, newTime, terminal);
+
+            MessageBox.Show("LOG ADDED.");
             // REFRESH THE LOG DATA
             dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
         }
