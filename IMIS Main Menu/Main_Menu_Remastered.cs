@@ -920,9 +920,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void addUnregIntern_Click(object sender, EventArgs e)
         {
-            addInternPanel.BringToFront();
-            txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString();
-            txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
+
+            if (dataGridUnregInterns.Rows.Count != 0)
+            {
+                addInternPanel.BringToFront();
+                txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString();
+                txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
+            }
+            else
+                MessageBox.Show("There are no unregistered interns", "Add Intern",  MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
@@ -1105,6 +1111,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             MessageBox.Show(day + ordinal);
 
             Connection_String.con.Dispose();
+        }
+
+        private void buttonTestDTR_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer();
+            rv.viewInternDTR();
+            rv.ShowDialog();
+
         }
 
         // -------------------- END OF MODIFY LOG STRIP --------------------

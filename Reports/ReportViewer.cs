@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 
 using GJP_IMIS.IMIS_Methods.Report_Queries;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Methods.Stored_Queries;
 
 namespace GJP_IMIS.Reports
 {
@@ -72,6 +73,22 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.ReportSource = ri;
             crystalReportViewer1.Refresh();
         }
+        public void viewInternDTR()
+        {
+            ReportDataSet ds = new ReportDataSet();
+            ReportInternDTR dtr = new ReportInternDTR();
+
+            Connection_String.dbConnection();
+            SqlDataAdapter da = new SqlDataAdapter(storedQueries.reportInternDTR, Connection_String.con);
+            da.Fill(ds, "InternDTR");
+            Connection_String.con.Dispose();
+
+            dtr.SetDataSource(ds.Tables["InternDTR"]);
+            crystalReportViewer1.ReportSource = dtr;
+            crystalReportViewer1.Refresh();
+        }
+
+
 
         private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
         {

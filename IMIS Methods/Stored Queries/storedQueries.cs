@@ -31,6 +31,125 @@ namespace GJP_IMIS.IMIS_Methods.Stored_Queries
 		group by i.UserID, i.Date 
 		order by i.Date asc";
 
+		public static string reportInternDTR = @"use IMIS
 
+
+declare @sched_AM Time(0) = '8:30:00'
+declare @sched_PM Time(0) = '17:30:00'
+declare @break_AM Time(0) = '12:00:00'
+declare @break_PM Time(0) = '13:00:00'
+
+select 
+	i.UserID,
+	i.Date,
+	i.Time_In,
+	i.Lunch,
+	i.Time_Out,
+
+	case
+		--Check if DTR is complete
+		when i.Time_Out is not null then
+			case
+				--During lunch Time In
+				when i.Time_In > @break_AM and i.Time_In < @break_PM then
+					case
+						when i.Time_Out <= @sched_PM then
+							convert(time(0), dateadd(second, datediff(second, @break_PM, i.Time_Out), 0), 108)
+
+						when i.Time_Out > @sched_PM then
+						convert(time(0), dateadd(second, datediff(second, @break_PM, @sched_PM), 0), 108)
+							
+						end
+
+				--After 1pm Time In
+				when i.Time_In >= @break_PM then
+					case
+						--Time Out After Sched
+						when i.Time_Out > @sched_PM then
+							convert(time(0), dateadd(second, datediff(second, i.Time_In, @sched_PM), 0), 108)
+							
+						--Time Out Before Sched
+						when i.Time_Out <= @sched_PM then
+							convert(time(0), dateadd(second, datediff(second, i.Time_In, i.Time_Out), 0), 108)
+							
+						end
+
+				--Early Time In
+				when i.Time_In < @sched_AM then
+					case
+						when i.Time_Out <= @break_AM then
+							convert(time(0), dateadd(second, datediff(second, @sched_AM, i.Time_Out), 0), 108)
+							
+
+						when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							convert(time(0), dateadd(second, (datediff(second, @sched_AM, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out)), 0), 108)
+							
+
+						when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							convert(time(0), dateadd(second, (datediff(second, @sched_AM, i.Time_Out) - 3600), 0), 108)
+							
+
+						when i.Time_Out > @sched_PM then
+							convert(time(0), dateadd(second, (datediff(second, @sched_AM, @sched_PM) - 3600), 0), 108)
+							
+						end
+
+
+				--Late Time In
+				when i.Time_In > @sched_AM then
+					case
+						when i.Time_Out <= @break_AM then
+							convert(time(0), dateadd(second, datediff(second, i.Time_In, i.Time_Out), 0), 108)
+							
+
+						when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							convert(time(0), dateadd(second, (datediff(second, i.Time_In, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out)), 0), 108)
+							
+
+						when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							convert(time(0), dateadd(second, (datediff(second, i.Time_In, i.Time_Out) - 3600), 0), 108)
+							
+
+						when i.Time_Out > @sched_PM then
+							convert(time(0), dateadd(second, (datediff(second, i.Time_In, @sched_PM) - 3600), 0), 108)
+							
+						end
+				end
+		
+		else null
+		end as Time_Rendered,
+
+		case
+		--Check if DTR is complete
+		when i.Time_Out is not null then
+			case
+				
+				when i.Lunch is null then
+					case
+						when i.Time_Out < @break_PM then 'Half Day'
+						when i.Time_Out >= @break_PM then 'No Lunch'
+						end
+
+				when i.Time_In >= @break_PM then 'Half Day'
+					
+
+				
+				when i.Lunch is not null then
+					case
+						when i.Time_Out < @sched_PM then 'Undertime'
+						when i.Time_Out >= @sched_PM then 'Complete'
+						end
+
+				end
+		
+		else 'No Timeout'
+		end as 'Remark'
+
+
+
+from Intern_Logs l, Intern_DTR i
+where i.UserID = 17
+
+group by i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out";
 	}
 }
