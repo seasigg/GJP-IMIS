@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
-using GJP_IMIS.IMIS_Methods.Course_Queries;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Stored_Queries;
 
@@ -94,9 +93,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             courseCombo();
 
+
             dataGridUnregInterns.DataSource = internUnregData;
             dataGridUnregInterns.ClearSelection();
             dataGridUnregInterns.AutoResizeColumns();
+            
         }
 
         // ojt number
@@ -1119,6 +1120,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             rv.viewInternDTR();
             rv.ShowDialog();
 
+        }
+
+        private void textFilter_unregInterns_TextChanged(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridUnregInterns.DataSource;
+            bs.Filter = "Name like '%" + textFilter_unregInterns.Text + "%'";
+            dataGridUnregInterns.DataSource = bs;
+            dataGridUnregInterns.ClearSelection();
         }
 
         // -------------------- END OF MODIFY LOG STRIP --------------------

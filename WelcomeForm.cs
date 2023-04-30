@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using GJP_IMIS.IMIS_Login;
 using GJP_IMIS.IMIS_Class;
@@ -21,13 +22,44 @@ namespace GJP_IMIS
             InitializeComponent();
         }
 
+        static Form SplashScreen;
+        static Form MainForm;
+        [STAThread]
+
         private void wc_btn_proceed_Click(object sender, EventArgs e)
         {
             /*Login l = new Login();
             l.Show();*/
-            Main_Menu_Remastered mmr = new Main_Menu_Remastered();
+            /*Main_Menu_Remastered mmr = new Main_Menu_Remastered();
             mmr.Show();
+            this.Hide();*/
             this.Hide();
+            openMenu();
+            
+        }
+
+        private static void openMenu()
+        {
+            SplashScreen = new loadingScreen();
+            var splashThread = new Thread(new ThreadStart(
+            () => Application.Run(SplashScreen)));
+            splashThread.SetApartmentState(ApartmentState.STA);
+            splashThread.Start();
+
+            MainForm = new Main_Menu_Remastered();
+            MainForm.Load += MainForm_LoadCompleted;
+            MainForm.Show();
+            
+
+        }
+
+        private static void MainForm_LoadCompleted(object sender, EventArgs e)
+        {
+            if (SplashScreen != null && !SplashScreen.Disposing && !SplashScreen.IsDisposed)
+                SplashScreen.Invoke(new Action(() => SplashScreen.Close()));
+            MainForm.TopMost = true;
+            MainForm.Activate();
+            MainForm.TopMost = false;
         }
 
         private void IMIS_FormClosing(object sender, FormClosingEventArgs e)

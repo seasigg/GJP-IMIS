@@ -38,6 +38,7 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -62,87 +63,23 @@
     <Compile Include="IMIS Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMIS Main Menu\Addresse\Add_Coordinator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Addresse\Add_Coordinator.Designer.cs">
-      <DependentUpon>Add_Coordinator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Course\addCourse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Course\addCourse.Designer.cs">
-      <DependentUpon>addCourse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Course\editCourse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Course\editCourse.Designer.cs">
-      <DependentUpon>editCourse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Intern.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Intern.Designer.cs">
-      <DependentUpon>Add_Intern.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Intern_Details.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Add_Intern_Details.Designer.cs">
-      <DependentUpon>Add_Intern_Details.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Edit_Intern.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Interns\Edit_Intern.Designer.cs">
-      <DependentUpon>Edit_Intern.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Main_Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Main_Menu.Designer.cs">
-      <DependentUpon>Main_Menu.cs</DependentUpon>
-    </Compile>
     <Compile Include="IMIS Main Menu\Main_Menu_Remastered.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IMIS Main Menu\Main_Menu_Remastered.Designer.cs">
       <DependentUpon>Main_Menu_Remastered.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMIS Main Menu\Office\addOffice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Office\addOffice.Designer.cs">
-      <DependentUpon>addOffice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Office\editOffice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\Office\editOffice.Designer.cs">
-      <DependentUpon>editOffice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\University\Add_University.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\University\Add_University.Designer.cs">
-      <DependentUpon>Add_University.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Main Menu\University\Edit_University.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IMIS Main Menu\University\Edit_University.Designer.cs">
-      <DependentUpon>Edit_University.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMIS Methods\Coordinator Queries\CoordinatorQueries.cs" />
-    <Compile Include="IMIS Methods\Course Queries\courseQueries.cs" />
     <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
     <Compile Include="IMIS Methods\Intern Queries\InternQueries.cs" />
     <Compile Include="IMIS Methods\Main Menu Queries\menuQueries.cs" />
-    <Compile Include="IMIS Methods\Office Queries\OfficeQueries.cs" />
     <Compile Include="IMIS Methods\Report Queries\ReportQueries.cs" />
     <Compile Include="IMIS Methods\Stored Queries\storedQueries.cs" />
-    <Compile Include="IMIS Methods\Univ Queries\universityClass.cs" />
+    <Compile Include="loadingScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loadingScreen.Designer.cs">
+      <DependentUpon>loadingScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\ReportAcceptanceLetter.cs">
@@ -186,41 +123,11 @@
     <EmbeddedResource Include="IMIS Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Addresse\Add_Coordinator.resx">
-      <DependentUpon>Add_Coordinator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Course\addCourse.resx">
-      <DependentUpon>addCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Course\editCourse.resx">
-      <DependentUpon>editCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern.resx">
-      <DependentUpon>Add_Intern.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Interns\Add_Intern_Details.resx">
-      <DependentUpon>Add_Intern_Details.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Interns\Edit_Intern.resx">
-      <DependentUpon>Edit_Intern.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Main_Menu.resx">
-      <DependentUpon>Main_Menu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="IMIS Main Menu\Main_Menu_Remastered.resx">
       <DependentUpon>Main_Menu_Remastered.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Office\addOffice.resx">
-      <DependentUpon>addOffice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\Office\editOffice.resx">
-      <DependentUpon>editOffice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\University\Add_University.resx">
-      <DependentUpon>Add_University.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IMIS Main Menu\University\Edit_University.resx">
-      <DependentUpon>Edit_University.cs</DependentUpon>
+    <EmbeddedResource Include="loadingScreen.resx">
+      <DependentUpon>loadingScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -279,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IMIS Images\IMIS Logo.png" />
+    <Content Include="IMIS Images\loadingSpinner.gif" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

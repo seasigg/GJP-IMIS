@@ -155,6 +155,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInternUnreg = new System.Windows.Forms.Panel();
+            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
+            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
+            this.addUnregIntern = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.editInternPanelFind = new System.Windows.Forms.Panel();
+            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
+            this.btnSearchIntern = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.reportsPanelWelcome = new System.Windows.Forms.Panel();
+            this.label45 = new System.Windows.Forms.Label();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.label43 = new System.Windows.Forms.Label();
             this.panelModifLog = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
@@ -193,23 +206,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btnViewDtr = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
             this.imisWelcome = new System.Windows.Forms.Panel();
+            this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
             this.internsPanelWelcome = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.addInternUnreg = new System.Windows.Forms.Panel();
-            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
-            this.addUnregIntern = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
-            this.editInternPanelFind = new System.Windows.Forms.Panel();
-            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
-            this.btnSearchIntern = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
-            this.reportsPanelWelcome = new System.Windows.Forms.Panel();
-            this.label45 = new System.Windows.Forms.Label();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.label43 = new System.Windows.Forms.Label();
-            this.buttonTestDTR = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -229,6 +231,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.addInternUnreg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
+            this.editInternPanelFind.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
+            this.reportsPanelWelcome.SuspendLayout();
             this.panelModifLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).BeginInit();
@@ -238,11 +245,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.SuspendLayout();
             this.imisWelcome.SuspendLayout();
             this.internsPanelWelcome.SuspendLayout();
-            this.addInternUnreg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
-            this.editInternPanelFind.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
-            this.reportsPanelWelcome.SuspendLayout();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -250,7 +252,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
             this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewInternPanel.Name = "viewInternPanel";
             this.viewInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewInternPanel.TabIndex = 3;
@@ -261,7 +263,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns.AllowUserToDeleteRows = false;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 53);
-            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
             this.dataGridInterns.ReadOnly = true;
             this.dataGridInterns.RowHeadersWidth = 51;
@@ -317,7 +319,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Controls.Add(this.label15);
             this.addInternPanel.Controls.Add(this.label2);
             this.addInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternPanel.Name = "addInternPanel";
             this.addInternPanel.Size = new System.Drawing.Size(1188, 577);
             this.addInternPanel.TabIndex = 4;
@@ -416,7 +418,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addCoordGenderPanel.Controls.Add(this.radioMaleCoord);
             this.addCoordGenderPanel.Controls.Add(this.radioFemaleCoord);
             this.addCoordGenderPanel.Location = new System.Drawing.Point(542, 336);
-            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addCoordGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addCoordGenderPanel.Name = "addCoordGenderPanel";
             this.addCoordGenderPanel.Size = new System.Drawing.Size(172, 39);
             this.addCoordGenderPanel.TabIndex = 31;
@@ -450,7 +452,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternGenderPanel.Controls.Add(this.radioMale);
             this.addInternGenderPanel.Controls.Add(this.radioFemale);
             this.addInternGenderPanel.Location = new System.Drawing.Point(115, 337);
-            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternGenderPanel.Name = "addInternGenderPanel";
             this.addInternGenderPanel.Size = new System.Drawing.Size(166, 34);
             this.addInternGenderPanel.TabIndex = 30;
@@ -765,7 +767,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.label30);
             this.editInternPanel.Controls.Add(this.label3);
             this.editInternPanel.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
@@ -1196,7 +1198,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.viewDtrPanel.Controls.Add(this.label5);
             this.viewDtrPanel.Location = new System.Drawing.Point(0, 66);
-            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewDtrPanel.Name = "viewDtrPanel";
             this.viewDtrPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewDtrPanel.TabIndex = 7;
@@ -1217,7 +1219,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptancePanel.Controls.Add(this.dataGridAccept);
             this.acceptancePanel.Controls.Add(this.label6);
             this.acceptancePanel.Location = new System.Drawing.Point(0, 66);
-            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.acceptancePanel.Margin = new System.Windows.Forms.Padding(2);
             this.acceptancePanel.Name = "acceptancePanel";
             this.acceptancePanel.Size = new System.Drawing.Size(1188, 579);
             this.acceptancePanel.TabIndex = 8;
@@ -1225,7 +1227,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnAcceptance
             // 
             this.btnAcceptance.Location = new System.Drawing.Point(1077, 24);
-            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2);
             this.btnAcceptance.Name = "btnAcceptance";
             this.btnAcceptance.Size = new System.Drawing.Size(79, 19);
             this.btnAcceptance.TabIndex = 2;
@@ -1244,7 +1246,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridAccept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAccept.Location = new System.Drawing.Point(3, 53);
-            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridAccept.Name = "dataGridAccept";
             this.dataGridAccept.ReadOnly = true;
             this.dataGridAccept.RowHeadersWidth = 51;
@@ -1267,7 +1269,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.completionPanel.Controls.Add(this.label7);
             this.completionPanel.Location = new System.Drawing.Point(0, 66);
-            this.completionPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.completionPanel.Margin = new System.Windows.Forms.Padding(2);
             this.completionPanel.Name = "completionPanel";
             this.completionPanel.Size = new System.Drawing.Size(1188, 579);
             this.completionPanel.TabIndex = 9;
@@ -1296,7 +1298,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportsPanel.Controls.Add(this.reportGender);
             this.reportsPanel.Controls.Add(this.label8);
             this.reportsPanel.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reportsPanel.Margin = new System.Windows.Forms.Padding(2);
             this.reportsPanel.Name = "reportsPanel";
             this.reportsPanel.Size = new System.Drawing.Size(1188, 579);
             this.reportsPanel.TabIndex = 10;
@@ -1433,13 +1435,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.imisWelcome);
-            this.mainPanel.Controls.Add(this.internsPanelWelcome);
-            this.mainPanel.Controls.Add(this.viewDtrPanel);
-            this.mainPanel.Controls.Add(this.acceptancePanel);
-            this.mainPanel.Controls.Add(this.completionPanel);
-            this.mainPanel.Controls.Add(this.reportsPanel);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
             this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanelFind);
@@ -1449,9 +1444,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.addLogPanel);
             this.mainPanel.Controls.Add(this.letterPanelWelcome);
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
+            this.mainPanel.Controls.Add(this.imisWelcome);
+            this.mainPanel.Controls.Add(this.internsPanelWelcome);
+            this.mainPanel.Controls.Add(this.viewDtrPanel);
+            this.mainPanel.Controls.Add(this.acceptancePanel);
+            this.mainPanel.Controls.Add(this.completionPanel);
+            this.mainPanel.Controls.Add(this.reportsPanel);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(1190, 648);
             this.mainPanel.TabIndex = 11;
@@ -1650,6 +1652,159 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             // 
+            // addInternUnreg
+            // 
+            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
+            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
+            this.addInternUnreg.Controls.Add(this.addUnregIntern);
+            this.addInternUnreg.Controls.Add(this.label66);
+            this.addInternUnreg.Controls.Add(this.label56);
+            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
+            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
+            this.addInternUnreg.Name = "addInternUnreg";
+            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
+            this.addInternUnreg.TabIndex = 39;
+            // 
+            // textFilter_unregInterns
+            // 
+            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFilter_unregInterns.Location = new System.Drawing.Point(104, 29);
+            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
+            this.textFilter_unregInterns.Size = new System.Drawing.Size(151, 26);
+            this.textFilter_unregInterns.TabIndex = 31;
+            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
+            // 
+            // dataGridUnregInterns
+            // 
+            this.dataGridUnregInterns.AllowUserToAddRows = false;
+            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
+            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
+            this.dataGridUnregInterns.MultiSelect = false;
+            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
+            this.dataGridUnregInterns.ReadOnly = true;
+            this.dataGridUnregInterns.RowHeadersWidth = 51;
+            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
+            this.dataGridUnregInterns.TabIndex = 30;
+            // 
+            // addUnregIntern
+            // 
+            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
+            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
+            this.addUnregIntern.Name = "addUnregIntern";
+            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
+            this.addUnregIntern.TabIndex = 29;
+            this.addUnregIntern.Text = "ADD";
+            this.addUnregIntern.UseVisualStyleBackColor = false;
+            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(522, 15);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(144, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "UNREGISTERED INTERNS";
+            // 
+            // editInternPanelFind
+            // 
+            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
+            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
+            this.editInternPanelFind.Controls.Add(this.label42);
+            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
+            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
+            this.editInternPanelFind.Name = "editInternPanelFind";
+            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
+            this.editInternPanelFind.TabIndex = 52;
+            // 
+            // dataGridModiftIntern
+            // 
+            this.dataGridModiftIntern.AllowUserToAddRows = false;
+            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
+            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
+            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
+            this.dataGridModiftIntern.ReadOnly = true;
+            this.dataGridModiftIntern.RowHeadersWidth = 51;
+            this.dataGridModiftIntern.RowTemplate.Height = 24;
+            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
+            this.dataGridModiftIntern.TabIndex = 32;
+            // 
+            // btnSearchIntern
+            // 
+            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
+            this.btnSearchIntern.Name = "btnSearchIntern";
+            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchIntern.TabIndex = 31;
+            this.btnSearchIntern.Text = "MODIFY";
+            this.btnSearchIntern.UseVisualStyleBackColor = true;
+            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(583, 15);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(71, 13);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Search Intern";
+            // 
+            // reportsPanelWelcome
+            // 
+            this.reportsPanelWelcome.Controls.Add(this.label45);
+            this.reportsPanelWelcome.Controls.Add(this.btnReports);
+            this.reportsPanelWelcome.Controls.Add(this.label43);
+            this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
+            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
+            this.reportsPanelWelcome.Name = "reportsPanelWelcome";
+            this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
+            this.reportsPanelWelcome.TabIndex = 7;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(476, 148);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(260, 13);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "SOME INFORMATION ABOUT WHAT IS REPORTS";
+            // 
+            // btnReports
+            // 
+            this.btnReports.Location = new System.Drawing.Point(869, 385);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(56, 19);
+            this.btnReports.TabIndex = 1;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(528, 15);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(138, 13);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "THIS IS REPORTS PANEL";
+            // 
             // panelModifLog
             // 
             this.panelModifLog.Controls.Add(this.btnTest);
@@ -1668,7 +1823,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelModifLog.Controls.Add(this.datagridModifLog);
             this.panelModifLog.Controls.Add(this.label64);
             this.panelModifLog.Location = new System.Drawing.Point(0, 66);
-            this.panelModifLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelModifLog.Margin = new System.Windows.Forms.Padding(2);
             this.panelModifLog.Name = "panelModifLog";
             this.panelModifLog.Size = new System.Drawing.Size(1188, 579);
             this.panelModifLog.TabIndex = 15;
@@ -1676,7 +1831,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnTest
             // 
             this.btnTest.Location = new System.Drawing.Point(218, 495);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(2);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(56, 19);
             this.btnTest.TabIndex = 20;
@@ -1713,7 +1868,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridLogs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridLogs.Location = new System.Drawing.Point(684, 108);
-            this.dataGridLogs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridLogs.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridLogs.Name = "dataGridLogs";
             this.dataGridLogs.ReadOnly = true;
             this.dataGridLogs.RowHeadersWidth = 51;
@@ -1823,7 +1978,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.datagridModifLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.datagridModifLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridModifLog.Location = new System.Drawing.Point(17, 108);
-            this.datagridModifLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datagridModifLog.Margin = new System.Windows.Forms.Padding(2);
             this.datagridModifLog.Name = "datagridModifLog";
             this.datagridModifLog.ReadOnly = true;
             this.datagridModifLog.RowHeadersWidth = 51;
@@ -1859,7 +2014,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addLogPanel.Controls.Add(this.dataGridAddLog);
             this.addLogPanel.Controls.Add(this.label41);
             this.addLogPanel.Location = new System.Drawing.Point(0, 66);
-            this.addLogPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addLogPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addLogPanel.Name = "addLogPanel";
             this.addLogPanel.Size = new System.Drawing.Size(1188, 579);
             this.addLogPanel.TabIndex = 8;
@@ -1980,7 +2135,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridAddLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridAddLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAddLog.Location = new System.Drawing.Point(9, 53);
-            this.dataGridAddLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridAddLog.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridAddLog.Name = "dataGridAddLog";
             this.dataGridAddLog.ReadOnly = true;
             this.dataGridAddLog.RowHeadersWidth = 51;
@@ -2005,7 +2160,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanelWelcome.Controls.Add(this.label46);
             this.letterPanelWelcome.Controls.Add(this.label40);
             this.letterPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.letterPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.letterPanelWelcome.Name = "letterPanelWelcome";
             this.letterPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.letterPanelWelcome.TabIndex = 7;
@@ -2036,7 +2191,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.Controls.Add(this.btnViewDtr);
             this.viewDTRPanelWelcome.Controls.Add(this.label39);
             this.viewDTRPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.viewDTRPanelWelcome.Name = "viewDTRPanelWelcome";
             this.viewDTRPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.viewDTRPanelWelcome.TabIndex = 7;
@@ -2054,7 +2209,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // btnViewDtr
             // 
             this.btnViewDtr.Location = new System.Drawing.Point(620, 223);
-            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewDtr.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewDtr.Name = "btnViewDtr";
             this.btnViewDtr.Size = new System.Drawing.Size(87, 19);
             this.btnViewDtr.TabIndex = 1;
@@ -2077,10 +2232,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome.Controls.Add(this.buttonTestDTR);
             this.imisWelcome.Controls.Add(this.label44);
             this.imisWelcome.Location = new System.Drawing.Point(0, 66);
-            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.imisWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.imisWelcome.Name = "imisWelcome";
             this.imisWelcome.Size = new System.Drawing.Size(1188, 579);
             this.imisWelcome.TabIndex = 8;
+            // 
+            // buttonTestDTR
+            // 
+            this.buttonTestDTR.Location = new System.Drawing.Point(817, 420);
+            this.buttonTestDTR.Name = "buttonTestDTR";
+            this.buttonTestDTR.Size = new System.Drawing.Size(75, 23);
+            this.buttonTestDTR.TabIndex = 1;
+            this.buttonTestDTR.Text = "TestDTR";
+            this.buttonTestDTR.UseVisualStyleBackColor = true;
+            this.buttonTestDTR.Click += new System.EventHandler(this.buttonTestDTR_Click);
             // 
             // label44
             // 
@@ -2098,7 +2263,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome.Controls.Add(this.label48);
             this.internsPanelWelcome.Controls.Add(this.label38);
             this.internsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.internsPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.internsPanelWelcome.Name = "internsPanelWelcome";
             this.internsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
             this.internsPanelWelcome.TabIndex = 7;
@@ -2123,156 +2288,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label38.TabIndex = 0;
             this.label38.Text = "THIS IS INTERN PANEL";
             // 
-            // addInternUnreg
+            // label56
             // 
-            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
-            this.addInternUnreg.Controls.Add(this.addUnregIntern);
-            this.addInternUnreg.Controls.Add(this.label66);
-            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
-            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.addInternUnreg.Name = "addInternUnreg";
-            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
-            this.addInternUnreg.TabIndex = 39;
-            // 
-            // dataGridUnregInterns
-            // 
-            this.dataGridUnregInterns.AllowUserToAddRows = false;
-            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
-            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
-            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
-            this.dataGridUnregInterns.ReadOnly = true;
-            this.dataGridUnregInterns.RowHeadersWidth = 51;
-            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
-            this.dataGridUnregInterns.TabIndex = 30;
-            // 
-            // addUnregIntern
-            // 
-            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
-            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
-            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
-            this.addUnregIntern.Name = "addUnregIntern";
-            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
-            this.addUnregIntern.TabIndex = 29;
-            this.addUnregIntern.Text = "ADD";
-            this.addUnregIntern.UseVisualStyleBackColor = false;
-            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(522, 15);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(144, 13);
-            this.label66.TabIndex = 0;
-            this.label66.Text = "UNREGISTERED INTERNS";
-            // 
-            // editInternPanelFind
-            // 
-            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
-            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
-            this.editInternPanelFind.Controls.Add(this.label42);
-            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.editInternPanelFind.Name = "editInternPanelFind";
-            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
-            this.editInternPanelFind.TabIndex = 52;
-            // 
-            // dataGridModiftIntern
-            // 
-            this.dataGridModiftIntern.AllowUserToAddRows = false;
-            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
-            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
-            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
-            this.dataGridModiftIntern.ReadOnly = true;
-            this.dataGridModiftIntern.RowHeadersWidth = 51;
-            this.dataGridModiftIntern.RowTemplate.Height = 24;
-            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
-            this.dataGridModiftIntern.TabIndex = 32;
-            // 
-            // btnSearchIntern
-            // 
-            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
-            this.btnSearchIntern.Name = "btnSearchIntern";
-            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchIntern.TabIndex = 31;
-            this.btnSearchIntern.Text = "MODIFY";
-            this.btnSearchIntern.UseVisualStyleBackColor = true;
-            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(583, 15);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(71, 13);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Search Intern";
-            // 
-            // reportsPanelWelcome
-            // 
-            this.reportsPanelWelcome.Controls.Add(this.label45);
-            this.reportsPanelWelcome.Controls.Add(this.btnReports);
-            this.reportsPanelWelcome.Controls.Add(this.label43);
-            this.reportsPanelWelcome.Location = new System.Drawing.Point(0, 66);
-            this.reportsPanelWelcome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.reportsPanelWelcome.Name = "reportsPanelWelcome";
-            this.reportsPanelWelcome.Size = new System.Drawing.Size(1188, 579);
-            this.reportsPanelWelcome.TabIndex = 7;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(476, 148);
-            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(260, 13);
-            this.label45.TabIndex = 2;
-            this.label45.Text = "SOME INFORMATION ABOUT WHAT IS REPORTS";
-            // 
-            // btnReports
-            // 
-            this.btnReports.Location = new System.Drawing.Point(869, 385);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(56, 19);
-            this.btnReports.TabIndex = 1;
-            this.btnReports.Text = "Reports";
-            this.btnReports.UseVisualStyleBackColor = true;
-            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(528, 15);
-            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(138, 13);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "THIS IS REPORTS PANEL";
-            // 
-            // buttonTestDTR
-            // 
-            this.buttonTestDTR.Location = new System.Drawing.Point(817, 420);
-            this.buttonTestDTR.Name = "buttonTestDTR";
-            this.buttonTestDTR.Size = new System.Drawing.Size(75, 23);
-            this.buttonTestDTR.TabIndex = 1;
-            this.buttonTestDTR.Text = "TestDTR";
-            this.buttonTestDTR.UseVisualStyleBackColor = true;
-            this.buttonTestDTR.Click += new System.EventHandler(this.buttonTestDTR_Click);
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(43, 35);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(64, 20);
+            this.label56.TabIndex = 32;
+            this.label56.Text = "Search:";
             // 
             // Main_Menu_Remastered
             // 
@@ -2280,7 +2304,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1190, 648);
             this.Controls.Add(this.mainPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main_Menu_Remastered";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "s";
@@ -2319,6 +2343,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.addInternUnreg.ResumeLayout(false);
+            this.addInternUnreg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
+            this.editInternPanelFind.ResumeLayout(false);
+            this.editInternPanelFind.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
+            this.reportsPanelWelcome.ResumeLayout(false);
+            this.reportsPanelWelcome.PerformLayout();
             this.panelModifLog.ResumeLayout(false);
             this.panelModifLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).EndInit();
@@ -2334,14 +2366,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome.PerformLayout();
             this.internsPanelWelcome.ResumeLayout(false);
             this.internsPanelWelcome.PerformLayout();
-            this.addInternUnreg.ResumeLayout(false);
-            this.addInternUnreg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
-            this.editInternPanelFind.ResumeLayout(false);
-            this.editInternPanelFind.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
-            this.reportsPanelWelcome.ResumeLayout(false);
-            this.reportsPanelWelcome.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2527,5 +2551,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button buttonTestDTR;
+        private System.Windows.Forms.TextBox textFilter_unregInterns;
+        private System.Windows.Forms.Label label56;
     }
 }
