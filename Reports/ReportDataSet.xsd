@@ -55,6 +55,21 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="CertOfCompletion" msprop:Generator_TableClassName="CertOfCompletionDataTable" msprop:Generator_TableVarName="tableCertOfCompletion" msprop:Generator_TablePropName="CertOfCompletion" msprop:Generator_RowDeletingName="CertOfCompletionRowDeleting" msprop:Generator_RowChangingName="CertOfCompletionRowChanging" msprop:Generator_RowEvHandlerName="CertOfCompletionRowChangeEventHandler" msprop:Generator_RowDeletedName="CertOfCompletionRowDeleted" msprop:Generator_UserTableName="CertOfCompletion" msprop:Generator_RowChangedName="CertOfCompletionRowChanged" msprop:Generator_RowEvArgName="CertOfCompletionRowChangeEvent" msprop:Generator_RowClassName="CertOfCompletionRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Intern_x0020_Name" msprop:Generator_ColumnVarNameInTable="columnIntern_Name" msprop:Generator_ColumnPropNameInRow="Intern_Name" msprop:Generator_ColumnPropNameInTable="Intern_NameColumn" msprop:Generator_UserColumnName="Intern Name" type="xs:string" minOccurs="0" />
+              <xs:element name="School" msprop:Generator_ColumnVarNameInTable="columnSchool" msprop:Generator_ColumnPropNameInRow="School" msprop:Generator_ColumnPropNameInTable="SchoolColumn" msprop:Generator_UserColumnName="School" type="xs:string" minOccurs="0" />
+              <xs:element name="Course" msprop:Generator_ColumnVarNameInTable="columnCourse" msprop:Generator_ColumnPropNameInRow="Course" msprop:Generator_ColumnPropNameInTable="CourseColumn" msprop:Generator_UserColumnName="Course" type="xs:string" minOccurs="0" />
+              <xs:element name="Hours" msprop:Generator_ColumnVarNameInTable="columnHours" msprop:Generator_ColumnPropNameInRow="Hours" msprop:Generator_ColumnPropNameInTable="HoursColumn" msprop:Generator_UserColumnName="Hours" type="xs:string" minOccurs="0" />
+              <xs:element name="Office" msprop:Generator_ColumnVarNameInTable="columnOffice" msprop:Generator_ColumnPropNameInRow="Office" msprop:Generator_ColumnPropNameInTable="OfficeColumn" msprop:Generator_UserColumnName="Office" type="xs:string" minOccurs="0" />
+              <xs:element name="Day" msprop:Generator_ColumnVarNameInTable="columnDay" msprop:Generator_ColumnPropNameInRow="Day" msprop:Generator_ColumnPropNameInTable="DayColumn" msprop:Generator_UserColumnName="Day" type="xs:string" minOccurs="0" />
+              <xs:element name="Ordinal_x0020_Number" msprop:Generator_ColumnVarNameInTable="columnOrdinal_Number" msprop:Generator_ColumnPropNameInRow="Ordinal_Number" msprop:Generator_ColumnPropNameInTable="Ordinal_NumberColumn" msprop:Generator_UserColumnName="Ordinal Number" type="xs:string" minOccurs="0" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

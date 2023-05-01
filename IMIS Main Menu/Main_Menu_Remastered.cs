@@ -120,7 +120,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ojt middle initial
         private void txtMinitial_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
         private void txtMinitial_TextChanged(object sender, EventArgs e)
         {
@@ -137,21 +137,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // university
         private void txtUniversity_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         // coordinator
         private void txtCoordinator_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
         private void txtCoordPosition_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
         private void txtCoordDept_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         // add intern button
@@ -555,7 +555,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // intern edit coordinator
         private void txtEditcoord_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
+            //e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
         // ********** END OF EDIT INTERN **********
@@ -619,6 +619,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             ReportViewer rv = new ReportViewer();
             rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
+            rv.ShowDialog();
+        }
+
+        private void btnCOC_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer();
+            rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
             rv.ShowDialog();
         }
 
@@ -1057,7 +1064,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                             FROM Intern_Info1 i, Intern_Status1 s
                             WHERE
-	                            i.OJT_Number = s.OJT_Number";
+	                            i.OJT_Number = 2
+								AND i.OJT_Number = s.OJT_Number";
 
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             SqlDataReader dr = cmd.ExecuteReader();

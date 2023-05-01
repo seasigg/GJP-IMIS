@@ -73,6 +73,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
+            this.txtEditCourse = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.txtEditCoordDept = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
@@ -154,10 +155,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editInternPanelFind = new System.Windows.Forms.Panel();
-            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
-            this.btnSearchIntern = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
             this.reportsPanelWelcome = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
             this.btnReports = new System.Windows.Forms.Button();
@@ -211,7 +208,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addUnregIntern = new System.Windows.Forms.Button();
             this.label66 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.txtEditCourse = new System.Windows.Forms.TextBox();
+            this.editInternPanelFind = new System.Windows.Forms.Panel();
+            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
+            this.btnSearchIntern = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
+            this.btnCOC = new System.Windows.Forms.Button();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -231,8 +232,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.editInternPanelFind.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
             this.reportsPanelWelcome.SuspendLayout();
             this.panelModifLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).BeginInit();
@@ -245,6 +244,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome.SuspendLayout();
             this.addInternUnreg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
+            this.editInternPanelFind.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -769,6 +770,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
             // 
+            // txtEditCourse
+            // 
+            this.txtEditCourse.BackColor = System.Drawing.Color.White;
+            this.txtEditCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditCourse.Location = new System.Drawing.Point(449, 171);
+            this.txtEditCourse.Name = "txtEditCourse";
+            this.txtEditCourse.ReadOnly = true;
+            this.txtEditCourse.Size = new System.Drawing.Size(368, 26);
+            this.txtEditCourse.TabIndex = 68;
+            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -1200,6 +1211,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // acceptancePanel
             // 
+            this.acceptancePanel.Controls.Add(this.btnCOC);
             this.acceptancePanel.Controls.Add(this.btnAcceptance);
             this.acceptancePanel.Controls.Add(this.dataGridAccept);
             this.acceptancePanel.Controls.Add(this.label6);
@@ -1420,6 +1432,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
+            this.mainPanel.Controls.Add(this.acceptancePanel);
+            this.mainPanel.Controls.Add(this.completionPanel);
+            this.mainPanel.Controls.Add(this.reportsPanel);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.addInternPanel);
+            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.reportsPanelWelcome);
             this.mainPanel.Controls.Add(this.panelModifLog);
@@ -1429,13 +1448,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.imisWelcome);
             this.mainPanel.Controls.Add(this.internsPanelWelcome);
             this.mainPanel.Controls.Add(this.viewDtrPanel);
-            this.mainPanel.Controls.Add(this.acceptancePanel);
-            this.mainPanel.Controls.Add(this.completionPanel);
-            this.mainPanel.Controls.Add(this.reportsPanel);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.addInternUnreg);
-            this.mainPanel.Controls.Add(this.addInternPanel);
-            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1636,57 +1648,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
-            // 
-            // editInternPanelFind
-            // 
-            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
-            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
-            this.editInternPanelFind.Controls.Add(this.label42);
-            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
-            this.editInternPanelFind.Name = "editInternPanelFind";
-            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
-            this.editInternPanelFind.TabIndex = 52;
-            // 
-            // dataGridModiftIntern
-            // 
-            this.dataGridModiftIntern.AllowUserToAddRows = false;
-            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
-            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
-            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
-            this.dataGridModiftIntern.ReadOnly = true;
-            this.dataGridModiftIntern.RowHeadersWidth = 51;
-            this.dataGridModiftIntern.RowTemplate.Height = 24;
-            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
-            this.dataGridModiftIntern.TabIndex = 32;
-            // 
-            // btnSearchIntern
-            // 
-            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
-            this.btnSearchIntern.Name = "btnSearchIntern";
-            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchIntern.TabIndex = 31;
-            this.btnSearchIntern.Text = "MODIFY";
-            this.btnSearchIntern.UseVisualStyleBackColor = true;
-            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(583, 15);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(71, 13);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Search Intern";
             // 
             // reportsPanelWelcome
             // 
@@ -2283,15 +2244,67 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label56.TabIndex = 32;
             this.label56.Text = "Search:";
             // 
-            // txtEditCourse
+            // editInternPanelFind
             // 
-            this.txtEditCourse.BackColor = System.Drawing.Color.White;
-            this.txtEditCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCourse.Location = new System.Drawing.Point(449, 171);
-            this.txtEditCourse.Name = "txtEditCourse";
-            this.txtEditCourse.ReadOnly = true;
-            this.txtEditCourse.Size = new System.Drawing.Size(368, 26);
-            this.txtEditCourse.TabIndex = 68;
+            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
+            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
+            this.editInternPanelFind.Controls.Add(this.label42);
+            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
+            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
+            this.editInternPanelFind.Name = "editInternPanelFind";
+            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
+            this.editInternPanelFind.TabIndex = 52;
+            // 
+            // dataGridModiftIntern
+            // 
+            this.dataGridModiftIntern.AllowUserToAddRows = false;
+            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
+            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
+            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
+            this.dataGridModiftIntern.ReadOnly = true;
+            this.dataGridModiftIntern.RowHeadersWidth = 51;
+            this.dataGridModiftIntern.RowTemplate.Height = 24;
+            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
+            this.dataGridModiftIntern.TabIndex = 32;
+            // 
+            // btnSearchIntern
+            // 
+            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
+            this.btnSearchIntern.Name = "btnSearchIntern";
+            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchIntern.TabIndex = 31;
+            this.btnSearchIntern.Text = "MODIFY";
+            this.btnSearchIntern.UseVisualStyleBackColor = true;
+            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(583, 15);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(71, 13);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Search Intern";
+            // 
+            // btnCOC
+            // 
+            this.btnCOC.Location = new System.Drawing.Point(902, 25);
+            this.btnCOC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCOC.Name = "btnCOC";
+            this.btnCOC.Size = new System.Drawing.Size(103, 19);
+            this.btnCOC.TabIndex = 3;
+            this.btnCOC.Text = "COC";
+            this.btnCOC.UseVisualStyleBackColor = true;
+            this.btnCOC.Click += new System.EventHandler(this.btnCOC_Click);
             // 
             // Main_Menu_Remastered
             // 
@@ -2338,9 +2351,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.editInternPanelFind.ResumeLayout(false);
-            this.editInternPanelFind.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
             this.reportsPanelWelcome.ResumeLayout(false);
             this.reportsPanelWelcome.PerformLayout();
             this.panelModifLog.ResumeLayout(false);
@@ -2361,6 +2371,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternUnreg.ResumeLayout(false);
             this.addInternUnreg.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
+            this.editInternPanelFind.ResumeLayout(false);
+            this.editInternPanelFind.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2548,5 +2561,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox txtCourse;
         private System.Windows.Forms.TextBox txtEditCourse;
+        private System.Windows.Forms.Button btnCOC;
     }
 }

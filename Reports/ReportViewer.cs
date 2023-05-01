@@ -43,6 +43,26 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.Refresh();
         }
 
+        public void viewCertificateOfCompletion(string ojtID)
+        {
+            ReportDataSet ds = new ReportDataSet();
+            ReportCertificateOfCompletion coc = new ReportCertificateOfCompletion();
+
+            Connection_String.dbConnection();
+
+            SqlCommand cmd = new SqlCommand(ReportQueries.certOfCompletion(), Connection_String.con);
+            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters["@ojtID"].Value = ojtID;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(ds, "CertOfCompletion");
+            Connection_String.con.Dispose();
+
+            coc.SetDataSource(ds.Tables["CertOfCompletion"]);
+            crystalReportViewer1.ReportSource = coc;
+            crystalReportViewer1.Refresh();
+        }
+
         private void viewIntern()
         {
             ReportDataSet ds = new ReportDataSet();

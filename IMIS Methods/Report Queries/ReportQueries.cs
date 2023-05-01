@@ -93,6 +93,38 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 WHERE Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
         }
 
+        public static string certOfCompletion()
+        {
+            return @"DECLARE @day as INT;
+                            DECLARE @month as varchar(15);
+                            DECLARE @year as varchar(15);
+
+                            SET @day = DATENAME(DAY, GETDATE());
+                            SET @month = DATENAME(MONTH, GETDATE());
+                            SET @year = DATENAME(YEAR, GETDATE());
+
+                            SELECT
+	                            i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name as 'Intern Name',
+	                            i.School_Name as 'School',
+	                            i.Course as 'Course',
+	                            s.Target_Hours as 'Hours',
+	                            i.Office_Name as 'Office',
+	                            @day as 'Day',
+	                            CASE
+		                            WHEN @day % 100 IN (11, 12, 13) THEN 'th'
+		                            WHEN @day % 10 = 1 THEN 'st'
+		                            WHEN @day % 10 = 2 THEN 'nd'
+		                            WHEN @day % 10 = 3 THEN 'rd'
+		                            ELSE 'th'
+	                            END AS 'Ordinal Number',
+	                            @month as 'Month',
+	                            @year as 'Year'
+
+                            FROM Intern_Info1 i, Intern_Status1 s
+                            WHERE
+	                            i.OJT_Number = @ojtID
+								AND i.OJT_Number = s.OJT_Number";
+        }
 
         /*public static string acceptanceLetter(string ojtid)
         {
