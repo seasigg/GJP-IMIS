@@ -15,10 +15,10 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         public static SqlConnection con;
 
         // Earl
-        public static string conn = ConfigurationManager.ConnectionStrings["Earl"].ConnectionString;
+        //public static string conn = ConfigurationManager.ConnectionStrings["Earl"].ConnectionString;
 
         // Maverick
-        //public static string conn = ConfigurationManager.ConnectionStrings["Maverick"].ConnectionString;
+        public static string conn = ConfigurationManager.ConnectionStrings["Maverick"].ConnectionString;
 
         // Miggy
         //public static string conn = ConfigurationManager.ConnectionStrings["Miggy"].ConnectionString;

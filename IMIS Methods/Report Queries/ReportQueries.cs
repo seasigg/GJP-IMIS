@@ -61,6 +61,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 
                 Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName AS 'Coord_Name',
                 Intern_Info1.Coordinator_Position AS 'Position',
+                Intern_Info1.Coordinator_Department AS 'Department',
                 Intern_Info1.School_Name AS 'University',
                 
                 CASE
@@ -69,7 +70,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 END AS 'Coord_Intro',
                 
                 Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '. ' + Intern_Info1.Last_Name AS 'Intern_Name',
-                Course.Course_Name AS 'Intern_Course',
+                Intern_Info1.Course AS 'Intern_Course',
                 
                 CASE
                 WHEN Intern_Info1.Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Last_Name
@@ -85,12 +86,11 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 Intern_Info1.Office_Name,
                 Intern_Info1.Office_Name AS 'Office_Abr'
                 
-                FROM Intern_Info1, Course, Intern_Status1
+                FROM Intern_Info1, Intern_Status1
 
                 --WHERE Intern_Info1.OJT_Number = @ojtID
                 
-                WHERE Intern_Info1.Course_ID = Course.Course_ID
-                AND Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
+                WHERE Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
         }
 
 
@@ -169,12 +169,10 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
             return "SELECT DISTINCT " +
                 "Intern_Info1.Last_Name + ', ' + Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '.' AS 'Intern Name', " +
                 "Intern_Info1.Gender AS 'Gender', " +
-                "Course.Course_Name AS 'Course', " +
+                "Intern_Info1.Course AS 'Course', " +
                 "Intern_Info1.School_Name AS 'University', " +
                 "Intern_Info1.Office_Name AS 'Office Deployed' " +
-                "FROM Intern_Info1, Course " +
-                "WHERE " +
-                "Intern_Info1.Course_ID = Course.Course_ID ";
+                "FROM Intern_Info1";
         }
     }
 }

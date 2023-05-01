@@ -107,7 +107,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // add intern data
         public static void addInternData1(string ojt, string f, string m, string l, string g,
-            int c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o, string oT)
+            string c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o, string oT)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(addInternQuery(), Connection_String.con);
@@ -117,7 +117,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@course", SqlDbType.Int);
+            cmd.Parameters.Add("@course", SqlDbType.NVarChar);
             cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
@@ -188,7 +188,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static void updateInternData(string ojt, string f, string m,
             string l, string g, string u,
             string coordF, string coordL, string coordG, string coordPos, string coordDept,
-            int c, string o)
+            string c, string o)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(updateInternDataQuery(), Connection_String.con);
@@ -197,7 +197,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@course", SqlDbType.Int);
+            cmd.Parameters.Add("@course", SqlDbType.NVarChar);
             cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
@@ -232,7 +232,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     Middle_Initial = @mname,
                     Last_Name = @lname,
                     Gender = @gender,
-                    Course_ID = @course,
+                    Course = @course,
                     School_Name = @univ,
                     Coordinator_FirstName = @coordF,
                     Coordinator_LastName = @coordL,
@@ -278,7 +278,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         Intern_Info1.Middle_Initial as 'Middle Initial',
                         Intern_Info1.First_Name as 'First Name',
                         Intern_Info1.Gender as 'Gender',
-                        Course.Course_ID as 'Course',
+                        Intern_Info1.Course as 'Course',
                         Intern_Info1.School_Name as 'University',
                         Intern_Info1.Coordinator_FirstName as 'Coordinator FirstName',
                         Intern_Info1.Coordinator_LastName as 'Coordinator LastName',
@@ -289,8 +289,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         Intern_Status1.Target_Hours as 'Target Hours',
 						--Intern_Status1.Start_Date as 'Start Date',
                         Intern_Status1.Status as 'Status'
-                        FROM Intern_Info1
-                        INNER JOIN Course ON Intern_Info1.Course_ID = Course.Course_ID
+                        FROM Intern_Info1 
                         INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number
                         WHERE Intern_Info1.OJT_Number = @ojtID";
         }
@@ -392,10 +391,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             return dataTable("SELECT Intern_Info1.Office_Name FROM Intern_Info1;");
         }
-        public static DataTable getCourses1()
+        /*public static DataTable getCourses1()
         {
             return dataTable("SELECT DISTINCT Course.Course_Name, Course.Course_ID FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
-        }
+        }*/
 
         // ------- END OF IMIS REMASTERED -------
 

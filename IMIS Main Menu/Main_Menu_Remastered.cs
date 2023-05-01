@@ -29,7 +29,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public static DataTable internUnregData = menuQueries.viewUnregInternPlain();
         public static DataTable universityData = InternQueries.getUniversities1();
         public static DataTable officeData = InternQueries.getOffices1();
-        public static DataTable courseData = InternQueries.getCourses1();
+        //public static DataTable courseData = InternQueries.getCourses1();
         public static DataTable addLogData = menuQueries.insertInternLogDataGrid();
 
         // reports
@@ -91,8 +91,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ********** ADD INTERN **********
         private void addInternStrip()
         {
-            courseCombo();
-
 
             dataGridUnregInterns.DataSource = internUnregData;
             dataGridUnregInterns.ClearSelection();
@@ -156,29 +154,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ' ');
         }
 
-        // course
-        private void courseCombo()
-        {
-            // add intern combo course
-            comboCourse.DataSource = InternQueries.getCourses();
-            comboCourse.DisplayMember = "Course_Name";
-            comboCourse.ValueMember = "Course_ID";
-            comboCourse.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            // edit intern combo course
-            comboEditcourse.DataSource = InternQueries.getCourses();
-            comboEditcourse.DisplayMember = "Course_Name";
-            comboEditcourse.ValueMember = "Course_ID";
-            comboEditcourse.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-
-        // clear fields
-        private void addInternClearFields()
-        {
-            comboCourse.SelectedIndex = -1;
-        }
-
-
         // add intern button
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
@@ -220,13 +195,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Office\n";
                 if (numericTargetHours.Value <= 0)
                     errorHandling += "* Number of Hours\n";
-            }
-
-            if (!checkCombo())
-            {
-                if (comboCourse.SelectedIndex == -1)
+                if (string.IsNullOrWhiteSpace(txtCourse.Text))
                     errorHandling += "* Course\n";
             }
+
             if (!checkGender())
             {
                 if (!radioMale.Checked || !radioFemale.Checked)
@@ -259,7 +231,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             string coordGender = getCoordGender();
             string coordPos = txtCoordPosition.Text;
             string coordDept = txtCoordDept.Text;
-            int course = Int32.Parse(comboCourse.SelectedValue.ToString());
+            string course = txtCourse.Text;
             string office = txtOffice.Text;
             string startDate = dateTimeStartDate.Value.ToShortDateString();
             string hours = numericTargetHours.Value.ToString();
@@ -307,7 +279,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // DATA VALIDATION SECTION
         private Boolean dataValidation()
         {
-            return (checkTextbox() && checkCombo() && checkGender() && checkCoordGender());
+            return (checkTextbox() && checkGender() && checkCoordGender());
         }
 
         private Boolean checkTextbox()
@@ -324,11 +296,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 string.IsNullOrWhiteSpace(txtCoordPosition.Text) ||
                 numericTargetHours.Value <= 0
                 );
-        }
-
-        private Boolean checkCombo()
-        {
-            return !(comboCourse.SelectedIndex == -1);
         }
 
         private Boolean checkGender()
@@ -406,7 +373,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 genderCoordEdit(dr["Coordinator Gender"].ToString());
                 txtEditCoordPos.Text = dr["Coordinator Position"].ToString();
                 txtEditCoordDept.Text = dr["Coordinator Department"].ToString();
-                comboEditcourse.SelectedValue = int.Parse(dr["Course"].ToString());
+                txtEditCourse.Text = dr["Course"].ToString();
                 txtEditoffice.Text = dr["Office"].ToString();
                 numericEdit.Value = int.Parse(dr["Target Hours"].ToString());
                 
@@ -474,7 +441,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string coordGender = getCoordGenderEdit();
                     string coordPos = txtEditCoordPos.Text;
                     string coordDept = txtEditCoordDept.Text;
-                    int course = Int32.Parse(comboEditcourse.SelectedValue.ToString());
+                    string course = txtEditCourse.Text;
                     string office = txtEditoffice.Text;
                     //string startDate = dateTimeStartDate.Value.ToShortDateString();
                     string hours = numericEdit.Value.ToString();
@@ -608,7 +575,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             addInternUnreg.BringToFront();
             addInternStrip();
-            addInternClearFields();
+            
         }
 
         private void editInternToolStripMenuItem_Click(object sender, EventArgs e)
@@ -706,10 +673,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             reportOfficeCombo.DataSource = officeData;
             reportOfficeCombo.DisplayMember = "Office_Name";
             reportOfficeCombo.ValueMember = "Office_Name";
-            // COURSE
-            reportCourseCombo.DataSource = courseData;
-            reportCourseCombo.DisplayMember = "Course_Name";
-            reportCourseCombo.ValueMember = "Course_ID";
+            
         }
 
         private void reportUniv_CheckedChanged(object sender, EventArgs e)
@@ -1077,7 +1041,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                             SELECT
 	                            i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name as 'Intern Name',
 	                            i.School_Name as 'School',
-	                            c.Course_Name as 'Course',
+	                            i.Course as 'Course',
 	                            s.Target_Hours as 'Hours',
 	                            i.Office_Name as 'Office',
 	                            @day as 'Day',
@@ -1091,10 +1055,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 	                            @month as 'Month',
 	                            @year as 'Year'
 
-                            FROM Intern_Info1 i, Course c, Intern_Status1 s
+                            FROM Intern_Info1 i, Intern_Status1 s
                             WHERE
-	                            i.Course_ID = c.Course_ID
-	                            AND i.OJT_Number = s.OJT_Number";
+	                            i.OJT_Number = s.OJT_Number";
 
             SqlCommand cmd = new SqlCommand(query, Connection_String.con);
             SqlDataReader dr = cmd.ExecuteReader();

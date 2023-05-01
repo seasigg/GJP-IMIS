@@ -373,6 +373,8 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnOffice_Abr;
             
+            private global::System.Data.DataColumn columnDepartment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AcceptanceLetterDataTable() {
@@ -504,6 +506,14 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DepartmentColumn {
+                get {
+                    return this.columnDepartment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -539,7 +549,7 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcceptanceLetterRow AddAcceptanceLetterRow(string Date_Now, string Coord_Name, string Position, string University, string Coord_Intro, string Intern_Name, string Intern_Course, string Intern_Intro, string Intern_Pronoun, string Target_Hours, string Office_Name, string Office_Abr) {
+            public AcceptanceLetterRow AddAcceptanceLetterRow(string Date_Now, string Coord_Name, string Position, string University, string Coord_Intro, string Intern_Name, string Intern_Course, string Intern_Intro, string Intern_Pronoun, string Target_Hours, string Office_Name, string Office_Abr, string Department) {
                 AcceptanceLetterRow rowAcceptanceLetterRow = ((AcceptanceLetterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date_Now,
@@ -553,7 +563,8 @@ namespace GJP_IMIS.Reports {
                         Intern_Pronoun,
                         Target_Hours,
                         Office_Name,
-                        Office_Abr};
+                        Office_Abr,
+                        Department};
                 rowAcceptanceLetterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAcceptanceLetterRow);
                 return rowAcceptanceLetterRow;
@@ -588,6 +599,7 @@ namespace GJP_IMIS.Reports {
                 this.columnTarget_Hours = base.Columns["Target_Hours"];
                 this.columnOffice_Name = base.Columns["Office_Name"];
                 this.columnOffice_Abr = base.Columns["Office_Abr"];
+                this.columnDepartment = base.Columns["Department"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -617,6 +629,8 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnOffice_Name);
                 this.columnOffice_Abr = new global::System.Data.DataColumn("Office_Abr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOffice_Abr);
+                this.columnDepartment = new global::System.Data.DataColumn("Department", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDepartment);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1589,6 +1603,22 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Department {
+                get {
+                    try {
+                        return ((string)(this[this.tableAcceptanceLetter.DepartmentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Department\' in table \'AcceptanceLetter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAcceptanceLetter.DepartmentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDate_NowNull() {
                 return this.IsNull(this.tableAcceptanceLetter.Date_NowColumn);
             }
@@ -1729,6 +1759,18 @@ namespace GJP_IMIS.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetOffice_AbrNull() {
                 this[this.tableAcceptanceLetter.Office_AbrColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDepartmentNull() {
+                return this.IsNull(this.tableAcceptanceLetter.DepartmentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDepartmentNull() {
+                this[this.tableAcceptanceLetter.DepartmentColumn] = global::System.Convert.DBNull;
             }
         }
         

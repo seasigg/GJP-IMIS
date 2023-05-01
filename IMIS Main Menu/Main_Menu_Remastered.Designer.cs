@@ -34,6 +34,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.addInternPanel = new System.Windows.Forms.Panel();
+            this.txtCourse = new System.Windows.Forms.TextBox();
             this.txtTerminalName = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtOffice = new System.Windows.Forms.TextBox();
-            this.comboCourse = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCoordinatorFname = new System.Windows.Forms.TextBox();
@@ -97,7 +97,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.txtEditoffice = new System.Windows.Forms.TextBox();
-            this.comboEditcourse = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.txtEditCoordFname = new System.Windows.Forms.TextBox();
@@ -155,11 +154,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInternUnreg = new System.Windows.Forms.Panel();
-            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
-            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
-            this.addUnregIntern = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
             this.editInternPanelFind = new System.Windows.Forms.Panel();
             this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
             this.btnSearchIntern = new System.Windows.Forms.Button();
@@ -211,7 +205,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.internsPanelWelcome = new System.Windows.Forms.Panel();
             this.label48 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
+            this.addInternUnreg = new System.Windows.Forms.Panel();
+            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
+            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
+            this.addUnregIntern = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
+            this.txtEditCourse = new System.Windows.Forms.TextBox();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -231,8 +231,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.addInternUnreg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.editInternPanelFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
             this.reportsPanelWelcome.SuspendLayout();
@@ -245,6 +243,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.SuspendLayout();
             this.imisWelcome.SuspendLayout();
             this.internsPanelWelcome.SuspendLayout();
+            this.addInternUnreg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -284,6 +284,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // addInternPanel
             // 
+            this.addInternPanel.Controls.Add(this.txtCourse);
             this.addInternPanel.Controls.Add(this.txtTerminalName);
             this.addInternPanel.Controls.Add(this.label51);
             this.addInternPanel.Controls.Add(this.label35);
@@ -302,7 +303,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Controls.Add(this.label13);
             this.addInternPanel.Controls.Add(this.label12);
             this.addInternPanel.Controls.Add(this.txtOffice);
-            this.addInternPanel.Controls.Add(this.comboCourse);
             this.addInternPanel.Controls.Add(this.label11);
             this.addInternPanel.Controls.Add(this.label10);
             this.addInternPanel.Controls.Add(this.txtCoordinatorFname);
@@ -323,6 +323,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Name = "addInternPanel";
             this.addInternPanel.Size = new System.Drawing.Size(1188, 577);
             this.addInternPanel.TabIndex = 4;
+            // 
+            // txtCourse
+            // 
+            this.txtCourse.BackColor = System.Drawing.Color.White;
+            this.txtCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourse.Location = new System.Drawing.Point(872, 175);
+            this.txtCourse.Name = "txtCourse";
+            this.txtCourse.Size = new System.Drawing.Size(287, 26);
+            this.txtCourse.TabIndex = 41;
             // 
             // txtTerminalName
             // 
@@ -566,18 +575,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtOffice.Size = new System.Drawing.Size(249, 26);
             this.txtOffice.TabIndex = 23;
             // 
-            // comboCourse
-            // 
-            this.comboCourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboCourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboCourse.BackColor = System.Drawing.Color.White;
-            this.comboCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboCourse.FormattingEnabled = true;
-            this.comboCourse.Location = new System.Drawing.Point(873, 171);
-            this.comboCourse.Name = "comboCourse";
-            this.comboCourse.Size = new System.Drawing.Size(286, 28);
-            this.comboCourse.TabIndex = 22;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -732,6 +729,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // editInternPanel
             // 
+            this.editInternPanel.Controls.Add(this.txtEditCourse);
             this.editInternPanel.Controls.Add(this.label50);
             this.editInternPanel.Controls.Add(this.txtEditCoordDept);
             this.editInternPanel.Controls.Add(this.label49);
@@ -750,7 +748,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.label21);
             this.editInternPanel.Controls.Add(this.label22);
             this.editInternPanel.Controls.Add(this.txtEditoffice);
-            this.editInternPanel.Controls.Add(this.comboEditcourse);
             this.editInternPanel.Controls.Add(this.label23);
             this.editInternPanel.Controls.Add(this.label24);
             this.editInternPanel.Controls.Add(this.txtEditCoordFname);
@@ -1030,18 +1027,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtEditoffice.Name = "txtEditoffice";
             this.txtEditoffice.Size = new System.Drawing.Size(322, 26);
             this.txtEditoffice.TabIndex = 46;
-            // 
-            // comboEditcourse
-            // 
-            this.comboEditcourse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboEditcourse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboEditcourse.BackColor = System.Drawing.Color.White;
-            this.comboEditcourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboEditcourse.FormattingEnabled = true;
-            this.comboEditcourse.Location = new System.Drawing.Point(450, 168);
-            this.comboEditcourse.Name = "comboEditcourse";
-            this.comboEditcourse.Size = new System.Drawing.Size(381, 28);
-            this.comboEditcourse.TabIndex = 45;
             // 
             // label23
             // 
@@ -1435,9 +1420,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.addInternUnreg);
-            this.mainPanel.Controls.Add(this.addInternPanel);
-            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.reportsPanelWelcome);
             this.mainPanel.Controls.Add(this.panelModifLog);
@@ -1451,6 +1433,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.completionPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.addInternPanel);
+            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1651,66 +1636,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
-            // 
-            // addInternUnreg
-            // 
-            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
-            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
-            this.addInternUnreg.Controls.Add(this.addUnregIntern);
-            this.addInternUnreg.Controls.Add(this.label66);
-            this.addInternUnreg.Controls.Add(this.label56);
-            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
-            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
-            this.addInternUnreg.Name = "addInternUnreg";
-            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
-            this.addInternUnreg.TabIndex = 39;
-            // 
-            // textFilter_unregInterns
-            // 
-            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFilter_unregInterns.Location = new System.Drawing.Point(104, 29);
-            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
-            this.textFilter_unregInterns.Size = new System.Drawing.Size(151, 26);
-            this.textFilter_unregInterns.TabIndex = 31;
-            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
-            // 
-            // dataGridUnregInterns
-            // 
-            this.dataGridUnregInterns.AllowUserToAddRows = false;
-            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
-            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
-            this.dataGridUnregInterns.MultiSelect = false;
-            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
-            this.dataGridUnregInterns.ReadOnly = true;
-            this.dataGridUnregInterns.RowHeadersWidth = 51;
-            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
-            this.dataGridUnregInterns.TabIndex = 30;
-            // 
-            // addUnregIntern
-            // 
-            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
-            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
-            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
-            this.addUnregIntern.Name = "addUnregIntern";
-            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
-            this.addUnregIntern.TabIndex = 29;
-            this.addUnregIntern.Text = "ADD";
-            this.addUnregIntern.UseVisualStyleBackColor = false;
-            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(522, 15);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(144, 13);
-            this.label66.TabIndex = 0;
-            this.label66.Text = "UNREGISTERED INTERNS";
             // 
             // editInternPanelFind
             // 
@@ -2288,6 +2213,66 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label38.TabIndex = 0;
             this.label38.Text = "THIS IS INTERN PANEL";
             // 
+            // addInternUnreg
+            // 
+            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
+            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
+            this.addInternUnreg.Controls.Add(this.addUnregIntern);
+            this.addInternUnreg.Controls.Add(this.label66);
+            this.addInternUnreg.Controls.Add(this.label56);
+            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
+            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
+            this.addInternUnreg.Name = "addInternUnreg";
+            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
+            this.addInternUnreg.TabIndex = 39;
+            // 
+            // textFilter_unregInterns
+            // 
+            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFilter_unregInterns.Location = new System.Drawing.Point(104, 29);
+            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
+            this.textFilter_unregInterns.Size = new System.Drawing.Size(151, 26);
+            this.textFilter_unregInterns.TabIndex = 31;
+            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
+            // 
+            // dataGridUnregInterns
+            // 
+            this.dataGridUnregInterns.AllowUserToAddRows = false;
+            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
+            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
+            this.dataGridUnregInterns.MultiSelect = false;
+            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
+            this.dataGridUnregInterns.ReadOnly = true;
+            this.dataGridUnregInterns.RowHeadersWidth = 51;
+            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
+            this.dataGridUnregInterns.TabIndex = 30;
+            // 
+            // addUnregIntern
+            // 
+            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
+            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
+            this.addUnregIntern.Name = "addUnregIntern";
+            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
+            this.addUnregIntern.TabIndex = 29;
+            this.addUnregIntern.Text = "ADD";
+            this.addUnregIntern.UseVisualStyleBackColor = false;
+            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(522, 15);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(144, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "UNREGISTERED INTERNS";
+            // 
             // label56
             // 
             this.label56.AutoSize = true;
@@ -2297,6 +2282,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label56.Size = new System.Drawing.Size(64, 20);
             this.label56.TabIndex = 32;
             this.label56.Text = "Search:";
+            // 
+            // txtEditCourse
+            // 
+            this.txtEditCourse.BackColor = System.Drawing.Color.White;
+            this.txtEditCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditCourse.Location = new System.Drawing.Point(449, 171);
+            this.txtEditCourse.Name = "txtEditCourse";
+            this.txtEditCourse.ReadOnly = true;
+            this.txtEditCourse.Size = new System.Drawing.Size(368, 26);
+            this.txtEditCourse.TabIndex = 68;
             // 
             // Main_Menu_Remastered
             // 
@@ -2343,9 +2338,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.addInternUnreg.ResumeLayout(false);
-            this.addInternUnreg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
             this.editInternPanelFind.ResumeLayout(false);
             this.editInternPanelFind.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
@@ -2366,6 +2358,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome.PerformLayout();
             this.internsPanelWelcome.ResumeLayout(false);
             this.internsPanelWelcome.PerformLayout();
+            this.addInternUnreg.ResumeLayout(false);
+            this.addInternUnreg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2418,7 +2413,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.TextBox txtUniversity;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCoordinatorFname;
-        private System.Windows.Forms.ComboBox comboCourse;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtOffice;
@@ -2433,7 +2427,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtEditoffice;
-        private System.Windows.Forms.ComboBox comboEditcourse;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtEditCoordFname;
@@ -2553,5 +2546,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Button buttonTestDTR;
         private System.Windows.Forms.TextBox textFilter_unregInterns;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox txtCourse;
+        private System.Windows.Forms.TextBox txtEditCourse;
     }
 }
