@@ -107,7 +107,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 	                            i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name as 'Intern Name',
 	                            i.School_Name as 'School',
 	                            i.Course as 'Course',
-	                            s.Target_Hours as 'Hours',
+	                            (s.Target_Hours / 3600) as 'Hours',
 	                            i.Office_Name as 'Office',
 	                            @day as 'Day',
 	                            CASE
@@ -120,7 +120,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 	                            @month as 'Month',
 	                            @year as 'Year'
 
-                            FROM Intern_Info1 i, Intern_Status1 s
+                            FROM Intern_Info1 i, Intern_Status s
                             WHERE
 	                            i.OJT_Number = @ojtID
 								AND i.OJT_Number = s.OJT_Number";

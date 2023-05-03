@@ -102,6 +102,7 @@ namespace GJP_IMIS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMIS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IMIS_FormClosing);
+            this.Load += new System.EventHandler(this.IMIS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

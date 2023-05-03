@@ -101,16 +101,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ojt number
         private void txtOjtNum_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
         // ojt first name
         private void txtFname_KeyPress(object sender, KeyPressEventArgs e)
@@ -210,6 +201,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Coordinator Gender";
             }
 
+            if(!checkSchedule())
+            {
+                if (!radioScheduleNormal.Checked || !radioScheduleOT.Checked)
+                    errorHandling += "* Intern Schedule";
+            }
+
             return errorHandling;
             // in specific error handling
             // please fill up the following
@@ -233,9 +230,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             string coordDept = txtCoordDept.Text;
             string course = txtCourse.Text;
             string office = txtOffice.Text;
-            string startDate = dateTimeStartDate.Value.ToShortDateString();
-            string hours = numericTargetHours.Value.ToString();
+            string startDate = dateTimeStartDate.Value.ToString("yyyy-MM-dd");
+            string hours = (numericTargetHours.Value * 3600).ToString();
             string ojtTerminal = txtTerminalName.Text;
+            string schedAM = getScheduleAM();
+            string schedPM = getSchedulePM();
 
             if (!InternQueries.isInternExist(ojtNumber))
             {
@@ -243,11 +242,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 if (dr == DialogResult.Yes)
                 {
                     InternQueries.addInternData1(ojtNumber, fname, mini, lname, gender, course, univ, coordF, coordL, coordGender, coordPos, coordDept, office, ojtTerminal);
-                    InternQueries.addInternStatus1(ojtNumber, startDate, hours);
+                    InternQueries.addInternStatus1(ojtNumber, startDate, schedAM, schedPM, hours);
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    this.Dispose();
+                    internUnregData = menuQueries.viewUnregInternPlain();
+                    addInternStrip();
                 }
             }
             else
@@ -276,10 +276,30 @@ namespace GJP_IMIS.IMIS_Main_Menu
             return gender;
         }
 
+        private string getScheduleAM()
+        {
+            string timeAM = "";
+            if (radioScheduleNormal.Checked)
+                timeAM = "8:30:00";
+            if (radioScheduleOT.Checked)
+                timeAM = "8:00:00";
+            return timeAM;
+        }
+
+        private string getSchedulePM()
+        {
+            string timePM = "";
+            if (radioScheduleNormal.Checked)
+                timePM = "17:30:00";
+            if (radioScheduleOT.Checked)
+                timePM = "19:00:00";
+            return timePM;
+        }
+
         // DATA VALIDATION SECTION
         private Boolean dataValidation()
         {
-            return (checkTextbox() && checkGender() && checkCoordGender());
+            return (checkTextbox() && checkGender() && checkCoordGender() && checkSchedule());
         }
 
         private Boolean checkTextbox()
@@ -306,6 +326,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private Boolean checkCoordGender()
         {
             return (radioMaleCoord.Checked || radioFemaleCoord.Checked);
+        }
+
+        private Boolean checkSchedule()
+        {
+            return (radioScheduleNormal.Checked || radioScheduleOT.Checked);
         }
 
         // END OF DATA VALIDATION SECTION

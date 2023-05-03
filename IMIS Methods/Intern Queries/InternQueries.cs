@@ -155,7 +155,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // add intern status
-        public static void addInternStatus1(string ojt, string date, string hrs)
+        public static void addInternStatus1(string ojt, string date, string schedAM, string schedPM, string hrs)
         {
             string status = "INCOMPLETE";
             Connection_String.dbConnection();
@@ -163,11 +163,15 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
             cmd.Parameters.Add("@start", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@hours", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@scheduleAM", SqlDbType.Time);
+            cmd.Parameters.Add("@schedulePM", SqlDbType.Time);
+            cmd.Parameters.Add("@hours", SqlDbType.Int);
             cmd.Parameters.Add("@status", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
             cmd.Parameters["@start"].Value = date;
+            cmd.Parameters["@scheduleAM"].Value = schedAM;
+            cmd.Parameters["@schedulePM"].Value = schedPM;
             cmd.Parameters["@hours"].Value = hrs;
             cmd.Parameters["@status"].Value = status;
 
@@ -179,9 +183,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         private static string addInternStatusQuery()
         {
-            return @"INSERT into Intern_Status1
+            return @"INSERT into Intern_Status
                     VALUES 
-                    (@ojtID, @start, @hours, @status)";
+                    (@ojtID, @start, @scheduleAM, @schedulePM, @hours, @status)";
         }
 
         // update intern data

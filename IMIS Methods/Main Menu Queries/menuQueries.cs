@@ -54,10 +54,10 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                         Intern_Info1.School_Name as 'University',
                         Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name',
                         Intern_Info1.Office_Name as 'Office',
-                        Intern_Status1.Target_Hours as 'Target Hours',
-                        Intern_Status1.Status as 'Status'
+                        (Intern_Status.Target_Hours / 3600) as 'Target Hours',
+                        Intern_Status.Status as 'Status'
                         FROM Intern_Info1 
-                        INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number";
+                        INNER JOIN Intern_Status ON Intern_Info1.OJT_Number = Intern_Status.OJT_Number";
             return dataTable(query);
         }
 

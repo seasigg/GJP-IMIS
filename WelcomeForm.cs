@@ -83,5 +83,10 @@ namespace GJP_IMIS
                     e.Cancel = true;
             }
         }
+
+        private void IMIS_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
