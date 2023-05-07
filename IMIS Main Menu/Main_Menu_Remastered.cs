@@ -95,6 +95,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridUnregInterns.DataSource = internUnregData;
             dataGridUnregInterns.ClearSelection();
             dataGridUnregInterns.AutoResizeColumns();
+
+            clearAddInternControls();
             
         }
 
@@ -251,8 +253,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 }
             }
             else
-                MessageBox.Show("OJT NUMBER ALREADY EXISTED.");
+                MessageBox.Show("OJT NUMBER ALREADY EXISTS.");
             
+        }
+
+        private void clearAddInternControls()
+        {
+            txtOjtNum.Clear();
+            txtTerminalName.Clear();
+            txtFname.Clear();
+            txtMinitial.Clear();
+            txtLname.Clear();
+            radioMale.Checked = false;
+            radioFemale.Checked = false;
+            txtUniversity.Clear();
+            txtCourse.Clear();
+            dateTimeStartDate.Value = DateTime.Today;
+            txtCoordinatorFname.Clear();
+            txtCoordinatorLname.Clear();
+            txtCoordPosition.Clear();
+            txtCoordDept.Clear();
+            txtOffice.Clear();
+            radioMaleCoord.Checked = false;
+            radioFemaleCoord.Checked = false;
+            radioScheduleNormal.Checked = false;
+            radioScheduleOT.Checked = false;
+            numericTargetHours.Value = 1;
         }
 
         // intern gender
