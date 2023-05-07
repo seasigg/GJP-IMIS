@@ -64,28 +64,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         
         // ------------------------ Adding of Interns ------------------------ //
         // IMIS
-        public static void addInternData(string o, string f, string m, string l, string g, string c, string univ, string coo, string off, string pic)
-        {
-            Connection_String.dbConnection();
-            string query = "INSERT INTO Intern_Info VALUES ('"+o+"', '"+f+"', '"+m+"', '"+l+"', '"+g+"', '"+c+"', '"+univ+"', '"+coo+"', '"+off+"', '"+pic+"')";
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            Connection_String.con.Dispose();
-        }
-        public static void addInternStatus(string o, string start, string targetD, string targetH)
-        {
-            string status = "INCOMPLETE";
-            string currentHours = "0";
-            string endDate = "None";
-
-            Connection_String.dbConnection();
-            string query = "INSERT INTO Intern_Status VALUES('"+o+"', '"+start+"', '"+targetD+"', '"+endDate+"', '"+targetH+"', '"+currentHours+"', '"+status+"')";
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
-            cmd.ExecuteNonQuery();
-
-            Connection_String.con.Dispose();
-        }
+        
 
         // ------- IMIS REMASTERED -------
         public static Boolean isInternExist(string ojt)
@@ -165,14 +144,16 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@start", SqlDbType.NVarChar);
             cmd.Parameters.Add("@scheduleAM", SqlDbType.Time);
             cmd.Parameters.Add("@schedulePM", SqlDbType.Time);
-            cmd.Parameters.Add("@hours", SqlDbType.Int);
+            cmd.Parameters.Add("@targetHours", SqlDbType.Int);
+            cmd.Parameters.Add("@currentHours", SqlDbType.Int);
             cmd.Parameters.Add("@status", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
             cmd.Parameters["@start"].Value = date;
             cmd.Parameters["@scheduleAM"].Value = schedAM;
             cmd.Parameters["@schedulePM"].Value = schedPM;
-            cmd.Parameters["@hours"].Value = hrs;
+            cmd.Parameters["@targetHours"].Value = hrs;
+            cmd.Parameters["@currentHours"].Value = 0;
             cmd.Parameters["@status"].Value = status;
 
             cmd.ExecuteNonQuery();
@@ -185,7 +166,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             return @"INSERT into Intern_Status
                     VALUES 
-                    (@ojtID, @start, @scheduleAM, @schedulePM, @hours, @status)";
+                    (@ojtID, @start, @scheduleAM, @schedulePM, @targetHours, @currentHours, @status)";
         }
 
         // update intern data
