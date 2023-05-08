@@ -151,6 +151,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
             //insertIntern();
+
+
             if (dataValidation())
             {
                 insertIntern();
@@ -306,9 +308,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             string timeAM = "";
             if (radioScheduleNormal.Checked)
-                timeAM = "8:30:00";
+                timeAM = "08:30:00";
             if (radioScheduleOT.Checked)
-                timeAM = "8:00:00";
+                timeAM = "08:00:00";
             return timeAM;
         }
 
@@ -395,10 +397,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 editInternPanel.BringToFront();
             }
             else
-                MessageBox.Show("SELECT INTERN FIRST.");
-            
-            
-
+                MessageBox.Show("Select an Intern First.");
         }
 
         private void editIntern(string o)
@@ -427,9 +426,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtEditCourse.Text = dr["Course"].ToString();
                 txtEditoffice.Text = dr["Office"].ToString();
                 numericEdit.Value = int.Parse(dr["Target Hours"].ToString());
+                scheduleEdit(dr["Schedule_AM"].ToString());
                 
                 statusEdit(dr["Status"].ToString());
             }
+            cmd.Dispose();
             Connection_String.con.Dispose();
         }
 
@@ -449,6 +450,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 radioCoordEditFemale.Checked = true;
         }
         // edit status 
+        private void scheduleEdit(string s)
+        {
+            if (s == "08:30:00")
+                radioEditScheduleNormal.Checked = true;
+            if (s == "08:00:00")
+                radioEditScheduleOvertime.Checked = true;
+        }
+
         private void statusEdit(string s)
         {
             if (s == "COMPLETE")
@@ -476,7 +485,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (editInternValidation())
+            if (editInternValidation() && (checkEditGender() && checkEditCoordGender() && checkEditSchedule()))
             {
                 DialogResult dr = MessageBox.Show("CONFIRM UPDATE INTERN", "Update Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
@@ -497,12 +506,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     //string startDate = dateTimeStartDate.Value.ToShortDateString();
                     string hours = numericEdit.Value.ToString();
                     string status = getStatusEdit();
+                    string schedAM = getScheduleEditAM();
+                    string schedPM = getScheduleEditPM();
+                    
+
 
                     InternQueries.updateInternData(ojtNumber, fname, mini,
                         lname, gender, univ, coordFname, coordLname, coordGender, coordPos, coordDept,
                         course, office);
 
-                    InternQueries.updateInternStatus(ojtNumber, hours, status);
+                    InternQueries.updateInternStatus(ojtNumber, schedAM, schedPM, hours, status);
 
                     MessageBox.Show("INTERN UPDATED.");
                 }
@@ -510,6 +523,33 @@ namespace GJP_IMIS.IMIS_Main_Menu
             else
                 MessageBox.Show(editIncompleteInfos());
         }
+
+
+
+        private Boolean checkEditGender()
+        {
+            bool s = false;
+            if (radioEditmale.Checked || radioEditfemale.Checked)
+                s = true;
+            return s;
+        }
+
+        private Boolean checkEditCoordGender()
+        {
+            bool s = false;
+            if (radioCoordEditMale.Checked || radioCoordEditFemale.Checked)
+                s = true;
+            return s;
+        }
+
+        private Boolean checkEditSchedule()
+        {
+            bool s = false;
+            if (radioEditScheduleNormal.Checked || radioEditScheduleOvertime.Checked)
+                s = true;
+            return s;
+        }
+
         private string getStatusEdit()
         {
             string s = "";
@@ -519,6 +559,29 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 s = "INCOMPLETE";
             return s;
         }
+
+        private string getScheduleEditAM()
+        {
+            string s = "";
+
+            if (radioEditScheduleNormal.Checked)
+                s = "08:30:00";
+            if (radioEditScheduleOvertime.Checked)
+                s = "08:00:00";
+            return s;
+        }
+
+        private string getScheduleEditPM()
+        {
+            string s = "";
+
+            if (radioEditScheduleNormal.Checked)
+                s = "17:30:00";
+            if (radioEditScheduleOvertime.Checked)
+                s = "19:00:00";
+            return s;
+        }
+
         private string editIncompleteInfos()
         {
             string errorHandling = "Please fill up the following first before proceeding:\n\n";
@@ -624,6 +687,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void addInternToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            internUnregData = menuQueries.viewUnregInternPlain();
             addInternUnreg.BringToFront();
             addInternStrip();
             
@@ -631,7 +695,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void editInternToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            internData = menuQueries.viewInternPlain1();
             editInternPanelFind.BringToFront();
+            
         }
 
         

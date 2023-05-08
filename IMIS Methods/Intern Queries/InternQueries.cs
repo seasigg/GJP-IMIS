@@ -230,15 +230,19 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // update intern status
-        public static void updateInternStatus(string ojt, string h, string status)
+        public static void updateInternStatus(string ojt, string schedAM, string schedPM, string h, string status)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(updateInternStatusQuery(), Connection_String.con);
             cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@scheduleAM", SqlDbType.Time);
+            cmd.Parameters.Add("@schedulePM", SqlDbType.Time);
             cmd.Parameters.Add("@targetHrs", SqlDbType.NVarChar);
             cmd.Parameters.Add("@status", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@scheduleAM"].Value = schedAM;
+            cmd.Parameters["@schedulePM"].Value = schedPM;
             cmd.Parameters["@targetHrs"].Value = h;
             cmd.Parameters["@status"].Value = status;
 
@@ -250,6 +254,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             return @"UPDATE Intern_status1
                     SET
+                    Schedule_AM = @scheduleAM,
+                    Schedule_PM = @schedulePM,
                     Target_Hours = @targetHrs, 
                     Status = @status 
                     WHERE OJT_Number = @ojtID";
@@ -271,11 +277,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         Intern_Info1.Coordinator_Position as 'Coordinator Position',
 						Intern_Info1.Coordinator_Department as 'Coordinator Department',
                         Intern_Info1.Office_Name as 'Office',
-                        Intern_Status1.Target_Hours as 'Target Hours',
-						--Intern_Status1.Start_Date as 'Start Date',
-                        Intern_Status1.Status as 'Status'
+                        (Intern_Status.Target_Hours / 3600) as 'Target Hours',
+						--Intern_Status.Start_Date as 'Start Date',
+                        Intern_Status.Sched_AM as 'Schedule_AM',
+                        Intern_Status.Status as 'Status'
                         FROM Intern_Info1 
-                        INNER JOIN Intern_Status1 ON Intern_Info1.OJT_Number = Intern_Status1.OJT_Number
+                        INNER JOIN Intern_Status ON Intern_Info1.OJT_Number = Intern_Status.OJT_Number
                         WHERE Intern_Info1.OJT_Number = @ojtID";
         }
 

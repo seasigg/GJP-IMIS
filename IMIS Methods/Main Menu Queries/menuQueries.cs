@@ -48,12 +48,12 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         public static DataTable viewInternPlain1()
         {
             String query = @"SELECT DISTINCT Intern_Info1.OJT_Number as 'OJT ID',
-                        Intern_Info1.Last_Name as 'Last Name',
-                        Intern_Info1.First_Name as 'First Name',
+                        (Intern_Info1.First_Name + ' ' + Intern_Info1.Last_Name) as 'Name',
                         Intern_Info1.Course as 'Course',
                         Intern_Info1.School_Name as 'University',
                         Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name',
                         Intern_Info1.Office_Name as 'Office',
+                        (Intern_Status.Current_Hours / 3600) as 'Hours Rendered',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
                         Intern_Status.Status as 'Status'
                         FROM Intern_Info1 
