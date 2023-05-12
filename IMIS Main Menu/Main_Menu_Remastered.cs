@@ -707,21 +707,31 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridAccept.AutoResizeColumns();
         }
 
-        private void btnAcceptance_Click(object sender, EventArgs e)
-        {
-            /*ReportViewer rv = new ReportViewer();
-            rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
-            rv.ShowDialog();*/
-        }
-
-        private void btnCOC_Click(object sender, EventArgs e)
-        {
-            /*ReportViewer rv = new ReportViewer();
-            rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
-            rv.ShowDialog();*/
-        }
-
         private void btnGenerateCert_Click(object sender, EventArgs e)
+        {
+
+            if (!isLetterCerts())
+            {
+                if (!isDirectors())
+                {
+                    if (radioOthers.Checked)
+                    {
+                        if (isOthersFields())
+                            viewReport();
+                        else
+                            MessageBox.Show("Input the Director's name and position first.");
+
+                    } else
+                        viewReport();
+                }
+                else
+                    MessageBox.Show("Select Director first.");
+            }
+            else
+                MessageBox.Show("Select certification first.");
+        }
+
+        private void viewReport()
         {
             ReportViewer rv = new ReportViewer();
             if (radioAcceptance.Checked)
@@ -734,9 +744,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
                 rv.ShowDialog();
             }
-
         }
-
+        private bool isLetterCerts()
+        {
+            return !radioAcceptance.Checked && !radioCompletion.Checked;
+        }
+        private bool isDirectors()
+        {
+            return !radioBorja.Checked && !radioVida.Checked && !radioOthers.Checked;
+        }
+        private bool isOthersFields()
+        {
+            return !string.IsNullOrWhiteSpace(txtDirName.Text) && !string.IsNullOrWhiteSpace(txtDirPos.Text);
+        }
         private string getDirector()
         {
             string dir = "";
@@ -749,7 +769,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 dir = txtDirName.Text;
             return dir;
         }
-
         private string getDirectorPos()
         {
             string dirPos = "";

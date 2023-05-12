@@ -135,8 +135,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.radioCompletion = new System.Windows.Forms.RadioButton();
             this.radioAcceptance = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnCOC = new System.Windows.Forms.Button();
-            this.btnAcceptance = new System.Windows.Forms.Button();
             this.dataGridAccept = new System.Windows.Forms.DataGridView();
             this.reportsPanel = new System.Windows.Forms.Panel();
             this.reportUnivCombo = new System.Windows.Forms.ComboBox();
@@ -1276,8 +1274,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanel.Controls.Add(this.panel3);
             this.letterPanel.Controls.Add(this.panel2);
             this.letterPanel.Controls.Add(this.label4);
-            this.letterPanel.Controls.Add(this.btnCOC);
-            this.letterPanel.Controls.Add(this.btnAcceptance);
             this.letterPanel.Controls.Add(this.dataGridAccept);
             this.letterPanel.Location = new System.Drawing.Point(0, 66);
             this.letterPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1287,7 +1283,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // btnGenerateCert
             // 
-            this.btnGenerateCert.Location = new System.Drawing.Point(915, 433);
+            this.btnGenerateCert.Location = new System.Drawing.Point(898, 390);
             this.btnGenerateCert.Name = "btnGenerateCert";
             this.btnGenerateCert.Size = new System.Drawing.Size(152, 75);
             this.btnGenerateCert.TabIndex = 7;
@@ -1419,28 +1415,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label4.Size = new System.Drawing.Size(349, 46);
             this.label4.TabIndex = 4;
             this.label4.Text = "Letter / Certificates";
-            // 
-            // btnCOC
-            // 
-            this.btnCOC.Location = new System.Drawing.Point(823, 343);
-            this.btnCOC.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCOC.Name = "btnCOC";
-            this.btnCOC.Size = new System.Drawing.Size(157, 38);
-            this.btnCOC.TabIndex = 3;
-            this.btnCOC.Text = "COC";
-            this.btnCOC.UseVisualStyleBackColor = true;
-            this.btnCOC.Click += new System.EventHandler(this.btnCOC_Click);
-            // 
-            // btnAcceptance
-            // 
-            this.btnAcceptance.Location = new System.Drawing.Point(1005, 343);
-            this.btnAcceptance.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAcceptance.Name = "btnAcceptance";
-            this.btnAcceptance.Size = new System.Drawing.Size(147, 38);
-            this.btnAcceptance.TabIndex = 2;
-            this.btnAcceptance.Text = "Letter of Acceptance";
-            this.btnAcceptance.UseVisualStyleBackColor = true;
-            this.btnAcceptance.Click += new System.EventHandler(this.btnAcceptance_Click);
             // 
             // dataGridAccept
             // 
@@ -2340,7 +2314,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.RadioButton radioMaleCoord;
         private System.Windows.Forms.RadioButton radioFemaleCoord;
         private System.Windows.Forms.Panel addInternGenderPanel;
-        private System.Windows.Forms.Button btnAcceptance;
         private System.Windows.Forms.DataGridView dataGridAccept;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox txtCoordinatorLname;
@@ -2392,7 +2365,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox txtCourse;
         private System.Windows.Forms.TextBox txtEditCourse;
-        private System.Windows.Forms.Button btnCOC;
         private System.Windows.Forms.RadioButton radioScheduleOT;
         private System.Windows.Forms.RadioButton radioScheduleNormal;
         private System.Windows.Forms.Label label57;
