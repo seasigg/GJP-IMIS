@@ -410,6 +410,10 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnDepartment;
             
+            private global::System.Data.DataColumn columnDirector;
+            
+            private global::System.Data.DataColumn columnDirector_Position;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AcceptanceLetterDataTable() {
@@ -549,6 +553,22 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DirectorColumn {
+                get {
+                    return this.columnDirector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Director_PositionColumn {
+                get {
+                    return this.columnDirector_Position;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -584,7 +604,7 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcceptanceLetterRow AddAcceptanceLetterRow(string Date_Now, string Coord_Name, string Position, string University, string Coord_Intro, string Intern_Name, string Intern_Course, string Intern_Intro, string Intern_Pronoun, string Target_Hours, string Office_Name, string Office_Abr, string Department) {
+            public AcceptanceLetterRow AddAcceptanceLetterRow(string Date_Now, string Coord_Name, string Position, string University, string Coord_Intro, string Intern_Name, string Intern_Course, string Intern_Intro, string Intern_Pronoun, string Target_Hours, string Office_Name, string Office_Abr, string Department, string Director, string Director_Position) {
                 AcceptanceLetterRow rowAcceptanceLetterRow = ((AcceptanceLetterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date_Now,
@@ -599,7 +619,9 @@ namespace GJP_IMIS.Reports {
                         Target_Hours,
                         Office_Name,
                         Office_Abr,
-                        Department};
+                        Department,
+                        Director,
+                        Director_Position};
                 rowAcceptanceLetterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAcceptanceLetterRow);
                 return rowAcceptanceLetterRow;
@@ -635,6 +657,8 @@ namespace GJP_IMIS.Reports {
                 this.columnOffice_Name = base.Columns["Office_Name"];
                 this.columnOffice_Abr = base.Columns["Office_Abr"];
                 this.columnDepartment = base.Columns["Department"];
+                this.columnDirector = base.Columns["Director"];
+                this.columnDirector_Position = base.Columns["Director_Position"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -666,6 +690,10 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnOffice_Abr);
                 this.columnDepartment = new global::System.Data.DataColumn("Department", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartment);
+                this.columnDirector = new global::System.Data.DataColumn("Director", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDirector);
+                this.columnDirector_Position = new global::System.Data.DataColumn("Director_Position", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDirector_Position);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2017,6 +2045,38 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Director {
+                get {
+                    try {
+                        return ((string)(this[this.tableAcceptanceLetter.DirectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Director\' in table \'AcceptanceLetter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAcceptanceLetter.DirectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Director_Position {
+                get {
+                    try {
+                        return ((string)(this[this.tableAcceptanceLetter.Director_PositionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Director_Position\' in table \'AcceptanceLetter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAcceptanceLetter.Director_PositionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDate_NowNull() {
                 return this.IsNull(this.tableAcceptanceLetter.Date_NowColumn);
             }
@@ -2169,6 +2229,30 @@ namespace GJP_IMIS.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDepartmentNull() {
                 this[this.tableAcceptanceLetter.DepartmentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDirectorNull() {
+                return this.IsNull(this.tableAcceptanceLetter.DirectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDirectorNull() {
+                this[this.tableAcceptanceLetter.DirectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDirector_PositionNull() {
+                return this.IsNull(this.tableAcceptanceLetter.Director_PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDirector_PositionNull() {
+                this[this.tableAcceptanceLetter.Director_PositionColumn] = global::System.Convert.DBNull;
             }
         }
         

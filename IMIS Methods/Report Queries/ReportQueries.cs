@@ -82,15 +82,17 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 ELSE 'Her'
                 END AS 'Intern_Pronoun',
                 
-                Intern_Status1.Target_Hours,
+                CAST(Intern_Status.Target_Hours / 3600 AS nvarchar) AS 'Target_Hours',
                 Intern_Info1.Office_Name,
-                Intern_Info1.Office_Name AS 'Office_Abr'
+                Intern_Info1.Office_Name AS 'Office_Abr',
+                @director as 'Director',
+				@dirPosition as 'Director_Position'
                 
-                FROM Intern_Info1, Intern_Status1
+                FROM Intern_Info1, Intern_Status
 
                 --WHERE Intern_Info1.OJT_Number = @ojtID
                 
-                WHERE Intern_Status1.OJT_Number = Intern_Info1.OJT_Number");
+                WHERE Intern_Status.OJT_Number = Intern_Info1.OJT_Number");
         }
 
         public static string certOfCompletion()

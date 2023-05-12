@@ -22,7 +22,7 @@ namespace GJP_IMIS.Reports
             InitializeComponent();
         }
 
-        public void viewAcceptanceLetter(string ojtID)
+        public void viewAcceptanceLetter(string ojtID, string dir, string dirPos)
         {
             ReportDataSet ds = new ReportDataSet();
             ReportAcceptanceLetter rt = new ReportAcceptanceLetter();
@@ -31,7 +31,12 @@ namespace GJP_IMIS.Reports
 
             SqlCommand cmd = new SqlCommand(ReportQueries.acceptanceLetter(), Connection_String.con);
             cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters.Add("@director", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@dirPosition", SqlDbType.NVarChar);
             cmd.Parameters["@ojtID"].Value = ojtID;
+            cmd.Parameters["@director"].Value = dir;
+            cmd.Parameters["@dirPosition"].Value = dirPos;
+
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             
             da.Fill(ds, "AcceptanceTable");

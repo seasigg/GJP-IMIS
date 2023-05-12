@@ -373,18 +373,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridModiftIntern.DataSource = internAcceptData;
             dataGridModiftIntern.ClearSelection();
 
-            dataGridAddLog.DataSource = addLogData;
-            dataGridAddLog.ClearSelection();
+            
 
             datagridModifLog.DataSource = addLogData;
             datagridModifLog.ClearSelection();
 
-            addLogDate.Format = DateTimePickerFormat.Custom;
-            addLogDate.CustomFormat = "yyyy-MM-dd";
-
-            addLogTime.Format = DateTimePickerFormat.Custom;
-            addLogTime.CustomFormat = "HH:mm:ss";
-            addLogTime.ShowUpDown = true;
+            
         }
 
         private void btnSearchIntern_Click(object sender, EventArgs e)
@@ -674,16 +668,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ********** END OF EDIT INTERN **********
 
-        // ********** DELETE INTERN **********
-
-        // ********** END OF DELETE INTERN **********
+        
         // -------------------- END OF INTERN STRIP --------------------
 
         // ---------------------- MENU STRIP MENU ----------------------
-        private void viewInternToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            viewInternPanel.BringToFront();
-        }
+        
 
         private void addInternToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -708,20 +697,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             viewDTRPanelWelcome.BringToFront();
         }
 
-        private void acceptanceLetterToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            acceptancePanel.BringToFront();
-        }
-
-        private void letterOfCompletionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            completionPanel.BringToFront();
-        }
-
-        private void reportsToolStripButton2_Click(object sender, EventArgs e)
-        {
-            reportsPanel.BringToFront();
-        }
+        
 
         // -------------------- LETTER STRIP --------------------
 
@@ -734,9 +710,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void btnAcceptance_Click(object sender, EventArgs e)
         {
-            ReportViewer rv = new ReportViewer();
+            /*ReportViewer rv = new ReportViewer();
             rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
-            rv.ShowDialog();
+            rv.ShowDialog();*/
         }
 
         private void btnCOC_Click(object sender, EventArgs e)
@@ -744,6 +720,68 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ReportViewer rv = new ReportViewer();
             rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
             rv.ShowDialog();
+        }
+
+        private void btnGenerateCert_Click(object sender, EventArgs e)
+        {
+            ReportViewer rv = new ReportViewer();
+            if (radioAcceptance.Checked)
+            {
+                rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
+                rv.ShowDialog();
+            }
+            if (radioCompletion.Checked)
+            {
+                rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
+                rv.ShowDialog();
+            }
+
+        }
+
+        private string getDirector()
+        {
+            string dir = "";
+
+            if (radioVida.Checked)
+                dir = "MARIA VIDA G. CAPARAS, Ph.D., RPsy";
+            if (radioBorja.Checked)
+                dir = "CHRISTIAN P. BORJA";
+            if (radioOthers.Checked)
+                dir = txtDirName.Text;
+            return dir;
+        }
+
+        private string getDirectorPos()
+        {
+            string dirPos = "";
+            if (radioVida.Checked)
+                dirPos = "Director III";
+            if (radioBorja.Checked)
+                dirPos = "Director II";
+            if (radioOthers.Checked)
+                dirPos = txtDirPos.Text;
+            return dirPos;
+        }
+
+        private void radioOthers_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioOthers.Checked)
+            {
+                lblDirName.Visible = true;
+                lblDirPos.Visible = true;
+                txtDirName.Visible = true;
+                txtDirPos.Visible = true;
+
+                txtDirName.Text = "";
+                txtDirPos.Text = "";
+            }
+            if (!radioOthers.Checked)
+            {
+                lblDirName.Visible = false;
+                lblDirPos.Visible = false;
+                txtDirName.Visible = false;
+                txtDirPos.Visible = false;
+            }
         }
 
         // -------------------- END OF LETTER STRIP --------------------
@@ -891,17 +929,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void toolStripSplitIntern_ButtonClick(object sender, EventArgs e)
         {
-            internsPanelWelcome.BringToFront();
+            viewInternPanel.BringToFront();
         }
 
-        private void toolStripSplitLetter_ButtonClick(object sender, EventArgs e)
+        private void toolStripLetter_Click(object sender, EventArgs e)
         {
-            letterPanelWelcome.BringToFront();
+            letterPanel.BringToFront();
         }
 
         private void reportsToolStripButton2_Click_1(object sender, EventArgs e)
         {
-            reportsPanelWelcome.BringToFront();
+            reportsPanel.BringToFront();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
@@ -1020,47 +1058,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 MessageBox.Show("There are no unregistered interns", "Add Intern",  MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-
-
         // -------------------- END OF ADDING UNREGISTERED INTERNS --------------------
-
-        // -------------------- ADD LOG STRIP --------------------
-        private void addLogToolStrip_Click(object sender, EventArgs e)
-        {
-            addLogPanel.BringToFront();
-        }
-
-        private void btnAddLog_Click(object sender, EventArgs e)
-        {
-            string d = addLogDate.Text;
-            string t = addLogTime.Text;
-            int oId = Int32.Parse(addLogOjtID.Text);
-            string tName = addLogTerminal.Text;
-
-            InternQueries.insertInternLog(oId, d, t, tName);
-
-            MessageBox.Show("LOG ADDED.");
-        }
-
-        private void dataGridAddLog_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            addLogOjtID.Text = dataGridAddLog.CurrentRow.Cells[0].Value.ToString();
-            addLogOJTName.Text = dataGridAddLog.CurrentRow.Cells[1].Value.ToString();
-            addLogTerminal.Text = dataGridAddLog.CurrentRow.Cells[2].Value.ToString();
-
-            addLogOjtID.Visible = true;
-            addLogOJTName.Visible = true;
-            addLogTerminal.Visible = true;
-
-            addLogDate.Enabled = true;
-            addLogTime.Enabled = true;
-
-            btnAddLog.Enabled = true;
-        }
-
-
-        // -------------------- END OF ADD LOG STRIP --------------------
-
 
         // -------------------- MODIFY LOG STRIP --------------------
         private void toolStripButtonModifLog_Click(object sender, EventArgs e)
@@ -1218,6 +1216,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridUnregInterns.DataSource = bs;
             dataGridUnregInterns.ClearSelection();
         }
+
+
 
         // -------------------- END OF MODIFY LOG STRIP --------------------
 
