@@ -48,7 +48,7 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.Refresh();
         }
 
-        public void viewCertificateOfCompletion(string ojtID)
+        public void viewCertificateOfCompletion(string ojtID, string dir, string dirPos)
         {
             ReportDataSet ds = new ReportDataSet();
             ReportCertificateOfCompletion coc = new ReportCertificateOfCompletion();
@@ -57,7 +57,11 @@ namespace GJP_IMIS.Reports
 
             SqlCommand cmd = new SqlCommand(ReportQueries.certOfCompletion(), Connection_String.con);
             cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters.Add("@director", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@dirPosition", SqlDbType.NVarChar);
             cmd.Parameters["@ojtID"].Value = ojtID;
+            cmd.Parameters["@director"].Value = dir;
+            cmd.Parameters["@dirPosition"].Value = dirPos;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             da.Fill(ds, "CertOfCompletion");

@@ -120,7 +120,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 		                            ELSE 'th'
 	                            END AS 'Ordinal Number',
 	                            @month as 'Month',
-	                            @year as 'Year'
+	                            @year as 'Year',
+                                @director as 'Director',
+								@dirPosition as 'Director_Position'
 
                             FROM Intern_Info1 i, Intern_Status s
                             WHERE

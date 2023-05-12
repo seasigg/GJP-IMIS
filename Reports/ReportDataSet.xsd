@@ -69,6 +69,8 @@
               <xs:element name="Ordinal_x0020_Number" msprop:Generator_ColumnVarNameInTable="columnOrdinal_Number" msprop:Generator_ColumnPropNameInRow="Ordinal_Number" msprop:Generator_ColumnPropNameInTable="Ordinal_NumberColumn" msprop:Generator_UserColumnName="Ordinal Number" type="xs:string" minOccurs="0" />
               <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:string" minOccurs="0" />
               <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:string" minOccurs="0" />
+              <xs:element name="Director" msprop:Generator_ColumnVarNameInTable="columnDirector" msprop:Generator_ColumnPropNameInRow="Director" msprop:Generator_ColumnPropNameInTable="DirectorColumn" msprop:Generator_UserColumnName="Director" type="xs:string" minOccurs="0" />
+              <xs:element name="Director_Position" msprop:Generator_ColumnVarNameInTable="columnDirector_Position" msprop:Generator_ColumnPropNameInRow="Director_Position" msprop:Generator_ColumnPropNameInTable="Director_PositionColumn" msprop:Generator_UserColumnName="Director_Position" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

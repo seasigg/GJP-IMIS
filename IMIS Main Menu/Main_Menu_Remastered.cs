@@ -698,7 +698,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         }
 
         
-
         // -------------------- LETTER STRIP --------------------
 
         private void defaultLetter()
@@ -717,9 +716,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void btnCOC_Click(object sender, EventArgs e)
         {
-            ReportViewer rv = new ReportViewer();
+            /*ReportViewer rv = new ReportViewer();
             rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
-            rv.ShowDialog();
+            rv.ShowDialog();*/
         }
 
         private void btnGenerateCert_Click(object sender, EventArgs e)
@@ -732,7 +731,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
             if (radioCompletion.Checked)
             {
-                rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString());
+                rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
                 rv.ShowDialog();
             }
 
