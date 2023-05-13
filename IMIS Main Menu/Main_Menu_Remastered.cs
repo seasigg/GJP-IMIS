@@ -95,6 +95,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridUnregInterns.DataSource = internUnregData;
             dataGridUnregInterns.ClearSelection();
             dataGridUnregInterns.AutoResizeColumns();
+            dataGridUnregInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridUnregInterns.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             clearAddInternControls();
             

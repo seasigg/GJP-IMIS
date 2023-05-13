@@ -46,6 +46,8 @@ namespace GJP_IMIS.Reports
             rt.SetDataSource(ds.Tables["AcceptanceTable"]);
             crystalReportViewer1.ReportSource = rt;
             crystalReportViewer1.Refresh();
+            ds.Dispose();
+
         }
 
         public void viewCertificateOfCompletion(string ojtID, string dir, string dirPos)
@@ -70,22 +72,7 @@ namespace GJP_IMIS.Reports
             coc.SetDataSource(ds.Tables["CertOfCompletion"]);
             crystalReportViewer1.ReportSource = coc;
             crystalReportViewer1.Refresh();
-        }
-
-        private void viewIntern()
-        {
-            ReportDataSet ds = new ReportDataSet();
-            ReportInterns ri = new ReportInterns();
-
-            Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.Intern(), Connection_String.con);
-            da.Fill(ds, "Interns");
-            Connection_String.con.Dispose();
-
-
-            ri.SetDataSource(ds.Tables["Interns"]);
-            crystalReportViewer1.ReportSource = ri;
-            crystalReportViewer1.Refresh();
+            ds.Dispose();
         }
 
         public void viewInternReport(string q)
@@ -101,6 +88,7 @@ namespace GJP_IMIS.Reports
             ri.SetDataSource(ds.Tables["Interns"]);
             crystalReportViewer1.ReportSource = ri;
             crystalReportViewer1.Refresh();
+            ds.Dispose();
         }
         public void viewInternDTR()
         {
@@ -115,12 +103,14 @@ namespace GJP_IMIS.Reports
             dtr.SetDataSource(ds.Tables["InternDTR"]);
             crystalReportViewer1.ReportSource = dtr;
             crystalReportViewer1.Refresh();
+            ds.Dispose();
         }
 
 
 
         private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             this.Dispose();
         }
     }
