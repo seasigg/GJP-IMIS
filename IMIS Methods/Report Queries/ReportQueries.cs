@@ -174,7 +174,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
         }*/
         
 
-        public static string reportsInternQuery()
+        /*public static string reportsInternQuery()
         {
             return "SELECT DISTINCT " +
                 "" +
@@ -190,16 +190,20 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 "AND Intern_Info.University_ID = University.University_ID " +
                 "AND Intern_Info.Office_ID = Office.Office_ID ";
         }
-
+*/
         public static string reportsInternQuery1()
         {
-            return "SELECT DISTINCT " +
-                "Intern_Info1.Last_Name + ', ' + Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '.' AS 'Intern Name', " +
-                "Intern_Info1.Gender AS 'Gender', " +
-                "Intern_Info1.Course AS 'Course', " +
-                "Intern_Info1.School_Name AS 'University', " +
-                "Intern_Info1.Office_Name AS 'Office Deployed' " +
-                "FROM Intern_Info1";
+            return @"SELECT DISTINCT
+				CASE
+					WHEN Intern_Info.Suffix = ''
+						THEN Intern_Info.Last_Name + ', ' + Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '.'
+					ELSE Intern_Info.Last_Name + ' ' + Intern_Info.Suffix + ', ' + Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '.'
+					END AS 'Intern Name',
+                Intern_Info.Gender AS 'Gender',
+                Intern_Info.Course AS 'Course',
+                Intern_Info.School_Name AS 'University',
+                Intern_Info.Office_Name AS 'Office Deployed'
+                FROM Intern_Info ";
         }
     }
 }

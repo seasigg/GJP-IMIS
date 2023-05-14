@@ -381,12 +381,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
         public static DataTable getOffices1()
         {
-            return dataTable("SELECT Intern_Info.Office_Name FROM Intern_Info;");
+            return dataTable("SELECT DISTINCT Intern_Info.Office_Name FROM Intern_Info;");
         }
-        /*public static DataTable getCourses1()
+        public static DataTable getCourses1()
         {
-            return dataTable("SELECT DISTINCT Course.Course_Name, Course.Course_ID FROM Course, Intern_Info1 WHERE Course.Course_ID = Intern_Info1.Course_ID");
-        }*/
+            return dataTable("SELECT DISTINCT Intern_Info.Course FROM Intern_Info");
+        }
 
         // ------- END OF IMIS REMASTERED -------
 

@@ -29,7 +29,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public static DataTable internUnregData = menuQueries.viewUnregInternPlain();
         public static DataTable universityData = InternQueries.getUniversities1();
         public static DataTable officeData = InternQueries.getOffices1();
-        //public static DataTable courseData = InternQueries.getCourses1();
+        public static DataTable courseData = InternQueries.getCourses1();
         public static DataTable addLogData = menuQueries.insertInternLogDataGrid();
 
         // reports
@@ -835,8 +835,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             reportOfficeCombo.DisplayMember = "Office_Name";
             reportOfficeCombo.ValueMember = "Office_Name";
             // COURSE
-
-            
+            reportCourseCombo.DataSource = courseData;
+            reportCourseCombo.DisplayMember = "Course";
+            reportCourseCombo.ValueMember = "Course";
         }
 
         private void reportUniv_CheckedChanged(object sender, EventArgs e)
@@ -895,25 +896,34 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     else if (reportFemale.Checked)
                         filter = "Female";
 
-                    query += "AND Intern_Info1.Gender = '" + filter + "' ";
+                    query += "WHERE Intern_Info.Gender = '" + filter + "' ";
                 }
 
                 if (reportUniv.Checked)
                 {
                     filter = reportUnivCombo.SelectedValue.ToString();
-                    query += "AND Intern_Info1.School_Name = '" + filter + "' ";
+                    if (reportGender.Checked)
+                        query += "AND Intern_Info.School_Name = '" + filter + "' ";
+                    else
+                        query += "WHERE Intern_Info.School_Name = '" + filter + "' ";
                 }
 
                 if (reportOffice.Checked)
                 {
                     filter = reportOfficeCombo.SelectedValue.ToString();
-                    query += "AND Intern_Info1.Office_Name = '" + filter + "' ";
+                    if (reportGender.Checked || reportUniv.Checked)
+                        query += "AND Intern_Info.Office_Name = '" + filter + "' ";
+                    else
+                        query += "WHERE Intern_Info.Office_Name = '" + filter + "' ";
                 }
 
                 if (reportCourse.Checked)
                 {
                     filter = reportCourseCombo.SelectedValue.ToString();
-                    query += "AND Intern_Info1.Course_ID = '" + filter + "' ";
+                    if (reportGender.Checked || reportUniv.Checked || reportOffice.Checked)
+                        query += "AND Intern_Info.Course = '" + filter + "' ";
+                    else
+                        query += "WHERE Intern_Info.Course = '" + filter + "' ";
                 }
 
                 ReportViewer rv = new ReportViewer();
