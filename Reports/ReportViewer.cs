@@ -90,6 +90,7 @@ namespace GJP_IMIS.Reports
             crystalReportViewer1.Refresh();
             ds.Dispose();
         }
+
         public void viewInternDTR()
         {
             ReportDataSet ds = new ReportDataSet();

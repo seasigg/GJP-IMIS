@@ -47,17 +47,17 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         // IMIS REMASTERED
         public static DataTable viewInternPlain1()
         {
-            String query = @"SELECT DISTINCT Intern_Info1.OJT_Number as 'OJT ID',
-                        (Intern_Info1.First_Name + ' ' + Intern_Info1.Last_Name) as 'Name',
-                        Intern_Info1.Course as 'Course',
-                        Intern_Info1.School_Name as 'University',
-                        Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName as 'Coordinator Name',
-                        Intern_Info1.Office_Name as 'Office',
+            String query = @"SELECT DISTINCT Intern_Info.OJT_Number as 'OJT ID',
+                        (Intern_Info.First_Name + ' ' + Intern_Info.Last_Name + Intern_Info.Suffix) as 'Name',
+                        Intern_Info.Course as 'Course',
+                        Intern_Info.School_Name as 'University',
+                        Intern_Info.Coordinator_Name as 'Coordinator Name',
+                        Intern_Info.Office_Name as 'Office',
                         (Intern_Status.Current_Hours / 3600) as 'Hours Rendered',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
                         Intern_Status.Status as 'Status'
-                        FROM Intern_Info1 
-                        INNER JOIN Intern_Status ON Intern_Info1.OJT_Number = Intern_Status.OJT_Number";
+                        FROM Intern_Info 
+                        INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number";
             return dataTable(query);
         }
 
@@ -67,7 +67,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 		                        i.UserID, i.Name
 
                             from Intern_Logs i
-                            left join Intern_Info1 n
+                            left join Intern_Info n
 		                        on i.UserID = n.OJT_Number
 
                             where n.OJT_Number is null and i.UserID != 1";
@@ -80,7 +80,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             return dataTable(@"SELECT DISTINCT
                 OJT_Number AS 'OJT Number',
                 CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern'
-                FROM Intern_Info1 ");
+                FROM Intern_Info ");
         }
 
         public static DataTable insertInternLogDataGrid()
@@ -89,7 +89,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 OJT_Number AS 'OJT Number',
                 CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern',
                 OJT_Terminal AS 'Terminal Name'
-                FROM Intern_Info1 ");
+                FROM Intern_Info ");
         }
 
 

@@ -70,7 +70,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static Boolean isInternExist(string ojt)
         {
             Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand(@"SELECT OJT_Number from Intern_Info1 WHERE OJT_Number LIKE @ojtID", Connection_String.con);
+            SqlCommand cmd = new SqlCommand(@"SELECT OJT_Number from Intern_Info WHERE OJT_Number LIKE @ojtID", Connection_String.con);
             cmd.Parameters.Add("@ojtID", SqlDbType.Int);
             cmd.Parameters["@ojtID"].Value = ojt;
 
@@ -85,8 +85,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // add intern data
-        public static void addInternData1(string ojt, string f, string m, string l, string g,
-            string c, string u, string cooF, string cooL, string cooG, string cooPos, string cooDept, string o, string oT)
+        public static void addInternData(string ojt, string f, string m, string l, string s, string g,
+            string c, string u, string cooN, string cooS, string cooPos, string cooDept, string o, string oT)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(addInternQuery(), Connection_String.con);
@@ -95,12 +95,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@fname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@suffix", SqlDbType.NVarChar);
             cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
             cmd.Parameters.Add("@course", SqlDbType.NVarChar);
             cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordG", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordName", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordSal", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordPos", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordDept", SqlDbType.NVarChar);
             cmd.Parameters.Add("@office", SqlDbType.NVarChar);
@@ -110,12 +110,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters["@fname"].Value = f;
             cmd.Parameters["@mname"].Value = m;
             cmd.Parameters["@lname"].Value = l;
+            cmd.Parameters["@suffix"].Value = s;
             cmd.Parameters["@gender"].Value = g;
             cmd.Parameters["@course"].Value = c;
             cmd.Parameters["@univ"].Value = u;
-            cmd.Parameters["@coordF"].Value = cooF;
-            cmd.Parameters["@coordL"].Value = cooL;
-            cmd.Parameters["@coordG"].Value = cooG;
+            cmd.Parameters["@coordName"].Value = cooN;
+            cmd.Parameters["@coordSal"].Value = cooS;
             cmd.Parameters["@coordPos"].Value = cooPos;
             cmd.Parameters["@coordDept"].Value = cooDept;
             cmd.Parameters["@office"].Value = o;
@@ -128,9 +128,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         private static string addInternQuery()
         {
-            return @"INSERT into Intern_Info1
-                    VALUES (@ojtID, @fname, @mname, @lname, @gender, @course,
-                    @univ, @coordF, @coordL, @coordG, @coordPos, @coordDept, @office, @ojtTerminal)";
+            return @"INSERT into Intern_Info
+                    VALUES (@ojtID, @fname, @mname, @lname, @suffix, @gender, @course,
+                    @univ, @coordName, @coordSal, @coordPos, @coordDept, @office, @ojtTerminal)";
         }
 
         // add intern status
@@ -377,11 +377,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         public static DataTable getUniversities1()
         {
-            return dataTable("SELECT Intern_Info1.School_Name FROM Intern_Info1;");
+            return dataTable("SELECT DISTINCT Intern_Info.School_Name FROM Intern_Info;");
         }
         public static DataTable getOffices1()
         {
-            return dataTable("SELECT Intern_Info1.Office_Name FROM Intern_Info1;");
+            return dataTable("SELECT Intern_Info.Office_Name FROM Intern_Info;");
         }
         /*public static DataTable getCourses1()
         {
