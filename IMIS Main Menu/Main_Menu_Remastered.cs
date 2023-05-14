@@ -246,7 +246,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 if (dr == DialogResult.Yes)
                 {
                     InternQueries.addInternData(ojtNumber, fname, mini, lname, suffix, gender, course, univ, coordName, coordSal, coordPos, coordDept, office, ojtTerminal);
-                    //InternQueries.addInternStatus1(ojtNumber, startDate, schedAM, schedPM, hours);
+                    InternQueries.addInternStatus1(ojtNumber, startDate, schedAM, schedPM, hours);
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -402,11 +402,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtEditfname.Text = dr["First Name"].ToString();
                 txtEditmini.Text = dr["Middle Initial"].ToString();
                 txtEditlname.Text = dr["Last Name"].ToString();
+                internSuffix(dr["Suffix"].ToString());
                 genderEdit(dr["Gender"].ToString());
                 txtEdituniv.Text = dr["University"].ToString();
-                txtEditCoordFname.Text = dr["Coordinator FirstName"].ToString();
-                txtEditCoordLname.Text = dr["Coordinator LastName"].ToString();
-                genderCoordEdit(dr["Coordinator Gender"].ToString());
+                txtEditCoordName.Text = dr["Coordinator Name"].ToString();
+                txtEditCoordSalutation.Text = dr["Coordinator Salutation"].ToString();
                 txtEditCoordPos.Text = dr["Coordinator Position"].ToString();
                 txtEditCoordDept.Text = dr["Coordinator Department"].ToString();
                 txtEditCourse.Text = dr["Course"].ToString();
@@ -421,6 +421,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
         }
 
         // edit gender
+        private void internSuffix(string s)
+        {
+            if (s != "")
+            {
+                boxEditSuffix.Checked = true;
+                txtEditSuffix.Text = s;
+            }
+                
+        }
         private void genderEdit(string g)
         {
             if (g == "Male")
@@ -428,13 +437,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (g == "Female")
                 radioEditfemale.Checked = true;
         }
-        private void genderCoordEdit(string g)
-        {
-            if (g == "Male")
-                radioCoordEditMale.Checked = true;
-            if (g == "Female")
-                radioCoordEditFemale.Checked = true;
-        }
+        
         // edit status 
         private void scheduleEdit(string s)
         {
@@ -452,7 +455,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 radioEditincomplete.Checked = true;
         }
         
-
         // search of intern
         private void txtSearchIntern_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -471,7 +473,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (editInternValidation() && (checkEditGender() && checkEditCoordGender() && checkEditSchedule()))
+            if (editInternValidation() && (checkEditGender() && checkEditSchedule()))
             {
                 DialogResult dr = MessageBox.Show("CONFIRM UPDATE INTERN", "Update Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
@@ -480,11 +482,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string fname = txtEditfname.Text;
                     string mini = txtEditmini.Text;
                     string lname = txtEditlname.Text;
+                    string suffix = getInternSuffixEdit();
                     string gender = getGenderEdit();
                     string univ = txtEdituniv.Text;
-                    string coordFname = txtEditCoordFname.Text;
-                    string coordLname = txtEditCoordLname.Text;
-                    string coordGender = getCoordGenderEdit();
+                    string coordName = txtEditCoordName.Text;
+                    string coordSal = txtEditCoordSalutation.Text;
                     string coordPos = txtEditCoordPos.Text;
                     string coordDept = txtEditCoordDept.Text;
                     string course = txtEditCourse.Text;
@@ -494,11 +496,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string status = getStatusEdit();
                     string schedAM = getScheduleEditAM();
                     string schedPM = getScheduleEditPM();
-                    
-
 
                     InternQueries.updateInternData(ojtNumber, fname, mini,
-                        lname, gender, univ, coordFname, coordLname, coordGender, coordPos, coordDept,
+                        lname, suffix, gender, univ, coordName, coordSal, coordPos, coordDept,
                         course, office);
 
                     InternQueries.updateInternStatus(ojtNumber, schedAM, schedPM, hours, status);
@@ -510,20 +510,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 MessageBox.Show(editIncompleteInfos());
         }
 
+        private string getInternSuffixEdit()
+        {
+            if (boxEditSuffix.Checked)
+                return txtEditSuffix.Text;
 
+            return "";
+        }
 
         private Boolean checkEditGender()
         {
             bool s = false;
             if (radioEditmale.Checked || radioEditfemale.Checked)
-                s = true;
-            return s;
-        }
-
-        private Boolean checkEditCoordGender()
-        {
-            bool s = false;
-            if (radioCoordEditMale.Checked || radioCoordEditFemale.Checked)
                 s = true;
             return s;
         }
@@ -582,7 +580,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Last Name\n";
                 if (string.IsNullOrWhiteSpace(txtEdituniv.Text))
                     errorHandling += "* University\n";
-                if (string.IsNullOrWhiteSpace(txtEditCoordFname.Text))
+                if (string.IsNullOrWhiteSpace(txtEditCoordName.Text))
                     errorHandling += "* Coordinator\n";
                 if (string.IsNullOrWhiteSpace(txtEditoffice.Text))
                     errorHandling += "* Office\n";
@@ -598,7 +596,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 string.IsNullOrWhiteSpace(txtEditmini.Text) ||
                 string.IsNullOrWhiteSpace(txtEditlname.Text) ||
                 string.IsNullOrWhiteSpace(txtEditoffice.Text) ||
-                string.IsNullOrWhiteSpace(txtEditCoordFname.Text) ||
+                string.IsNullOrWhiteSpace(txtEditCoordName.Text) ||
                 string.IsNullOrWhiteSpace(txtEdituniv.Text) ||
                 numericTargetHours.Value <= 0
                 );
@@ -609,15 +607,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (radioEditmale.Checked)
                 g = "Male";
             if (radioEditfemale.Checked)
-                g = "Female";
-            return g;
-        }
-        private string getCoordGenderEdit()
-        {
-            string g = "";
-            if (radioCoordEditMale.Checked)
-                g = "Male";
-            if (radioCoordEditFemale.Checked)
                 g = "Female";
             return g;
         }
@@ -1236,6 +1225,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtSuffix.Enabled = false;
 
             txtSuffix.Text = "";
+        }
+
+        private void boxEditSuffix_CheckedChanged(object sender, EventArgs e)
+        {
+            if (boxEditSuffix.Checked)
+                txtEditSuffix.Enabled = true;
+            else
+                txtEditSuffix.Enabled = false;
+            txtEditSuffix.Text = "";
         }
 
 

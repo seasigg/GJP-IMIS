@@ -171,8 +171,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // update intern data
         public static void updateInternData(string ojt, string f, string m,
-            string l, string g, string u,
-            string coordF, string coordL, string coordG, string coordPos, string coordDept,
+            string l, string s, string g, string u,
+            string coordName, string coordSal, string coordPos, string coordDept,
             string c, string o)
         {
             Connection_String.dbConnection();
@@ -181,12 +181,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@fname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@mname", SqlDbType.NVarChar);
             cmd.Parameters.Add("@lname", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@suffix", SqlDbType.NVarChar);
             cmd.Parameters.Add("@gender", SqlDbType.NVarChar);
             cmd.Parameters.Add("@course", SqlDbType.NVarChar);
             cmd.Parameters.Add("@univ", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordF", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordL", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@coordG", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordName", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@coordSal", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordPos", SqlDbType.NVarChar);
             cmd.Parameters.Add("@coordDept", SqlDbType.NVarChar);
             cmd.Parameters.Add("@office", SqlDbType.NVarChar);
@@ -195,12 +195,12 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters["@fname"].Value = f;
             cmd.Parameters["@mname"].Value = m;
             cmd.Parameters["@lname"].Value = l;
+            cmd.Parameters["@suffix"].Value = s;
             cmd.Parameters["@gender"].Value = g;
             cmd.Parameters["@course"].Value = c;
             cmd.Parameters["@univ"].Value = u;
-            cmd.Parameters["@coordF"].Value = coordF;
-            cmd.Parameters["@coordL"].Value = coordL;
-            cmd.Parameters["@coordG"].Value = coordG;
+            cmd.Parameters["@coordName"].Value = coordName;
+            cmd.Parameters["@coordSal"].Value = coordSal;
             cmd.Parameters["@coordPos"].Value = coordPos;
             cmd.Parameters["@coordDept"].Value = coordDept;
             cmd.Parameters["@office"].Value = o;
@@ -212,16 +212,16 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // update intern query
         private static string updateInternDataQuery()
         {
-            return @"UPDATE intern_Info1 SET 
+            return @"UPDATE intern_Info SET 
                     First_Name = @fname,
                     Middle_Initial = @mname,
                     Last_Name = @lname,
+					Suffix = @suffix,
                     Gender = @gender,
                     Course = @course,
                     School_Name = @univ,
-                    Coordinator_FirstName = @coordF,
-                    Coordinator_LastName = @coordL,
-                    Coordinator_Gender = @coordG,
+                    Coordinator_Name = @coordName,
+                    Coordinator_Salutation = @coordSal,
                     Coordinator_Position = @coordPos,
                     Coordinator_Department = @coordDept,
                     Office_Name = @office 
@@ -252,11 +252,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // update intern status query
         private static string updateInternStatusQuery()
         {
-            return @"UPDATE Intern_status1
+            return @"UPDATE Intern_status
                     SET
-                    Schedule_AM = @scheduleAM,
-                    Schedule_PM = @schedulePM,
-                    Target_Hours = @targetHrs, 
+                    Sched_AM = @scheduleAM,
+                    Sched_PM = @schedulePM,
+                    Target_Hours = (@targetHrs * 3600), 
                     Status = @status 
                     WHERE OJT_Number = @ojtID";
         }
@@ -264,26 +264,26 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // query for edit intern
         public static string editInternQuery()
         {
-            return @"SELECT Intern_Info1.OJT_Number as 'OJT ID',
-                        Intern_Info1.Last_Name as 'Last Name',
-                        Intern_Info1.Middle_Initial as 'Middle Initial',
-                        Intern_Info1.First_Name as 'First Name',
-                        Intern_Info1.Gender as 'Gender',
-                        Intern_Info1.Course as 'Course',
-                        Intern_Info1.School_Name as 'University',
-                        Intern_Info1.Coordinator_FirstName as 'Coordinator FirstName',
-                        Intern_Info1.Coordinator_LastName as 'Coordinator LastName',
-                        Intern_Info1.Coordinator_Gender as 'Coordinator Gender',
-                        Intern_Info1.Coordinator_Position as 'Coordinator Position',
-						Intern_Info1.Coordinator_Department as 'Coordinator Department',
-                        Intern_Info1.Office_Name as 'Office',
+            return @"SELECT Intern_Info.OJT_Number as 'OJT ID',
+                        Intern_Info.Last_Name as 'Last Name',
+                        Intern_Info.Middle_Initial as 'Middle Initial',
+                        Intern_Info.First_Name as 'First Name',
+						Intern_Info.Suffix as 'Suffix',
+                        Intern_Info.Gender as 'Gender',
+                        Intern_Info.Course as 'Course',
+                        Intern_Info.School_Name as 'University',
+                        Intern_Info.Coordinator_Name as 'Coordinator Name',
+						Intern_Info.Coordinator_Salutation as 'Coordinator Salutation',
+                        Intern_Info.Coordinator_Position as 'Coordinator Position',
+						Intern_Info.Coordinator_Department as 'Coordinator Department',
+                        Intern_Info.Office_Name as 'Office',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
 						--Intern_Status.Start_Date as 'Start Date',
                         Intern_Status.Sched_AM as 'Schedule_AM',
                         Intern_Status.Status as 'Status'
-                        FROM Intern_Info1 
-                        INNER JOIN Intern_Status ON Intern_Info1.OJT_Number = Intern_Status.OJT_Number
-                        WHERE Intern_Info1.OJT_Number = @ojtID";
+                        FROM Intern_Info
+                        INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number
+                        WHERE Intern_Info.OJT_Number = @ojtID";
         }
 
         public static void insertInternLog(int ojtID, string date, string time, string name)

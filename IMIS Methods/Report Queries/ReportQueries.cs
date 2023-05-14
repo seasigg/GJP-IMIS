@@ -59,40 +59,43 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
             return (@"SELECT DISTINCT 
 				DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now',
                 
-                Intern_Info1.Coordinator_FirstName + ' ' + Intern_Info1.Coordinator_LastName AS 'Coord_Name',
-                Intern_Info1.Coordinator_Position AS 'Position',
-                Intern_Info1.Coordinator_Department AS 'Department',
-                Intern_Info1.School_Name AS 'University',
+                Intern_Info.Coordinator_Name AS 'Coord_Name',
+                Intern_Info.Coordinator_Position AS 'Position',
+                Intern_Info.Coordinator_Department AS 'Department',
+                Intern_Info.School_Name AS 'University',
+                Intern_Info.Coordinator_Salutation as 'Coord_Intro',
+
+				CASE
+				WHEN Intern_Info.Suffix = ''
+				THEN Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '. ' + Intern_Info.Last_Name
+				ELSE Intern_Info.First_Name + ' ' + Intern_Info.Middle_Initial + '. ' + Intern_Info.Last_Name + ' ' + Intern_Info.Suffix
+				END AS 'Intern_Name',
+
+                Intern_Info.Course AS 'Intern_Course',
                 
                 CASE
-                WHEN Intern_Info1.Coordinator_Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Coordinator_LastName
-                ELSE 'Ms. ' + Intern_Info1.Coordinator_LastName
-                END AS 'Coord_Intro',
-                
-                Intern_Info1.First_Name + ' ' + Intern_Info1.Middle_Initial + '. ' + Intern_Info1.Last_Name AS 'Intern_Name',
-                Intern_Info1.Course AS 'Intern_Course',
-                
-                CASE
-                WHEN Intern_Info1.Gender = 'Male' THEN 'Mr. ' + Intern_Info1.Last_Name
-                ELSE 'Ms. ' + Intern_Info1.Last_Name
+                WHEN Intern_Info.Gender = 'Male' THEN 'Mr. ' + Intern_Info.Last_Name
+                ELSE 'Ms. ' + Intern_Info.Last_Name
                 END AS 'Intern_Intro',
                 
                 CASE
-                WHEN Intern_Info1.Gender = 'Male' THEN 'His'
+                WHEN Intern_Info.Gender = 'Male' THEN 'His'
                 ELSE 'Her'
                 END AS 'Intern_Pronoun',
                 
                 CAST(Intern_Status.Target_Hours / 3600 AS nvarchar) AS 'Target_Hours',
-                Intern_Info1.Office_Name,
-                Intern_Info1.Office_Name AS 'Office_Abr',
+                Intern_Info.Office_Name,
+                Intern_Info.Office_Name AS 'Office_Abr',
+				--'test' as 'Director',
+				--'test1' as 'Director_Position'
                 @director as 'Director',
 				@dirPosition as 'Director_Position'
                 
-                FROM Intern_Info1, Intern_Status
+                FROM Intern_Info, Intern_Status
 
                 --WHERE Intern_Info1.OJT_Number = @ojtID
                 
-                WHERE Intern_Status.OJT_Number = Intern_Info1.OJT_Number");
+                WHERE Intern_Status.OJT_Number = Intern_Info.OJT_Number");
         }
 
         public static string certOfCompletion()
@@ -106,7 +109,10 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                             SET @year = DATENAME(YEAR, GETDATE());
 
                             SELECT
-	                            i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name as 'Intern Name',
+								CASE
+									WHEN i.Suffix = '' THEN i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name
+									ELSE i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name + ' ' + i.Suffix
+									END AS 'Intern Name',
 	                            i.School_Name as 'School',
 	                            i.Course as 'Course',
 	                            (s.Target_Hours / 3600) as 'Hours',
@@ -124,7 +130,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                                 @director as 'Director',
 								@dirPosition as 'Director_Position'
 
-                            FROM Intern_Info1 i, Intern_Status s
+                            FROM Intern_Info i, Intern_Status s
                             WHERE
 	                            i.OJT_Number = @ojtID
 								AND i.OJT_Number = s.OJT_Number";
