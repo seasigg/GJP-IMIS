@@ -34,6 +34,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.addInternPanel = new System.Windows.Forms.Panel();
+            this.boxSuffix = new System.Windows.Forms.CheckBox();
+            this.txtSuffix = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.radioScheduleOT = new System.Windows.Forms.RadioButton();
             this.radioScheduleNormal = new System.Windows.Forms.RadioButton();
@@ -72,6 +74,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
+            this.boxEditSuffix = new System.Windows.Forms.CheckBox();
+            this.txtEditSuffix = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
             this.radioEditScheduleOvertime = new System.Windows.Forms.RadioButton();
             this.radioEditScheduleNormal = new System.Windows.Forms.RadioButton();
@@ -191,10 +195,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
-            this.txtSuffix = new System.Windows.Forms.TextBox();
-            this.boxSuffix = new System.Windows.Forms.CheckBox();
-            this.boxEditSuffix = new System.Windows.Forms.CheckBox();
-            this.txtEditSuffix = new System.Windows.Forms.TextBox();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -226,6 +227,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // viewInternPanel
             // 
+            this.viewInternPanel.Controls.Add(this.buttonRefresh);
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
             this.viewInternPanel.Controls.Add(this.label9);
             this.viewInternPanel.Location = new System.Drawing.Point(0, 66);
@@ -252,10 +254,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(504, 2);
+            this.label9.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(542, 15);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(198, 46);
+            this.label9.Size = new System.Drawing.Size(79, 18);
             this.label9.TabIndex = 2;
             this.label9.Text = "INTERNS";
             // 
@@ -303,6 +305,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addInternPanel.Name = "addInternPanel";
             this.addInternPanel.Size = new System.Drawing.Size(1188, 577);
             this.addInternPanel.TabIndex = 4;
+            // 
+            // boxSuffix
+            // 
+            this.boxSuffix.AutoSize = true;
+            this.boxSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.boxSuffix.Location = new System.Drawing.Point(34, 280);
+            this.boxSuffix.Name = "boxSuffix";
+            this.boxSuffix.Size = new System.Drawing.Size(61, 21);
+            this.boxSuffix.TabIndex = 47;
+            this.boxSuffix.Text = "Suffix";
+            this.boxSuffix.UseVisualStyleBackColor = true;
+            this.boxSuffix.CheckedChanged += new System.EventHandler(this.boxSuffix_CheckedChanged);
+            // 
+            // txtSuffix
+            // 
+            this.txtSuffix.BackColor = System.Drawing.Color.White;
+            this.txtSuffix.Enabled = false;
+            this.txtSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuffix.Location = new System.Drawing.Point(98, 276);
+            this.txtSuffix.Name = "txtSuffix";
+            this.txtSuffix.Size = new System.Drawing.Size(125, 26);
+            this.txtSuffix.TabIndex = 46;
             // 
             // label57
             // 
@@ -743,6 +767,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
+            // 
+            // boxEditSuffix
+            // 
+            this.boxEditSuffix.AutoSize = true;
+            this.boxEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.boxEditSuffix.Location = new System.Drawing.Point(65, 250);
+            this.boxEditSuffix.Name = "boxEditSuffix";
+            this.boxEditSuffix.Size = new System.Drawing.Size(61, 21);
+            this.boxEditSuffix.TabIndex = 73;
+            this.boxEditSuffix.Text = "Suffix";
+            this.boxEditSuffix.UseVisualStyleBackColor = true;
+            this.boxEditSuffix.CheckedChanged += new System.EventHandler(this.boxEditSuffix_CheckedChanged);
+            // 
+            // txtEditSuffix
+            // 
+            this.txtEditSuffix.BackColor = System.Drawing.Color.White;
+            this.txtEditSuffix.Enabled = false;
+            this.txtEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditSuffix.Location = new System.Drawing.Point(129, 246);
+            this.txtEditSuffix.Name = "txtEditSuffix";
+            this.txtEditSuffix.Size = new System.Drawing.Size(125, 26);
+            this.txtEditSuffix.TabIndex = 72;
             // 
             // label62
             // 
@@ -1494,7 +1540,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
             this.mainPanel.Controls.Add(this.addInternPanel);
@@ -1505,6 +1550,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.imisWelcome);
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
+            this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1550,14 +1596,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // addInternToolStripMenuItem
             // 
             this.addInternToolStripMenuItem.Name = "addInternToolStripMenuItem";
-            this.addInternToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.addInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addInternToolStripMenuItem.Text = "Add Intern";
             this.addInternToolStripMenuItem.Click += new System.EventHandler(this.addInternToolStripMenuItem_Click);
             // 
             // editInternToolStripMenuItem
             // 
             this.editInternToolStripMenuItem.Name = "editInternToolStripMenuItem";
-            this.editInternToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.editInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editInternToolStripMenuItem.Text = "Edit Intern";
             this.editInternToolStripMenuItem.Click += new System.EventHandler(this.editInternToolStripMenuItem_Click);
             // 
@@ -2057,49 +2103,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label44.TabIndex = 0;
             this.label44.Text = "Hi";
             // 
-            // txtSuffix
+            // buttonRefresh
             // 
-            this.txtSuffix.BackColor = System.Drawing.Color.White;
-            this.txtSuffix.Enabled = false;
-            this.txtSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuffix.Location = new System.Drawing.Point(98, 276);
-            this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(125, 26);
-            this.txtSuffix.TabIndex = 46;
-            // 
-            // boxSuffix
-            // 
-            this.boxSuffix.AutoSize = true;
-            this.boxSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.boxSuffix.Location = new System.Drawing.Point(34, 280);
-            this.boxSuffix.Name = "boxSuffix";
-            this.boxSuffix.Size = new System.Drawing.Size(61, 21);
-            this.boxSuffix.TabIndex = 47;
-            this.boxSuffix.Text = "Suffix";
-            this.boxSuffix.UseVisualStyleBackColor = true;
-            this.boxSuffix.CheckedChanged += new System.EventHandler(this.boxSuffix_CheckedChanged);
-            // 
-            // boxEditSuffix
-            // 
-            this.boxEditSuffix.AutoSize = true;
-            this.boxEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.boxEditSuffix.Location = new System.Drawing.Point(65, 250);
-            this.boxEditSuffix.Name = "boxEditSuffix";
-            this.boxEditSuffix.Size = new System.Drawing.Size(61, 21);
-            this.boxEditSuffix.TabIndex = 73;
-            this.boxEditSuffix.Text = "Suffix";
-            this.boxEditSuffix.UseVisualStyleBackColor = true;
-            this.boxEditSuffix.CheckedChanged += new System.EventHandler(this.boxEditSuffix_CheckedChanged);
-            // 
-            // txtEditSuffix
-            // 
-            this.txtEditSuffix.BackColor = System.Drawing.Color.White;
-            this.txtEditSuffix.Enabled = false;
-            this.txtEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditSuffix.Location = new System.Drawing.Point(129, 246);
-            this.txtEditSuffix.Name = "txtEditSuffix";
-            this.txtEditSuffix.Size = new System.Drawing.Size(125, 26);
-            this.txtEditSuffix.TabIndex = 72;
+            this.buttonRefresh.Location = new System.Drawing.Point(817, 21);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 4;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // Main_Menu_Remastered
             // 
@@ -2328,5 +2340,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.TextBox txtSuffix;
         private System.Windows.Forms.CheckBox boxEditSuffix;
         private System.Windows.Forms.TextBox txtEditSuffix;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

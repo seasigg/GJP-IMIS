@@ -69,6 +69,7 @@
     <Compile Include="IMIS Main Menu\Main_Menu_Remastered.Designer.cs">
       <DependentUpon>Main_Menu_Remastered.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMIS Methods\AutoComplete\acQueries.cs" />
     <Compile Include="IMIS Methods\Database Connection\Connection_String.cs" />
     <Compile Include="IMIS Methods\Intern Queries\InternQueries.cs" />
     <Compile Include="IMIS Methods\Main Menu Queries\menuQueries.cs" />

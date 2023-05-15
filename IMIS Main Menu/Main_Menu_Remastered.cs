@@ -12,6 +12,7 @@ using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Stored_Queries;
+using GJP_IMIS.IMIS_Methods.AutoComplete;
 
 
 using GJP_IMIS.IMIS_Class;
@@ -38,10 +39,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         public Main_Menu_Remastered()
         {
             InitializeComponent();
+
             imisWelcome.BringToFront();
 
             // view intern strip
-            viewInternStrip();
+            setViewInternDataGrid();
 
             // add intern strip
             addInternStrip();
@@ -60,32 +62,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // -------------------- INTERN STRIP --------------------
 
         // ********** VIEW INTERN **********
-        private void viewInternStrip()
+        private void setViewInternDataGrid()
         {
             
 
-            dataGridInterns.DataSource = internData;
+            dataGridInterns.DataSource = menuQueries.viewInternPlain1();
             dataGridInterns.ClearSelection();
             dataGridInterns.AutoResizeColumns();
 
-            setInternDataGridHeaderSize();
-        }
+            dataGridInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridInterns.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
-        private void setInternDataGridHeaderSize()
-        {
-            // column header size
-            /*Classes.setDataGridHeaderWidth(0, 80, dataGridInterns); // OJT ID
-            Classes.setDataGridHeaderWidth(1, 100, dataGridInterns); // LAST NAME
-            Classes.setDataGridHeaderWidth(2, 100, dataGridInterns); // FIRST NAME
-            Classes.setDataGridHeaderWidth(3, 150, dataGridInterns); // COURSE
-            Classes.setDataGridHeaderWidth(4, 150, dataGridInterns); // UNIVERSITY
-            Classes.setDataGridHeaderWidth(5, 100, dataGridInterns); // COORDINATOR
-            Classes.setDataGridHeaderWidth(6, 150, dataGridInterns); // OFFICE DEPLOYED
-            Classes.setDataGridHeaderWidth(7, 100, dataGridInterns); // STATUS*/
-
-            // rows size
-            /*for (int i = 0; i < dataGridInterns.Rows.Count; i++)
-                Classes.setDataGridRowHeight(i, 50, dataGridInterns);*/
+            
         }
         // ********** END OF VIEW INTERN **********
 
@@ -93,14 +88,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void addInternStrip()
         {
 
-            dataGridUnregInterns.DataSource = internUnregData;
+            dataGridUnregInterns.DataSource = menuQueries.viewUnregInternPlain(); ;
             dataGridUnregInterns.ClearSelection();
             dataGridUnregInterns.AutoResizeColumns();
             dataGridUnregInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridUnregInterns.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             clearAddInternControls();
-            
         }
 
         // ojt number
@@ -153,9 +147,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // add intern button
         private void btnAddIntern_Click(object sender, EventArgs e)
         {
-            //insertIntern();
-
-
             if (dataValidation())
             {
                 insertIntern();
@@ -251,6 +242,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     internUnregData = menuQueries.viewUnregInternPlain();
+                    addInternUnreg.BringToFront();
                     addInternStrip();
                 }
             }
@@ -381,6 +373,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
             {
                 editIntern(ojtNum);
                 editInternPanel.BringToFront();
+
+                txtEdituniv.AutoCompleteCustomSource = acQueries.getAC_University();
+                txtEdituniv.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEdituniv.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
+                txtEditCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
+                txtEditCoordName.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordPos.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
+                txtEditCoordPos.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordPos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditoffice.AutoCompleteCustomSource = acQueries.getAC_Office();
+                txtEditoffice.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditoffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
             else
                 MessageBox.Show("Select an Intern First.");
@@ -941,6 +953,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void toolStripSplitIntern_ButtonClick(object sender, EventArgs e)
         {
             viewInternPanel.BringToFront();
+            setViewInternDataGrid();
         }
 
         private void toolStripLetter_Click(object sender, EventArgs e)
@@ -1064,6 +1077,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 addInternPanel.BringToFront();
                 txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString();
                 txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
+
+                txtCoordinatorName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
+                txtCoordinatorName.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtCoordinatorName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtUniversity.AutoCompleteCustomSource = acQueries.getAC_University();
+                txtUniversity.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtUniversity.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtOffice.AutoCompleteCustomSource = acQueries.getAC_Office();
+                txtOffice.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtOffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
+                txtCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtCoordPosition.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
+                txtCoordPosition.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtCoordPosition.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
             else
                 MessageBox.Show("There are no unregistered interns", "Add Intern",  MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1244,6 +1277,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             else
                 txtEditSuffix.Enabled = false;
             txtEditSuffix.Text = "";
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            InternQueries.calculateDTR();
         }
 
 

@@ -411,6 +411,41 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
 
+        public static void calculateDTR()
+        {
+            string query1 = @"select 
+	                            i.OJT_Number
+
+                            from Intern_Info i
+                            inner join Intern_Status s
+                            on i.OJT_Number = s.OJT_Number
+                            where s.Status = 'Incomplete'";
+
+            string query2 = @"insert into Intern_DTR (UserID, Date, Time_In, Time_Out)
+
+	                        select
+		                        i.UserID,
+		                        i.Date,
+		                        min(i.Time),
+
+		                        case
+			                        when max(i.Time) = min(i.Time) then null
+			                        else max(i.Time)
+		                        end
+
+		                        from Intern_Logs i
+
+		                        group by i.UserID, i.Date
+		                        order by i.Date";
+
+            string query3 = @"";
+            string query4 = @"";
+            string query5 = @"";
+
+            Connection_String.dbConnection();
+            SqlCommand cmd1 = new SqlCommand();
+        }
+
         
     }
 }
