@@ -26,15 +26,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
     public partial class Main_Menu_Remastered : Form
     {
         // DATA TABLES
-        public static DataTable internData = menuQueries.viewInternPlain1();
+        /*public static DataTable internData = menuQueries.viewInternPlain1();
         public static DataTable internUnregData = menuQueries.viewUnregInternPlain();
         public static DataTable universityData = InternQueries.getUniversities1();
         public static DataTable officeData = InternQueries.getOffices1();
         public static DataTable courseData = InternQueries.getCourses1();
-        public static DataTable addLogData = menuQueries.insertInternLogDataGrid();
+        public static DataTable addLogData = menuQueries.insertInternLogDataGrid();*/
 
         // reports
-        public static DataTable internAcceptData = menuQueries.reportAcceptanceDataGrid1();
+        //public static DataTable internAcceptData = menuQueries.reportAcceptanceDataGrid1();
 
         public Main_Menu_Remastered()
         {
@@ -49,7 +49,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             addInternStrip();
 
             // edit intern strip
-            editInternStrip();
+            editInternDataGrid();
 
             // letter strip
             defaultLetter();
@@ -58,15 +58,29 @@ namespace GJP_IMIS.IMIS_Main_Menu
             defaultReport();
         }
 
-
         // -------------------- INTERN STRIP --------------------
+        private void editInternDataGrid()
+        {
+            dataGridModiftIntern.DataSource = menuQueries.reportAcceptanceDataGrid1();
+            dataGridModiftIntern.ClearSelection();
 
+            dataGridModiftIntern.AutoResizeColumns();
+            dataGridModiftIntern.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridModiftIntern.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+
+            datagridModifLog.DataSource = menuQueries.insertInternLogDataGrid();
+            datagridModifLog.ClearSelection();
+        }
         // ********** VIEW INTERN **********
         private void setViewInternDataGrid()
         {
-            
+            BindingSource bs = new BindingSource();
+            bs.DataSource = menuQueries.viewInternPlain1();
 
-            dataGridInterns.DataSource = menuQueries.viewInternPlain1();
+            dataGridInterns.DataSource = null;
+            dataGridInterns.DataSource = bs;
+            
             dataGridInterns.ClearSelection();
             dataGridInterns.AutoResizeColumns();
 
@@ -79,16 +93,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridInterns.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-
-            
         }
         // ********** END OF VIEW INTERN **********
 
         // ********** ADD INTERN **********
         private void addInternStrip()
         {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = menuQueries.viewUnregInternPlain();
+            dataGridUnregInterns.DataSource = bs;
 
-            dataGridUnregInterns.DataSource = menuQueries.viewUnregInternPlain(); ;
             dataGridUnregInterns.ClearSelection();
             dataGridUnregInterns.AutoResizeColumns();
             dataGridUnregInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -97,11 +111,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             clearAddInternControls();
         }
 
-        // ojt number
-        private void txtOjtNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
         // ojt first name
         private void txtFname_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -150,6 +159,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (dataValidation())
             {
                 insertIntern();
+                InternQueries.calculateDTR();
             }
             else
             {
@@ -241,7 +251,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    internUnregData = menuQueries.viewUnregInternPlain();
+                    //internUnregData = menuQueries.viewUnregInternPlain();
+
                     addInternUnreg.BringToFront();
                     addInternStrip();
                 }
@@ -351,22 +362,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
 
         // ********** EDIT INTERN **********
-
-        private void editInternStrip()
-        {
-            dataGridModiftIntern.DataSource = internAcceptData;
-            dataGridModiftIntern.ClearSelection();
-
-            
-
-            datagridModifLog.DataSource = addLogData;
-            datagridModifLog.ClearSelection();
-
-            
-        }
-
         private void btnSearchIntern_Click(object sender, EventArgs e)
         {
+            editStatusPanel.Visible = false;
+            label31.Visible = false;
             string ojtNum = dataGridModiftIntern.CurrentRow.Cells[0].Value.ToString();
 
             if (ojtNum != null)
@@ -410,6 +409,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             if (dr.Read())
             {
+                txtEditTerminalName.Text = dr["Terminal Name"].ToString();
                 txtEditOjtNum.Text = dr["OJT ID"].ToString();
                 txtEditfname.Text = dr["First Name"].ToString();
                 txtEditmini.Text = dr["Middle Initial"].ToString();
@@ -466,25 +466,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (s == "INCOMPLETE")
                 radioEditincomplete.Checked = true;
         }
-        
-        // search of intern
-        private void txtSearchIntern_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
 
         // update button
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            /*string ojtNumber = txtEditOjtNum.Text;
+            MessageBox.Show(ojtNumber);*/
             if (editInternValidation() && (checkEditGender() && checkEditSchedule()))
             {
                 DialogResult dr = MessageBox.Show("CONFIRM UPDATE INTERN", "Update Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -505,7 +492,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string office = txtEditoffice.Text;
                     //string startDate = dateTimeStartDate.Value.ToShortDateString();
                     string hours = numericEdit.Value.ToString();
-                    string status = getStatusEdit();
+                    //string status = getStatusEdit();
                     string schedAM = getScheduleEditAM();
                     string schedPM = getScheduleEditPM();
 
@@ -513,9 +500,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
                         lname, suffix, gender, univ, coordName, coordSal, coordPos, coordDept,
                         course, office);
 
-                    InternQueries.updateInternStatus(ojtNumber, schedAM, schedPM, hours, status);
-
+                    InternQueries.updateInternStatus(ojtNumber, schedAM, schedPM, hours);
                     MessageBox.Show("INTERN UPDATED.");
+
+                    InternQueries.calculateDTR(ojtNumber);
+
+                    setViewInternDataGrid();
+
+                    viewInternPanel.BringToFront();
+                    MessageBox.Show(ojtNumber);
                 }
             }
             else
@@ -665,24 +658,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // -------------------- END OF INTERN STRIP --------------------
 
         // ---------------------- MENU STRIP MENU ----------------------
-        
-
-        private void addInternToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            internUnregData = menuQueries.viewUnregInternPlain();
-            addInternUnreg.BringToFront();
-            addInternStrip();
-            
-        }
-
-        private void editInternToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            internData = menuQueries.viewInternPlain1();
-            editInternPanelFind.BringToFront();
-            
-        }
-
-        
 
         private void viewDtrToolStripButton1_Click(object sender, EventArgs e)
         {
@@ -695,7 +670,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         private void defaultLetter()
         {
-            dataGridAccept.DataSource = internAcceptData;
+            BindingSource bs = new BindingSource();
+            bs.DataSource = menuQueries.reportAcceptanceDataGrid1();
+            dataGridAccept.DataSource = bs;
+
             dataGridAccept.ClearSelection();
             dataGridAccept.AutoResizeColumns();
         }
@@ -839,19 +817,40 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void populateComboBoxes()
         {
             // UNIV
-            reportUnivCombo.DataSource = universityData;
+            populateUnivReport();
+            // OFFICE
+            populateOfficeReport();
+            // COURSE
+            populateCourseReport();
+        }
+
+        // REPORT university combo box
+        private void populateUnivReport()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = InternQueries.getUniversities1();
+            reportUnivCombo.DataSource = bs;
             reportUnivCombo.DisplayMember = "School_Name";
             reportUnivCombo.ValueMember = "School_Name";
-            // OFFICE
-            reportOfficeCombo.DataSource = officeData;
+        }
+        // REPORT office combo box
+        private void populateOfficeReport()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = InternQueries.getOffices1();
+            reportOfficeCombo.DataSource = bs;
             reportOfficeCombo.DisplayMember = "Office_Name";
             reportOfficeCombo.ValueMember = "Office_Name";
-            // COURSE
-            reportCourseCombo.DataSource = courseData;
+        }
+        // REPORT course combo box
+        private void populateCourseReport()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = InternQueries.getCourses1();
+            reportCourseCombo.DataSource = bs;
             reportCourseCombo.DisplayMember = "Course";
             reportCourseCombo.ValueMember = "Course";
         }
-
         private void reportUniv_CheckedChanged(object sender, EventArgs e)
         {
             if (reportUniv.Checked)
@@ -966,11 +965,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             reportsPanel.BringToFront();
         }
 
-        private void btnReports_Click(object sender, EventArgs e)
-        {
-            reportsPanel.BringToFront();
-        }
-
         private void btnViewDtr_Click(object sender, EventArgs e)
         {
             viewDtrPanel.BringToFront();
@@ -1058,6 +1052,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
                             csvDataTable.Dispose();
                         }
                     }
+
+                    InternQueries.calculateDTR();
+                    setViewInternDataGrid();
                 }
                 catch(Exception er)
                 {
@@ -1193,57 +1190,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            Connection_String.dbConnection();
-            string query = @"DECLARE @day as INT;
-                            DECLARE @month as varchar(15);
-                            DECLARE @year as varchar(15);
-
-                            SET @day = DATENAME(DAY, GETDATE());
-                            SET @month = DATENAME(MONTH, GETDATE());
-                            SET @year = DATENAME(YEAR, GETDATE());
-
-                            SELECT
-	                            i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name as 'Intern Name',
-	                            i.School_Name as 'School',
-	                            i.Course as 'Course',
-	                            s.Target_Hours as 'Hours',
-	                            i.Office_Name as 'Office',
-	                            @day as 'Day',
-	                            CASE
-		                            WHEN @day % 100 IN (11, 12, 13) THEN 'th'
-		                            WHEN @day % 10 = 1 THEN 'st'
-		                            WHEN @day % 10 = 2 THEN 'nd'
-		                            WHEN @day % 10 = 3 THEN 'rd'
-		                            ELSE 'th'
-	                            END AS 'Ordinal Number',
-	                            @month as 'Month',
-	                            @year as 'Year'
-
-                            FROM Intern_Info1 i, Intern_Status1 s
-                            WHERE
-	                            i.OJT_Number = 2
-								AND i.OJT_Number = s.OJT_Number";
-
-            SqlCommand cmd = new SqlCommand(query, Connection_String.con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            string day = "";
-            string ordinal = "";
-
-            while (dr.Read())
-            {
-                day = dr["Day"].ToString();
-                ordinal = dr["Ordinal Number"].ToString();
-                if (ordinal == "th")
-                    ordinal = "ᵗʰ";
-            }
-
-            MessageBox.Show(day + ordinal);
-
-            Connection_String.con.Dispose();
-        }
-
         private void buttonTestDTR_Click(object sender, EventArgs e)
         {
             ReportViewer rv = new ReportViewer();
@@ -1282,6 +1228,55 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             InternQueries.calculateDTR();
+            setViewInternDataGrid();
+        }
+
+        private void btnAddNewIntern_Click(object sender, EventArgs e)
+        {
+            addInternUnreg.BringToFront();
+            addInternStrip();
+        }
+
+        private void toolStripInterns_Click(object sender, EventArgs e)
+        {
+            viewInternPanel.BringToFront();
+            setViewInternDataGrid();
+        }
+
+        private void btnEditIntern_Click(object sender, EventArgs e)
+        {
+            editStatusPanel.Visible = false;
+            label31.Visible = false;
+            string ojtNum = dataGridInterns.CurrentRow.Cells[0].Value.ToString();
+            //MessageBox.Show(ojtNum);
+
+            if (ojtNum != null)
+            {
+                editIntern(ojtNum);
+                editInternPanel.BringToFront();
+
+                txtEdituniv.AutoCompleteCustomSource = acQueries.getAC_University();
+                txtEdituniv.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEdituniv.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
+                txtEditCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
+                txtEditCoordName.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordPos.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
+                txtEditCoordPos.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordPos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditoffice.AutoCompleteCustomSource = acQueries.getAC_Office();
+                txtEditoffice.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditoffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
+            else
+                MessageBox.Show("Select an Intern First.");
         }
 
 

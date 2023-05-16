@@ -31,6 +31,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
             this.viewInternPanel = new System.Windows.Forms.Panel();
+            this.btnEditIntern = new System.Windows.Forms.Button();
+            this.btnAddNewIntern = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.dataGridInterns = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.addInternPanel = new System.Windows.Forms.Panel();
@@ -74,6 +77,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
+            this.txtEditTerminalName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.boxEditSuffix = new System.Windows.Forms.CheckBox();
             this.txtEditSuffix = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -146,9 +151,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label8 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSplitIntern = new System.Windows.Forms.ToolStripSplitButton();
-            this.addInternToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editInternToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripInterns = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonModifLog = new System.Windows.Forms.ToolStripButton();
@@ -195,7 +198,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -227,6 +229,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // viewInternPanel
             // 
+            this.viewInternPanel.Controls.Add(this.btnEditIntern);
+            this.viewInternPanel.Controls.Add(this.btnAddNewIntern);
             this.viewInternPanel.Controls.Add(this.buttonRefresh);
             this.viewInternPanel.Controls.Add(this.dataGridInterns);
             this.viewInternPanel.Controls.Add(this.label9);
@@ -235,6 +239,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Name = "viewInternPanel";
             this.viewInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.viewInternPanel.TabIndex = 3;
+            // 
+            // btnEditIntern
+            // 
+            this.btnEditIntern.Location = new System.Drawing.Point(946, 15);
+            this.btnEditIntern.Name = "btnEditIntern";
+            this.btnEditIntern.Size = new System.Drawing.Size(75, 23);
+            this.btnEditIntern.TabIndex = 6;
+            this.btnEditIntern.Text = "Edit Intern";
+            this.btnEditIntern.UseVisualStyleBackColor = true;
+            this.btnEditIntern.Click += new System.EventHandler(this.btnEditIntern_Click);
+            // 
+            // btnAddNewIntern
+            // 
+            this.btnAddNewIntern.Location = new System.Drawing.Point(1063, 15);
+            this.btnAddNewIntern.Name = "btnAddNewIntern";
+            this.btnAddNewIntern.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewIntern.TabIndex = 5;
+            this.btnAddNewIntern.Text = "Add Intern";
+            this.btnAddNewIntern.UseVisualStyleBackColor = true;
+            this.btnAddNewIntern.Click += new System.EventHandler(this.btnAddNewIntern_Click);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(726, 15);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 4;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // dataGridInterns
             // 
@@ -725,6 +759,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // editInternPanel
             // 
+            this.editInternPanel.Controls.Add(this.txtEditTerminalName);
+            this.editInternPanel.Controls.Add(this.label6);
             this.editInternPanel.Controls.Add(this.boxEditSuffix);
             this.editInternPanel.Controls.Add(this.txtEditSuffix);
             this.editInternPanel.Controls.Add(this.label62);
@@ -767,6 +803,27 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1188, 579);
             this.editInternPanel.TabIndex = 5;
+            // 
+            // txtEditTerminalName
+            // 
+            this.txtEditTerminalName.BackColor = System.Drawing.Color.White;
+            this.txtEditTerminalName.Enabled = false;
+            this.txtEditTerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditTerminalName.Location = new System.Drawing.Point(220, 32);
+            this.txtEditTerminalName.Name = "txtEditTerminalName";
+            this.txtEditTerminalName.ReadOnly = true;
+            this.txtEditTerminalName.Size = new System.Drawing.Size(178, 26);
+            this.txtEditTerminalName.TabIndex = 75;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(217, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 16);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Terminal Name";
             // 
             // boxEditSuffix
             // 
@@ -1175,6 +1232,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // txtEditOjtNum
             // 
             this.txtEditOjtNum.BackColor = System.Drawing.Color.White;
+            this.txtEditOjtNum.Enabled = false;
             this.txtEditOjtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEditOjtNum.Location = new System.Drawing.Point(31, 32);
             this.txtEditOjtNum.Name = "txtEditOjtNum";
@@ -1540,10 +1598,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.addInternUnreg);
-            this.mainPanel.Controls.Add(this.addInternPanel);
-            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.panelModifLog);
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
@@ -1551,6 +1605,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.addInternPanel);
+            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1562,7 +1620,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitIntern,
+            this.toolStripInterns,
             this.toolStripSeparator1,
             this.updateDTRToolStripButton1,
             this.toolStripButtonModifLog,
@@ -1579,33 +1637,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
-            // toolStripSplitIntern
+            // toolStripInterns
             // 
-            this.toolStripSplitIntern.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addInternToolStripMenuItem,
-            this.editInternToolStripMenuItem});
-            this.toolStripSplitIntern.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitIntern.Image")));
-            this.toolStripSplitIntern.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitIntern.Name = "toolStripSplitIntern";
-            this.toolStripSplitIntern.Size = new System.Drawing.Size(59, 39);
-            this.toolStripSplitIntern.Text = "Interns";
-            this.toolStripSplitIntern.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripSplitIntern.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripSplitIntern.ButtonClick += new System.EventHandler(this.toolStripSplitIntern_ButtonClick);
-            // 
-            // addInternToolStripMenuItem
-            // 
-            this.addInternToolStripMenuItem.Name = "addInternToolStripMenuItem";
-            this.addInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addInternToolStripMenuItem.Text = "Add Intern";
-            this.addInternToolStripMenuItem.Click += new System.EventHandler(this.addInternToolStripMenuItem_Click);
-            // 
-            // editInternToolStripMenuItem
-            // 
-            this.editInternToolStripMenuItem.Name = "editInternToolStripMenuItem";
-            this.editInternToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editInternToolStripMenuItem.Text = "Edit Intern";
-            this.editInternToolStripMenuItem.Click += new System.EventHandler(this.editInternToolStripMenuItem_Click);
+            this.toolStripInterns.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInterns.Image")));
+            this.toolStripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripInterns.Name = "toolStripInterns";
+            this.toolStripInterns.Size = new System.Drawing.Size(47, 39);
+            this.toolStripInterns.Text = "Interns";
+            this.toolStripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1869,7 +1910,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btnTest.TabIndex = 20;
             this.btnTest.Text = "button1";
             this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // label58
             // 
@@ -2103,16 +2143,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label44.TabIndex = 0;
             this.label44.Text = "Hi";
             // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(817, 21);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
-            this.buttonRefresh.TabIndex = 4;
-            this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2187,9 +2217,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitIntern;
-        private System.Windows.Forms.ToolStripMenuItem addInternToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editInternToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton viewDtrToolStripButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -2243,7 +2270,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txtEditOjtNum;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel editInternPanelFind;
         private System.Windows.Forms.Label label42;
@@ -2341,5 +2367,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.CheckBox boxEditSuffix;
         private System.Windows.Forms.TextBox txtEditSuffix;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.TextBox txtEditTerminalName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnEditIntern;
+        private System.Windows.Forms.Button btnAddNewIntern;
+        private System.Windows.Forms.ToolStripButton toolStripInterns;
+        private System.Windows.Forms.TextBox txtEditOjtNum;
     }
 }

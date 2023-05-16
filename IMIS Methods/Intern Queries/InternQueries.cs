@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 {
@@ -212,7 +213,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // update intern query
         private static string updateInternDataQuery()
         {
-            return @"UPDATE intern_Info SET 
+            return @"UPDATE Intern_Info SET 
                     First_Name = @fname,
                     Middle_Initial = @mname,
                     Last_Name = @lname,
@@ -230,7 +231,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // update intern status
-        public static void updateInternStatus(string ojt, string schedAM, string schedPM, string h, string status)
+        public static void updateInternStatus(string ojt, string schedAM, string schedPM, string h)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(updateInternStatusQuery(), Connection_String.con);
@@ -238,13 +239,13 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.Parameters.Add("@scheduleAM", SqlDbType.Time);
             cmd.Parameters.Add("@schedulePM", SqlDbType.Time);
             cmd.Parameters.Add("@targetHrs", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@status", SqlDbType.NVarChar);
+            //cmd.Parameters.Add("@status", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
             cmd.Parameters["@scheduleAM"].Value = schedAM;
             cmd.Parameters["@schedulePM"].Value = schedPM;
             cmd.Parameters["@targetHrs"].Value = h;
-            cmd.Parameters["@status"].Value = status;
+            //cmd.Parameters["@status"].Value = status;
 
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
@@ -252,19 +253,19 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         // update intern status query
         private static string updateInternStatusQuery()
         {
-            return @"UPDATE Intern_status
+            return @"UPDATE Intern_Status
                     SET
                     Sched_AM = @scheduleAM,
                     Sched_PM = @schedulePM,
-                    Target_Hours = (@targetHrs * 3600), 
-                    Status = @status 
+                    Target_Hours = (@targetHrs * 3600) 
+                    --Status = @status 
                     WHERE OJT_Number = @ojtID";
         }
         
         // query for edit intern
         public static string editInternQuery()
         {
-            return @"SELECT Intern_Info.OJT_Number as 'OJT ID',
+            return @"SELECT DISTINCT Intern_Info.OJT_Number as 'OJT ID',
                         Intern_Info.Last_Name as 'Last Name',
                         Intern_Info.Middle_Initial as 'Middle Initial',
                         Intern_Info.First_Name as 'First Name',
@@ -280,9 +281,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
 						--Intern_Status.Start_Date as 'Start Date',
                         Intern_Status.Sched_AM as 'Schedule_AM',
-                        Intern_Status.Status as 'Status'
+                        Intern_Status.Status as 'Status',
+                        Intern_Logs.Name as 'Terminal Name'
                         FROM Intern_Info
                         INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number
+                        INNER JOIN Intern_Logs ON Intern_Info.OJT_NUmber = Intern_Logs.UserID
                         WHERE Intern_Info.OJT_Number = @ojtID";
         }
 
@@ -411,17 +414,31 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
         }
 
-        public static void calculateDTR()
+        public static string dtrQuery1()
         {
-            string query1 = @"select 
+            return @"select 
 	                            i.OJT_Number
 
                             from Intern_Info i
                             inner join Intern_Status s
                             on i.OJT_Number = s.OJT_Number
-                            where s.Status = 'Incomplete'";
+                            where s.Status = 'INCOMPLETE'";
+        }
 
-            string query2 = @"insert into Intern_DTR (UserID, Date, Time_In, Time_Out)
+        public static string dtrQuery11()
+        {
+            return @"select 
+	                            i.OJT_Number
+
+                            from Intern_Info i
+                            inner join Intern_Status s
+                            on i.OJT_Number = s.OJT_Number
+                            where s.Status = 'INCOMPLETE' AND i.OJT_Number = @ojtID";
+        }
+
+        public static string dtrQuery2()
+        {
+            return @"insert into Intern_DTR (UserID, Date, Time_In, Time_Out)
 
 	                        select
 		                        i.UserID,
@@ -434,18 +451,197 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 		                        end
 
 		                        from Intern_Logs i
+                                where i.UserID = @userID
 
 		                        group by i.UserID, i.Date
 		                        order by i.Date";
-
-            string query3 = @"";
-            string query4 = @"";
-            string query5 = @"";
-
-            Connection_String.dbConnection();
-            SqlCommand cmd1 = new SqlCommand();
         }
 
-        
+        public static string dtrQuery3()
+        {
+            return @"
+                            declare @break_AM Time(0) = '12:00:00'
+                            declare @break_PM Time(0) = '13:00:00'
+
+                            update i
+	                            set i.Hours_Rendered = case
+		                            --Check if DTR is complete
+		                            when i.Time_Out is not null then
+			                            case
+				                            --During lunch Time In
+				                            when i.Time_In > @break_AM and i.Time_In < @break_PM then
+					                            case
+						                            when i.Time_Out <= s.Sched_PM then
+							                            datediff(second, @break_PM, i.Time_Out)
+
+						                            when i.Time_Out > s.Sched_PM then
+							                            datediff(second, @break_PM, s.Sched_PM)
+						                            end
+
+				                            --After 1pm Time In
+				                            when i.Time_In >= @break_PM then
+					                            case
+						                            --Time Out After Sched
+						                            when i.Time_Out > s.Sched_PM then
+							                            datediff(second, i.Time_In, s.Sched_PM)
+
+						                            --Time Out Before Sched
+						                            when i.Time_Out <= s.Sched_PM then
+							                            datediff(second, i.Time_In, i.Time_Out)
+						                            end
+
+
+
+				                            --Early Time In
+				                            when i.Time_In < s.Sched_AM then
+					                            case
+						                            when i.Time_Out <= @break_AM then
+							                            datediff(second, s.Sched_AM, i.Time_Out)
+
+						                            when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                            (datediff(second, s.Sched_AM, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+
+						                            when i.Time_Out >= @break_PM and i.Time_Out <= s.Sched_PM then
+							                            (datediff(second, s.Sched_AM, i.Time_Out) - 3600)
+
+						                            when i.Time_Out > s.Sched_PM then
+							                            (datediff(second, s.Sched_AM, s.Sched_PM) - 3600)
+						                            end
+
+
+				                            --Late Time In
+				                            when i.Time_In > s.Sched_AM then
+					                            case
+						                            when i.Time_Out <= @break_AM then
+							                            datediff(second, i.Time_In, i.Time_Out)
+
+						                            when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                            (datediff(second, i.Time_In, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+
+						                            when i.Time_Out >= @break_PM and i.Time_Out <= s.Sched_PM then
+							                            (datediff(second, i.Time_In, i.Time_Out) - 3600)
+
+						                            when i.Time_Out > s.Sched_PM then
+							                            (datediff(second, i.Time_In, s.Sched_PM) - 3600)
+
+						                            end
+				                            end
+		
+		                            else null
+		                            end
+
+		                            from Intern_DTR i, Intern_Status s";
+        }
+
+        public static string dtrQuery4()
+        {
+            return @"update s
+                            set s.Current_Hours = (select sum(i.Hours_Rendered) from Intern_DTR i)
+
+                            from Intern_Status s, Intern_DTR i
+                            where s.OJT_Number = @userID";
+        }
+
+        public static string dtrQuery5()
+        {
+            return @"truncate table Intern_DTR";
+        }
+
+        public static string dtrQuery6()
+        {
+            return @"update s
+                            set s.Status = case
+				                            when s.Current_Hours >= s.Target_Hours then 'COMPLETE'
+				                            else 'INCOMPLETE'
+				                            end
+
+                            from Intern_Status s";
+        }
+
+        public static void calculateDTR()
+        {
+            string query1 = dtrQuery1();
+            string query2 = dtrQuery2();
+            string query3 = dtrQuery3();
+            string query4 = dtrQuery4();
+            string query5 = dtrQuery5();
+            string query6 = dtrQuery6();
+
+            Connection_String.dbConnection();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(query1, Connection_String.con);
+            da.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                SqlCommand cmd2 = new SqlCommand(query2, Connection_String.con);
+                cmd2.Parameters.Add("@userID", SqlDbType.NVarChar);
+                cmd2.Parameters["@userID"].Value = row.ToString();
+
+                SqlCommand cmd3 = new SqlCommand(query3, Connection_String.con);
+
+                SqlCommand cmd4 = new SqlCommand(query4, Connection_String.con);
+                cmd4.Parameters.Add("@userID", SqlDbType.NVarChar);
+                cmd4.Parameters["@userID"].Value = row.ToString(); ;
+
+                SqlCommand cmd5 = new SqlCommand(query5, Connection_String.con);
+                SqlCommand cmd6 = new SqlCommand(query6, Connection_String.con);
+
+                cmd2.ExecuteNonQuery();
+                cmd3.ExecuteNonQuery();
+                cmd4.ExecuteNonQuery();
+                cmd5.ExecuteNonQuery();
+                cmd6.ExecuteNonQuery();
+
+                cmd2.Dispose();
+                cmd3.Dispose();
+                cmd4.Dispose();
+                cmd5.Dispose();
+                cmd6.Dispose();
+            }
+
+            da.Dispose();
+            dt.Dispose();
+            Connection_String.con.Dispose();
+        }
+
+        public static void calculateDTR(string ojt)
+        {
+            
+            string query2 = dtrQuery2();
+            string query3 = dtrQuery3();
+            string query4 = dtrQuery4();
+            string query5 = dtrQuery5();
+            string query6 = dtrQuery6();
+
+
+            Connection_String.dbConnection();
+                    SqlCommand cmd2 = new SqlCommand(query2, Connection_String.con);
+                    cmd2.Parameters.Add("@userID", SqlDbType.NVarChar);
+                    cmd2.Parameters["@userID"].Value = ojt;
+
+                    SqlCommand cmd3 = new SqlCommand(query3, Connection_String.con);
+
+                    SqlCommand cmd4 = new SqlCommand(query4, Connection_String.con);
+                    cmd4.Parameters.Add("@userID", SqlDbType.NVarChar);
+                    cmd4.Parameters["@userID"].Value = ojt;
+
+                    SqlCommand cmd5 = new SqlCommand(query5, Connection_String.con);
+                    SqlCommand cmd6 = new SqlCommand(query6, Connection_String.con);
+
+                    cmd2.ExecuteNonQuery();
+                    cmd3.ExecuteNonQuery();
+                    cmd4.ExecuteNonQuery();
+                    cmd5.ExecuteNonQuery();
+                    cmd6.ExecuteNonQuery();
+
+                    cmd2.Dispose();
+                    cmd3.Dispose();
+                    cmd4.Dispose();
+                    cmd5.Dispose();
+                    cmd6.Dispose();
+                
+            Connection_String.con.Dispose();
+        }
     }
 }
