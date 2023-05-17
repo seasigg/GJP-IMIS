@@ -457,80 +457,83 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 		                        order by i.Date";
         }
 
-        public static string dtrQuery3()
+        public static string dtrQuery3(string id)
         {
-            return @"
-                            declare @break_AM Time(0) = '12:00:00'
-                            declare @break_PM Time(0) = '13:00:00'
+            return 
+                    
+                    "declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = '"+id+"') " +
+                    "declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = '"+id+"') " +
+                    @"declare @break_AM Time(0) = '12:00:00'
+                    declare @break_PM Time(0) = '13:00:00'
 
-                            update i
-	                            set i.Hours_Rendered = case
-		                            --Check if DTR is complete
-		                            when i.Time_Out is not null then
-			                            case
-				                            --During lunch Time In
-				                            when i.Time_In > @break_AM and i.Time_In < @break_PM then
-					                            case
-						                            when i.Time_Out <= s.Sched_PM then
-							                            datediff(second, @break_PM, i.Time_Out)
+                    update i
+	                    set i.Hours_Rendered = case
+		                    --Check if DTR is complete
+		                    when i.Time_Out is not null then
+			                    case
+				                    --During lunch Time In
+				                    when i.Time_In > @break_AM and i.Time_In < @break_PM then
+					                    case
+						                    when i.Time_Out <= @sched_PM then
+							                    datediff(second, @break_PM, i.Time_Out)
 
-						                            when i.Time_Out > s.Sched_PM then
-							                            datediff(second, @break_PM, s.Sched_PM)
-						                            end
+						                    when i.Time_Out > @sched_PM then
+							                    datediff(second, @break_PM, @sched_PM)
+						                    end
 
-				                            --After 1pm Time In
-				                            when i.Time_In >= @break_PM then
-					                            case
-						                            --Time Out After Sched
-						                            when i.Time_Out > s.Sched_PM then
-							                            datediff(second, i.Time_In, s.Sched_PM)
+				                    --After 1pm Time In
+				                    when i.Time_In >= @break_PM then
+					                    case
+						                    --Time Out After Sched
+						                    when i.Time_Out > @sched_PM then
+							                    datediff(second, i.Time_In, @sched_PM)
 
-						                            --Time Out Before Sched
-						                            when i.Time_Out <= s.Sched_PM then
-							                            datediff(second, i.Time_In, i.Time_Out)
-						                            end
-
-
-
-				                            --Early Time In
-				                            when i.Time_In < s.Sched_AM then
-					                            case
-						                            when i.Time_Out <= @break_AM then
-							                            datediff(second, s.Sched_AM, i.Time_Out)
-
-						                            when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
-							                            (datediff(second, s.Sched_AM, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
-
-						                            when i.Time_Out >= @break_PM and i.Time_Out <= s.Sched_PM then
-							                            (datediff(second, s.Sched_AM, i.Time_Out) - 3600)
-
-						                            when i.Time_Out > s.Sched_PM then
-							                            (datediff(second, s.Sched_AM, s.Sched_PM) - 3600)
-						                            end
+						                    --Time Out Before Sched
+						                    when i.Time_Out <= @sched_PM then
+							                    datediff(second, i.Time_In, i.Time_Out)
+						                    end
 
 
-				                            --Late Time In
-				                            when i.Time_In > s.Sched_AM then
-					                            case
-						                            when i.Time_Out <= @break_AM then
-							                            datediff(second, i.Time_In, i.Time_Out)
 
-						                            when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
-							                            (datediff(second, i.Time_In, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+				                    --Early Time In
+				                    when i.Time_In < @sched_AM then
+					                    case
+						                    when i.Time_Out <= @break_AM then
+							                    datediff(second, @sched_AM, i.Time_Out)
 
-						                            when i.Time_Out >= @break_PM and i.Time_Out <= s.Sched_PM then
-							                            (datediff(second, i.Time_In, i.Time_Out) - 3600)
+						                    when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                    (datediff(second, @sched_AM, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
 
-						                            when i.Time_Out > s.Sched_PM then
-							                            (datediff(second, i.Time_In, s.Sched_PM) - 3600)
+						                    when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							                    (datediff(second, @sched_AM, i.Time_Out) - 3600)
 
-						                            end
-				                            end
+						                    when i.Time_Out > @sched_PM then
+							                    (datediff(second, @sched_AM, @sched_PM) - 3600)
+						                    end
+
+
+				                    --Late Time In
+				                    when i.Time_In > @sched_AM then
+					                    case
+						                    when i.Time_Out <= @break_AM then
+							                    datediff(second, i.Time_In, i.Time_Out)
+
+						                    when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                    (datediff(second, i.Time_In, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+
+						                    when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							                    (datediff(second, i.Time_In, i.Time_Out) - 3600)
+
+						                    when i.Time_Out > @sched_PM then
+							                    (datediff(second, i.Time_In, @sched_PM) - 3600)
+
+						                    end
+				                    end
 		
-		                            else null
-		                            end
+		                    else null
+		                    end
 
-		                            from Intern_DTR i, Intern_Status s";
+		                    from Intern_DTR i";
         }
 
         public static string dtrQuery4()
@@ -561,11 +564,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static void calculateDTR()
         {
             string query1 = dtrQuery1();
-            string query2 = dtrQuery2();
-            string query3 = dtrQuery3();
-            string query4 = dtrQuery4();
-            string query5 = dtrQuery5();
-            string query6 = dtrQuery6();
+            
 
             Connection_String.dbConnection();
             DataTable dt = new DataTable();
@@ -574,15 +573,21 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             foreach (DataRow row in dt.Rows)
             {
+                string query2 = dtrQuery2();
+                string query3 = dtrQuery3(row[0].ToString());
+                string query4 = dtrQuery4();
+                string query5 = dtrQuery5();
+                string query6 = dtrQuery6();
+
                 SqlCommand cmd2 = new SqlCommand(query2, Connection_String.con);
                 cmd2.Parameters.Add("@userID", SqlDbType.NVarChar);
-                cmd2.Parameters["@userID"].Value = row.ToString();
+                cmd2.Parameters["@userID"].Value = row[0].ToString();
 
                 SqlCommand cmd3 = new SqlCommand(query3, Connection_String.con);
 
                 SqlCommand cmd4 = new SqlCommand(query4, Connection_String.con);
                 cmd4.Parameters.Add("@userID", SqlDbType.NVarChar);
-                cmd4.Parameters["@userID"].Value = row.ToString(); ;
+                cmd4.Parameters["@userID"].Value = row[0].ToString();
 
                 SqlCommand cmd5 = new SqlCommand(query5, Connection_String.con);
                 SqlCommand cmd6 = new SqlCommand(query6, Connection_String.con);
@@ -609,7 +614,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             
             string query2 = dtrQuery2();
-            string query3 = dtrQuery3();
+            string query3 = dtrQuery3(ojt);
             string query4 = dtrQuery4();
             string query5 = dtrQuery5();
             string query6 = dtrQuery6();

@@ -165,16 +165,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInternUnreg = new System.Windows.Forms.Panel();
-            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
-            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
-            this.addUnregIntern = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.editInternPanelFind = new System.Windows.Forms.Panel();
-            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
-            this.btnSearchIntern = new System.Windows.Forms.Button();
-            this.label42 = new System.Windows.Forms.Label();
             this.panelModifLog = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
@@ -198,6 +188,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
+            this.addInternUnreg = new System.Windows.Forms.Panel();
+            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
+            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
+            this.addUnregIntern = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.editInternPanelFind = new System.Windows.Forms.Panel();
+            this.dataGridModiftIntern = new System.Windows.Forms.DataGridView();
+            this.btnSearchIntern = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -216,15 +216,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.addInternUnreg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
-            this.editInternPanelFind.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
             this.panelModifLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).BeginInit();
             this.viewDTRPanelWelcome.SuspendLayout();
             this.imisWelcome.SuspendLayout();
+            this.addInternUnreg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
+            this.editInternPanelFind.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -1598,6 +1598,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.addInternPanel);
+            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.panelModifLog);
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
@@ -1605,10 +1609,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.addInternUnreg);
-            this.mainPanel.Controls.Add(this.addInternPanel);
-            this.mainPanel.Controls.Add(this.editInternPanelFind);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1756,127 +1756,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
-            // 
-            // addInternUnreg
-            // 
-            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
-            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
-            this.addInternUnreg.Controls.Add(this.addUnregIntern);
-            this.addInternUnreg.Controls.Add(this.label66);
-            this.addInternUnreg.Controls.Add(this.label56);
-            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
-            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
-            this.addInternUnreg.Name = "addInternUnreg";
-            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
-            this.addInternUnreg.TabIndex = 39;
-            // 
-            // textFilter_unregInterns
-            // 
-            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFilter_unregInterns.Location = new System.Drawing.Point(104, 29);
-            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
-            this.textFilter_unregInterns.Size = new System.Drawing.Size(151, 26);
-            this.textFilter_unregInterns.TabIndex = 31;
-            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
-            // 
-            // dataGridUnregInterns
-            // 
-            this.dataGridUnregInterns.AllowUserToAddRows = false;
-            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
-            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
-            this.dataGridUnregInterns.MultiSelect = false;
-            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
-            this.dataGridUnregInterns.ReadOnly = true;
-            this.dataGridUnregInterns.RowHeadersWidth = 51;
-            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
-            this.dataGridUnregInterns.TabIndex = 30;
-            // 
-            // addUnregIntern
-            // 
-            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
-            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
-            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
-            this.addUnregIntern.Name = "addUnregIntern";
-            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
-            this.addUnregIntern.TabIndex = 29;
-            this.addUnregIntern.Text = "ADD";
-            this.addUnregIntern.UseVisualStyleBackColor = false;
-            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(522, 15);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(144, 13);
-            this.label66.TabIndex = 0;
-            this.label66.Text = "UNREGISTERED INTERNS";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(43, 35);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(64, 20);
-            this.label56.TabIndex = 32;
-            this.label56.Text = "Search:";
-            // 
-            // editInternPanelFind
-            // 
-            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
-            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
-            this.editInternPanelFind.Controls.Add(this.label42);
-            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
-            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
-            this.editInternPanelFind.Name = "editInternPanelFind";
-            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
-            this.editInternPanelFind.TabIndex = 52;
-            // 
-            // dataGridModiftIntern
-            // 
-            this.dataGridModiftIntern.AllowUserToAddRows = false;
-            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
-            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
-            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
-            this.dataGridModiftIntern.ReadOnly = true;
-            this.dataGridModiftIntern.RowHeadersWidth = 51;
-            this.dataGridModiftIntern.RowTemplate.Height = 24;
-            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
-            this.dataGridModiftIntern.TabIndex = 32;
-            // 
-            // btnSearchIntern
-            // 
-            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
-            this.btnSearchIntern.Name = "btnSearchIntern";
-            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchIntern.TabIndex = 31;
-            this.btnSearchIntern.Text = "MODIFY";
-            this.btnSearchIntern.UseVisualStyleBackColor = true;
-            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(583, 15);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(71, 13);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Search Intern";
             // 
             // panelModifLog
             // 
@@ -2143,6 +2022,127 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label44.TabIndex = 0;
             this.label44.Text = "Hi";
             // 
+            // addInternUnreg
+            // 
+            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
+            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
+            this.addInternUnreg.Controls.Add(this.addUnregIntern);
+            this.addInternUnreg.Controls.Add(this.label66);
+            this.addInternUnreg.Controls.Add(this.label56);
+            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
+            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2);
+            this.addInternUnreg.Name = "addInternUnreg";
+            this.addInternUnreg.Size = new System.Drawing.Size(1188, 577);
+            this.addInternUnreg.TabIndex = 39;
+            // 
+            // textFilter_unregInterns
+            // 
+            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFilter_unregInterns.Location = new System.Drawing.Point(104, 29);
+            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
+            this.textFilter_unregInterns.Size = new System.Drawing.Size(151, 26);
+            this.textFilter_unregInterns.TabIndex = 31;
+            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
+            // 
+            // dataGridUnregInterns
+            // 
+            this.dataGridUnregInterns.AllowUserToAddRows = false;
+            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
+            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 69);
+            this.dataGridUnregInterns.MultiSelect = false;
+            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
+            this.dataGridUnregInterns.ReadOnly = true;
+            this.dataGridUnregInterns.RowHeadersWidth = 51;
+            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridUnregInterns.Size = new System.Drawing.Size(1168, 496);
+            this.dataGridUnregInterns.TabIndex = 30;
+            // 
+            // addUnregIntern
+            // 
+            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
+            this.addUnregIntern.Location = new System.Drawing.Point(949, 15);
+            this.addUnregIntern.Name = "addUnregIntern";
+            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
+            this.addUnregIntern.TabIndex = 29;
+            this.addUnregIntern.Text = "ADD";
+            this.addUnregIntern.UseVisualStyleBackColor = false;
+            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(522, 15);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(144, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "UNREGISTERED INTERNS";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(43, 35);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(64, 20);
+            this.label56.TabIndex = 32;
+            this.label56.Text = "Search:";
+            // 
+            // editInternPanelFind
+            // 
+            this.editInternPanelFind.Controls.Add(this.dataGridModiftIntern);
+            this.editInternPanelFind.Controls.Add(this.btnSearchIntern);
+            this.editInternPanelFind.Controls.Add(this.label42);
+            this.editInternPanelFind.Location = new System.Drawing.Point(0, 66);
+            this.editInternPanelFind.Margin = new System.Windows.Forms.Padding(2);
+            this.editInternPanelFind.Name = "editInternPanelFind";
+            this.editInternPanelFind.Size = new System.Drawing.Size(1188, 579);
+            this.editInternPanelFind.TabIndex = 52;
+            // 
+            // dataGridModiftIntern
+            // 
+            this.dataGridModiftIntern.AllowUserToAddRows = false;
+            this.dataGridModiftIntern.AllowUserToDeleteRows = false;
+            this.dataGridModiftIntern.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridModiftIntern.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridModiftIntern.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridModiftIntern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridModiftIntern.Location = new System.Drawing.Point(4, 52);
+            this.dataGridModiftIntern.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridModiftIntern.Name = "dataGridModiftIntern";
+            this.dataGridModiftIntern.ReadOnly = true;
+            this.dataGridModiftIntern.RowHeadersWidth = 51;
+            this.dataGridModiftIntern.RowTemplate.Height = 24;
+            this.dataGridModiftIntern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridModiftIntern.Size = new System.Drawing.Size(1182, 523);
+            this.dataGridModiftIntern.TabIndex = 32;
+            // 
+            // btnSearchIntern
+            // 
+            this.btnSearchIntern.Location = new System.Drawing.Point(1077, 21);
+            this.btnSearchIntern.Name = "btnSearchIntern";
+            this.btnSearchIntern.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchIntern.TabIndex = 31;
+            this.btnSearchIntern.Text = "MODIFY";
+            this.btnSearchIntern.UseVisualStyleBackColor = true;
+            this.btnSearchIntern.Click += new System.EventHandler(this.btnSearchIntern_Click);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(583, 15);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(71, 13);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Search Intern";
+            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2186,12 +2186,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.addInternUnreg.ResumeLayout(false);
-            this.addInternUnreg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
-            this.editInternPanelFind.ResumeLayout(false);
-            this.editInternPanelFind.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
             this.panelModifLog.ResumeLayout(false);
             this.panelModifLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).EndInit();
@@ -2200,6 +2194,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.PerformLayout();
             this.imisWelcome.ResumeLayout(false);
             this.imisWelcome.PerformLayout();
+            this.addInternUnreg.ResumeLayout(false);
+            this.addInternUnreg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
+            this.editInternPanelFind.ResumeLayout(false);
+            this.editInternPanelFind.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridModiftIntern)).EndInit();
             this.ResumeLayout(false);
 
         }
