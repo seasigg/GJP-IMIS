@@ -674,8 +674,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             bs.DataSource = menuQueries.reportAcceptanceDataGrid1();
             dataGridAccept.DataSource = bs;
 
-            dataGridAccept.ClearSelection();
+            
             dataGridAccept.AutoResizeColumns();
+            dataGridAccept.ClearSelection();
         }
 
         private void btnGenerateCert_Click(object sender, EventArgs e)
