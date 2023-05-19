@@ -24,27 +24,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             return dt;
         }
         
-        //MAIN MENU - INTERN PANEL - INTERN DATA GRID
-        public static DataTable viewInternPlain()
-        {
-            String query = "SELECT Intern_Info.OJT_Number as 'OJT ID'," +
-                "Intern_Info.Last_Name as 'Last Name'," +
-                "Intern_Info.First_Name as 'First Name'," +
-                "Course.Course_Name as 'Course'," +
-                "University.University_Name as 'University'," +
-                "CONCAT(Coordinator_Info.First_Name, ' ', Coordinator_Info.Last_Name) as 'Coordinator'," +
-                "Office.Office_Name as 'Office Deployed'," +
-                "Intern_Status.Status as 'Status'" +
-                "from Intern_Info " +
-                "INNER JOIN Course ON Intern_Info.Course_ID = Course.Course_ID " +
-                "INNER JOIN University ON Intern_Info.University_ID = University.University_ID " +
-                "INNER JOIN Coordinator_Info ON Intern_Info.Coordinator_ID = Coordinator_Info.Coordinator_ID " +
-                "INNER JOIN Office ON Intern_Info.Office_ID = Office.Office_ID " +
-                "INNER JOIN Intern_Status ON Intern_Info.id = Intern_Status.id";
-            return dataTable(query);
-        }
-        
-        // IMIS REMASTERED
+        // intern data table
         public static DataTable viewInternPlain1()
         {
             String query = @"SELECT Intern_Info.OJT_Number as 'OJT ID',
@@ -56,11 +36,12 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                         (CAST(Intern_Status.Current_Hours / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,Intern_Status.Current_Hours,0),108),6)) as 'Hours Rendered',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
                         Intern_Status.Status as 'Status'
-                        FROM Intern_Info 
+                        FROM Intern_Info
                         INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number";
             return dataTable(query);
         }
-
+        
+        // unreg interns
         public static DataTable viewUnregInternPlain()
         {
             String query = @"SELECT DISTINCT
@@ -74,7 +55,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             return dataTable(query);
         }
 
-        // acceptance letter data grid query
+        // acceptance letter data grid
         public static DataTable reportAcceptanceDataGrid1()
         {
             return dataTable(@"SELECT DISTINCT
@@ -82,7 +63,8 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern'
                 FROM Intern_Info ");
         }
-
+        
+        // intern logs
         public static DataTable insertInternLogDataGrid()
         {
             return dataTable(@"SELECT DISTINCT
@@ -92,43 +74,5 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                 FROM Intern_Info ");
         }
 
-        //MAIN MENU - UNIVERSITY PANEL/ADDRESSE PANEL - UNIVERSITY DATA GRID
-        public static DataTable universityDataGrid()
-        {
-            return dataTable("select University_ID as 'University ID', University_Name as 'University Name' from University");
-        }
-
-        public static DataTable coordinatorDataGridUnfiltered()
-        {
-            return dataTable("SELECT CONCAT(Coordinator_Info.First_Name, ' ' , Coordinator_Info.Middle_Initial, '. ' , Coordinator_Info.Last_Name) AS 'Coordinator Name', " +
-                "Coordinator_Info.Gender, " +
-                "Coordinator_Info.Position, " +
-                "Coordinator_Info.Department, " +
-                "University.University_Name " +
-                "FROM Coordinator_Info " +
-                "INNER JOIN University ON Coordinator_Info.University_ID = University.University_ID");
-        }
-
-        public static DataTable coordinatorDataGridFiltered(int id)
-        {
-            return dataTable("SELECT CONCAT(Coordinator_Info.First_Name, ' ' , Coordinator_Info.Middle_Initial, '. ' , Coordinator_Info.Last_Name) AS 'Coordinator Name', " +
-                "Coordinator_Info.Gender, " +
-                "Coordinator_Info.Position, " +
-                "Coordinator_Info.Department, " +
-                "University.University_Name " +
-                "FROM Coordinator_Info " +
-                "INNER JOIN University ON Coordinator_Info.University_ID = University.University_ID " +
-                "WHERE Coordinator_Info.University_ID = '"+id+"'");
-        }
-
-        public static DataTable reportAcceptanceDataGrid()
-        {
-            return dataTable("SELECT DISTINCT " +
-                "OJT_Number AS 'OJT Number', " +
-                "CONCAT(First_Name, ' ' , Middle_Initial, '. ', Last_Name) AS 'Intern' " +
-                "FROM Intern_Info ");
-        }
-
-        
     }
 }

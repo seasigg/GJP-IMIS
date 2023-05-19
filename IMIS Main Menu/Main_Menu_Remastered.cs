@@ -14,8 +14,6 @@ using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Stored_Queries;
 using GJP_IMIS.IMIS_Methods.AutoComplete;
 
-
-using GJP_IMIS.IMIS_Class;
 using System.Data.SqlClient;
 using GJP_IMIS.IMIS_Methods.Report_Queries;
 using GJP_IMIS.Reports;
@@ -252,7 +250,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 DialogResult dr = MessageBox.Show("CONFIRM ADD INTERN", "Add Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    InternQueries.addInternData(ojtNumber, fname, mini, lname, suffix, gender, course, univ, coordName, coordSal, coordPos, coordDept, office, ojtTerminal);
+                    InternQueries.addInternData(ojtNumber, fname, mini, lname, suffix,
+                        gender, course, univ, coordName, coordSal, coordPos, coordDept, office, ojtTerminal);
                     InternQueries.addInternStatus1(ojtNumber, startDate, schedAM, schedPM, hours);
 
                     MessageBox.Show("Intern Successfully Registered on the Database", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -910,7 +909,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void populateUnivReport()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = InternQueries.getUniversities1();
+            bs.DataSource = ReportQueries.getUniversities();
             reportUnivCombo.DataSource = bs;
             reportUnivCombo.DisplayMember = "School_Name";
             reportUnivCombo.ValueMember = "School_Name";
@@ -919,7 +918,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void populateOfficeReport()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = InternQueries.getOffices1();
+            bs.DataSource = ReportQueries.getOffices();
             reportOfficeCombo.DataSource = bs;
             reportOfficeCombo.DisplayMember = "Office_Name";
             reportOfficeCombo.ValueMember = "Office_Name";
@@ -928,7 +927,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void populateCourseReport()
         {
             BindingSource bs = new BindingSource();
-            bs.DataSource = InternQueries.getCourses1();
+            bs.DataSource = ReportQueries.getCourses();
             reportCourseCombo.DataSource = bs;
             reportCourseCombo.DisplayMember = "Course";
             reportCourseCombo.ValueMember = "Course";
@@ -998,7 +997,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // generate report button
         private void internButtonGenerate_Click(object sender, EventArgs e)
         {
-            string query = ReportQueries.reportsInternQuery1();
+            string query = ReportQueries.reportsInternQuery();
             string filter = "";
             ReportViewer rv = new ReportViewer();
 
@@ -1044,7 +1043,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 rv.viewInternReport(query);
             }
             else
-                rv.viewInternReport(ReportQueries.reportsInternQuery1());
+                rv.viewInternReport(ReportQueries.reportsInternQuery());
             
             rv.ShowDialog();
         }

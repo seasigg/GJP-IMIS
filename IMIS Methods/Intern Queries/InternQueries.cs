@@ -25,8 +25,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dt;
         }
 
-        // ------------------------ Adding of Interns ------------------------ //
-        
+        // ---------------------------------------------- ADD INTERNS QUERIES ----------------------------------------------
+        // data validation
         public static Boolean isInternExist(string ojt)
         {
             Connection_String.dbConnection();
@@ -85,7 +85,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             Connection_String.con.Dispose();
         }
-
+        // add intern data query
         private static string addInternQuery()
         {
             return @"INSERT into Intern_Info
@@ -119,9 +119,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.ExecuteNonQuery();
 
             Connection_String.con.Dispose();
-
         }
 
+        // add intern status query
         private static string addInternStatusQuery()
         {
             return @"INSERT into Intern_Status
@@ -129,6 +129,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     (@ojtID, @start, @scheduleAM, @schedulePM, @targetHours, @currentHours, @status)";
         }
 
+        // ---------------------------------------------- END OF ADD INTERNS QUERIES ----------------------------------------------
+
+        // ---------------------------------------------- UPDATE INTERNS QUERIES ----------------------------------------------
         // update intern data
         public static void updateInternData(string ojt, string f, string m,
             string l, string s, string g, string u,
@@ -169,7 +172,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             Connection_String.con.Dispose();
         }
 
-        // update intern query
+        // update intern data query
         private static string updateInternDataQuery()
         {
             return @"UPDATE Intern_Info SET 
@@ -209,6 +212,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             cmd.ExecuteNonQuery();
             Connection_String.con.Dispose();
         }
+
         // update intern status query
         private static string updateInternStatusQuery()
         {
@@ -221,7 +225,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     WHERE OJT_Number = @ojtID";
         }
         
-        // query for edit intern
+        // query for populating intern data
         public static string editInternQuery()
         {
             return @"SELECT DISTINCT Intern_Info.OJT_Number as 'OJT ID',
@@ -248,6 +252,10 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                         WHERE Intern_Info.OJT_Number = @ojtID";
         }
 
+        // ---------------------------------------------- END OF UPDATE INTERNS QUERIES ----------------------------------------------
+
+        // ---------------------------------------------- ADD INTERNS LOGS QUERIES ----------------------------------------------
+        // add intern log
         public static void insertInternLog(int ojtID, string date, string time, string name)
         {
             string res = "Success";
@@ -269,6 +277,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             Connection_String.con.Dispose();
         }
 
+        // add intern log query
         private static string insertInternLogQuery()
         {
             return @"INSERT into Intern_Logs
@@ -276,6 +285,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     (@date, @time, @ojtID, @name, @res)";
         }
 
+        // display intern logs
         public static DataTable internLogsData(int id)
         {
             Connection_String.dbConnection();
@@ -290,7 +300,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             return dt;
         }
-
+        // display intern logs query
         private static string internLogsQuery()
         {
             return @"select Date as 'Date',
@@ -303,76 +313,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     ORDER BY Date DESC";
         }
 
-        public static void updateInternLog(int ojtID,
-            string oldTime, string oldDate,
-            string newTime, string newDate)
-        {
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand(updateInternLogQuery(), Connection_String.con);
-            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
-            cmd.Parameters.Add("@oldTime", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@oldDate", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@newTime", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@newDate", SqlDbType.NVarChar);
+        // ---------------------------------------------- END OF ADD INTERNS LOGS QUERIES ----------------------------------------------
 
-            cmd.Parameters["@ojtID"].Value = ojtID;
-            cmd.Parameters["@oldTime"].Value = oldTime;
-            cmd.Parameters["@oldDate"].Value = oldDate;
-            cmd.Parameters["@newTime"].Value = newTime;
-            cmd.Parameters["@newDate"].Value = newDate;
-
-            cmd.ExecuteNonQuery();
-            Connection_String.con.Dispose();
-        }
-
-        private static string updateInternLogQuery()
-        {
-            return @"UPDATE Intern_Logs 
-                    SET 
-                    Date = @newDate, 
-                    Time = @newTime 
-                    WHERE 
-                    UserID = @ojtID 
-                    AND Date = @oldDate 
-                    AND Time = @oldTime ";
-        }
-
-        public static DataTable getUniversities1()
-        {
-            return dataTable("SELECT DISTINCT Intern_Info.School_Name FROM Intern_Info;");
-        }
-        public static DataTable getOffices1()
-        {
-            return dataTable("SELECT DISTINCT Intern_Info.Office_Name FROM Intern_Info;");
-        }
-        public static DataTable getCourses1()
-        {
-            return dataTable("SELECT DISTINCT Intern_Info.Course FROM Intern_Info");
-        }
-
-        // ------- END OF IMIS REMASTERED -------
-
-        /////////////////////////////////////////////////
-        public static DataTable getUniversities()
-        {
-            return dataTable("SELECT * FROM University ORDER BY University_Name ASC");
-        }
-
-        public static DataTable getCourses()
-        {
-            return dataTable("SELECT * FROM Course ORDER BY Course_Name ASC");
-        }
-
-        public static DataTable getOffices()
-        {
-            return dataTable("SELECT * FROM Office");
-        }
-
-        public static DataTable checkCoordinator(int uID)
-        {
-            return dataTable("SELECT Coordinator_ID, Last_Name +', '+ First_Name +' '+Middle_Initial as 'FullName' FROM Coordinator_Info WHERE University_ID = "+uID+"");
-        }
-
+        // ---------------------------------------------- DTR QUERIES ----------------------------------------------
         public static string dtrQuery1()
         {
             return @"select 
@@ -382,17 +325,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                             inner join Intern_Status s
                             on i.OJT_Number = s.OJT_Number
                             where s.Status = 'INCOMPLETE'";
-        }
-
-        public static string dtrQuery11()
-        {
-            return @"select 
-	                            i.OJT_Number
-
-                            from Intern_Info i
-                            inner join Intern_Status s
-                            on i.OJT_Number = s.OJT_Number
-                            where s.Status = 'INCOMPLETE' AND i.OJT_Number = @ojtID";
         }
 
         public static string dtrQuery2()
@@ -419,7 +351,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static string dtrQuery3(string id)
         {
             return 
-                    
                     "declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = '"+id+"') " +
                     "declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = '"+id+"') " +
                     @"declare @break_AM Time(0) = '12:00:00'
@@ -524,7 +455,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         {
             string query1 = dtrQuery1();
             
-
             Connection_String.dbConnection();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(query1, Connection_String.con);
@@ -607,5 +537,6 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                 
             Connection_String.con.Dispose();
         }
+
     }
 }

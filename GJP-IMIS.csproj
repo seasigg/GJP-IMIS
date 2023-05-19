@@ -55,8 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMIS Class\Classes.cs" />
-    <Compile Include="IMIS Class\DataTables.cs" />
     <Compile Include="IMIS Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>

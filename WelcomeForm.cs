@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Threading;
 
 using GJP_IMIS.IMIS_Login;
-using GJP_IMIS.IMIS_Class;
 using GJP_IMIS.IMIS_Main_Menu;
 
 namespace GJP_IMIS
