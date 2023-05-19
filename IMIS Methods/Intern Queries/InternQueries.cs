@@ -25,49 +25,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
             return dt;
         }
 
-
-        // -------------------- Add Intern Form -------------------- //
-
-        // OJT ID
-        public static Boolean checkYearData()
-        {
-            string currentYear = "%" + DateTime.Now.Year.ToString() + "%";
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Intern_Info WHERE OJT_Number LIKE '" + currentYear + "'", Connection_String.con);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
-                return true;
-
-            Connection_String.con.Dispose();
-
-            return false;
-        }
-
-        public static string addOJTNumberIncrement()
-        {
-            string currentID = "";
-            
-            Connection_String.dbConnection();
-            SqlCommand cmd = new SqlCommand("SELECT MAX(OJT_Number) FROM Intern_Info", Connection_String.con);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
-                currentID = dr.GetString(0);
-
-            int incremented = Convert.ToInt32(currentID);
-            incremented++;
-
-            Connection_String.con.Dispose();
-
-            return incremented.ToString("D3");
-        }
-        
         // ------------------------ Adding of Interns ------------------------ //
-        // IMIS
         
-
-        // ------- IMIS REMASTERED -------
         public static Boolean isInternExist(string ojt)
         {
             Connection_String.dbConnection();
