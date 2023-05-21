@@ -278,8 +278,10 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000002')
 
 					select
+						n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial as 'Name',
+						n.Office_Name,
 						i.UserID,
-						i.Date,
+						convert(varchar, cast(i.Date as datetime), 106) as 'Date',
 						i.Time_In,
 						i.Lunch,
 						i.Time_Out,
@@ -311,7 +313,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 							end as 'Remark'
 	
 
-					from Intern_DTR_Report i";
+					from Intern_DTR_Report i
+					inner join Intern_Info n
+					on i.UserID = n.OJT_Number";
         }
 
 		public static string reportTestDTR6()

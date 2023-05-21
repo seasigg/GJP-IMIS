@@ -1134,6 +1134,10 @@ namespace GJP_IMIS.Reports {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class InternDTRDataTable : global::System.Data.TypedTableBase<InternDTRRow> {
             
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnOffice_Name;
+            
             private global::System.Data.DataColumn columnUserID;
             
             private global::System.Data.DataColumn columnDate;
@@ -1179,6 +1183,22 @@ namespace GJP_IMIS.Reports {
             protected InternDTRDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Office_NameColumn {
+                get {
+                    return this.columnOffice_Name;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1274,9 +1294,11 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InternDTRRow AddInternDTRRow(string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Hours_Rendered, string Remark) {
+            public InternDTRRow AddInternDTRRow(string Name, string Office_Name, string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Hours_Rendered, string Remark) {
                 InternDTRRow rowInternDTRRow = ((InternDTRRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        Name,
+                        Office_Name,
                         UserID,
                         Date,
                         Time_In,
@@ -1306,6 +1328,8 @@ namespace GJP_IMIS.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnName = base.Columns["Name"];
+                this.columnOffice_Name = base.Columns["Office_Name"];
                 this.columnUserID = base.Columns["UserID"];
                 this.columnDate = base.Columns["Date"];
                 this.columnTime_In = base.Columns["Time_In"];
@@ -1318,6 +1342,10 @@ namespace GJP_IMIS.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnOffice_Name = new global::System.Data.DataColumn("Office_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOffice_Name);
                 this.columnUserID = new global::System.Data.DataColumn("UserID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserID);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2455,6 +2483,38 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Office_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.Office_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Office_Name\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.Office_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string UserID {
                 get {
                     try {
@@ -2563,6 +2623,30 @@ namespace GJP_IMIS.Reports {
                 set {
                     this[this.tableInternDTR.RemarkColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tableInternDTR.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNameNull() {
+                this[this.tableInternDTR.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOffice_NameNull() {
+                return this.IsNull(this.tableInternDTR.Office_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOffice_NameNull() {
+                this[this.tableInternDTR.Office_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
