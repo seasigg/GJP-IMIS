@@ -1144,7 +1144,7 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnTime_Out;
             
-            private global::System.Data.DataColumn columnTime_Rendered;
+            private global::System.Data.DataColumn columnHours_Rendered;
             
             private global::System.Data.DataColumn columnRemark;
             
@@ -1223,9 +1223,9 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Time_RenderedColumn {
+            public global::System.Data.DataColumn Hours_RenderedColumn {
                 get {
-                    return this.columnTime_Rendered;
+                    return this.columnHours_Rendered;
                 }
             }
             
@@ -1274,7 +1274,7 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InternDTRRow AddInternDTRRow(string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Time_Rendered, string Remark) {
+            public InternDTRRow AddInternDTRRow(string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Hours_Rendered, string Remark) {
                 InternDTRRow rowInternDTRRow = ((InternDTRRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UserID,
@@ -1282,7 +1282,7 @@ namespace GJP_IMIS.Reports {
                         Time_In,
                         Lunch,
                         Time_Out,
-                        Time_Rendered,
+                        Hours_Rendered,
                         Remark};
                 rowInternDTRRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInternDTRRow);
@@ -1311,7 +1311,7 @@ namespace GJP_IMIS.Reports {
                 this.columnTime_In = base.Columns["Time_In"];
                 this.columnLunch = base.Columns["Lunch"];
                 this.columnTime_Out = base.Columns["Time_Out"];
-                this.columnTime_Rendered = base.Columns["Time_Rendered"];
+                this.columnHours_Rendered = base.Columns["Hours_Rendered"];
                 this.columnRemark = base.Columns["Remark"];
             }
             
@@ -1328,8 +1328,8 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnLunch);
                 this.columnTime_Out = new global::System.Data.DataColumn("Time_Out", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTime_Out);
-                this.columnTime_Rendered = new global::System.Data.DataColumn("Time_Rendered", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTime_Rendered);
+                this.columnHours_Rendered = new global::System.Data.DataColumn("Hours_Rendered", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHours_Rendered);
                 this.columnRemark = new global::System.Data.DataColumn("Remark", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemark);
             }
@@ -2535,17 +2535,17 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Time_Rendered {
+            public string Hours_Rendered {
                 get {
                     try {
-                        return ((string)(this[this.tableInternDTR.Time_RenderedColumn]));
+                        return ((string)(this[this.tableInternDTR.Hours_RenderedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Time_Rendered\' in table \'InternDTR\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Hours_Rendered\' in table \'InternDTR\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInternDTR.Time_RenderedColumn] = value;
+                    this[this.tableInternDTR.Hours_RenderedColumn] = value;
                 }
             }
             
@@ -2627,14 +2627,14 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTime_RenderedNull() {
-                return this.IsNull(this.tableInternDTR.Time_RenderedColumn);
+            public bool IsHours_RenderedNull() {
+                return this.IsNull(this.tableInternDTR.Hours_RenderedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTime_RenderedNull() {
-                this[this.tableInternDTR.Time_RenderedColumn] = global::System.Convert.DBNull;
+            public void SetHours_RenderedNull() {
+                this[this.tableInternDTR.Hours_RenderedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

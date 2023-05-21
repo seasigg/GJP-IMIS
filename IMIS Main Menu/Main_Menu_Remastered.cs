@@ -18,12 +18,13 @@ using System.Data.SqlClient;
 using GJP_IMIS.IMIS_Methods.Report_Queries;
 using GJP_IMIS.Reports;
 using System.IO;
+using System.Threading;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
     public partial class Main_Menu_Remastered : Form
     {
-
+        loadingScreen loadScreen = new loadingScreen();
         public Main_Menu_Remastered()
         {
             InitializeComponent();
@@ -49,10 +50,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ------------------------------------------------------------ INTERN STRIP ------------------------------------------------------------
 
         // refresh intern dtr
-        private void buttonRefresh_Click(object sender, EventArgs e)
+        private async void buttonRefresh_Click(object sender, EventArgs e)
         {
-            InternQueries.calculateDTR();
-            setViewInternDataGrid();
+            
+            buttonRefresh.Enabled = false;
+            loadScreen.Show();
+            loadScreen.TopMost = true;
+            await Task.Run(() => {
+                try
+                {
+                    InternQueries.calculateDTR();
+                    setViewInternDataGrid();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Refresh Button Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            });
+            loadScreen.Hide();
+            buttonRefresh.Enabled = true;
+
+            
+
         }
 
         // ********* ADD UNREGISTERED INTERNS *********
@@ -72,33 +91,89 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridUnregInterns.ClearSelection();
         }
         // unreg interns
-        private void addUnregIntern_Click(object sender, EventArgs e)
+        private async void addUnregIntern_Click(object sender, EventArgs e)
         {
-            if (dataGridUnregInterns.Rows.Count != 0)
-            {
-                addInternPanel.BringToFront();
-                txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString();
-                txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString();
-
+            var internPanel = new Action(() => { addInternPanel.BringToFront(); });
+            var tbOJTNumber = new Action(() => { txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString(); });
+            var tbTerminalName = new Action(() => { txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString(); });
+            var tbCoordinatorName = new Action(() => {
                 txtCoordinatorName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
                 txtCoordinatorName.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCoordinatorName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            });
+            var tbUniversity = new Action(() => {
                 txtUniversity.AutoCompleteCustomSource = acQueries.getAC_University();
                 txtUniversity.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtUniversity.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            });
+            var tbOffice = new Action(() => {
                 txtOffice.AutoCompleteCustomSource = acQueries.getAC_Office();
                 txtOffice.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtOffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            });
+            var tbCourse = new Action(() => {
                 txtCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
                 txtCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            });
+            var tbCoordPosition = new Action(() => {
                 txtCoordPosition.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
                 txtCoordPosition.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCoordPosition.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            });
+
+            
+            if (dataGridUnregInterns.Rows.Count != 0)
+            {
+                addUnregIntern.Enabled = false;
+                loadScreen.Show();
+                loadScreen.TopMost = true;
+
+                await Task.Run(() => {
+                        
+                    if (addInternPanel.InvokeRequired)
+                        addInternPanel.Invoke(new Action(() => internPanel()));
+                    else
+                        internPanel();
+
+                    if (txtOjtNum.InvokeRequired)
+                        txtOjtNum.Invoke(new Action(() => tbOJTNumber()));
+                    else
+                        tbOJTNumber();
+
+                    if (txtTerminalName.InvokeRequired)
+                        txtTerminalName.Invoke(new Action(() => tbTerminalName()));
+                    else
+                        tbTerminalName();
+
+                    if (txtCoordinatorName.InvokeRequired)
+                        txtCoordinatorName.Invoke(new Action(() => tbCoordinatorName()));
+                    else
+                        tbCoordinatorName();
+
+                    if (txtUniversity.InvokeRequired)
+                        txtUniversity.Invoke(new Action(() => tbUniversity()));
+                    else
+                        tbUniversity();
+
+                    if (txtOffice.InvokeRequired)
+                        txtOffice.Invoke(new Action(() => tbOffice()));
+                    else
+                        tbOffice();
+
+                    if (txtCourse.InvokeRequired)
+                        txtCourse.Invoke(new Action(() => tbCourse()));
+                    else
+                        tbCourse();
+
+                    if (txtCoordPosition.InvokeRequired)
+                        txtCoordPosition.Invoke(new Action(() => tbCoordPosition()));
+                    else
+                        tbCoordPosition();
+                });
+
+                addUnregIntern.Enabled = true;
+                loadScreen.Hide();
             }
             else
                 MessageBox.Show("There are no unregistered interns", "Add Intern", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -112,27 +187,38 @@ namespace GJP_IMIS.IMIS_Main_Menu
         }
 
         // ********** VIEW INTERN **********
+
+        
         private void setViewInternDataGrid()
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = menuQueries.viewInternPlain1();
-
-            dataGridInterns.DataSource = null;
-            dataGridInterns.DataSource = bs;
             
-            dataGridInterns.ClearSelection();
-            dataGridInterns.AutoResizeColumns();
+            var method = new Action(() => {
+                dataGridInterns.DataSource = null;
+                dataGridInterns.DataSource = bs;
+                dataGridInterns.ClearSelection();
+                dataGridInterns.AutoResizeColumns();
 
-            dataGridInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridInterns.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            });
+
+            if(dataGridInterns.InvokeRequired)
+                dataGridInterns.Invoke(new Action(() => method())); 
+            else
+                method();
+            
         }
+
+
         // ********** END OF VIEW INTERN **********
 
         // ********** ADD INTERN **********

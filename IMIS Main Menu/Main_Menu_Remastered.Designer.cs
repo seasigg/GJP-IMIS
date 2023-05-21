@@ -1579,9 +1579,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.editInternPanel);
-            this.mainPanel.Controls.Add(this.panelModifLog);
-            this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
             this.mainPanel.Controls.Add(this.imisWelcome);
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
@@ -1589,6 +1586,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
             this.mainPanel.Controls.Add(this.addInternPanel);
+            this.mainPanel.Controls.Add(this.editInternPanel);
+            this.mainPanel.Controls.Add(this.panelModifLog);
+            this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);

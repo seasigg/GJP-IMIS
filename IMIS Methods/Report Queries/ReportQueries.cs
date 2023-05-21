@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 using GJP_IMIS.IMIS_Methods.Intern_Queries;
 using GJP_IMIS.IMIS_Methods.Database_Connection;
@@ -128,5 +129,194 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                 FROM Intern_Info ";
         }
 
+        // ---------------------------------------------- TESTING REPORT INTERN DTR ----------------------------------------------
+
+        public static string reportTestDTR1()
+        {
+            return @"use IMIS
+                    insert into Intern_DTR_Report (UserID, Date, Time_In, Time_Out)
+
+	                                            select
+		                                            i.UserID,
+		                                            i.Date,
+		                                            min(i.Time),
+
+		                                            case
+			                                            when max(i.Time) = min(i.Time) then null
+			                                            else max(i.Time)
+		                                            end
+
+		                                            from Intern_Logs i
+                                                    where i.UserID = '00000002'
+
+		                                            group by i.UserID, i.Date
+		                                            order by i.Date";
+        }
+
+        public static string reportTestDTR2()
+        {
+			return @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number ='00000002')
+					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000002')
+					declare @break_AM Time(0) = '12:00:00'
+					declare @break_PM Time(0) = '13:00:00'
+
+                    update i
+	                    set i.Hours_Rendered = case
+		                    --Check if DTR is complete
+		                    when i.Time_Out is not null then
+			                    case
+				                    --During lunch Time In
+				                    when i.Time_In > @break_AM and i.Time_In < @break_PM then
+					                    case
+						                    when i.Time_Out <= @sched_PM then
+							                    datediff(second, @break_PM, i.Time_Out)
+
+						                    when i.Time_Out > @sched_PM then
+							                    datediff(second, @break_PM, @sched_PM)
+						                    end
+
+				                    --After 1pm Time In
+				                    when i.Time_In >= @break_PM then
+					                    case
+						                    --Time Out After Sched
+						                    when i.Time_Out > @sched_PM then
+							                    datediff(second, i.Time_In, @sched_PM)
+
+						                    --Time Out Before Sched
+						                    when i.Time_Out <= @sched_PM then
+							                    datediff(second, i.Time_In, i.Time_Out)
+						                    end
+
+
+
+				                    --Early Time In
+				                    when i.Time_In < @sched_AM then
+					                    case
+						                    when i.Time_Out <= @break_AM then
+							                    datediff(second, @sched_AM, i.Time_Out)
+
+						                    when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                    (datediff(second, @sched_AM, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+
+						                    when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							                    (datediff(second, @sched_AM, i.Time_Out) - 3600)
+
+						                    when i.Time_Out > @sched_PM then
+							                    (datediff(second, @sched_AM, @sched_PM) - 3600)
+						                    end
+
+
+				                    --Late Time In
+				                    when i.Time_In > @sched_AM then
+					                    case
+						                    when i.Time_Out <= @break_AM then
+							                    datediff(second, i.Time_In, i.Time_Out)
+
+						                    when i.Time_Out > @break_AM and i.Time_Out < @break_PM then
+							                    (datediff(second, i.Time_In, i.Time_Out)  - datediff(second, @break_AM, i.Time_Out))
+
+						                    when i.Time_Out >= @break_PM and i.Time_Out <= @sched_PM then
+							                    (datediff(second, i.Time_In, i.Time_Out) - 3600)
+
+						                    when i.Time_Out > @sched_PM then
+							                    (datediff(second, i.Time_In, @sched_PM) - 3600)
+
+						                    end
+				                    end
+		
+		                    else null
+		                    end
+
+		                    from Intern_DTR_Report i";
+		}
+
+		public static string reportTestDTR3()
+        {
+			return @"use IMIS
+
+					update d
+					set Lunch = 
+						case 
+							when l.Time != d.Time_Out then l.Time
+							else null
+							end
+					
+
+					from Intern_DTR_Report d
+					inner join Intern_Logs l
+					on d.UserID = l.UserID
+					and d.Date = l.Date
+					and l.Time >= '12:00:00'
+					and l.Time < '13:00:00'";
+        }
+
+		public static string reportTestDTR4()
+        {
+			return @"use IMIS
+
+					update d
+					set Lunch = 
+						case 
+							when l.Time != d.Time_Out then l.Time
+							else null
+							end
+					
+
+					from Intern_DTR_Report d
+					inner join Intern_Logs l
+					on d.UserID = l.UserID
+					and d.Date = l.Date
+					and l.Time >= '12:00:00'
+					and l.Time < '13:00:00'";
+        }
+
+		public static string reportTestDTR5()
+        {
+			return @"use IMIS
+					declare @break_AM Time(0) = '12:00:00'
+					declare @break_PM Time(0) = '13:00:00'
+					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000002')
+
+					select
+						i.UserID,
+						i.Date,
+						i.Time_In,
+						i.Lunch,
+						i.Time_Out,
+						(CAST(i.Hours_Rendered / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,i.Hours_Rendered,0),108),6)) as 'Hours_Rendered',
+						case
+		
+							when i.Time_Out is not null then
+								case
+				
+									when i.Lunch is null then
+										case
+											when i.Time_Out < @break_PM then 'Half Day'
+											when i.Time_Out >= @break_PM then 'No Lunch'
+											end
+
+									when i.Time_In >= @break_PM then 'Half Day'
+					
+
+				
+									when i.Lunch is not null then
+										case
+											when i.Time_Out < @sched_PM then 'Undertime'
+											when i.Time_Out >= @sched_PM then ''
+											end
+
+									end
+		
+							else 'No Timeout'
+							end as 'Remark'
+	
+
+					from Intern_DTR_Report i";
+        }
+
+		public static string reportTestDTR6()
+        {
+			return @"truncate table Intern_DTR_Report";
+        }
     }
 }

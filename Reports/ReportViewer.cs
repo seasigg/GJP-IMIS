@@ -93,12 +93,34 @@ namespace GJP_IMIS.Reports
 
         public void viewInternDTR()
         {
+            Connection_String.dbConnection();
+            SqlCommand cmd1 = new SqlCommand(ReportQueries.reportTestDTR1(), Connection_String.con);
+            SqlCommand cmd2 = new SqlCommand(ReportQueries.reportTestDTR2(), Connection_String.con);
+            SqlCommand cmd3 = new SqlCommand(ReportQueries.reportTestDTR3(), Connection_String.con);
+            SqlCommand cmd4 = new SqlCommand(ReportQueries.reportTestDTR4(), Connection_String.con);
+            SqlCommand cmd6 = new SqlCommand(ReportQueries.reportTestDTR6(), Connection_String.con);
+
+            cmd1.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
+            cmd4.ExecuteNonQuery();
+
+            cmd1.Dispose();
+            cmd2.Dispose();
+            cmd3.Dispose();
+            cmd4.Dispose();
+
+
             ReportDataSet ds = new ReportDataSet();
             ReportInternDTR dtr = new ReportInternDTR();
 
             Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(storedQueries.reportInternDTR, Connection_String.con);
+            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.reportTestDTR5(), Connection_String.con);
             da.Fill(ds, "InternDTR");
+
+            cmd6.ExecuteNonQuery();
+            cmd6.Dispose();
+
             Connection_String.con.Dispose();
 
             dtr.SetDataSource(ds.Tables["InternDTR"]);
