@@ -256,14 +256,14 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         // ---------------------------------------------- ADD INTERNS LOGS QUERIES ----------------------------------------------
         // add intern log
-        public static void insertInternLog(int ojtID, string date, string time, string name)
+        public static void insertInternLog(string ojtID, string date, string time, string name)
         {
             string res = "Success";
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(insertInternLogQuery(), Connection_String.con);
             cmd.Parameters.Add("@date", SqlDbType.NVarChar);
             cmd.Parameters.Add("@time", SqlDbType.NVarChar);
-            cmd.Parameters.Add("@ojtID", SqlDbType.Int);
+            cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
             cmd.Parameters.Add("@res", SqlDbType.NVarChar);
             cmd.Parameters.Add("@name", SqlDbType.NVarChar);
 
@@ -286,11 +286,11 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // display intern logs
-        public static DataTable internLogsData(int id)
+        public static DataTable internLogsData(string id)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(internLogsQuery(), Connection_String.con);
-            cmd.Parameters.Add("@ojtId", SqlDbType.Int);
+            cmd.Parameters.Add("@ojtId", SqlDbType.NVarChar);
             cmd.Parameters["@ojtId"].Value = id;
 
             DataTable dt = new DataTable();

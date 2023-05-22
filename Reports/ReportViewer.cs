@@ -122,11 +122,11 @@ namespace GJP_IMIS.Reports
             cmd6.Dispose();
 
             Connection_String.con.Dispose();
-
+            da.Dispose();
             dtr.SetDataSource(ds.Tables["InternDTR"]);
             crystalReportViewer1.ReportSource = dtr;
             crystalReportViewer1.Refresh();
-            ds.Dispose();
+            ds.Dispose();    
         }
 
 

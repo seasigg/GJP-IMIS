@@ -1152,6 +1152,14 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnRemark;
             
+            private global::System.Data.DataColumn columnTarget_Hours;
+            
+            private global::System.Data.DataColumn columnCourse;
+            
+            private global::System.Data.DataColumn columnSchool;
+            
+            private global::System.Data.DataColumn columnTotal_Rendered;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public InternDTRDataTable() {
@@ -1259,6 +1267,38 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Target_HoursColumn {
+                get {
+                    return this.columnTarget_Hours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CourseColumn {
+                get {
+                    return this.columnCourse;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SchoolColumn {
+                get {
+                    return this.columnSchool;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Total_RenderedColumn {
+                get {
+                    return this.columnTotal_Rendered;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1294,7 +1334,7 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public InternDTRRow AddInternDTRRow(string Name, string Office_Name, string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Hours_Rendered, string Remark) {
+            public InternDTRRow AddInternDTRRow(string Name, string Office_Name, string UserID, string Date, string Time_In, string Lunch, string Time_Out, string Hours_Rendered, string Remark, string Target_Hours, string Course, string School, string Total_Rendered) {
                 InternDTRRow rowInternDTRRow = ((InternDTRRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -1305,7 +1345,11 @@ namespace GJP_IMIS.Reports {
                         Lunch,
                         Time_Out,
                         Hours_Rendered,
-                        Remark};
+                        Remark,
+                        Target_Hours,
+                        Course,
+                        School,
+                        Total_Rendered};
                 rowInternDTRRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInternDTRRow);
                 return rowInternDTRRow;
@@ -1337,6 +1381,10 @@ namespace GJP_IMIS.Reports {
                 this.columnTime_Out = base.Columns["Time_Out"];
                 this.columnHours_Rendered = base.Columns["Hours_Rendered"];
                 this.columnRemark = base.Columns["Remark"];
+                this.columnTarget_Hours = base.Columns["Target_Hours"];
+                this.columnCourse = base.Columns["Course"];
+                this.columnSchool = base.Columns["School"];
+                this.columnTotal_Rendered = base.Columns["Total_Rendered"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1360,6 +1408,14 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnHours_Rendered);
                 this.columnRemark = new global::System.Data.DataColumn("Remark", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemark);
+                this.columnTarget_Hours = new global::System.Data.DataColumn("Target_Hours", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTarget_Hours);
+                this.columnCourse = new global::System.Data.DataColumn("Course", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCourse);
+                this.columnSchool = new global::System.Data.DataColumn("School", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSchool);
+                this.columnTotal_Rendered = new global::System.Data.DataColumn("Total_Rendered", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Rendered);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2627,6 +2683,70 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Target_Hours {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.Target_HoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Target_Hours\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.Target_HoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Course {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.CourseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Course\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.CourseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string School {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.SchoolColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'School\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.SchoolColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Total_Rendered {
+                get {
+                    try {
+                        return ((string)(this[this.tableInternDTR.Total_RenderedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Rendered\' in table \'InternDTR\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInternDTR.Total_RenderedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableInternDTR.NameColumn);
             }
@@ -2731,6 +2851,54 @@ namespace GJP_IMIS.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRemarkNull() {
                 this[this.tableInternDTR.RemarkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTarget_HoursNull() {
+                return this.IsNull(this.tableInternDTR.Target_HoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTarget_HoursNull() {
+                this[this.tableInternDTR.Target_HoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCourseNull() {
+                return this.IsNull(this.tableInternDTR.CourseColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCourseNull() {
+                this[this.tableInternDTR.CourseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSchoolNull() {
+                return this.IsNull(this.tableInternDTR.SchoolColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSchoolNull() {
+                this[this.tableInternDTR.SchoolColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotal_RenderedNull() {
+                return this.IsNull(this.tableInternDTR.Total_RenderedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotal_RenderedNull() {
+                this[this.tableInternDTR.Total_RenderedColumn] = global::System.Convert.DBNull;
             }
         }
         

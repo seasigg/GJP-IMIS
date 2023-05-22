@@ -71,7 +71,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             buttonRefresh.Enabled = true;
 
             
-
         }
 
         // ********* ADD UNREGISTERED INTERNS *********
@@ -369,8 +368,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // clear add interns fields
         private void clearAddInternControls()
         {
-            txtOjtNum.Clear();
-            txtTerminalName.Clear();
+            txtOjtNum.Text = "";
+            txtTerminalName.Text = "";
             txtFname.Clear();
             txtMinitial.Clear();
             txtLname.Clear();
@@ -812,7 +811,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // logs data grid
         private void logsDataGrid()
         {
-            int ojtID = Int32.Parse(datagridModifLog.CurrentRow.Cells[0].Value.ToString());
+            string ojtID = datagridModifLog.CurrentRow.Cells[0].Value.ToString();
 
             dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
         }
@@ -833,7 +832,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // update intern log button
         private void btnUpdateLog_Click(object sender, EventArgs e)
         {
-            int ojtID = Int32.Parse(modifLogOjtId.Text);
+            string ojtID = modifLogOjtId.Text;
             string newDate = dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd");
             string newTime = dateTimePickerTime.Value.ToString("HH:mm:ss");
             string terminal = modifLogTerminal.Text;

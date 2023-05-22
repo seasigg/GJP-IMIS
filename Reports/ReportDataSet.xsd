@@ -56,6 +56,10 @@
               <xs:element name="Time_Out" msprop:Generator_ColumnVarNameInTable="columnTime_Out" msprop:Generator_ColumnPropNameInRow="Time_Out" msprop:Generator_ColumnPropNameInTable="Time_OutColumn" msprop:Generator_UserColumnName="Time_Out" type="xs:string" minOccurs="0" />
               <xs:element name="Hours_Rendered" msprop:Generator_ColumnVarNameInTable="columnHours_Rendered" msprop:Generator_ColumnPropNameInRow="Hours_Rendered" msprop:Generator_ColumnPropNameInTable="Hours_RenderedColumn" msprop:Generator_UserColumnName="Hours_Rendered" type="xs:string" minOccurs="0" />
               <xs:element name="Remark" msprop:Generator_ColumnVarNameInTable="columnRemark" msprop:Generator_ColumnPropNameInRow="Remark" msprop:Generator_ColumnPropNameInTable="RemarkColumn" msprop:Generator_UserColumnName="Remark" type="xs:string" minOccurs="0" />
+              <xs:element name="Target_Hours" msprop:Generator_ColumnVarNameInTable="columnTarget_Hours" msprop:Generator_ColumnPropNameInRow="Target_Hours" msprop:Generator_ColumnPropNameInTable="Target_HoursColumn" msprop:Generator_UserColumnName="Target_Hours" type="xs:string" minOccurs="0" />
+              <xs:element name="Course" msprop:Generator_ColumnVarNameInTable="columnCourse" msprop:Generator_ColumnPropNameInRow="Course" msprop:Generator_ColumnPropNameInTable="CourseColumn" msprop:Generator_UserColumnName="Course" type="xs:string" minOccurs="0" />
+              <xs:element name="School" msprop:Generator_ColumnVarNameInTable="columnSchool" msprop:Generator_ColumnPropNameInRow="School" msprop:Generator_ColumnPropNameInTable="SchoolColumn" msprop:Generator_UserColumnName="School" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Rendered" msprop:Generator_ColumnVarNameInTable="columnTotal_Rendered" msprop:Generator_ColumnPropNameInRow="Total_Rendered" msprop:Generator_ColumnPropNameInTable="Total_RenderedColumn" msprop:Generator_UserColumnName="Total_Rendered" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
