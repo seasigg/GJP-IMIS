@@ -414,6 +414,8 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnDirector_Position;
             
+            private global::System.Data.DataColumn columnStart_Date;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public AcceptanceLetterDataTable() {
@@ -569,6 +571,14 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Start_DateColumn {
+                get {
+                    return this.columnStart_Date;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -604,7 +614,23 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AcceptanceLetterRow AddAcceptanceLetterRow(string Date_Now, string Coord_Name, string Position, string University, string Coord_Intro, string Intern_Name, string Intern_Course, string Intern_Intro, string Intern_Pronoun, string Target_Hours, string Office_Name, string Office_Abr, string Department, string Director, string Director_Position) {
+            public AcceptanceLetterRow AddAcceptanceLetterRow(
+                        string Date_Now, 
+                        string Coord_Name, 
+                        string Position, 
+                        string University, 
+                        string Coord_Intro, 
+                        string Intern_Name, 
+                        string Intern_Course, 
+                        string Intern_Intro, 
+                        string Intern_Pronoun, 
+                        string Target_Hours, 
+                        string Office_Name, 
+                        string Office_Abr, 
+                        string Department, 
+                        string Director, 
+                        string Director_Position, 
+                        string Start_Date) {
                 AcceptanceLetterRow rowAcceptanceLetterRow = ((AcceptanceLetterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date_Now,
@@ -621,7 +647,8 @@ namespace GJP_IMIS.Reports {
                         Office_Abr,
                         Department,
                         Director,
-                        Director_Position};
+                        Director_Position,
+                        Start_Date};
                 rowAcceptanceLetterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAcceptanceLetterRow);
                 return rowAcceptanceLetterRow;
@@ -659,6 +686,7 @@ namespace GJP_IMIS.Reports {
                 this.columnDepartment = base.Columns["Department"];
                 this.columnDirector = base.Columns["Director"];
                 this.columnDirector_Position = base.Columns["Director_Position"];
+                this.columnStart_Date = base.Columns["Start_Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -694,6 +722,8 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnDirector);
                 this.columnDirector_Position = new global::System.Data.DataColumn("Director_Position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDirector_Position);
+                this.columnStart_Date = new global::System.Data.DataColumn("Start_Date", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStart_Date);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2189,6 +2219,22 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Start_Date {
+                get {
+                    try {
+                        return ((string)(this[this.tableAcceptanceLetter.Start_DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Start_Date\' in table \'AcceptanceLetter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAcceptanceLetter.Start_DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDate_NowNull() {
                 return this.IsNull(this.tableAcceptanceLetter.Date_NowColumn);
             }
@@ -2365,6 +2411,18 @@ namespace GJP_IMIS.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDirector_PositionNull() {
                 this[this.tableAcceptanceLetter.Director_PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStart_DateNull() {
+                return this.IsNull(this.tableAcceptanceLetter.Start_DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStart_DateNull() {
+                this[this.tableAcceptanceLetter.Start_DateColumn] = global::System.Convert.DBNull;
             }
         }
         

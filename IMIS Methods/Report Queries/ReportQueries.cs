@@ -34,7 +34,10 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
         {
             return (@"SELECT DISTINCT 
 				DATENAME(MONTH, GETDATE()) + ' ' + DATENAME(DAY,GETDATE()) + ', ' + DATENAME(YEAR,GETDATE()) AS 'Date_Now',
-                
+                DATENAME(MONTH, Intern_Status.Start_Date) + ' ' + 
+				DATENAME(DAY, Intern_Status.Start_Date) + ', ' + 
+				DATENAME(YEAR, Intern_Status.Start_Date) AS 'Start_Date',
+
                 Intern_Info.Coordinator_Name AS 'Coord_Name',
                 Intern_Info.Coordinator_Position AS 'Position',
                 Intern_Info.Coordinator_Department AS 'Department',
@@ -88,7 +91,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
                             SELECT
 								CASE
 									WHEN i.Suffix = '' THEN i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name
-									ELSE i.First_Name + ' ' + i.Middle_Initial + '. ' + i.Last_Name + ' ' + i.Suffix
+									ELSE i.First_Name + ' ' + i.Middle_Initial + '. ' +  i.Last_Name + ' ' + i.Suffix
 									END AS 'Intern Name',
 	                            i.School_Name as 'School',
 	                            i.Course as 'Course',
