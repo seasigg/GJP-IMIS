@@ -317,7 +317,6 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 						REPLACE(CONVERT(varchar,(s.Target_Hours / 3600)),'.','') as 'Target_Hours',
 						n.Course,
 						n.School_Name as 'School',
-						--CAST(@sum /3600 AS VARCHAR)+’:’+CAST(@sum %3600/60 AS VARCHAR) as 'Total_Rendered',
 						(CAST(@sum / 3600 AS VARCHAR(10)) + ':' + case when len(CAST(@sum %3600/60 AS VARCHAR(10))) = 1 then '0'+CAST(@sum %3600/60 AS VARCHAR(10)) else CAST(@sum %3600/60 AS VARCHAR(10)) end) as 'Total_Rendered',
 						(n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial) as 'Name',
 						n.Office_Name
