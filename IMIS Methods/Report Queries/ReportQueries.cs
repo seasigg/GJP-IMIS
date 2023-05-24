@@ -150,7 +150,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 		                                            end
 
 		                                            from Intern_Logs i
-                                                    where i.UserID = '00000046'
+                                                    where i.UserID = '00000032'
 
 		                                            group by i.UserID, i.Date
 		                                            order by i.Date";
@@ -282,10 +282,73 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000012')
 
 					select
-						(n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial) as 'Name',
-						n.Office_Name,
+						
 						i.UserID,
-						convert(varchar, cast(i.Date as datetime), 106) + ' - ' + left(datename(weekday, cast(i.Date as datetime)), 3)  as 'Date',
+						convert(datetime, i.Date, 102) as 'Date',
+						i.Time_In,
+						i.Lunch,
+						i.Time_Out,
+						convert(varchar(5), dateadd(ss, i.Hours_Rendered, 0), 114) as 'Hours_Rendered',
+						case
+		
+							when i.Time_Out is not null then
+								case
+				
+									when i.Lunch is null then
+										case
+											when i.Time_Out < @break_PM then 'Half Day'
+											when i.Time_Out >= @break_PM then 'No Lunch'
+											end
+
+									when i.Time_In >= @break_PM then 'Half Day'
+					
+
+				
+									when i.Lunch is not null then
+										case
+											when i.Time_Out < @sched_PM then 'Undertime'
+											when i.Time_Out >= @sched_PM then ''
+											end
+
+									end
+		
+							else 'No Timeout'
+							end as 'Remark',
+						REPLACE(CONVERT(varchar,(s.Target_Hours / 3600)),'.','') as 'Target_Hours',
+						n.Course,
+						n.School_Name as 'School',
+						--CAST(@sum /3600 AS VARCHAR)+’:’+CAST(@sum %3600/60 AS VARCHAR) as 'Total_Rendered',
+						(CAST(@sum / 3600 AS VARCHAR(10)) + ':' + case when len(CAST(@sum %3600/60 AS VARCHAR(10))) = 1 then '0'+CAST(@sum %3600/60 AS VARCHAR(10)) else CAST(@sum %3600/60 AS VARCHAR(10)) end) as 'Total_Rendered',
+						(n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial) as 'Name',
+						n.Office_Name
+						
+					from Intern_DTR_Report i
+					inner join Intern_Info n
+					on i.UserID = n.OJT_Number
+					inner join Intern_Status s
+					on i.UserID = s.OJT_Number
+
+					group by n.Last_Name, n.First_Name, n.Middle_Initial, n.Office_Name, i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered, s.Target_Hours, n.Course, n.School_Name
+
+					";
+        }
+
+		public static string reportTestDTR6()
+        {
+			return @"truncate table Intern_DTR_Report";
+		}
+
+		/*@"use IMIS
+					declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
+					declare @break_AM Time(0) = '12:00:00'
+					declare @break_PM Time(0) = '13:00:00'
+					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000012')
+
+					select
+						
+						i.UserID,
+						i.Date,
+						--convert(varchar, cast(i.Date as datetime), 106) + ' - ' + left(datename(weekday, cast(i.Date as datetime)), 3)  as 'Date',
 						convert(varchar(5), i.Time_In, 108) as 'Time_In',
 						convert(varchar(5), i.Lunch, 108) as 'Lunch',
 						convert(varchar(5), i.Time_Out) as 'Time_Out',
@@ -318,7 +381,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 						(s.Target_Hours / 3600) as 'Target_Hours',
 						n.Course,
 						n.School_Name as 'School',
-						(CAST(@sum / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,@sum,0),108),6)) as 'Total_Rendered'
+						(CAST(@sum / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,@sum,0),108),6)) as 'Total_Rendered',
+						(n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial) as 'Name',
+						n.Office_Name,
 						
 					from Intern_DTR_Report i
 					inner join Intern_Info n
@@ -328,12 +393,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
 					group by n.Last_Name, n.First_Name, n.Middle_Initial, n.Office_Name, i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered, s.Target_Hours, n.Course, n.School_Name
 
-					";
-        }
+					"*/
 
-		public static string reportTestDTR6()
-        {
-			return @"truncate table Intern_DTR_Report";
-        }
     }
 }
