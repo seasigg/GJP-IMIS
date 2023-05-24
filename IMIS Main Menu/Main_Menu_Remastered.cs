@@ -207,7 +207,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dataGridInterns.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             });
 
             if(dataGridInterns.InvokeRequired)
@@ -600,10 +599,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                     InternQueries.calculateDTR(ojtNumber);
 
-                    setViewInternDataGrid();
+                    buttonRefresh.PerformClick();
 
                     viewInternPanel.BringToFront();
-                    MessageBox.Show(ojtNumber);
                 }
             }
             else
@@ -770,7 +768,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     }
 
                     InternQueries.calculateDTR();
-                    setViewInternDataGrid();
+                    buttonRefresh.PerformClick();
                 }
                 catch (Exception er)
                 {
@@ -1157,7 +1155,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void toolStripInterns_Click(object sender, EventArgs e)
         {
             viewInternPanel.BringToFront();
-            setViewInternDataGrid();
         }
         // modify logs
         private void toolStripButtonModifLog_Click(object sender, EventArgs e)

@@ -31,7 +31,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
                         (Intern_Info.First_Name + ' ' + Intern_Info.Last_Name + ' ' + Intern_Info.Suffix) as 'Name',
                         Intern_Info.Course as 'Course',
                         Intern_Info.School_Name as 'University',
-                        Intern_Info.Coordinator_Name as 'Coordinator Name',
+                        
                         Intern_Info.Office_Name as 'Office',
                         (CAST(Intern_Status.Current_Hours / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,Intern_Status.Current_Hours,0),108),6)) as 'Hours Rendered',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',

@@ -29,6 +29,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
             this.viewInternPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -285,6 +286,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns.AllowUserToAddRows = false;
             this.dataGridInterns.AllowUserToDeleteRows = false;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 150);
             this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
@@ -1262,7 +1271,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDtrPanel.Location = new System.Drawing.Point(0, 66);
             this.viewDtrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewDtrPanel.Name = "viewDtrPanel";
-            this.viewDtrPanel.Size = new System.Drawing.Size(1188, 579);
+            this.viewDtrPanel.Size = new System.Drawing.Size(1482, 723);
             this.viewDtrPanel.TabIndex = 7;
             // 
             // label5
@@ -1626,6 +1635,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.panelModifLog);
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
@@ -1633,9 +1645,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.addInternUnreg);
-            this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1803,7 +1812,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelModifLog.Location = new System.Drawing.Point(0, 66);
             this.panelModifLog.Margin = new System.Windows.Forms.Padding(2);
             this.panelModifLog.Name = "panelModifLog";
-            this.panelModifLog.Size = new System.Drawing.Size(1188, 579);
+            this.panelModifLog.Size = new System.Drawing.Size(1482, 723);
             this.panelModifLog.TabIndex = 15;
             // 
             // label58
@@ -1841,7 +1850,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridLogs.RowHeadersWidth = 51;
             this.dataGridLogs.RowTemplate.Height = 24;
             this.dataGridLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridLogs.Size = new System.Drawing.Size(463, 195);
+            this.dataGridLogs.Size = new System.Drawing.Size(757, 339);
             this.dataGridLogs.TabIndex = 15;
             this.dataGridLogs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLogs_CellClick);
             // 
@@ -1951,7 +1960,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.datagridModifLog.RowHeadersWidth = 51;
             this.datagridModifLog.RowTemplate.Height = 24;
             this.datagridModifLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridModifLog.Size = new System.Drawing.Size(463, 195);
+            this.datagridModifLog.Size = new System.Drawing.Size(757, 339);
             this.datagridModifLog.TabIndex = 2;
             this.datagridModifLog.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridModifLog_CellClick);
             // 
@@ -1973,7 +1982,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewDTRPanelWelcome.Location = new System.Drawing.Point(0, 66);
             this.viewDTRPanelWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.viewDTRPanelWelcome.Name = "viewDTRPanelWelcome";
-            this.viewDTRPanelWelcome.Size = new System.Drawing.Size(1188, 579);
+            this.viewDTRPanelWelcome.Size = new System.Drawing.Size(1482, 723);
             this.viewDTRPanelWelcome.TabIndex = 7;
             // 
             // label47
@@ -2014,7 +2023,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome.Location = new System.Drawing.Point(0, 66);
             this.imisWelcome.Margin = new System.Windows.Forms.Padding(2);
             this.imisWelcome.Name = "imisWelcome";
-            this.imisWelcome.Size = new System.Drawing.Size(1188, 579);
+            this.imisWelcome.Size = new System.Drawing.Size(1482, 723);
             this.imisWelcome.TabIndex = 8;
             // 
             // buttonTestDTR
