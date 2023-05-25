@@ -52,7 +52,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // refresh intern dtr
         private async void buttonRefresh_Click(object sender, EventArgs e)
         {
-            
             buttonRefresh.Enabled = false;
             loadScreen.Show();
             loadScreen.TopMost = true;
@@ -69,8 +68,45 @@ namespace GJP_IMIS.IMIS_Main_Menu
             });
             loadScreen.Hide();
             buttonRefresh.Enabled = true;
+        }
 
+        private async void buttonViewDTR_Click(object sender, EventArgs e)
+        {
+            buttonViewDTR.Enabled = false;
+            loadScreen.Show();
+            loadScreen.TopMost = true;
+            string ojtNum = dataGridInterns.CurrentRow.Cells[0].Value.ToString();
+            if (ojtNum != null)
+            {
+
+                var m1 = new Action(() => {
+                    /*BindingSource bs = new BindingSource();
+                    bs.DataSource = menuQueries.viewInternDTR(ojtNum);
+
+                    dataGridViewInternDTR.DataSource = bs;
+                    dataGridViewInternDTR.ClearSelection();
+
+                    panelViewDTR.Show();*/
+                });
+
+                await Task.Run(() => {
+                    try {
+                        if (dataGridViewInternDTR.InvokeRequired)
+                            dataGridViewInternDTR.Invoke(new Action(() => { m1();}));
+                        else
+                            m1();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "View DTR Button Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                });
+            }
+            else
+                MessageBox.Show("Select an intern", "No Intern DTR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
+            loadScreen.Hide();
+            buttonViewDTR.Enabled = true;
         }
 
         // ********* ADD UNREGISTERED INTERNS *********
@@ -459,32 +495,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             editStatusPanel.Visible = false;
             label31.Visible = false;
             string ojtNum = dataGridInterns.CurrentRow.Cells[0].Value.ToString();
-            //MessageBox.Show(ojtNum);
 
             if (ojtNum != null)
             {
                 editIntern(ojtNum);
                 editInternPanel.BringToFront();
-
-                txtEdituniv.AutoCompleteCustomSource = acQueries.getAC_University();
-                txtEdituniv.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtEdituniv.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                txtEditCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
-                txtEditCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtEditCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                txtEditCoordName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
-                txtEditCoordName.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtEditCoordName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                txtEditCoordPos.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
-                txtEditCoordPos.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtEditCoordPos.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-                txtEditoffice.AutoCompleteCustomSource = acQueries.getAC_Office();
-                txtEditoffice.AutoCompleteMode = AutoCompleteMode.Suggest;
-                txtEditoffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
             else
                 MessageBox.Show("Select an Intern First.");
@@ -519,6 +534,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 scheduleEdit(dr["Schedule_AM"].ToString());
                 
                 statusEdit(dr["Status"].ToString());
+
+                txtEdituniv.AutoCompleteCustomSource = acQueries.getAC_University();
+                txtEdituniv.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEdituniv.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
+                txtEditCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
+                txtEditCoordName.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditCoordPos.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
+                txtEditCoordPos.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditCoordPos.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                txtEditoffice.AutoCompleteCustomSource = acQueries.getAC_Office();
+                txtEditoffice.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtEditoffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
             cmd.Dispose();
             Connection_String.con.Dispose();
@@ -811,7 +846,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             string ojtID = datagridModifLog.CurrentRow.Cells[0].Value.ToString();
 
-            dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
+            dataGridViewInternDTR.DataSource = InternQueries.internLogsData(ojtID);
         }
         private void dataGridLogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -839,7 +874,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             MessageBox.Show("LOG ADDED.");
             // REFRESH THE LOG DATA
-            dataGridLogs.DataSource = InternQueries.internLogsData(ojtID);
+            dataGridViewInternDTR.DataSource = InternQueries.internLogsData(ojtID);
         }
 
         // ------------------------------------------------------------ END OF MODIFY LOG STRIP ------------------------------------------------------------
@@ -1159,7 +1194,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // modify logs
         private void toolStripButtonModifLog_Click(object sender, EventArgs e)
         {
-            panelModifLog.BringToFront();
+            panelViewDTR.BringToFront();
         }
         // dtr
         private void btnViewDtr_Click(object sender, EventArgs e)
@@ -1184,5 +1219,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             rv.viewInternDTR();
             rv.ShowDialog();
         }
+
+        
+
+        
     }
 }
