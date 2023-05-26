@@ -29,9 +29,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
             this.viewInternPanel = new System.Windows.Forms.Panel();
+            this.buttonViewDTR = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btnEditIntern = new System.Windows.Forms.Button();
             this.btnAddNewIntern = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
-            this.txtEditTerminalName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.boxEditSuffix = new System.Windows.Forms.CheckBox();
             this.txtEditSuffix = new System.Windows.Forms.TextBox();
@@ -119,9 +119,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtEditOjtNum = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.viewDtrPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.letterPanel = new System.Windows.Forms.Panel();
@@ -176,6 +174,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.addUnregIntern = new System.Windows.Forms.Button();
             this.label56 = new System.Windows.Forms.Label();
             this.panelViewDTR = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.dataGridViewInternDTR = new System.Windows.Forms.DataGridView();
@@ -197,8 +196,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.buttonViewDTR = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.txtEditOjtNum = new System.Windows.Forms.Label();
+            this.txtEditTerminalName = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -241,6 +241,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Size = new System.Drawing.Size(1482, 723);
             this.viewInternPanel.TabIndex = 3;
             // 
+            // buttonViewDTR
+            // 
+            this.buttonViewDTR.BackColor = System.Drawing.Color.Yellow;
+            this.buttonViewDTR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonViewDTR.Location = new System.Drawing.Point(933, 95);
+            this.buttonViewDTR.Name = "buttonViewDTR";
+            this.buttonViewDTR.Size = new System.Drawing.Size(177, 44);
+            this.buttonViewDTR.TabIndex = 48;
+            this.buttonViewDTR.Text = "View DTR";
+            this.buttonViewDTR.UseVisualStyleBackColor = false;
+            this.buttonViewDTR.Click += new System.EventHandler(this.buttonViewDTR_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -255,7 +267,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.btnEditIntern.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnEditIntern.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditIntern.Location = new System.Drawing.Point(1162, 95);
+            this.btnEditIntern.Location = new System.Drawing.Point(1138, 95);
             this.btnEditIntern.Name = "btnEditIntern";
             this.btnEditIntern.Size = new System.Drawing.Size(142, 43);
             this.btnEditIntern.TabIndex = 6;
@@ -277,13 +289,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.BackColor = System.Drawing.SystemColors.Info;
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefresh.Location = new System.Drawing.Point(827, 103);
+            this.buttonRefresh.Location = new System.Drawing.Point(736, 96);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(112, 30);
+            this.buttonRefresh.Size = new System.Drawing.Size(156, 42);
             this.buttonRefresh.TabIndex = 4;
-            this.buttonRefresh.Text = "Refresh";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Text = "Refresh Table";
+            this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // dataGridInterns
@@ -291,22 +304,22 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridInterns.AllowUserToAddRows = false;
             this.dataGridInterns.AllowUserToDeleteRows = false;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridInterns.Location = new System.Drawing.Point(9, 150);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridInterns.Location = new System.Drawing.Point(9, 194);
             this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
             this.dataGridInterns.ReadOnly = true;
             this.dataGridInterns.RowHeadersWidth = 51;
             this.dataGridInterns.RowTemplate.Height = 24;
             this.dataGridInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridInterns.Size = new System.Drawing.Size(1460, 561);
+            this.dataGridInterns.Size = new System.Drawing.Size(1460, 517);
             this.dataGridInterns.TabIndex = 3;
             // 
             // addInternPanel
@@ -357,7 +370,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.addInternSchedPanel.Controls.Add(this.radioScheduleNormal);
             this.addInternSchedPanel.Controls.Add(this.radioScheduleOT);
-            this.addInternSchedPanel.Location = new System.Drawing.Point(931, 498);
+            this.addInternSchedPanel.Location = new System.Drawing.Point(931, 443);
             this.addInternSchedPanel.Name = "addInternSchedPanel";
             this.addInternSchedPanel.Size = new System.Drawing.Size(271, 60);
             this.addInternSchedPanel.TabIndex = 51;
@@ -392,7 +405,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtTerminalName.AutoSize = true;
             this.txtTerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTerminalName.Location = new System.Drawing.Point(368, 99);
+            this.txtTerminalName.Location = new System.Drawing.Point(421, 105);
             this.txtTerminalName.Name = "txtTerminalName";
             this.txtTerminalName.Size = new System.Drawing.Size(257, 31);
             this.txtTerminalName.TabIndex = 50;
@@ -422,7 +435,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.boxSuffix.AutoSize = true;
             this.boxSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boxSuffix.Location = new System.Drawing.Point(141, 298);
+            this.boxSuffix.Location = new System.Drawing.Point(141, 320);
             this.boxSuffix.Name = "boxSuffix";
             this.boxSuffix.Size = new System.Drawing.Size(68, 24);
             this.boxSuffix.TabIndex = 47;
@@ -435,7 +448,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtSuffix.BackColor = System.Drawing.Color.White;
             this.txtSuffix.Enabled = false;
             this.txtSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuffix.Location = new System.Drawing.Point(218, 292);
+            this.txtSuffix.Location = new System.Drawing.Point(218, 314);
             this.txtSuffix.Name = "txtSuffix";
             this.txtSuffix.Size = new System.Drawing.Size(125, 31);
             this.txtSuffix.TabIndex = 46;
@@ -444,7 +457,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(843, 521);
+            this.label57.Location = new System.Drawing.Point(843, 466);
             this.label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(80, 20);
@@ -455,7 +468,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtCourse.BackColor = System.Drawing.Color.White;
             this.txtCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourse.Location = new System.Drawing.Point(157, 481);
+            this.txtCourse.Location = new System.Drawing.Point(218, 481);
             this.txtCourse.Name = "txtCourse";
             this.txtCourse.Size = new System.Drawing.Size(466, 31);
             this.txtCourse.TabIndex = 41;
@@ -464,7 +477,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(288, 67);
+            this.label51.Location = new System.Drawing.Point(341, 73);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(104, 17);
             this.label51.TabIndex = 39;
@@ -531,10 +544,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.addInternGenderPanel.Controls.Add(this.radioMale);
             this.addInternGenderPanel.Controls.Add(this.radioFemale);
-            this.addInternGenderPanel.Location = new System.Drawing.Point(216, 332);
+            this.addInternGenderPanel.Location = new System.Drawing.Point(218, 362);
             this.addInternGenderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.addInternGenderPanel.Name = "addInternGenderPanel";
-            this.addInternGenderPanel.Size = new System.Drawing.Size(227, 53);
+            this.addInternGenderPanel.Size = new System.Drawing.Size(227, 42);
             this.addInternGenderPanel.TabIndex = 30;
             // 
             // radioMale
@@ -596,7 +609,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // numericTargetHours
             // 
             this.numericTargetHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericTargetHours.Location = new System.Drawing.Point(931, 573);
+            this.numericTargetHours.Location = new System.Drawing.Point(933, 526);
             this.numericTargetHours.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -621,7 +634,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(798, 577);
+            this.label13.Location = new System.Drawing.Point(800, 530);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(125, 20);
             this.label13.TabIndex = 25;
@@ -631,7 +644,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(25, 530);
+            this.label12.Location = new System.Drawing.Point(86, 541);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 20);
             this.label12.TabIndex = 24;
@@ -641,7 +654,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtOffice.BackColor = System.Drawing.Color.White;
             this.txtOffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOffice.Location = new System.Drawing.Point(157, 523);
+            this.txtOffice.Location = new System.Drawing.Point(218, 534);
             this.txtOffice.Name = "txtOffice";
             this.txtOffice.Size = new System.Drawing.Size(468, 31);
             this.txtOffice.TabIndex = 23;
@@ -650,7 +663,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(87, 492);
+            this.label11.Location = new System.Drawing.Point(148, 492);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(64, 20);
             this.label11.TabIndex = 21;
@@ -679,7 +692,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(89, 448);
+            this.label1.Location = new System.Drawing.Point(150, 441);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 18;
@@ -689,7 +702,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtUniversity.BackColor = System.Drawing.Color.White;
             this.txtUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUniversity.Location = new System.Drawing.Point(157, 440);
+            this.txtUniversity.Location = new System.Drawing.Point(218, 433);
             this.txtUniversity.Name = "txtUniversity";
             this.txtUniversity.Size = new System.Drawing.Size(466, 31);
             this.txtUniversity.TabIndex = 17;
@@ -698,7 +711,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(140, 343);
+            this.label19.Location = new System.Drawing.Point(142, 373);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(67, 20);
             this.label19.TabIndex = 14;
@@ -708,7 +721,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtLname.BackColor = System.Drawing.Color.White;
             this.txtLname.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLname.Location = new System.Drawing.Point(218, 250);
+            this.txtLname.Location = new System.Drawing.Point(218, 264);
             this.txtLname.Name = "txtLname";
             this.txtLname.Size = new System.Drawing.Size(407, 31);
             this.txtLname.TabIndex = 13;
@@ -717,7 +730,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtMinitial.BackColor = System.Drawing.Color.White;
             this.txtMinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinitial.Location = new System.Drawing.Point(218, 210);
+            this.txtMinitial.Location = new System.Drawing.Point(218, 216);
             this.txtMinitial.Name = "txtMinitial";
             this.txtMinitial.Size = new System.Drawing.Size(203, 31);
             this.txtMinitial.TabIndex = 12;
@@ -736,7 +749,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(118, 262);
+            this.label16.Location = new System.Drawing.Point(118, 276);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(90, 20);
             this.label16.TabIndex = 10;
@@ -746,7 +759,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(109, 217);
+            this.label17.Location = new System.Drawing.Point(109, 223);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 20);
             this.label17.TabIndex = 9;
@@ -775,6 +788,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // editInternPanel
             // 
             this.editInternPanel.Controls.Add(this.txtEditTerminalName);
+            this.editInternPanel.Controls.Add(this.txtEditOjtNum);
+            this.editInternPanel.Controls.Add(this.label40);
             this.editInternPanel.Controls.Add(this.label6);
             this.editInternPanel.Controls.Add(this.boxEditSuffix);
             this.editInternPanel.Controls.Add(this.txtEditSuffix);
@@ -810,31 +825,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.label27);
             this.editInternPanel.Controls.Add(this.label28);
             this.editInternPanel.Controls.Add(this.label29);
-            this.editInternPanel.Controls.Add(this.txtEditOjtNum);
             this.editInternPanel.Controls.Add(this.label30);
-            this.editInternPanel.Controls.Add(this.label3);
             this.editInternPanel.Location = new System.Drawing.Point(0, 66);
             this.editInternPanel.Margin = new System.Windows.Forms.Padding(2);
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1482, 723);
             this.editInternPanel.TabIndex = 5;
             // 
-            // txtEditTerminalName
-            // 
-            this.txtEditTerminalName.BackColor = System.Drawing.Color.White;
-            this.txtEditTerminalName.Enabled = false;
-            this.txtEditTerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditTerminalName.Location = new System.Drawing.Point(220, 32);
-            this.txtEditTerminalName.Name = "txtEditTerminalName";
-            this.txtEditTerminalName.ReadOnly = true;
-            this.txtEditTerminalName.Size = new System.Drawing.Size(178, 26);
-            this.txtEditTerminalName.TabIndex = 75;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(217, 15);
+            this.label6.Location = new System.Drawing.Point(460, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 16);
             this.label6.TabIndex = 74;
@@ -844,7 +846,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.boxEditSuffix.AutoSize = true;
             this.boxEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.boxEditSuffix.Location = new System.Drawing.Point(65, 250);
+            this.boxEditSuffix.Location = new System.Drawing.Point(103, 385);
             this.boxEditSuffix.Name = "boxEditSuffix";
             this.boxEditSuffix.Size = new System.Drawing.Size(61, 21);
             this.boxEditSuffix.TabIndex = 73;
@@ -857,7 +859,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.txtEditSuffix.BackColor = System.Drawing.Color.White;
             this.txtEditSuffix.Enabled = false;
             this.txtEditSuffix.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditSuffix.Location = new System.Drawing.Point(129, 246);
+            this.txtEditSuffix.Location = new System.Drawing.Point(167, 381);
             this.txtEditSuffix.Name = "txtEditSuffix";
             this.txtEditSuffix.Size = new System.Drawing.Size(125, 26);
             this.txtEditSuffix.TabIndex = 72;
@@ -866,7 +868,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.Location = new System.Drawing.Point(832, 169);
+            this.label62.Location = new System.Drawing.Point(900, 282);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(68, 16);
             this.label62.TabIndex = 71;
@@ -876,7 +878,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.radioEditScheduleOvertime.AutoSize = true;
             this.radioEditScheduleOvertime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioEditScheduleOvertime.Location = new System.Drawing.Point(998, 161);
+            this.radioEditScheduleOvertime.Location = new System.Drawing.Point(1066, 274);
             this.radioEditScheduleOvertime.Name = "radioEditScheduleOvertime";
             this.radioEditScheduleOvertime.Size = new System.Drawing.Size(90, 24);
             this.radioEditScheduleOvertime.TabIndex = 70;
@@ -888,7 +890,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.radioEditScheduleNormal.AutoSize = true;
             this.radioEditScheduleNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioEditScheduleNormal.Location = new System.Drawing.Point(915, 161);
+            this.radioEditScheduleNormal.Location = new System.Drawing.Point(983, 274);
             this.radioEditScheduleNormal.Name = "radioEditScheduleNormal";
             this.radioEditScheduleNormal.Size = new System.Drawing.Size(77, 24);
             this.radioEditScheduleNormal.TabIndex = 69;
@@ -900,9 +902,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditCourse.BackColor = System.Drawing.Color.White;
             this.txtEditCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCourse.Location = new System.Drawing.Point(30, 372);
+            this.txtEditCourse.Location = new System.Drawing.Point(69, 501);
             this.txtEditCourse.Name = "txtEditCourse";
-            this.txtEditCourse.ReadOnly = true;
             this.txtEditCourse.Size = new System.Drawing.Size(368, 26);
             this.txtEditCourse.TabIndex = 68;
             // 
@@ -910,7 +911,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(436, 346);
+            this.label50.Location = new System.Drawing.Point(493, 473);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(151, 16);
             this.label50.TabIndex = 67;
@@ -920,7 +921,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditCoordDept.BackColor = System.Drawing.Color.White;
             this.txtEditCoordDept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordDept.Location = new System.Drawing.Point(441, 362);
+            this.txtEditCoordDept.Location = new System.Drawing.Point(496, 494);
             this.txtEditCoordDept.Name = "txtEditCoordDept";
             this.txtEditCoordDept.Size = new System.Drawing.Size(326, 26);
             this.txtEditCoordDept.TabIndex = 66;
@@ -929,7 +930,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(438, 273);
+            this.label49.Location = new System.Drawing.Point(495, 400);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(129, 16);
             this.label49.TabIndex = 65;
@@ -939,7 +940,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditCoordPos.BackColor = System.Drawing.Color.White;
             this.txtEditCoordPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordPos.Location = new System.Drawing.Point(440, 292);
+            this.txtEditCoordPos.Location = new System.Drawing.Point(498, 420);
             this.txtEditCoordPos.Name = "txtEditCoordPos";
             this.txtEditCoordPos.Size = new System.Drawing.Size(327, 26);
             this.txtEditCoordPos.TabIndex = 64;
@@ -948,7 +949,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(438, 209);
+            this.label36.Location = new System.Drawing.Point(495, 336);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(140, 16);
             this.label36.TabIndex = 61;
@@ -958,7 +959,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditCoordSalutation.BackColor = System.Drawing.Color.White;
             this.txtEditCoordSalutation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordSalutation.Location = new System.Drawing.Point(440, 227);
+            this.txtEditCoordSalutation.Location = new System.Drawing.Point(498, 355);
             this.txtEditCoordSalutation.Name = "txtEditCoordSalutation";
             this.txtEditCoordSalutation.Size = new System.Drawing.Size(324, 26);
             this.txtEditCoordSalutation.TabIndex = 60;
@@ -967,9 +968,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.editPanelGender.Controls.Add(this.radioEditmale);
             this.editPanelGender.Controls.Add(this.radioEditfemale);
-            this.editPanelGender.Location = new System.Drawing.Point(129, 199);
+            this.editPanelGender.Location = new System.Drawing.Point(167, 334);
             this.editPanelGender.Name = "editPanelGender";
-            this.editPanelGender.Size = new System.Drawing.Size(195, 39);
+            this.editPanelGender.Size = new System.Drawing.Size(195, 31);
             this.editPanelGender.TabIndex = 59;
             // 
             // radioEditmale
@@ -1000,9 +1001,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.editStatusPanel.Controls.Add(this.radioEditcomplete);
             this.editStatusPanel.Controls.Add(this.radioEditincomplete);
-            this.editStatusPanel.Location = new System.Drawing.Point(841, 293);
+            this.editStatusPanel.Location = new System.Drawing.Point(909, 406);
             this.editStatusPanel.Name = "editStatusPanel";
-            this.editStatusPanel.Size = new System.Drawing.Size(243, 44);
+            this.editStatusPanel.Size = new System.Drawing.Size(243, 33);
             this.editStatusPanel.TabIndex = 58;
             // 
             // radioEditcomplete
@@ -1033,7 +1034,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(838, 274);
+            this.label31.Location = new System.Drawing.Point(906, 387);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(45, 16);
             this.label31.TabIndex = 54;
@@ -1041,19 +1042,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(535, 483);
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(694, 597);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 31);
+            this.btnUpdate.Size = new System.Drawing.Size(157, 54);
             this.btnUpdate.TabIndex = 52;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dateTimeEdit
             // 
             this.dateTimeEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeEdit.Location = new System.Drawing.Point(440, 103);
+            this.dateTimeEdit.Location = new System.Drawing.Point(497, 234);
             this.dateTimeEdit.Name = "dateTimeEdit";
             this.dateTimeEdit.Size = new System.Drawing.Size(324, 26);
             this.dateTimeEdit.TabIndex = 51;
@@ -1063,7 +1065,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(438, 90);
+            this.label20.Location = new System.Drawing.Point(495, 217);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(67, 16);
             this.label20.TabIndex = 50;
@@ -1073,7 +1075,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // numericEdit
             // 
             this.numericEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericEdit.Location = new System.Drawing.Point(840, 228);
+            this.numericEdit.Location = new System.Drawing.Point(908, 341);
             this.numericEdit.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1098,7 +1100,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(838, 209);
+            this.label21.Location = new System.Drawing.Point(906, 322);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(103, 16);
             this.label21.TabIndex = 48;
@@ -1108,7 +1110,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(832, 100);
+            this.label22.Location = new System.Drawing.Point(900, 211);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(105, 16);
             this.label22.TabIndex = 47;
@@ -1118,7 +1120,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditoffice.BackColor = System.Drawing.Color.White;
             this.txtEditoffice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditoffice.Location = new System.Drawing.Point(835, 119);
+            this.txtEditoffice.Location = new System.Drawing.Point(903, 232);
             this.txtEditoffice.Name = "txtEditoffice";
             this.txtEditoffice.Size = new System.Drawing.Size(324, 26);
             this.txtEditoffice.TabIndex = 46;
@@ -1127,7 +1129,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(28, 353);
+            this.label23.Location = new System.Drawing.Point(67, 482);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(51, 16);
             this.label23.TabIndex = 44;
@@ -1137,7 +1139,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(438, 149);
+            this.label24.Location = new System.Drawing.Point(495, 276);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(118, 16);
             this.label24.TabIndex = 43;
@@ -1147,7 +1149,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditCoordName.BackColor = System.Drawing.Color.White;
             this.txtEditCoordName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditCoordName.Location = new System.Drawing.Point(438, 167);
+            this.txtEditCoordName.Location = new System.Drawing.Point(498, 294);
             this.txtEditCoordName.Name = "txtEditCoordName";
             this.txtEditCoordName.Size = new System.Drawing.Size(326, 26);
             this.txtEditCoordName.TabIndex = 42;
@@ -1156,7 +1158,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(27, 293);
+            this.label25.Location = new System.Drawing.Point(66, 422);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(50, 16);
             this.label25.TabIndex = 41;
@@ -1166,7 +1168,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEdituniv.BackColor = System.Drawing.Color.White;
             this.txtEdituniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEdituniv.Location = new System.Drawing.Point(30, 312);
+            this.txtEdituniv.Location = new System.Drawing.Point(69, 441);
             this.txtEdituniv.Name = "txtEdituniv";
             this.txtEdituniv.Size = new System.Drawing.Size(366, 26);
             this.txtEdituniv.TabIndex = 40;
@@ -1175,7 +1177,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(28, 206);
+            this.label26.Location = new System.Drawing.Point(66, 341);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(59, 16);
             this.label26.TabIndex = 37;
@@ -1185,7 +1187,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditlname.BackColor = System.Drawing.Color.White;
             this.txtEditlname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditlname.Location = new System.Drawing.Point(129, 161);
+            this.txtEditlname.Location = new System.Drawing.Point(167, 296);
             this.txtEditlname.Name = "txtEditlname";
             this.txtEditlname.Size = new System.Drawing.Size(268, 26);
             this.txtEditlname.TabIndex = 36;
@@ -1194,7 +1196,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditmini.BackColor = System.Drawing.Color.White;
             this.txtEditmini.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditmini.Location = new System.Drawing.Point(129, 129);
+            this.txtEditmini.Location = new System.Drawing.Point(167, 264);
             this.txtEditmini.Name = "txtEditmini";
             this.txtEditmini.Size = new System.Drawing.Size(94, 26);
             this.txtEditmini.TabIndex = 35;
@@ -1204,7 +1206,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.txtEditfname.BackColor = System.Drawing.Color.White;
             this.txtEditfname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditfname.Location = new System.Drawing.Point(129, 97);
+            this.txtEditfname.Location = new System.Drawing.Point(167, 232);
             this.txtEditfname.Name = "txtEditfname";
             this.txtEditfname.Size = new System.Drawing.Size(268, 26);
             this.txtEditfname.TabIndex = 34;
@@ -1213,7 +1215,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(28, 171);
+            this.label27.Location = new System.Drawing.Point(66, 306);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(73, 16);
             this.label27.TabIndex = 33;
@@ -1223,7 +1225,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(27, 137);
+            this.label28.Location = new System.Drawing.Point(65, 272);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 16);
             this.label28.TabIndex = 32;
@@ -1233,42 +1235,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(26, 101);
+            this.label29.Location = new System.Drawing.Point(64, 236);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(73, 16);
             this.label29.TabIndex = 31;
             this.label29.Text = "First Name";
             // 
-            // txtEditOjtNum
-            // 
-            this.txtEditOjtNum.BackColor = System.Drawing.Color.White;
-            this.txtEditOjtNum.Enabled = false;
-            this.txtEditOjtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEditOjtNum.Location = new System.Drawing.Point(31, 32);
-            this.txtEditOjtNum.Name = "txtEditOjtNum";
-            this.txtEditOjtNum.ReadOnly = true;
-            this.txtEditOjtNum.Size = new System.Drawing.Size(178, 26);
-            this.txtEditOjtNum.TabIndex = 30;
-            // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(28, 15);
+            this.label30.Location = new System.Drawing.Point(148, 120);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(85, 16);
             this.label30.TabIndex = 29;
             this.label30.Text = "OJT Number";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(583, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "EDIT INTERN";
             // 
             // viewDtrPanel
             // 
@@ -1640,8 +1621,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
@@ -1650,6 +1629,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.Controls.Add(this.panelViewDTR);
             this.mainPanel.Controls.Add(this.viewDTRPanelWelcome);
             this.mainPanel.Controls.Add(this.imisWelcome);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
+            this.mainPanel.Controls.Add(this.viewDtrPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -1788,13 +1769,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             // 
             // addInternUnreg
@@ -1890,6 +1871,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelViewDTR.Name = "panelViewDTR";
             this.panelViewDTR.Size = new System.Drawing.Size(1482, 723);
             this.panelViewDTR.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(595, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Selected";
             // 
             // label58
             // 
@@ -2128,27 +2119,35 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label44.TabIndex = 0;
             this.label44.Text = "Hi";
             // 
-            // label2
+            // label40
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(595, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Selected";
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(584, 20);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(287, 46);
+            this.label40.TabIndex = 76;
+            this.label40.Text = "EDIT INTERN";
             // 
-            // buttonViewDTR
+            // txtEditOjtNum
             // 
-            this.buttonViewDTR.BackColor = System.Drawing.Color.Yellow;
-            this.buttonViewDTR.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewDTR.Location = new System.Drawing.Point(979, 94);
-            this.buttonViewDTR.Name = "buttonViewDTR";
-            this.buttonViewDTR.Size = new System.Drawing.Size(177, 43);
-            this.buttonViewDTR.TabIndex = 48;
-            this.buttonViewDTR.Text = "View DTR";
-            this.buttonViewDTR.UseVisualStyleBackColor = false;
-            this.buttonViewDTR.Click += new System.EventHandler(this.buttonViewDTR_Click);
+            this.txtEditOjtNum.AutoSize = true;
+            this.txtEditOjtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditOjtNum.Location = new System.Drawing.Point(188, 144);
+            this.txtEditOjtNum.Name = "txtEditOjtNum";
+            this.txtEditOjtNum.Size = new System.Drawing.Size(141, 29);
+            this.txtEditOjtNum.TabIndex = 77;
+            this.txtEditOjtNum.Text = "First Name";
+            // 
+            // txtEditTerminalName
+            // 
+            this.txtEditTerminalName.AutoSize = true;
+            this.txtEditTerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEditTerminalName.Location = new System.Drawing.Point(523, 144);
+            this.txtEditTerminalName.Name = "txtEditTerminalName";
+            this.txtEditTerminalName.Size = new System.Drawing.Size(141, 29);
+            this.txtEditTerminalName.TabIndex = 78;
+            this.txtEditTerminalName.Text = "First Name";
             // 
             // Main_Menu_Remastered
             // 
@@ -2214,7 +2213,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Panel viewInternPanel;
         private System.Windows.Forms.Panel addInternPanel;
         private System.Windows.Forms.Panel editInternPanel;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel viewDtrPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel letterPanel;
@@ -2362,12 +2360,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.CheckBox boxEditSuffix;
         private System.Windows.Forms.TextBox txtEditSuffix;
         private System.Windows.Forms.Button buttonRefresh;
-        private System.Windows.Forms.TextBox txtEditTerminalName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnEditIntern;
         private System.Windows.Forms.Button btnAddNewIntern;
         private System.Windows.Forms.ToolStripButton stripInterns;
-        private System.Windows.Forms.TextBox txtEditOjtNum;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -2379,5 +2375,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Panel addInternSchedPanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonViewDTR;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label txtEditTerminalName;
+        private System.Windows.Forms.Label txtEditOjtNum;
     }
 }

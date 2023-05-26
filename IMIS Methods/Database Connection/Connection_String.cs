@@ -18,10 +18,10 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         //public static string conn = ConfigurationManager.ConnectionStrings["Earl"].ConnectionString;
 
         // Maverick
-        //public static string conn = ConfigurationManager.ConnectionStrings["Maverick"].ConnectionString;
+        public static string conn = ConfigurationManager.ConnectionStrings["Maverick"].ConnectionString;
 
         // Miggy
-        public static string conn = ConfigurationManager.ConnectionStrings["Miggy"].ConnectionString;
+        //public static string conn = ConfigurationManager.ConnectionStrings["Miggy"].ConnectionString;
 
         //OJT
         //public static string conn = ConfigurationManager.ConnectionStrings["OJT"].ConnectionString;

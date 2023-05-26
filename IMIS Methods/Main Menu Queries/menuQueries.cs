@@ -60,7 +60,11 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         {
             return dataTable(@"SELECT DISTINCT
                 OJT_Number AS 'OJT Number',
-                CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern'
+				CASE
+					WHEN Suffix = ' '
+					THEN CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name)
+					ELSE CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name, ' ', Suffix)
+				END AS 'Intern'
                 FROM Intern_Info ");
         }
         
