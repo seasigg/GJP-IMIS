@@ -45,8 +45,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // report strip
             defaultReport();
+
+            // button tool tips
+            buttonToolTips();
         }
 
+        private void buttonToolTips()
+        {
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.buttonRefresh, "To refresh intern's information");
+            ToolTip1.SetToolTip(this.buttonViewDTR, "To view intern's DTR");
+            ToolTip1.SetToolTip(this.btnEditIntern, "To edit intern's personal information");
+            ToolTip1.SetToolTip(this.btnAddNewIntern, "To add new intern from the biometrics");
+            ToolTip1.SetToolTip(this.btnAddIntern, "Add intern's credentials");
+            ToolTip1.SetToolTip(this.btnUpdate, "Update intern's credentials");
+            ToolTip1.SetToolTip(this.addUnregIntern, "add this intern's information");
+
+        }
         // ------------------------------------------------------------ INTERN STRIP ------------------------------------------------------------
 
         // refresh intern dtr
@@ -879,13 +894,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ------------------------------------------------------------ END OF MODIFY LOG STRIP ------------------------------------------------------------
 
-        // ------------------------------------------------------------ DTR STRIP ------------------------------------------------------------
-        private void viewDtrToolStripButton1_Click(object sender, EventArgs e)
-        {
-            viewDTRPanelWelcome.BringToFront();
-        }
-        // ------------------------------------------------------------ END OF DTR STRIP ------------------------------------------------------------
-
         // ------------------------------------------------------------ CERTIFICATES STRIP ------------------------------------------------------------
 
         // data grid
@@ -1195,11 +1203,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void toolStripButtonModifLog_Click(object sender, EventArgs e)
         {
             panelViewDTR.BringToFront();
-        }
-        // dtr
-        private void btnViewDtr_Click(object sender, EventArgs e)
-        {
-            viewDtrPanel.BringToFront();
         }
         // certificates/letter
         private void toolStripLetter_Click(object sender, EventArgs e)
