@@ -19,6 +19,7 @@ using GJP_IMIS.IMIS_Methods.Report_Queries;
 using GJP_IMIS.Reports;
 using System.IO;
 using System.Threading;
+using System.ServiceModel;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
@@ -36,9 +37,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
             // add intern strip
             addInternStrip();
-
-            // edit intern strip
-            editInternDataGrid();
 
             // letter strip
             defaultLetter();
@@ -71,59 +69,136 @@ namespace GJP_IMIS.IMIS_Main_Menu
             loadScreen.Show();
             loadScreen.TopMost = true;
             await Task.Run(() => {
-                try
-                {
+               /* try
+                {*/
                     InternQueries.calculateDTR();
                     setViewInternDataGrid();
-                }
+                    dataGridInterns.ClearSelection();
+                /*}
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Refresh Button Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
             });
             loadScreen.Hide();
             buttonRefresh.Enabled = true;
         }
 
-        private async void buttonViewDTR_Click(object sender, EventArgs e)
+        private void buttonViewDTR_Click(object sender, EventArgs e)
         {
-            buttonViewDTR.Enabled = false;
-            loadScreen.Show();
-            loadScreen.TopMost = true;
             string ojtNum = dataGridInterns.CurrentRow.Cells[0].Value.ToString();
             if (ojtNum != null)
             {
-
-                var m1 = new Action(() => {
-                    /*BindingSource bs = new BindingSource();
-                    bs.DataSource = menuQueries.viewInternDTR(ojtNum);
-
-                    dataGridViewInternDTR.DataSource = bs;
-                    dataGridViewInternDTR.ClearSelection();
-
-                    panelViewDTR.Show();*/
-                });
-
-                await Task.Run(() => {
-                    try {
-                        if (dataGridViewInternDTR.InvokeRequired)
-                            dataGridViewInternDTR.Invoke(new Action(() => { m1();}));
-                        else
-                            m1();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "View DTR Button Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                });
+                viewDTR(ojtNum);
             }
             else
-                MessageBox.Show("Select an intern", "No Intern DTR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
-            loadScreen.Hide();
-            buttonViewDTR.Enabled = true;
+                MessageBox.Show("Select an intern", "No Selected Intern", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private async void viewDTR(string ojtNum)
+        {
+            try
+            {
+                buttonViewDTR.Enabled = false;
+                loadScreen.Show();
+                loadScreen.TopMost = true;
+
+                await Task.Run(() => {
+
+                        
+
+                        BindingSource bs = new BindingSource();
+                        bs.DataSource = menuQueries.viewInternDTR(ojtNum);
+
+                        DataTable dt = menuQueries.viewDTRLabels(ojtNum);
+
+                        var method = new Action(() => {
+                            dataGridViewInternDTR.DataSource = bs;
+                            dataGridViewInternDTR.ClearSelection();
+                        });
+
+                        var method2 = new Action(() => { panelViewDTR.BringToFront(); });
+
+                        var method3 = new Action(() => {
+                            textDTR_Name.Text = dt.Rows[0][1].ToString();
+                            textDTR_OJTID.Text = dt.Rows[0][0].ToString();
+                            textDTR_TerminalName.Text = dt.Rows[0][2].ToString();
+                            textDTR_Rendered.Text = dt.Rows[0][3].ToString();
+                            textDTR_Status.Text = dt.Rows[0][4].ToString();
+                            txtDTR_TermName.Text = dt.Rows[0][5].ToString();
+
+                            textDTR_Name.Visible = true;
+                            textDTR_OJTID.Visible = true;
+                            textDTR_TerminalName.Visible = true;
+                            textDTR_Rendered.Visible = true;
+                            textDTR_Status.Visible = true;
+                        });
+
+                        if (dataGridViewInternDTR.InvokeRequired)
+                            dataGridViewInternDTR.Invoke(method);
+                        else
+                            method();
+
+                        if (panelViewDTR.InvokeRequired)
+                            panelViewDTR.Invoke(method2);
+                        else
+                            method2();
+
+                        if (textDTR_Name.InvokeRequired || textDTR_OJTID.InvokeRequired || textDTR_TerminalName.InvokeRequired || textDTR_Rendered.InvokeRequired || textDTR_Status.InvokeRequired || txtDTR_TermName.InvokeRequired)
+                        {
+                            textDTR_Name.Invoke(method3);
+                            textDTR_OJTID.Invoke(method3);
+                            textDTR_TerminalName.Invoke(method3);
+                            textDTR_Rendered.Invoke(method3);
+                            textDTR_Status.Invoke(method3);
+                            txtDTR_TermName.Invoke(method3);
+                        }
+                        else
+                            method3();
+
+                        dt.Dispose();
+                    
+                });
+                loadScreen.Hide();
+                buttonViewDTR.Enabled = true;
+            }
+            catch (ProtocolException ex)
+            {
+                loadScreen.Hide();
+                buttonViewDTR.Enabled = true;
+                MessageBox.Show(ex.Message, "View DTR Button Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtInternFilter_TextChanged_1(object sender, EventArgs e)
+        {
+            internFilter();
+        }
+
+        private void comboBoxInternFilter_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            internFilter();
+        }
+
+        private void internFilter()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridInterns.DataSource;
+
+            if (comboBoxInternFilter.SelectedIndex == 0)
+                bs.Filter = "[Name] like '%" + txtInternFilter.Text + "%'";
+            if (comboBoxInternFilter.SelectedIndex == 1)
+                bs.Filter = "[Course] like '%" + txtInternFilter.Text + "%'";
+            if (comboBoxInternFilter.SelectedIndex == 2)
+                bs.Filter = "[School] like '%" + txtInternFilter.Text + "%'";
+            if (comboBoxInternFilter.SelectedIndex == 3)
+                bs.Filter = "[Office] like '%" + txtInternFilter.Text + "%'";
+            if (comboBoxInternFilter.SelectedIndex == 4)
+                bs.Filter = "[OJT ID] like '%" + txtInternFilter.Text + "%'";
+
+            dataGridInterns.DataSource = bs;
+            dataGridInterns.ClearSelection();
+        }
         // ********* ADD UNREGISTERED INTERNS *********
         // add new intern
         private void btnAddNewIntern_Click(object sender, EventArgs e)
@@ -230,11 +305,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         }
 
         // ********* EDIT INTERN DATA *********
-        private void editInternDataGrid()
-        {
-            datagridModifLog.DataSource = menuQueries.insertInternLogDataGrid();
-            datagridModifLog.ClearSelection();
-        }
 
         // ********** VIEW INTERN **********
 
@@ -257,14 +327,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 dataGridInterns.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             });
 
             if(dataGridInterns.InvokeRequired)
                 dataGridInterns.Invoke(new Action(() => method())); 
             else
                 method();
-            
         }
 
 
@@ -819,6 +888,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                     InternQueries.calculateDTR();
                     buttonRefresh.PerformClick();
+                    imisWelcome.BringToFront();
                 }
                 catch (Exception er)
                 {
@@ -831,38 +901,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ------------------------------------------------------------ END OF UPDATE LOG STRIP ------------------------------------------------------------
 
         // ------------------------------------------------------------ MODIFY LOG STRIP ------------------------------------------------------------
-
-        private void datagridModifLog_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            modifLogOjtId.Text = datagridModifLog.CurrentRow.Cells[0].Value.ToString();
-            modifLogOjtName.Text = datagridModifLog.CurrentRow.Cells[1].Value.ToString();
-            modifLogTerminal.Text = datagridModifLog.CurrentRow.Cells[2].Value.ToString();
-
-            modifLogOjtId.Visible = true;
-            modifLogOjtName.Visible = true;
-            modifLogTerminal.Visible = true;
-
-            btnUpdateLog.Enabled = true;
-
-            dateTimePickerDate.Enabled = true;
-            dateTimePickerTime.Enabled = true;
-
-            dateTimePickerDate.Format = DateTimePickerFormat.Custom;
-            dateTimePickerDate.CustomFormat = "yyyy-MM-dd";
-
-            dateTimePickerTime.Format = DateTimePickerFormat.Custom;
-            dateTimePickerTime.CustomFormat = "HH:mm:ss";
-            dateTimePickerTime.ShowUpDown = true;
-
-            logsDataGrid();
-        }
         // logs data grid
-        private void logsDataGrid()
-        {
-            string ojtID = datagridModifLog.CurrentRow.Cells[0].Value.ToString();
 
-            dataGridViewInternDTR.DataSource = InternQueries.internLogsData(ojtID);
-        }
         private void dataGridLogs_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dateTimePickerDate.Enabled = true;
@@ -880,16 +920,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // update intern log button
         private void btnUpdateLog_Click(object sender, EventArgs e)
         {
-            string ojtID = modifLogOjtId.Text;
+            string ojtID = textDTR_OJTID.Text;
             string newDate = dateTimePickerDate.Value.Date.ToString("yyyy-MM-dd");
             string newTime = dateTimePickerTime.Value.ToString("HH:mm:ss");
-            string terminal = modifLogTerminal.Text;
+            string terminal = txtDTR_TermName.Text;
 
             InternQueries.insertInternLog(ojtID, newDate, newTime, terminal);
 
-            MessageBox.Show("LOG ADDED.");
             // REFRESH THE LOG DATA
-            dataGridViewInternDTR.DataSource = InternQueries.internLogsData(ojtID);
+            InternQueries.calculateDTR();
+            viewDTR(ojtID);
+            
         }
 
         // ------------------------------------------------------------ END OF MODIFY LOG STRIP ------------------------------------------------------------
@@ -1198,11 +1239,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void toolStripInterns_Click(object sender, EventArgs e)
         {
             viewInternPanel.BringToFront();
-        }
-        // modify logs
-        private void toolStripButtonModifLog_Click(object sender, EventArgs e)
-        {
-            panelViewDTR.BringToFront();
+            comboBoxInternFilter.SelectedIndex = 0;
         }
         // certificates/letter
         private void toolStripLetter_Click(object sender, EventArgs e)
@@ -1223,8 +1260,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             rv.ShowDialog();
         }
 
-        
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
 
-        
+        private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

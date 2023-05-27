@@ -29,8 +29,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.viewInternPanel = new System.Windows.Forms.Panel();
             this.buttonViewDTR = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -154,14 +156,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportGender = new System.Windows.Forms.CheckBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.stripInterns = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonModifLog = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -175,14 +172,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridViewInternDTR = new System.Windows.Forms.DataGridView();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.modifLogTerminal = new System.Windows.Forms.Label();
+            this.textDTR_TerminalName = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.btnUpdateLog = new System.Windows.Forms.Button();
-            this.modifLogOjtName = new System.Windows.Forms.Label();
+            this.textDTR_Name = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
-            this.modifLogOjtId = new System.Windows.Forms.Label();
+            this.textDTR_OJTID = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.datagridModifLog = new System.Windows.Forms.DataGridView();
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.buttonTestDTR = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
@@ -192,6 +188,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
             this.addUnregIntern = new System.Windows.Forms.Button();
             this.label56 = new System.Windows.Forms.Label();
+            this.stripInterns = new System.Windows.Forms.ToolStripButton();
+            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
+            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtInternFilter = new System.Windows.Forms.TextBox();
+            this.comboBoxInternFilter = new System.Windows.Forms.ComboBox();
+            this.textDTR_Rendered = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.textDTR_Status = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtDTR_TermName = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -212,7 +221,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.SuspendLayout();
             this.panelViewDTR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternDTR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).BeginInit();
             this.imisWelcome.SuspendLayout();
             this.addInternUnreg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
@@ -220,6 +228,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // viewInternPanel
             // 
+            this.viewInternPanel.Controls.Add(this.comboBoxInternFilter);
+            this.viewInternPanel.Controls.Add(this.txtInternFilter);
+            this.viewInternPanel.Controls.Add(this.label5);
             this.viewInternPanel.Controls.Add(this.buttonViewDTR);
             this.viewInternPanel.Controls.Add(this.label8);
             this.viewInternPanel.Controls.Add(this.btnEditIntern);
@@ -294,15 +305,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.dataGridInterns.AllowUserToAddRows = false;
             this.dataGridInterns.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridInterns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 161);
             this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridInterns.Name = "dataGridInterns";
@@ -1623,11 +1642,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
+            this.mainPanel.Controls.Add(this.panelViewDTR);
+            this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanel);
-            this.mainPanel.Controls.Add(this.panelViewDTR);
             this.mainPanel.Controls.Add(this.imisWelcome);
-            this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
@@ -1642,10 +1661,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stripInterns,
-            this.toolStripSeparator1,
             this.updateDTRToolStripButton1,
-            this.toolStripButtonModifLog,
+            this.toolStripSeparator1,
+            this.stripInterns,
             this.toolStripSeparator2,
             this.toolStripLetter,
             this.toolStripSeparator3,
@@ -1657,75 +1675,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // stripInterns
-            // 
-            this.stripInterns.Image = ((System.Drawing.Image)(resources.GetObject("stripInterns.Image")));
-            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stripInterns.Name = "stripInterns";
-            this.stripInterns.Size = new System.Drawing.Size(47, 39);
-            this.stripInterns.Text = "Interns";
-            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 42);
-            // 
-            // updateDTRToolStripButton1
-            // 
-            this.updateDTRToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("updateDTRToolStripButton1.Image")));
-            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
-            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(77, 39);
-            this.updateDTRToolStripButton1.Text = "Update Logs";
-            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
-            // 
-            // toolStripButtonModifLog
-            // 
-            this.toolStripButtonModifLog.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonModifLog.Image")));
-            this.toolStripButtonModifLog.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonModifLog.Name = "toolStripButtonModifLog";
-            this.toolStripButtonModifLog.Size = new System.Drawing.Size(61, 39);
-            this.toolStripButtonModifLog.Text = "Logs/DTR";
-            this.toolStripButtonModifLog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonModifLog.Click += new System.EventHandler(this.toolStripButtonModifLog_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 42);
             // 
-            // toolStripLetter
-            // 
-            this.toolStripLetter.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLetter.Image")));
-            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLetter.Name = "toolStripLetter";
-            this.toolStripLetter.Size = new System.Drawing.Size(70, 39);
-            this.toolStripLetter.Text = "Certificates";
-            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 42);
-            // 
-            // reportsToolStripButton
-            // 
-            this.reportsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("reportsToolStripButton.Image")));
-            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.reportsToolStripButton.Name = "reportsToolStripButton";
-            this.reportsToolStripButton.Size = new System.Drawing.Size(51, 39);
-            this.reportsToolStripButton.Text = "Reports";
-            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
             // 
             // toolStripSeparator4
             // 
@@ -1756,17 +1719,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // eXITToolStripMenuItem
             // 
             this.eXITToolStripMenuItem.Name = "eXITToolStripMenuItem";
-            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.eXITToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
+            this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
             // 
             // panelViewDTR
             // 
+            this.panelViewDTR.Controls.Add(this.txtDTR_TermName);
+            this.panelViewDTR.Controls.Add(this.label43);
+            this.panelViewDTR.Controls.Add(this.textDTR_Status);
+            this.panelViewDTR.Controls.Add(this.label42);
+            this.panelViewDTR.Controls.Add(this.textDTR_Rendered);
+            this.panelViewDTR.Controls.Add(this.label41);
             this.panelViewDTR.Controls.Add(this.label3);
             this.panelViewDTR.Controls.Add(this.label2);
             this.panelViewDTR.Controls.Add(this.label58);
@@ -1774,14 +1745,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelViewDTR.Controls.Add(this.dataGridViewInternDTR);
             this.panelViewDTR.Controls.Add(this.dateTimePickerTime);
             this.panelViewDTR.Controls.Add(this.dateTimePickerDate);
-            this.panelViewDTR.Controls.Add(this.modifLogTerminal);
+            this.panelViewDTR.Controls.Add(this.textDTR_TerminalName);
             this.panelViewDTR.Controls.Add(this.label59);
             this.panelViewDTR.Controls.Add(this.btnUpdateLog);
-            this.panelViewDTR.Controls.Add(this.modifLogOjtName);
+            this.panelViewDTR.Controls.Add(this.textDTR_Name);
             this.panelViewDTR.Controls.Add(this.label61);
-            this.panelViewDTR.Controls.Add(this.modifLogOjtId);
+            this.panelViewDTR.Controls.Add(this.textDTR_OJTID);
             this.panelViewDTR.Controls.Add(this.label63);
-            this.panelViewDTR.Controls.Add(this.datagridModifLog);
             this.panelViewDTR.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelViewDTR.Location = new System.Drawing.Point(0, 66);
             this.panelViewDTR.Margin = new System.Windows.Forms.Padding(2);
@@ -1792,18 +1762,18 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(584, 25);
+            this.label3.Font = new System.Drawing.Font("Bell MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(610, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 46);
+            this.label3.Size = new System.Drawing.Size(241, 31);
             this.label3.TabIndex = 21;
-            this.label3.Text = "LOGS / DTR";
+            this.label3.Text = "Daily Time Record";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(595, 103);
+            this.label2.Location = new System.Drawing.Point(341, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 20;
@@ -1812,7 +1782,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(944, 174);
+            this.label58.Location = new System.Drawing.Point(717, 644);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(33, 13);
             this.label58.TabIndex = 19;
@@ -1821,7 +1791,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(621, 169);
+            this.label60.Location = new System.Drawing.Point(394, 639);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(33, 13);
             this.label60.TabIndex = 18;
@@ -1836,134 +1806,124 @@ namespace GJP_IMIS.IMIS_Main_Menu
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewInternDTR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInternDTR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInternDTR.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewInternDTR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInternDTR.Location = new System.Drawing.Point(39, 317);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInternDTR.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewInternDTR.Location = new System.Drawing.Point(39, 176);
             this.dataGridViewInternDTR.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewInternDTR.Name = "dataGridViewInternDTR";
             this.dataGridViewInternDTR.ReadOnly = true;
             this.dataGridViewInternDTR.RowHeadersWidth = 51;
             this.dataGridViewInternDTR.RowTemplate.Height = 24;
             this.dataGridViewInternDTR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInternDTR.Size = new System.Drawing.Size(1241, 386);
+            this.dataGridViewInternDTR.Size = new System.Drawing.Size(1407, 448);
             this.dataGridViewInternDTR.TabIndex = 15;
             this.dataGridViewInternDTR.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridLogs_CellClick);
             // 
             // dateTimePickerTime
             // 
             this.dateTimePickerTime.CustomFormat = "HH:mm:ss";
-            this.dateTimePickerTime.Enabled = false;
             this.dateTimePickerTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerTime.Location = new System.Drawing.Point(933, 194);
+            this.dateTimePickerTime.Location = new System.Drawing.Point(706, 664);
             this.dateTimePickerTime.Name = "dateTimePickerTime";
+            this.dateTimePickerTime.ShowUpDown = true;
             this.dateTimePickerTime.Size = new System.Drawing.Size(200, 26);
             this.dateTimePickerTime.TabIndex = 12;
             // 
             // dateTimePickerDate
             // 
-            this.dateTimePickerDate.Enabled = false;
             this.dateTimePickerDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerDate.Location = new System.Drawing.Point(621, 193);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(394, 663);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.Size = new System.Drawing.Size(271, 26);
             this.dateTimePickerDate.TabIndex = 11;
             // 
-            // modifLogTerminal
+            // textDTR_TerminalName
             // 
-            this.modifLogTerminal.AutoSize = true;
-            this.modifLogTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifLogTerminal.Location = new System.Drawing.Point(322, 258);
-            this.modifLogTerminal.Name = "modifLogTerminal";
-            this.modifLogTerminal.Size = new System.Drawing.Size(135, 25);
-            this.modifLogTerminal.TabIndex = 10;
-            this.modifLogTerminal.Text = "// ojt terminal";
-            this.modifLogTerminal.Visible = false;
+            this.textDTR_TerminalName.AutoSize = true;
+            this.textDTR_TerminalName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDTR_TerminalName.Location = new System.Drawing.Point(670, 136);
+            this.textDTR_TerminalName.Name = "textDTR_TerminalName";
+            this.textDTR_TerminalName.Size = new System.Drawing.Size(135, 25);
+            this.textDTR_TerminalName.TabIndex = 10;
+            this.textDTR_TerminalName.Text = "// ojt terminal";
             // 
             // label59
             // 
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(284, 242);
+            this.label59.Location = new System.Drawing.Point(621, 119);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(104, 16);
+            this.label59.Size = new System.Drawing.Size(90, 16);
             this.label59.TabIndex = 9;
-            this.label59.Text = "Terminal Name:";
+            this.label59.Text = "Target Hours:";
             // 
             // btnUpdateLog
             // 
             this.btnUpdateLog.BackColor = System.Drawing.Color.Chartreuse;
-            this.btnUpdateLog.Enabled = false;
-            this.btnUpdateLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateLog.Location = new System.Drawing.Point(1126, 251);
+            this.btnUpdateLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateLog.Location = new System.Drawing.Point(956, 643);
             this.btnUpdateLog.Name = "btnUpdateLog";
             this.btnUpdateLog.Size = new System.Drawing.Size(154, 47);
             this.btnUpdateLog.TabIndex = 8;
-            this.btnUpdateLog.Text = "UPDATE LOG";
+            this.btnUpdateLog.Text = "Add DTR";
             this.btnUpdateLog.UseVisualStyleBackColor = false;
             this.btnUpdateLog.Click += new System.EventHandler(this.btnUpdateLog_Click);
             // 
-            // modifLogOjtName
+            // textDTR_Name
             // 
-            this.modifLogOjtName.AutoSize = true;
-            this.modifLogOjtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifLogOjtName.Location = new System.Drawing.Point(602, 256);
-            this.modifLogOjtName.Name = "modifLogOjtName";
-            this.modifLogOjtName.Size = new System.Drawing.Size(112, 25);
-            this.modifLogOjtName.TabIndex = 6;
-            this.modifLogOjtName.Text = "// ojt name";
-            this.modifLogOjtName.Visible = false;
+            this.textDTR_Name.AutoSize = true;
+            this.textDTR_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDTR_Name.Location = new System.Drawing.Point(268, 136);
+            this.textDTR_Name.Name = "textDTR_Name";
+            this.textDTR_Name.Size = new System.Drawing.Size(112, 25);
+            this.textDTR_Name.TabIndex = 6;
+            this.textDTR_Name.Text = "// ojt name";
             // 
             // label61
             // 
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(562, 239);
+            this.label61.Location = new System.Drawing.Point(250, 119);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(48, 16);
             this.label61.TabIndex = 5;
             this.label61.Text = "Name:";
             // 
-            // modifLogOjtId
+            // textDTR_OJTID
             // 
-            this.modifLogOjtId.AutoSize = true;
-            this.modifLogOjtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifLogOjtId.Location = new System.Drawing.Point(114, 256);
-            this.modifLogOjtId.Name = "modifLogOjtId";
-            this.modifLogOjtId.Size = new System.Drawing.Size(76, 25);
-            this.modifLogOjtId.TabIndex = 4;
-            this.modifLogOjtId.Text = "// ojt id";
-            this.modifLogOjtId.Visible = false;
+            this.textDTR_OJTID.AutoSize = true;
+            this.textDTR_OJTID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDTR_OJTID.Location = new System.Drawing.Point(65, 136);
+            this.textDTR_OJTID.Name = "textDTR_OJTID";
+            this.textDTR_OJTID.Size = new System.Drawing.Size(76, 25);
+            this.textDTR_OJTID.TabIndex = 4;
+            this.textDTR_OJTID.Text = "// ojt id";
             // 
             // label63
             // 
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(87, 242);
+            this.label63.Location = new System.Drawing.Point(38, 122);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(21, 16);
             this.label63.TabIndex = 3;
             this.label63.Text = "ID";
-            // 
-            // datagridModifLog
-            // 
-            this.datagridModifLog.AllowUserToAddRows = false;
-            this.datagridModifLog.AllowUserToDeleteRows = false;
-            this.datagridModifLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.datagridModifLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridModifLog.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.datagridModifLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridModifLog.Location = new System.Drawing.Point(39, 107);
-            this.datagridModifLog.Margin = new System.Windows.Forms.Padding(2);
-            this.datagridModifLog.Name = "datagridModifLog";
-            this.datagridModifLog.ReadOnly = true;
-            this.datagridModifLog.RowHeadersWidth = 51;
-            this.datagridModifLog.RowTemplate.Height = 24;
-            this.datagridModifLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridModifLog.Size = new System.Drawing.Size(479, 118);
-            this.datagridModifLog.TabIndex = 2;
-            this.datagridModifLog.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridModifLog_CellClick);
             // 
             // imisWelcome
             // 
@@ -2066,6 +2026,150 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label56.TabIndex = 32;
             this.label56.Text = "Search:";
             // 
+            // stripInterns
+            // 
+            this.stripInterns.Image = global::GJP_IMIS.Properties.Resources.Interns;
+            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stripInterns.Name = "stripInterns";
+            this.stripInterns.Size = new System.Drawing.Size(47, 39);
+            this.stripInterns.Text = "Interns";
+            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
+            // 
+            // updateDTRToolStripButton1
+            // 
+            this.updateDTRToolStripButton1.Image = global::GJP_IMIS.Properties.Resources.Update;
+            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
+            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(77, 39);
+            this.updateDTRToolStripButton1.Text = "Update Logs";
+            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
+            // 
+            // toolStripLetter
+            // 
+            this.toolStripLetter.Image = global::GJP_IMIS.Properties.Resources.Certificate;
+            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripLetter.Name = "toolStripLetter";
+            this.toolStripLetter.Size = new System.Drawing.Size(131, 39);
+            this.toolStripLetter.Text = "Certificates and Letters";
+            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripLetter.ToolTipText = "Certificates & Letters";
+            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
+            // 
+            // reportsToolStripButton
+            // 
+            this.reportsToolStripButton.Image = global::GJP_IMIS.Properties.Resources.Report;
+            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.reportsToolStripButton.Name = "reportsToolStripButton";
+            this.reportsToolStripButton.Size = new System.Drawing.Size(51, 39);
+            this.reportsToolStripButton.Text = "Reports";
+            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 20);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Search:";
+            // 
+            // txtInternFilter
+            // 
+            this.txtInternFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInternFilter.Location = new System.Drawing.Point(232, 129);
+            this.txtInternFilter.Name = "txtInternFilter";
+            this.txtInternFilter.Size = new System.Drawing.Size(366, 26);
+            this.txtInternFilter.TabIndex = 50;
+            this.txtInternFilter.TextChanged += new System.EventHandler(this.txtInternFilter_TextChanged_1);
+            // 
+            // comboBoxInternFilter
+            // 
+            this.comboBoxInternFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxInternFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxInternFilter.FormattingEnabled = true;
+            this.comboBoxInternFilter.Items.AddRange(new object[] {
+            "Name",
+            "Course",
+            "School",
+            "Office",
+            "ID"});
+            this.comboBoxInternFilter.Location = new System.Drawing.Point(83, 127);
+            this.comboBoxInternFilter.Name = "comboBoxInternFilter";
+            this.comboBoxInternFilter.Size = new System.Drawing.Size(143, 28);
+            this.comboBoxInternFilter.TabIndex = 51;
+            this.comboBoxInternFilter.SelectionChangeCommitted += new System.EventHandler(this.comboBoxInternFilter_SelectionChangeCommitted);
+            // 
+            // textDTR_Rendered
+            // 
+            this.textDTR_Rendered.AutoSize = true;
+            this.textDTR_Rendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDTR_Rendered.Location = new System.Drawing.Point(898, 136);
+            this.textDTR_Rendered.Name = "textDTR_Rendered";
+            this.textDTR_Rendered.Size = new System.Drawing.Size(87, 25);
+            this.textDTR_Rendered.TabIndex = 23;
+            this.textDTR_Rendered.Text = "// Hours";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(860, 120);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(108, 16);
+            this.label41.TabIndex = 22;
+            this.label41.Text = "Hours Rendered";
+            // 
+            // textDTR_Status
+            // 
+            this.textDTR_Status.AutoSize = true;
+            this.textDTR_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDTR_Status.Location = new System.Drawing.Point(1145, 132);
+            this.textDTR_Status.Name = "textDTR_Status";
+            this.textDTR_Status.Size = new System.Drawing.Size(91, 25);
+            this.textDTR_Status.TabIndex = 25;
+            this.textDTR_Status.Text = "// Status";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(1107, 116);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(45, 16);
+            this.label42.TabIndex = 24;
+            this.label42.Text = "Status";
+            // 
+            // txtDTR_TermName
+            // 
+            this.txtDTR_TermName.AutoSize = true;
+            this.txtDTR_TermName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDTR_TermName.Location = new System.Drawing.Point(998, 67);
+            this.txtDTR_TermName.Name = "txtDTR_TermName";
+            this.txtDTR_TermName.Size = new System.Drawing.Size(135, 25);
+            this.txtDTR_TermName.TabIndex = 27;
+            this.txtDTR_TermName.Text = "// ojt terminal";
+            this.txtDTR_TermName.Visible = false;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(949, 50);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(90, 16);
+            this.label43.TabIndex = 26;
+            this.label43.Text = "Target Hours:";
+            this.label43.Visible = false;
+            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2112,7 +2216,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.panelViewDTR.ResumeLayout(false);
             this.panelViewDTR.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternDTR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridModifLog)).EndInit();
             this.imisWelcome.ResumeLayout(false);
             this.imisWelcome.PerformLayout();
             this.addInternUnreg.ResumeLayout(false);
@@ -2223,15 +2326,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Panel panelViewDTR;
         private System.Windows.Forms.DateTimePicker dateTimePickerTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.Label modifLogTerminal;
+        private System.Windows.Forms.Label textDTR_TerminalName;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Button btnUpdateLog;
-        private System.Windows.Forms.Label modifLogOjtName;
+        private System.Windows.Forms.Label textDTR_Name;
         private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label modifLogOjtId;
+        private System.Windows.Forms.Label textDTR_OJTID;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.DataGridView datagridModifLog;
-        private System.Windows.Forms.ToolStripButton toolStripButtonModifLog;
         private System.Windows.Forms.DataGridView dataGridViewInternDTR;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label60;
@@ -2284,5 +2385,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label txtEditTerminalName;
         private System.Windows.Forms.Label txtEditOjtNum;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxInternFilter;
+        private System.Windows.Forms.TextBox txtInternFilter;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label textDTR_Rendered;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label textDTR_Status;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label txtDTR_TermName;
+        private System.Windows.Forms.Label label43;
     }
 }

@@ -462,6 +462,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             foreach (DataRow row in dt.Rows)
             {
+                
                 string query2 = dtrQuery2();
                 string query3 = dtrQuery3(row[0].ToString());
                 string query4 = dtrQuery4();

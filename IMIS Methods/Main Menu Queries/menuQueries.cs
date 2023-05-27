@@ -30,14 +30,15 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
             String query = @"SELECT Intern_Info.OJT_Number as 'OJT ID',
                         (Intern_Info.First_Name + ' ' + Intern_Info.Last_Name + ' ' + Intern_Info.Suffix) as 'Name',
                         Intern_Info.Course as 'Course',
-                        Intern_Info.School_Name as 'University',
+                        Intern_Info.School_Name as 'School',
                         
                         Intern_Info.Office_Name as 'Office',
-                        (CAST(Intern_Status.Current_Hours / 3600 AS VARCHAR(10)) + RIGHT(CONVERT(CHAR(8),DATEADD(ss,Intern_Status.Current_Hours,0),108),6)) as 'Hours Rendered',
+                        (CONVERT(VARCHAR(12), Intern_Status.Current_Hours /3600) + ':' + CONVERT(VARCHAR(2), Intern_Status.Current_Hours /60 % 60)) as 'Hours Rendered',
                         (Intern_Status.Target_Hours / 3600) as 'Target Hours',
                         Intern_Status.Status as 'Status'
                         FROM Intern_Info
-                        INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number";
+                        INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number
+						ORDER BY Intern_Info.OJT_Number ASC";
             return dataTable(query);
         }
         
@@ -69,13 +70,33 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         }
         
         // intern logs
-        public static DataTable insertInternLogDataGrid()
+        public static DataTable viewDTRLabels(string ojtID)
         {
-            return dataTable(@"SELECT DISTINCT
-                OJT_Number AS 'OJT Number',
-                CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name) AS 'Intern',
-                OJT_Terminal AS 'Terminal Name'
-                FROM Intern_Info ");
+			string q = @"SELECT
+                i.OJT_Number AS 'OJT Number',
+                CONCAT(i.First_Name, ' ', i.Middle_Initial, '. ', i.Last_Name) AS 'Intern',
+				REPLACE(CONVERT(varchar,(s.Target_Hours / 3600)),'.','') as 'Target_Hours',
+				(CONVERT(VARCHAR(12), s.Current_Hours /3600) + ':' + CONVERT(VARCHAR(2), s.Current_Hours /60 % 60)) as 'Hours_Rendered',
+				s.Status,
+				i.OJT_Terminal
+                FROM Intern_Info i
+				
+				INNER JOIN Intern_Status s 
+				ON s.OJT_Number = i.OJT_Number
+				WHERE i.OJT_Number = @ojtNumber";
+
+			Connection_String.dbConnection();
+			SqlCommand cmd = new SqlCommand(q, Connection_String.con);
+			cmd.Parameters.Add("@ojtNumber", SqlDbType.NVarChar);
+			cmd.Parameters["@ojtNumber"].Value = ojtID;
+			SqlDataAdapter da = new SqlDataAdapter(cmd);
+			DataTable dt = new DataTable();
+			da.Fill(dt);
+			Connection_String.con.Dispose();
+			cmd.Dispose();
+			da.Dispose();
+
+			return dt;
         }
 
         public static DataTable viewInternDTR(string ojtID)
@@ -195,11 +216,11 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 					select
 						
 						i.UserID,
-						convert(datetime, i.Date, 102) as 'Date',
-						i.Time_In,
-						i.Lunch,
-						i.Time_Out,
-						convert(varchar(5), dateadd(ss, i.Hours_Rendered, 0), 114) as 'Hours_Rendered',
+						format(convert(datetime, i.Date, 102), 'dd MMMM yyyy') as 'Date',
+						CONVERT(VARCHAR(5),i.Time_In,108) as 'Time In',
+						CONVERT(VARCHAR(5),i.Lunch,108) as 'Lunch',
+						CONVERT(VARCHAR(5),i.Time_Out,108) as 'Time Out',
+						
 						case
 		
 							when i.Time_Out is not null then
@@ -225,22 +246,12 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 		
 							else 'No Timeout'
 							end as 'Remark',
-						REPLACE(CONVERT(varchar,(s.Target_Hours / 3600)),'.','') as 'Target_Hours',
-						n.Course,
-						n.School_Name as 'School',
-						(CAST(@sum / 3600 AS VARCHAR(10)) + ':' + case when len(CAST(@sum %3600/60 AS VARCHAR(10))) = 1 then '0'+CAST(@sum %3600/60 AS VARCHAR(10)) else CAST(@sum %3600/60 AS VARCHAR(10)) end) as 'Total_Rendered',
-						(n.Last_Name + ', ' + n.First_Name + ' ' + n.Middle_Initial) as 'Name',
-						n.Office_Name
+
+					convert(varchar(5), dateadd(ss, i.Hours_Rendered, 0), 114) as 'Hours_Rendered'
+						
 						
 					from Intern_DTR_Report i
-					inner join Intern_Info n
-					on i.UserID = n.OJT_Number
-					inner join Intern_Status s
-					on i.UserID = s.OJT_Number
-
-					group by n.Last_Name, n.First_Name, n.Middle_Initial, n.Office_Name, i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered, s.Target_Hours, n.Course, n.School_Name
-
-					";
+					group by i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered";
 
 			string q5 = @"truncate table Intern_DTR_Report";
 
