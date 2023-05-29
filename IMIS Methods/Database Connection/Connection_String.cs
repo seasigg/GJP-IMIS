@@ -15,7 +15,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         public static SqlConnection con;
 
         //EarlTEST
-        public static string conn = ConfigurationManager.ConnectionStrings["EarlTEST"].ConnectionString;
+        //public static string conn = ConfigurationManager.ConnectionStrings["EarlTEST"].ConnectionString;
 
         // Earl
         //public static string conn = ConfigurationManager.ConnectionStrings["Earl"].ConnectionString;
@@ -27,7 +27,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         //public static string conn = ConfigurationManager.ConnectionStrings["Miggy"].ConnectionString;
 
         //OJT
-        //public static string conn = ConfigurationManager.ConnectionStrings["OJT"].ConnectionString;
+        public static string conn = ConfigurationManager.ConnectionStrings["OJT"].ConnectionString;
 
         public static void dbConnection()
         {

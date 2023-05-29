@@ -1251,14 +1251,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             reportsPanel.BringToFront();
         }
-        
-        // test dtr
-        private void buttonTestDTR_Click(object sender, EventArgs e)
-        {
-            ReportViewer rv = new ReportViewer();
-            rv.viewInternDTR();
-            rv.ShowDialog();
-        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1268,6 +1260,28 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void eXITToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void buttonDTRPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                buttonViewDTR.Enabled = false;
+                loadScreen.Show();
+                loadScreen.TopMost = true;
+
+                ReportViewer rv = new ReportViewer();
+                rv.viewInternDTR(textDTR_OJTID.Text);
+                loadScreen.Hide();
+                rv.ShowDialog();
+                buttonViewDTR.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                loadScreen.Hide();
+                buttonViewDTR.Enabled = true;
+                MessageBox.Show(ex.Message, "View DTR Button Error");
+            }
         }
     }
 }

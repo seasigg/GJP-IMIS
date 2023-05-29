@@ -91,45 +91,22 @@ namespace GJP_IMIS.Reports
             ds.Dispose();
         }
 
-        public void viewInternDTR()
+        public void viewInternDTR(string ojtID)
         {
-            Connection_String.dbConnection();
-            SqlCommand cmd1 = new SqlCommand(ReportQueries.reportTestDTR1(), Connection_String.con);
-            SqlCommand cmd2 = new SqlCommand(ReportQueries.reportTestDTR2(), Connection_String.con);
-            SqlCommand cmd3 = new SqlCommand(ReportQueries.reportTestDTR3(), Connection_String.con);
-            SqlCommand cmd4 = new SqlCommand(ReportQueries.reportTestDTR4(), Connection_String.con);
-            SqlCommand cmd6 = new SqlCommand(ReportQueries.reportTestDTR6(), Connection_String.con);
-
-            cmd1.ExecuteNonQuery();
-            cmd2.ExecuteNonQuery();
-            cmd3.ExecuteNonQuery();
-            cmd4.ExecuteNonQuery();
-
-            cmd1.Dispose();
-            cmd2.Dispose();
-            cmd3.Dispose();
-            cmd4.Dispose();
-
-
-            ReportDataSet ds = new ReportDataSet();
             ReportInternDTR dtr = new ReportInternDTR();
+            ReportDataSet ds = ReportQueries.reportViewDTR(ojtID);
 
-            Connection_String.dbConnection();
-            SqlDataAdapter da = new SqlDataAdapter(ReportQueries.reportTestDTR5(), Connection_String.con);
-            da.Fill(ds, "InternDTR");
-
-            cmd6.ExecuteNonQuery();
-            cmd6.Dispose();
-
-            Connection_String.con.Dispose();
-            da.Dispose();
             dtr.SetDataSource(ds.Tables["InternDTR"]);
             crystalReportViewer1.ReportSource = dtr;
             crystalReportViewer1.Refresh();
-            ds.Dispose();    
+            ds.Dispose();
         }
 
-
+        public void viewDTR(string ojtID)
+        {
+            Connection_String.dbConnection();
+            
+        }
 
         private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
