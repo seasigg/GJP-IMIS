@@ -41,9 +41,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // letter strip
             defaultLetter();
 
-            // report strip
-            defaultReport();
-
             // button tool tips
             buttonToolTips();
         }
@@ -1249,7 +1246,38 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // report
         private void reportsToolStripButton2_Click_1(object sender, EventArgs e)
         {
-            reportsPanel.BringToFront();
+            try
+            {
+                viewReportPanel();
+            }
+            catch(ProtocolException ex)
+            {
+                MessageBox.Show(ex.Message, "Report Button Error");
+            }
+        }
+
+        private async void viewReportPanel()
+        {
+            try
+            {
+                loadScreen.Show();
+                loadScreen.TopMost = true;
+                reportsToolStripButton.Enabled = false;
+                defaultReport();
+                await Task.Run(() => {
+                    if (reportsPanel.InvokeRequired)
+                        reportsPanel.Invoke(new Action(() => { reportsPanel.BringToFront(); }));
+                    else
+                        reportsPanel.BringToFront();
+                });
+
+                loadScreen.Hide();
+                reportsToolStripButton.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "View Report");
+            }
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
