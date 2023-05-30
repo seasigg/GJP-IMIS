@@ -2,7 +2,8 @@
 using System;
 using System.Threading;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GJP_IMIS
 {
@@ -19,14 +20,8 @@ namespace GJP_IMIS
 
         private void wc_btn_proceed_Click(object sender, EventArgs e)
         {
-            /*Login l = new Login();
-            l.Show();*/
-            /*Main_Menu_Remastered mmr = new Main_Menu_Remastered();
-            mmr.Show();
-            this.Hide();*/
             this.Hide();
             openMenu();
-
         }
 
         private static void openMenu()
@@ -40,8 +35,6 @@ namespace GJP_IMIS
             MainForm = new Main_Menu_Remastered();
             MainForm.Load += MainForm_LoadCompleted;
             MainForm.Show();
-
-
         }
 
         private static void MainForm_LoadCompleted(object sender, EventArgs e)
@@ -68,7 +61,6 @@ namespace GJP_IMIS
                 {
                     this.Dispose();
                     Application.Exit();
-
                 }
                 else
                     e.Cancel = true;
@@ -77,7 +69,19 @@ namespace GJP_IMIS
 
         private void IMIS_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                string conn = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(conn))
+                {
+                    con.Open();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid Connection String", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
         }
     }
 }
