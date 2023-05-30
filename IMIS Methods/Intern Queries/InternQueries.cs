@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
-using System.Data.SqlClient;
+﻿using GJP_IMIS.IMIS_Methods.Database_Connection;
+using System;
 using System.Data;
-using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 {
@@ -224,7 +219,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
                     --Status = @status 
                     WHERE OJT_Number = @ojtID";
         }
-        
+
         // query for populating intern data
         public static string editInternQuery()
         {
@@ -350,9 +345,9 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         public static string dtrQuery3(string id)
         {
-            return 
-                    "declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = '"+id+"') " +
-                    "declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = '"+id+"') " +
+            return
+                    "declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = '" + id + "') " +
+                    "declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = '" + id + "') " +
                     @"declare @break_AM Time(0) = '12:00:00'
                     declare @break_PM Time(0) = '13:00:00'
 
@@ -454,7 +449,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         public static void calculateDTR()
         {
             string query1 = dtrQuery1();
-            
+
             Connection_String.dbConnection();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(query1, Connection_String.con);
@@ -462,7 +457,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
             foreach (DataRow row in dt.Rows)
             {
-                
+
                 string query2 = dtrQuery2();
                 string query3 = dtrQuery3(row[0].ToString());
                 string query4 = dtrQuery4();
@@ -502,7 +497,7 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
         public static void calculateDTR(string ojt)
         {
-            
+
             string query2 = dtrQuery2();
             string query3 = dtrQuery3(ojt);
             string query4 = dtrQuery4();
@@ -511,31 +506,31 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
 
 
             Connection_String.dbConnection();
-                    SqlCommand cmd2 = new SqlCommand(query2, Connection_String.con);
-                    cmd2.Parameters.Add("@userID", SqlDbType.NVarChar);
-                    cmd2.Parameters["@userID"].Value = ojt;
+            SqlCommand cmd2 = new SqlCommand(query2, Connection_String.con);
+            cmd2.Parameters.Add("@userID", SqlDbType.NVarChar);
+            cmd2.Parameters["@userID"].Value = ojt;
 
-                    SqlCommand cmd3 = new SqlCommand(query3, Connection_String.con);
+            SqlCommand cmd3 = new SqlCommand(query3, Connection_String.con);
 
-                    SqlCommand cmd4 = new SqlCommand(query4, Connection_String.con);
-                    cmd4.Parameters.Add("@userID", SqlDbType.NVarChar);
-                    cmd4.Parameters["@userID"].Value = ojt;
+            SqlCommand cmd4 = new SqlCommand(query4, Connection_String.con);
+            cmd4.Parameters.Add("@userID", SqlDbType.NVarChar);
+            cmd4.Parameters["@userID"].Value = ojt;
 
-                    SqlCommand cmd5 = new SqlCommand(query5, Connection_String.con);
-                    SqlCommand cmd6 = new SqlCommand(query6, Connection_String.con);
+            SqlCommand cmd5 = new SqlCommand(query5, Connection_String.con);
+            SqlCommand cmd6 = new SqlCommand(query6, Connection_String.con);
 
-                    cmd2.ExecuteNonQuery();
-                    cmd3.ExecuteNonQuery();
-                    cmd4.ExecuteNonQuery();
-                    cmd5.ExecuteNonQuery();
-                    cmd6.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            cmd3.ExecuteNonQuery();
+            cmd4.ExecuteNonQuery();
+            cmd5.ExecuteNonQuery();
+            cmd6.ExecuteNonQuery();
 
-                    cmd2.Dispose();
-                    cmd3.Dispose();
-                    cmd4.Dispose();
-                    cmd5.Dispose();
-                    cmd6.Dispose();
-                
+            cmd2.Dispose();
+            cmd3.Dispose();
+            cmd4.Dispose();
+            cmd5.Dispose();
+            cmd6.Dispose();
+
             Connection_String.con.Dispose();
         }
 

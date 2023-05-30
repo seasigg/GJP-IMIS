@@ -1,25 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using GJP_IMIS.IMIS_Methods.AutoComplete;
+using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Methods.Intern_Queries;
+using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
+using GJP_IMIS.IMIS_Methods.Report_Queries;
+using GJP_IMIS.IMIS_Methods.Stored_Queries;
+using GJP_IMIS.Reports;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Data.SqlClient;
+using System.IO;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using GJP_IMIS.IMIS_Methods.Database_Connection;
-using GJP_IMIS.IMIS_Methods.Main_Menu_Queries;
-using GJP_IMIS.IMIS_Methods.Intern_Queries;
-using GJP_IMIS.IMIS_Methods.Stored_Queries;
-using GJP_IMIS.IMIS_Methods.AutoComplete;
-
-using System.Data.SqlClient;
-using GJP_IMIS.IMIS_Methods.Report_Queries;
-using GJP_IMIS.Reports;
-using System.IO;
-using System.Threading;
-using System.ServiceModel;
 
 namespace GJP_IMIS.IMIS_Main_Menu
 {
@@ -65,12 +57,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             buttonRefresh.Enabled = false;
             loadScreen.Show();
             loadScreen.TopMost = true;
-            await Task.Run(() => {
-               /* try
-                {*/
-                    InternQueries.calculateDTR();
-                    setViewInternDataGrid();
-                    dataGridInterns.ClearSelection();
+            await Task.Run(() =>
+            {
+                /* try
+                 {*/
+                InternQueries.calculateDTR();
+                setViewInternDataGrid();
+                dataGridInterns.ClearSelection();
                 /*}
                 catch (Exception ex)
                 {
@@ -100,61 +93,64 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 loadScreen.Show();
                 loadScreen.TopMost = true;
 
-                await Task.Run(() => {
+                await Task.Run(() =>
+                {
 
-                        
 
-                        BindingSource bs = new BindingSource();
-                        bs.DataSource = menuQueries.viewInternDTR(ojtNum);
 
-                        DataTable dt = menuQueries.viewDTRLabels(ojtNum);
+                    BindingSource bs = new BindingSource();
+                    bs.DataSource = menuQueries.viewInternDTR(ojtNum);
 
-                        var method = new Action(() => {
-                            dataGridViewInternDTR.DataSource = bs;
-                            dataGridViewInternDTR.ClearSelection();
-                        });
+                    DataTable dt = menuQueries.viewDTRLabels(ojtNum);
 
-                        var method2 = new Action(() => { panelViewDTR.BringToFront(); });
+                    var method = new Action(() =>
+                    {
+                        dataGridViewInternDTR.DataSource = bs;
+                        dataGridViewInternDTR.ClearSelection();
+                    });
 
-                        var method3 = new Action(() => {
-                            textDTR_Name.Text = dt.Rows[0][1].ToString();
-                            textDTR_OJTID.Text = dt.Rows[0][0].ToString();
-                            textDTR_TerminalName.Text = dt.Rows[0][2].ToString();
-                            textDTR_Rendered.Text = dt.Rows[0][3].ToString();
-                            textDTR_Status.Text = dt.Rows[0][4].ToString();
-                            txtDTR_TermName.Text = dt.Rows[0][5].ToString();
+                    var method2 = new Action(() => { panelViewDTR.BringToFront(); });
 
-                            textDTR_Name.Visible = true;
-                            textDTR_OJTID.Visible = true;
-                            textDTR_TerminalName.Visible = true;
-                            textDTR_Rendered.Visible = true;
-                            textDTR_Status.Visible = true;
-                        });
+                    var method3 = new Action(() =>
+                    {
+                        textDTR_Name.Text = dt.Rows[0][1].ToString();
+                        textDTR_OJTID.Text = dt.Rows[0][0].ToString();
+                        textDTR_TerminalName.Text = dt.Rows[0][2].ToString();
+                        textDTR_Rendered.Text = dt.Rows[0][3].ToString();
+                        textDTR_Status.Text = dt.Rows[0][4].ToString();
+                        txtDTR_TermName.Text = dt.Rows[0][5].ToString();
 
-                        if (dataGridViewInternDTR.InvokeRequired)
-                            dataGridViewInternDTR.Invoke(method);
-                        else
-                            method();
+                        textDTR_Name.Visible = true;
+                        textDTR_OJTID.Visible = true;
+                        textDTR_TerminalName.Visible = true;
+                        textDTR_Rendered.Visible = true;
+                        textDTR_Status.Visible = true;
+                    });
 
-                        if (panelViewDTR.InvokeRequired)
-                            panelViewDTR.Invoke(method2);
-                        else
-                            method2();
+                    if (dataGridViewInternDTR.InvokeRequired)
+                        dataGridViewInternDTR.Invoke(method);
+                    else
+                        method();
 
-                        if (textDTR_Name.InvokeRequired || textDTR_OJTID.InvokeRequired || textDTR_TerminalName.InvokeRequired || textDTR_Rendered.InvokeRequired || textDTR_Status.InvokeRequired || txtDTR_TermName.InvokeRequired)
-                        {
-                            textDTR_Name.Invoke(method3);
-                            textDTR_OJTID.Invoke(method3);
-                            textDTR_TerminalName.Invoke(method3);
-                            textDTR_Rendered.Invoke(method3);
-                            textDTR_Status.Invoke(method3);
-                            txtDTR_TermName.Invoke(method3);
-                        }
-                        else
-                            method3();
+                    if (panelViewDTR.InvokeRequired)
+                        panelViewDTR.Invoke(method2);
+                    else
+                        method2();
 
-                        dt.Dispose();
-                    
+                    if (textDTR_Name.InvokeRequired || textDTR_OJTID.InvokeRequired || textDTR_TerminalName.InvokeRequired || textDTR_Rendered.InvokeRequired || textDTR_Status.InvokeRequired || txtDTR_TermName.InvokeRequired)
+                    {
+                        textDTR_Name.Invoke(method3);
+                        textDTR_OJTID.Invoke(method3);
+                        textDTR_TerminalName.Invoke(method3);
+                        textDTR_Rendered.Invoke(method3);
+                        textDTR_Status.Invoke(method3);
+                        txtDTR_TermName.Invoke(method3);
+                    }
+                    else
+                        method3();
+
+                    dt.Dispose();
+
                 });
                 loadScreen.Hide();
                 buttonViewDTR.Enabled = true;
@@ -218,41 +214,47 @@ namespace GJP_IMIS.IMIS_Main_Menu
             var internPanel = new Action(() => { addInternPanel.BringToFront(); });
             var tbOJTNumber = new Action(() => { txtOjtNum.Text = dataGridUnregInterns.CurrentRow.Cells[0].Value.ToString(); });
             var tbTerminalName = new Action(() => { txtTerminalName.Text = dataGridUnregInterns.CurrentRow.Cells[1].Value.ToString(); });
-            var tbCoordinatorName = new Action(() => {
+            var tbCoordinatorName = new Action(() =>
+            {
                 txtCoordinatorName.AutoCompleteCustomSource = acQueries.getAC_CoordinatorName();
                 txtCoordinatorName.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCoordinatorName.AutoCompleteSource = AutoCompleteSource.CustomSource;
             });
-            var tbUniversity = new Action(() => {
+            var tbUniversity = new Action(() =>
+            {
                 txtUniversity.AutoCompleteCustomSource = acQueries.getAC_University();
                 txtUniversity.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtUniversity.AutoCompleteSource = AutoCompleteSource.CustomSource;
             });
-            var tbOffice = new Action(() => {
+            var tbOffice = new Action(() =>
+            {
                 txtOffice.AutoCompleteCustomSource = acQueries.getAC_Office();
                 txtOffice.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtOffice.AutoCompleteSource = AutoCompleteSource.CustomSource;
             });
-            var tbCourse = new Action(() => {
+            var tbCourse = new Action(() =>
+            {
                 txtCourse.AutoCompleteCustomSource = acQueries.getAC_Course();
                 txtCourse.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCourse.AutoCompleteSource = AutoCompleteSource.CustomSource;
             });
-            var tbCoordPosition = new Action(() => {
+            var tbCoordPosition = new Action(() =>
+            {
                 txtCoordPosition.AutoCompleteCustomSource = acQueries.getAC_CoordinatorPosition();
                 txtCoordPosition.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtCoordPosition.AutoCompleteSource = AutoCompleteSource.CustomSource;
             });
 
-            
+
             if (dataGridUnregInterns.Rows.Count != 0)
             {
                 addUnregIntern.Enabled = false;
                 loadScreen.Show();
                 loadScreen.TopMost = true;
 
-                await Task.Run(() => {
-                        
+                await Task.Run(() =>
+                {
+
                     if (addInternPanel.InvokeRequired)
                         addInternPanel.Invoke(new Action(() => internPanel()));
                     else
@@ -305,13 +307,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
         // ********** VIEW INTERN **********
 
-        
+
         private void setViewInternDataGrid()
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = menuQueries.viewInternPlain1();
-            
-            var method = new Action(() => {
+
+            var method = new Action(() =>
+            {
                 dataGridInterns.DataSource = null;
                 dataGridInterns.DataSource = bs;
                 dataGridInterns.ClearSelection();
@@ -327,8 +330,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             });
 
-            if(dataGridInterns.InvokeRequired)
-                dataGridInterns.Invoke(new Action(() => method())); 
+            if (dataGridInterns.InvokeRequired)
+                dataGridInterns.Invoke(new Action(() => method()));
             else
                 method();
         }
@@ -411,7 +414,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     errorHandling += "* Intern Gender\n";
             }
 
-            if(!checkSchedule())
+            if (!checkSchedule())
             {
                 if (!radioScheduleNormal.Checked || !radioScheduleOT.Checked)
                     errorHandling += "* Intern Schedule";
@@ -499,7 +502,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             txtCoordPosition.Clear();
             txtCoordDept.Clear();
             txtOffice.Clear();
-            
+
             radioScheduleNormal.Checked = false;
             radioScheduleOT.Checked = false;
             numericTargetHours.Value = 1;
@@ -613,7 +616,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 txtEditoffice.Text = dr["Office"].ToString();
                 numericEdit.Value = int.Parse(dr["Target Hours"].ToString());
                 scheduleEdit(dr["Schedule_AM"].ToString());
-                
+
                 statusEdit(dr["Status"].ToString());
 
                 txtEdituniv.AutoCompleteCustomSource = acQueries.getAC_University();
@@ -872,7 +875,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                             SqlCommand cmd = new SqlCommand(storedQueries.mergeLogs, con);
                             SqlCommand cmd2 = new SqlCommand(storedQueries.truncatePlaceholder, con);
-                            
+
                             MessageBox.Show("Rows Added: " + cmd.ExecuteNonQuery().ToString());
                             cmd2.ExecuteNonQuery();
 
@@ -927,7 +930,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // REFRESH THE LOG DATA
             InternQueries.calculateDTR();
             viewDTR(ojtID);
-            
+
         }
 
         // ------------------------------------------------------------ END OF MODIFY LOG STRIP ------------------------------------------------------------
@@ -957,11 +960,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
                             viewReport();
                         else
                             MessageBox.Show("Input the Director's name and position first.");
-                    } else
+                    }
+                    else
                         viewReport();
-                } else
+                }
+                else
                     MessageBox.Show("Select Director first.");
-            } else
+            }
+            else
                 MessageBox.Show("Select certification first.");
         }
         // type of certification
@@ -973,7 +979,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
             if (radioCompletion.Checked)
                 rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
-                
+
             rv.ShowDialog();
         }
         // data validation
@@ -1039,11 +1045,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // ------------------------------------------------------------ END OF LETTER STRIP ------------------------------------------------------------
 
         // ------------------------------------------------------------ REPORT STRIP ------------------------------------------------------------
-        
+
         private void defaultReport()
         {
             populateComboBoxes();
-            
+
             reportMale.Enabled = false;
             reportFemale.Enabled = false;
 
@@ -1208,7 +1214,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             }
             else
                 rv.viewInternReport(ReportQueries.reportsInternQuery());
-            
+
             rv.ShowDialog();
         }
 
@@ -1250,7 +1256,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             {
                 viewReportPanel();
             }
-            catch(ProtocolException ex)
+            catch (ProtocolException ex)
             {
                 MessageBox.Show(ex.Message, "Report Button Error");
             }
@@ -1264,7 +1270,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 loadScreen.TopMost = true;
                 reportsToolStripButton.Enabled = false;
                 defaultReport();
-                await Task.Run(() => {
+                await Task.Run(() =>
+                {
                     if (reportsPanel.InvokeRequired)
                         reportsPanel.Invoke(new Action(() => { reportsPanel.BringToFront(); }));
                     else
@@ -1274,7 +1281,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 loadScreen.Hide();
                 reportsToolStripButton.Enabled = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "View Report");
             }
@@ -1304,7 +1311,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 rv.ShowDialog();
                 buttonViewDTR.Enabled = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 loadScreen.Hide();
                 buttonViewDTR.Enabled = true;

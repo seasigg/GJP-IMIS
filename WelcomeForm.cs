@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GJP_IMIS.IMIS_Main_Menu;
+using System;
 using System.Threading;
+using System.Windows.Forms;
 
-using GJP_IMIS.IMIS_Login;
-using GJP_IMIS.IMIS_Main_Menu;
 
 namespace GJP_IMIS
 {
@@ -34,7 +26,7 @@ namespace GJP_IMIS
             this.Hide();*/
             this.Hide();
             openMenu();
-            
+
         }
 
         private static void openMenu()
@@ -48,7 +40,7 @@ namespace GJP_IMIS
             MainForm = new Main_Menu_Remastered();
             MainForm.Load += MainForm_LoadCompleted;
             MainForm.Show();
-            
+
 
         }
 
@@ -76,7 +68,7 @@ namespace GJP_IMIS
                 {
                     this.Dispose();
                     Application.Exit();
-                    
+
                 }
                 else
                     e.Cancel = true;
@@ -85,7 +77,7 @@ namespace GJP_IMIS
 
         private void IMIS_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

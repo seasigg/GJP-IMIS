@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
-using System.Data.SqlClient;
+﻿using GJP_IMIS.IMIS_Methods.Database_Connection;
+using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 {
@@ -23,7 +19,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 
             return dt;
         }
-        
+
         // intern data table
         public static DataTable viewInternPlain1()
         {
@@ -41,7 +37,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 						ORDER BY Intern_Info.OJT_Number ASC";
             return dataTable(query);
         }
-        
+
         // unreg interns
         public static DataTable viewUnregInternPlain()
         {
@@ -68,11 +64,11 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 				END AS 'Intern'
                 FROM Intern_Info ");
         }
-        
+
         // intern logs
         public static DataTable viewDTRLabels(string ojtID)
         {
-			string q = @"SELECT
+            string q = @"SELECT
                 i.OJT_Number AS 'OJT Number',
                 CONCAT(i.First_Name, ' ', i.Middle_Initial, '. ', i.Last_Name) AS 'Intern',
 				REPLACE(CONVERT(varchar,(s.Target_Hours / 3600)),'.','') as 'Target_Hours',
@@ -85,18 +81,18 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 				ON s.OJT_Number = i.OJT_Number
 				WHERE i.OJT_Number = @ojtNumber";
 
-			Connection_String.dbConnection();
-			SqlCommand cmd = new SqlCommand(q, Connection_String.con);
-			cmd.Parameters.Add("@ojtNumber", SqlDbType.NVarChar);
-			cmd.Parameters["@ojtNumber"].Value = ojtID;
-			SqlDataAdapter da = new SqlDataAdapter(cmd);
-			DataTable dt = new DataTable();
-			da.Fill(dt);
-			Connection_String.con.Dispose();
-			cmd.Dispose();
-			da.Dispose();
+            Connection_String.dbConnection();
+            SqlCommand cmd = new SqlCommand(q, Connection_String.con);
+            cmd.Parameters.Add("@ojtNumber", SqlDbType.NVarChar);
+            cmd.Parameters["@ojtNumber"].Value = ojtID;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            Connection_String.con.Dispose();
+            cmd.Dispose();
+            da.Dispose();
 
-			return dt;
+            return dt;
         }
 
         public static DataTable viewInternDTR(string ojtID)
@@ -119,7 +115,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 		                                            group by i.UserID, i.Date
 		                                            order by i.Date";
 
-			string q2 = @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = @ojtID_AM)
+            string q2 = @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = @ojtID_AM)
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = @ojtID_PM)
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
@@ -193,7 +189,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 
 		                    from Intern_DTR_Report i";
 
-			string q3 = @"update d
+            string q3 = @"update d
 					set Lunch = 
 						case 
 							when l.Time != d.Time_Out then l.Time
@@ -208,7 +204,7 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 					and l.Time >= '12:00:00'
 					and l.Time < '13:00:00'";
 
-			string q4 = @"declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
+            string q4 = @"declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = @ojtID)
@@ -253,47 +249,47 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
 					from Intern_DTR_Report i
 					group by i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered";
 
-			string q5 = @"truncate table Intern_DTR_Report";
+            string q5 = @"truncate table Intern_DTR_Report";
 
-			Connection_String.dbConnection();
+            Connection_String.dbConnection();
 
-			SqlCommand c1 = new SqlCommand(q1, Connection_String.con);
-			c1.Parameters.Add("@ojtID", SqlDbType.NVarChar);
-			c1.Parameters["@ojtID"].Value = ojtID;
+            SqlCommand c1 = new SqlCommand(q1, Connection_String.con);
+            c1.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            c1.Parameters["@ojtID"].Value = ojtID;
 
-			SqlCommand c2 = new SqlCommand(q2, Connection_String.con);
-			c2.Parameters.Add("@ojtID_AM", SqlDbType.NVarChar);
-			c2.Parameters.Add("@ojtID_PM", SqlDbType.NVarChar);
-			c2.Parameters["@ojtID_AM"].Value = ojtID;
-			c2.Parameters["@ojtID_PM"].Value = ojtID;
+            SqlCommand c2 = new SqlCommand(q2, Connection_String.con);
+            c2.Parameters.Add("@ojtID_AM", SqlDbType.NVarChar);
+            c2.Parameters.Add("@ojtID_PM", SqlDbType.NVarChar);
+            c2.Parameters["@ojtID_AM"].Value = ojtID;
+            c2.Parameters["@ojtID_PM"].Value = ojtID;
 
-			SqlCommand c3 = new SqlCommand(q3, Connection_String.con);
-			
-			SqlCommand c4 = new SqlCommand(q4, Connection_String.con);
-			c4.Parameters.Add("@ojtID", SqlDbType.NVarChar);
-			c4.Parameters["@ojtID"].Value = ojtID;
-			SqlDataAdapter da = new SqlDataAdapter(c4);
-			DataTable dt = new DataTable();
-			
+            SqlCommand c3 = new SqlCommand(q3, Connection_String.con);
+
+            SqlCommand c4 = new SqlCommand(q4, Connection_String.con);
+            c4.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            c4.Parameters["@ojtID"].Value = ojtID;
+            SqlDataAdapter da = new SqlDataAdapter(c4);
+            DataTable dt = new DataTable();
 
 
-			SqlCommand c5 = new SqlCommand(q5, Connection_String.con);
 
-			c1.ExecuteNonQuery();
-			c2.ExecuteNonQuery();
-			c3.ExecuteNonQuery();
-			da.Fill(dt);
-			c5.ExecuteNonQuery();
+            SqlCommand c5 = new SqlCommand(q5, Connection_String.con);
 
-			c1.Dispose();
-			c2.Dispose();
-			c3.Dispose();
-			da.Dispose();
-			c4.Dispose();
-			c5.Dispose();
+            c1.ExecuteNonQuery();
+            c2.ExecuteNonQuery();
+            c3.ExecuteNonQuery();
+            da.Fill(dt);
+            c5.ExecuteNonQuery();
 
-			return dt;
-		}
+            c1.Dispose();
+            c2.Dispose();
+            c3.Dispose();
+            da.Dispose();
+            c4.Dispose();
+            c5.Dispose();
+
+            return dt;
+        }
 
     }
 }

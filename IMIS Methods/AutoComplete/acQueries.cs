@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
+﻿using GJP_IMIS.IMIS_Methods.Database_Connection;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace GJP_IMIS.IMIS_Methods.AutoComplete
@@ -68,6 +63,6 @@ namespace GJP_IMIS.IMIS_Methods.AutoComplete
             return getACSource(getACDataTable(query));
         }
 
-        
+
     }
 }

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-
+﻿using GJP_IMIS.IMIS_Methods.Database_Connection;
 using GJP_IMIS.IMIS_Methods.Report_Queries;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
-using GJP_IMIS.IMIS_Methods.Stored_Queries;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace GJP_IMIS.Reports
 {
@@ -38,7 +29,7 @@ namespace GJP_IMIS.Reports
             cmd.Parameters["@dirPosition"].Value = dirPos;
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
+
             da.Fill(ds, "AcceptanceTable");
             Connection_String.con.Dispose();
 
@@ -79,7 +70,7 @@ namespace GJP_IMIS.Reports
         {
             ReportDataSet ds = new ReportDataSet();
             ReportInterns ri = new ReportInterns();
-            
+
             Connection_String.dbConnection();
             SqlDataAdapter da = new SqlDataAdapter(q, Connection_String.con);
             da.Fill(ds, "Interns");
@@ -105,12 +96,12 @@ namespace GJP_IMIS.Reports
         public void viewDTR(string ojtID)
         {
             Connection_String.dbConnection();
-            
+
         }
 
         private void ReportViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
             this.Dispose();
         }
     }

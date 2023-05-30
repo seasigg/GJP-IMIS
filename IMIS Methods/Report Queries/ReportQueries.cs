@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
+﻿using GJP_IMIS.IMIS_Methods.Database_Connection;
+using GJP_IMIS.IMIS_Methods.Intern_Queries;
+using GJP_IMIS.Reports;
 using System.Data;
 using System.Data.SqlClient;
-
-using GJP_IMIS.IMIS_Methods.Intern_Queries;
-using GJP_IMIS.IMIS_Methods.Database_Connection;
-using GJP_IMIS.Reports;
 
 namespace GJP_IMIS.IMIS_Methods.Report_Queries
 {
@@ -159,7 +152,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
         public static string reportTestDTR2()
         {
-			return @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number ='00000012')
+            return @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number ='00000012')
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number ='00000012')
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
@@ -232,11 +225,11 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 		                    end
 
 		                    from Intern_DTR_Report i";
-		}
+        }
 
-		public static string reportTestDTR3()
+        public static string reportTestDTR3()
         {
-			return @"use IMIS
+            return @"use IMIS
 
 					update d
 					set Lunch = 
@@ -254,9 +247,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					and l.Time < '13:00:00'";
         }
 
-		public static string reportTestDTR4()
+        public static string reportTestDTR4()
         {
-			return @"use IMIS
+            return @"use IMIS
 
 					update d
 					set Lunch = 
@@ -274,9 +267,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					and l.Time < '13:00:00'";
         }
 
-		public static string reportTestDTR5()
+        public static string reportTestDTR5()
         {
-			return @"use IMIS
+            return @"use IMIS
 					declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
@@ -333,16 +326,16 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					";
         }
 
-		public static string reportTestDTR6()
+        public static string reportTestDTR6()
         {
-			return @"truncate table Intern_DTR_Report";
-		}
+            return @"truncate table Intern_DTR_Report";
+        }
 
-		public static ReportDataSet reportViewDTR(string ojtID)
+        public static ReportDataSet reportViewDTR(string ojtID)
         {
-			string q = @"truncate table Intern_DTR_Report";
+            string q = @"truncate table Intern_DTR_Report";
 
-			string q1 = @"
+            string q1 = @"
                     insert into Intern_DTR_Report (UserID, Date, Time_In, Time_Out)
 
 	                select
@@ -361,7 +354,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 		            group by i.UserID, i.Date
 		            order by i.Date";
 
-			string q2 = @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = @ojtID_AM)
+            string q2 = @"declare @sched_AM Time(0) = (select i.Sched_AM from Intern_Status i where OJT_Number = @ojtID_AM)
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = @ojtID_PM)
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
@@ -435,7 +428,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
 		                    from Intern_DTR_Report i";
 
-			string q3 = @"
+            string q3 = @"
 					update d
 					set Lunch = 
 						case 
@@ -451,7 +444,7 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 					and l.Time >= '12:00:00'
 					and l.Time < '13:00:00'";
 
-			string q4 = @"declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
+            string q4 = @"declare @sum int = (select sum(i.Hours_Rendered) from Intern_DTR_Report i)
 					declare @break_AM Time(0) = '12:00:00'
 					declare @break_PM Time(0) = '13:00:00'
 					declare @sched_PM Time(0) = (select i.Sched_PM from Intern_Status i where OJT_Number = @ojtID)
@@ -504,50 +497,50 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 
 					group by n.Last_Name, n.First_Name, n.Middle_Initial, n.Office_Name, i.UserID, i.Date, i.Time_In, i.Lunch, i.Time_Out, i.Hours_Rendered, s.Target_Hours, n.Course, n.School_Name";
 
-			string q5 = @"truncate table Intern_DTR_Report";
+            string q5 = @"truncate table Intern_DTR_Report";
 
-			Connection_String.dbConnection();
+            Connection_String.dbConnection();
 
-			SqlCommand c = new SqlCommand(q, Connection_String.con);
-			
-			SqlCommand c1 = new SqlCommand(q1, Connection_String.con);
-			c1.Parameters.Add("@ojtID", SqlDbType.NVarChar);
-			c1.Parameters["@ojtID"].Value = ojtID;
+            SqlCommand c = new SqlCommand(q, Connection_String.con);
 
-			SqlCommand c2 = new SqlCommand(q2, Connection_String.con);
-			c2.Parameters.Add("@ojtID_AM", SqlDbType.NVarChar);
-			c2.Parameters.Add("@ojtID_PM", SqlDbType.NVarChar);
-			c2.Parameters["@ojtID_AM"].Value = ojtID;
-			c2.Parameters["@ojtID_PM"].Value = ojtID;
+            SqlCommand c1 = new SqlCommand(q1, Connection_String.con);
+            c1.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            c1.Parameters["@ojtID"].Value = ojtID;
 
-			SqlCommand c3 = new SqlCommand(q3, Connection_String.con);
+            SqlCommand c2 = new SqlCommand(q2, Connection_String.con);
+            c2.Parameters.Add("@ojtID_AM", SqlDbType.NVarChar);
+            c2.Parameters.Add("@ojtID_PM", SqlDbType.NVarChar);
+            c2.Parameters["@ojtID_AM"].Value = ojtID;
+            c2.Parameters["@ojtID_PM"].Value = ojtID;
 
-			SqlCommand c4 = new SqlCommand(q4, Connection_String.con);
-			c4.Parameters.Add("@ojtID", SqlDbType.NVarChar);
-			c4.Parameters["@ojtID"].Value = ojtID;
+            SqlCommand c3 = new SqlCommand(q3, Connection_String.con);
 
-			SqlCommand c5 = new SqlCommand(q5, Connection_String.con);
+            SqlCommand c4 = new SqlCommand(q4, Connection_String.con);
+            c4.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            c4.Parameters["@ojtID"].Value = ojtID;
 
-			SqlDataAdapter da = new SqlDataAdapter(c4);
-			ReportDataSet ds = new ReportDataSet();
+            SqlCommand c5 = new SqlCommand(q5, Connection_String.con);
 
-			c.ExecuteNonQuery();
-			c1.ExecuteNonQuery();
-			c2.ExecuteNonQuery();
-			c3.ExecuteNonQuery();
-			da.Fill(ds, "InternDTR");
-			c5.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(c4);
+            ReportDataSet ds = new ReportDataSet();
 
-			c.Dispose();
-			c1.Dispose();
-			c2.Dispose();
-			c3.Dispose();
-			c4.Dispose();
-			c5.Dispose();
-			da.Dispose();
+            c.ExecuteNonQuery();
+            c1.ExecuteNonQuery();
+            c2.ExecuteNonQuery();
+            c3.ExecuteNonQuery();
+            da.Fill(ds, "InternDTR");
+            c5.ExecuteNonQuery();
 
-			return ds;
-		}
+            c.Dispose();
+            c1.Dispose();
+            c2.Dispose();
+            c3.Dispose();
+            c4.Dispose();
+            c5.Dispose();
+            da.Dispose();
+
+            return ds;
+        }
 
     }
 }

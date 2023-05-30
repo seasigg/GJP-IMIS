@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Configuration;
 
 namespace GJP_IMIS.IMIS_Methods.Database_Connection
 {
@@ -15,7 +9,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         public static SqlConnection con;
 
         //EarlTEST
-        //public static string conn = ConfigurationManager.ConnectionStrings["EarlTEST"].ConnectionString;
+        public static string conn = ConfigurationManager.ConnectionStrings["EarlTEST"].ConnectionString;
 
         // Earl
         //public static string conn = ConfigurationManager.ConnectionStrings["Earl"].ConnectionString;
@@ -30,7 +24,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         //public static string conn = ConfigurationManager.ConnectionStrings["OJT"].ConnectionString;
 
         //MAIN
-        public static string conn = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
+        //public static string conn = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
 
         public static void dbConnection()
         {
