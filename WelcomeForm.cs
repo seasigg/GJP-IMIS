@@ -4,6 +4,9 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Net;
+using System.Diagnostics;
+using System.IO;
 
 namespace GJP_IMIS
 {
@@ -12,6 +15,8 @@ namespace GJP_IMIS
         public IMIS()
         {
             InitializeComponent();
+
+            
         }
 
         static Form SplashScreen;
