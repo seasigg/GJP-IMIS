@@ -188,17 +188,19 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         }
 
         // update intern status
-        public static void updateInternStatus(string ojt, string schedAM, string schedPM, string h)
+        public static void updateInternStatus(string ojt, string date, string schedAM, string schedPM, string h)
         {
             Connection_String.dbConnection();
             SqlCommand cmd = new SqlCommand(updateInternStatusQuery(), Connection_String.con);
             cmd.Parameters.Add("@ojtID", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@startDate", SqlDbType.NVarChar);
             cmd.Parameters.Add("@scheduleAM", SqlDbType.Time);
             cmd.Parameters.Add("@schedulePM", SqlDbType.Time);
             cmd.Parameters.Add("@targetHrs", SqlDbType.NVarChar);
             //cmd.Parameters.Add("@status", SqlDbType.NVarChar);
 
             cmd.Parameters["@ojtID"].Value = ojt;
+            cmd.Parameters["@startDate"].Value = date;
             cmd.Parameters["@scheduleAM"].Value = schedAM;
             cmd.Parameters["@schedulePM"].Value = schedPM;
             cmd.Parameters["@targetHrs"].Value = h;
@@ -212,7 +214,8 @@ namespace GJP_IMIS.IMIS_Methods.Intern_Queries
         private static string updateInternStatusQuery()
         {
             return @"UPDATE Intern_Status
-                    SET
+                    SET 
+                    Start_Date = @startDate,
                     Sched_AM = @scheduleAM,
                     Sched_PM = @schedulePM,
                     Target_Hours = (@targetHrs * 3600) 

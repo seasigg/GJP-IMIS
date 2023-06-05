@@ -87,6 +87,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.editInternPanel = new System.Windows.Forms.Panel();
+            this.dateTimeEdit = new System.Windows.Forms.DateTimePicker();
             this.txtEditTerminalName = new System.Windows.Forms.Label();
             this.txtEditOjtNum = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -111,7 +112,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.radioEditincomplete = new System.Windows.Forms.RadioButton();
             this.label31 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.dateTimeEdit = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
             this.numericEdit = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
@@ -131,10 +131,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.letterPanel = new System.Windows.Forms.Panel();
-            this.btnGenerateCert = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.radioCompletion = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.radioAcceptance = new System.Windows.Forms.RadioButton();
+            this.btnGenerateCert = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridAccept = new System.Windows.Forms.DataGridView();
             this.reportsPanel = new System.Windows.Forms.Panel();
@@ -167,6 +167,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptanceSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOCSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dTRSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInternUnreg = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
+            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
+            this.addUnregIntern = new System.Windows.Forms.Button();
+            this.label56 = new System.Windows.Forms.Label();
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.panelViewDTR = new System.Windows.Forms.Panel();
@@ -191,12 +197,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label61 = new System.Windows.Forms.Label();
             this.textDTR_OJTID = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.addInternUnreg = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
-            this.dataGridUnregInterns = new System.Windows.Forms.DataGridView();
-            this.addUnregIntern = new System.Windows.Forms.Button();
-            this.label56 = new System.Windows.Forms.Label();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -213,11 +213,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.mainPanel.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.addInternUnreg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.imisWelcome.SuspendLayout();
             this.panelViewDTR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternDTR)).BeginInit();
-            this.addInternUnreg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).BeginInit();
             this.SuspendLayout();
             // 
             // viewInternPanel
@@ -827,6 +827,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // editInternPanel
             // 
+            this.editInternPanel.Controls.Add(this.dateTimeEdit);
             this.editInternPanel.Controls.Add(this.txtEditTerminalName);
             this.editInternPanel.Controls.Add(this.txtEditOjtNum);
             this.editInternPanel.Controls.Add(this.label40);
@@ -847,7 +848,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Controls.Add(this.editStatusPanel);
             this.editInternPanel.Controls.Add(this.label31);
             this.editInternPanel.Controls.Add(this.btnUpdate);
-            this.editInternPanel.Controls.Add(this.dateTimeEdit);
             this.editInternPanel.Controls.Add(this.label20);
             this.editInternPanel.Controls.Add(this.numericEdit);
             this.editInternPanel.Controls.Add(this.label21);
@@ -871,6 +871,15 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editInternPanel.Name = "editInternPanel";
             this.editInternPanel.Size = new System.Drawing.Size(1482, 723);
             this.editInternPanel.TabIndex = 5;
+            // 
+            // dateTimeEdit
+            // 
+            this.dateTimeEdit.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimeEdit.Location = new System.Drawing.Point(496, 238);
+            this.dateTimeEdit.Name = "dateTimeEdit";
+            this.dateTimeEdit.Size = new System.Drawing.Size(330, 31);
+            this.dateTimeEdit.TabIndex = 79;
             // 
             // txtEditTerminalName
             // 
@@ -1122,15 +1131,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // dateTimeEdit
-            // 
-            this.dateTimeEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeEdit.Location = new System.Drawing.Point(497, 234);
-            this.dateTimeEdit.Name = "dateTimeEdit";
-            this.dateTimeEdit.Size = new System.Drawing.Size(324, 26);
-            this.dateTimeEdit.TabIndex = 51;
-            this.dateTimeEdit.Visible = false;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -1140,7 +1140,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label20.Size = new System.Drawing.Size(67, 16);
             this.label20.TabIndex = 50;
             this.label20.Text = "Start Date";
-            this.label20.Visible = false;
             // 
             // numericEdit
             // 
@@ -1335,27 +1334,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanel.Size = new System.Drawing.Size(1482, 723);
             this.letterPanel.TabIndex = 8;
             // 
-            // btnGenerateCert
-            // 
-            this.btnGenerateCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateCert.Location = new System.Drawing.Point(1110, 652);
-            this.btnGenerateCert.Name = "btnGenerateCert";
-            this.btnGenerateCert.Size = new System.Drawing.Size(192, 48);
-            this.btnGenerateCert.TabIndex = 7;
-            this.btnGenerateCert.Text = "Create Certificate";
-            this.btnGenerateCert.UseVisualStyleBackColor = true;
-            this.btnGenerateCert.Click += new System.EventHandler(this.btnGenerateCert_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(795, 639);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(156, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Type of Certificate";
-            // 
             // radioCompletion
             // 
             this.radioCompletion.AutoSize = true;
@@ -1368,6 +1346,16 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.radioCompletion.Text = "Certificate of Completion";
             this.radioCompletion.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(795, 639);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Type of Certificate";
+            // 
             // radioAcceptance
             // 
             this.radioAcceptance.AutoSize = true;
@@ -1379,6 +1367,17 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.radioAcceptance.TabStop = true;
             this.radioAcceptance.Text = "Letter of Acceptance";
             this.radioAcceptance.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerateCert
+            // 
+            this.btnGenerateCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateCert.Location = new System.Drawing.Point(1110, 652);
+            this.btnGenerateCert.Name = "btnGenerateCert";
+            this.btnGenerateCert.Size = new System.Drawing.Size(192, 48);
+            this.btnGenerateCert.TabIndex = 7;
+            this.btnGenerateCert.Text = "Create Certificate";
+            this.btnGenerateCert.UseVisualStyleBackColor = true;
+            this.btnGenerateCert.Click += new System.EventHandler(this.btnGenerateCert_Click);
             // 
             // label4
             // 
@@ -1577,19 +1576,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
-            this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.viewInternPanel);
-            this.mainPanel.Controls.Add(this.imisWelcome);
-            this.mainPanel.Controls.Add(this.panelViewDTR);
-            this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
+            this.mainPanel.Controls.Add(this.letterPanel);
+            this.mainPanel.Controls.Add(this.imisWelcome);
+            this.mainPanel.Controls.Add(this.panelViewDTR);
+            this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1484, 791);
+            this.mainPanel.Size = new System.Drawing.Size(1484, 775);
             this.mainPanel.TabIndex = 11;
             // 
             // toolStrip1
@@ -1742,6 +1741,76 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dTRSigneeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.dTRSigneeToolStripMenuItem.Text = "DTR Signee";
             this.dTRSigneeToolStripMenuItem.Click += new System.EventHandler(this.dTRSigneeToolStripMenuItem_Click);
+            // 
+            // addInternUnreg
+            // 
+            this.addInternUnreg.Controls.Add(this.label9);
+            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
+            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
+            this.addInternUnreg.Controls.Add(this.addUnregIntern);
+            this.addInternUnreg.Controls.Add(this.label56);
+            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
+            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addInternUnreg.Name = "addInternUnreg";
+            this.addInternUnreg.Size = new System.Drawing.Size(1482, 723);
+            this.addInternUnreg.TabIndex = 39;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(539, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(526, 46);
+            this.label9.TabIndex = 47;
+            this.label9.Text = "UNREGISTERED INTERNS";
+            // 
+            // textFilter_unregInterns
+            // 
+            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFilter_unregInterns.Location = new System.Drawing.Point(98, 115);
+            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
+            this.textFilter_unregInterns.Size = new System.Drawing.Size(196, 31);
+            this.textFilter_unregInterns.TabIndex = 31;
+            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
+            // 
+            // dataGridUnregInterns
+            // 
+            this.dataGridUnregInterns.AllowUserToAddRows = false;
+            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
+            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 160);
+            this.dataGridUnregInterns.MultiSelect = false;
+            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
+            this.dataGridUnregInterns.ReadOnly = true;
+            this.dataGridUnregInterns.RowHeadersWidth = 51;
+            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridUnregInterns.Size = new System.Drawing.Size(1457, 551);
+            this.dataGridUnregInterns.TabIndex = 30;
+            // 
+            // addUnregIntern
+            // 
+            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
+            this.addUnregIntern.Location = new System.Drawing.Point(1238, 102);
+            this.addUnregIntern.Name = "addUnregIntern";
+            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
+            this.addUnregIntern.TabIndex = 29;
+            this.addUnregIntern.Text = "ADD";
+            this.addUnregIntern.UseVisualStyleBackColor = false;
+            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(12, 117);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(86, 25);
+            this.label56.TabIndex = 32;
+            this.label56.Text = "Search:";
             // 
             // imisWelcome
             // 
@@ -2034,81 +2103,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label63.TabIndex = 3;
             this.label63.Text = "ID";
             // 
-            // addInternUnreg
-            // 
-            this.addInternUnreg.Controls.Add(this.label9);
-            this.addInternUnreg.Controls.Add(this.textFilter_unregInterns);
-            this.addInternUnreg.Controls.Add(this.dataGridUnregInterns);
-            this.addInternUnreg.Controls.Add(this.addUnregIntern);
-            this.addInternUnreg.Controls.Add(this.label56);
-            this.addInternUnreg.Location = new System.Drawing.Point(0, 66);
-            this.addInternUnreg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.addInternUnreg.Name = "addInternUnreg";
-            this.addInternUnreg.Size = new System.Drawing.Size(1482, 723);
-            this.addInternUnreg.TabIndex = 39;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(539, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(526, 46);
-            this.label9.TabIndex = 47;
-            this.label9.Text = "UNREGISTERED INTERNS";
-            // 
-            // textFilter_unregInterns
-            // 
-            this.textFilter_unregInterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textFilter_unregInterns.Location = new System.Drawing.Point(98, 115);
-            this.textFilter_unregInterns.Name = "textFilter_unregInterns";
-            this.textFilter_unregInterns.Size = new System.Drawing.Size(196, 31);
-            this.textFilter_unregInterns.TabIndex = 31;
-            this.textFilter_unregInterns.TextChanged += new System.EventHandler(this.textFilter_unregInterns_TextChanged);
-            // 
-            // dataGridUnregInterns
-            // 
-            this.dataGridUnregInterns.AllowUserToAddRows = false;
-            this.dataGridUnregInterns.AllowUserToDeleteRows = false;
-            this.dataGridUnregInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridUnregInterns.Location = new System.Drawing.Point(12, 160);
-            this.dataGridUnregInterns.MultiSelect = false;
-            this.dataGridUnregInterns.Name = "dataGridUnregInterns";
-            this.dataGridUnregInterns.ReadOnly = true;
-            this.dataGridUnregInterns.RowHeadersWidth = 51;
-            this.dataGridUnregInterns.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridUnregInterns.Size = new System.Drawing.Size(1457, 551);
-            this.dataGridUnregInterns.TabIndex = 30;
-            // 
-            // addUnregIntern
-            // 
-            this.addUnregIntern.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
-            this.addUnregIntern.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addUnregIntern.Font = new System.Drawing.Font("Bell MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUnregIntern.ForeColor = System.Drawing.Color.White;
-            this.addUnregIntern.Location = new System.Drawing.Point(1238, 102);
-            this.addUnregIntern.Name = "addUnregIntern";
-            this.addUnregIntern.Size = new System.Drawing.Size(231, 43);
-            this.addUnregIntern.TabIndex = 29;
-            this.addUnregIntern.Text = "ADD";
-            this.addUnregIntern.UseVisualStyleBackColor = false;
-            this.addUnregIntern.Click += new System.EventHandler(this.addUnregIntern_Click);
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(12, 117);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(86, 25);
-            this.label56.TabIndex = 32;
-            this.label56.Text = "Search:";
-            // 
             // Main_Menu_Remastered
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1484, 791);
+            this.ClientSize = new System.Drawing.Size(1484, 775);
             this.Controls.Add(this.mainPanel);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MinimumSize = new System.Drawing.Size(1500, 814);
@@ -2144,14 +2143,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.addInternUnreg.ResumeLayout(false);
+            this.addInternUnreg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
             this.imisWelcome.ResumeLayout(false);
             this.imisWelcome.PerformLayout();
             this.panelViewDTR.ResumeLayout(false);
             this.panelViewDTR.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInternDTR)).EndInit();
-            this.addInternUnreg.ResumeLayout(false);
-            this.addInternUnreg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnregInterns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2194,7 +2193,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.DateTimePicker dateTimeStartDate;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnAddIntern;
-        private System.Windows.Forms.DateTimePicker dateTimeEdit;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.NumericUpDown numericEdit;
         private System.Windows.Forms.Label label21;
@@ -2319,5 +2317,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.ToolStripMenuItem acceptanceSigneeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cOCSigneeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dTRSigneeToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dateTimeEdit;
     }
 }

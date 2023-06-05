@@ -705,6 +705,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     string coordDept = txtEditCoordDept.Text;
                     string course = txtEditCourse.Text;
                     string office = txtEditoffice.Text;
+                    string startDate = dateTimeEdit.Value.ToString("yyyy-MM-dd");
                     string hours = numericEdit.Value.ToString();
                     string schedAM = getScheduleEditAM();
                     string schedPM = getScheduleEditPM();
@@ -713,7 +714,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                         lname, suffix, gender, univ, coordName, coordSal, coordPos, coordDept,
                         course, office);
 
-                    InternQueries.updateInternStatus(ojtNumber, schedAM, schedPM, hours);
+                    InternQueries.updateInternStatus(ojtNumber, startDate, schedAM, schedPM, hours);
                     MessageBox.Show("INTERN UPDATED.");
 
                     InternQueries.calculateDTR(ojtNumber);
@@ -1183,7 +1184,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 this.Dispose();
-                Application.Restart();
+                /*Application.Restart();*/
             }
         }
         // ------------------------------------------------------------ END OF SYSTEM CLOSING ------------------------------------------------------------
