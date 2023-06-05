@@ -32,6 +32,8 @@ namespace GJP_IMIS.Reports {
         
         private Intern_DTRDataTable tableIntern_DTR;
         
+        private Intern_SigneeDataTable tableIntern_Signee;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -71,6 +73,9 @@ namespace GJP_IMIS.Reports {
                 }
                 if ((ds.Tables["Intern_DTR"] != null)) {
                     base.Tables.Add(new Intern_DTRDataTable(ds.Tables["Intern_DTR"]));
+                }
+                if ((ds.Tables["Intern_Signee"] != null)) {
+                    base.Tables.Add(new Intern_SigneeDataTable(ds.Tables["Intern_Signee"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,6 +132,16 @@ namespace GJP_IMIS.Reports {
         public Intern_DTRDataTable Intern_DTR {
             get {
                 return this.tableIntern_DTR;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Intern_SigneeDataTable Intern_Signee {
+            get {
+                return this.tableIntern_Signee;
             }
         }
         
@@ -209,6 +224,9 @@ namespace GJP_IMIS.Reports {
                 if ((ds.Tables["Intern_DTR"] != null)) {
                     base.Tables.Add(new Intern_DTRDataTable(ds.Tables["Intern_DTR"]));
                 }
+                if ((ds.Tables["Intern_Signee"] != null)) {
+                    base.Tables.Add(new Intern_SigneeDataTable(ds.Tables["Intern_Signee"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -266,6 +284,12 @@ namespace GJP_IMIS.Reports {
                     this.tableIntern_DTR.InitVars();
                 }
             }
+            this.tableIntern_Signee = ((Intern_SigneeDataTable)(base.Tables["Intern_Signee"]));
+            if ((initTable == true)) {
+                if ((this.tableIntern_Signee != null)) {
+                    this.tableIntern_Signee.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +308,8 @@ namespace GJP_IMIS.Reports {
             base.Tables.Add(this.tableCertOfCompletion);
             this.tableIntern_DTR = new Intern_DTRDataTable();
             base.Tables.Add(this.tableIntern_DTR);
+            this.tableIntern_Signee = new Intern_SigneeDataTable();
+            base.Tables.Add(this.tableIntern_Signee);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +333,12 @@ namespace GJP_IMIS.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeIntern_DTR() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeIntern_Signee() {
             return false;
         }
         
@@ -376,6 +408,9 @@ namespace GJP_IMIS.Reports {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void Intern_DTRRowChangeEventHandler(object sender, Intern_DTRRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Intern_SigneeRowChangeEventHandler(object sender, Intern_SigneeRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1964,6 +1999,351 @@ namespace GJP_IMIS.Reports {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Intern_SigneeDataTable : global::System.Data.TypedTableBase<Intern_SigneeRow> {
+            
+            private global::System.Data.DataColumn columndtr_Signee1_Name;
+            
+            private global::System.Data.DataColumn columndtr_Signee1_Position;
+            
+            private global::System.Data.DataColumn columndtr_Signee2_Name;
+            
+            private global::System.Data.DataColumn columndtr_Signee2_Position;
+            
+            private global::System.Data.DataColumn columnletter_Signee_Name;
+            
+            private global::System.Data.DataColumn columnletter_Signee_Position;
+            
+            private global::System.Data.DataColumn columncert_Signee_Name;
+            
+            private global::System.Data.DataColumn columncert_Signee_Position;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeDataTable() {
+                this.TableName = "Intern_Signee";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Intern_SigneeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Intern_SigneeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dtr_Signee1_NameColumn {
+                get {
+                    return this.columndtr_Signee1_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dtr_Signee1_PositionColumn {
+                get {
+                    return this.columndtr_Signee1_Position;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dtr_Signee2_NameColumn {
+                get {
+                    return this.columndtr_Signee2_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn dtr_Signee2_PositionColumn {
+                get {
+                    return this.columndtr_Signee2_Position;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn letter_Signee_NameColumn {
+                get {
+                    return this.columnletter_Signee_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn letter_Signee_PositionColumn {
+                get {
+                    return this.columnletter_Signee_Position;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cert_Signee_NameColumn {
+                get {
+                    return this.columncert_Signee_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cert_Signee_PositionColumn {
+                get {
+                    return this.columncert_Signee_Position;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeRow this[int index] {
+                get {
+                    return ((Intern_SigneeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Intern_SigneeRowChangeEventHandler Intern_SigneeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Intern_SigneeRowChangeEventHandler Intern_SigneeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Intern_SigneeRowChangeEventHandler Intern_SigneeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Intern_SigneeRowChangeEventHandler Intern_SigneeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddIntern_SigneeRow(Intern_SigneeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeRow AddIntern_SigneeRow(string dtr_Signee1_Name, string dtr_Signee1_Position, string dtr_Signee2_Name, string dtr_Signee2_Position, string letter_Signee_Name, string letter_Signee_Position, string cert_Signee_Name, string cert_Signee_Position) {
+                Intern_SigneeRow rowIntern_SigneeRow = ((Intern_SigneeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        dtr_Signee1_Name,
+                        dtr_Signee1_Position,
+                        dtr_Signee2_Name,
+                        dtr_Signee2_Position,
+                        letter_Signee_Name,
+                        letter_Signee_Position,
+                        cert_Signee_Name,
+                        cert_Signee_Position};
+                rowIntern_SigneeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowIntern_SigneeRow);
+                return rowIntern_SigneeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Intern_SigneeDataTable cln = ((Intern_SigneeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Intern_SigneeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columndtr_Signee1_Name = base.Columns["dtr_Signee1_Name"];
+                this.columndtr_Signee1_Position = base.Columns["dtr_Signee1_Position"];
+                this.columndtr_Signee2_Name = base.Columns["dtr_Signee2_Name"];
+                this.columndtr_Signee2_Position = base.Columns["dtr_Signee2_Position"];
+                this.columnletter_Signee_Name = base.Columns["letter_Signee_Name"];
+                this.columnletter_Signee_Position = base.Columns["letter_Signee_Position"];
+                this.columncert_Signee_Name = base.Columns["cert_Signee_Name"];
+                this.columncert_Signee_Position = base.Columns["cert_Signee_Position"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columndtr_Signee1_Name = new global::System.Data.DataColumn("dtr_Signee1_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtr_Signee1_Name);
+                this.columndtr_Signee1_Position = new global::System.Data.DataColumn("dtr_Signee1_Position", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtr_Signee1_Position);
+                this.columndtr_Signee2_Name = new global::System.Data.DataColumn("dtr_Signee2_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtr_Signee2_Name);
+                this.columndtr_Signee2_Position = new global::System.Data.DataColumn("dtr_Signee2_Position", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndtr_Signee2_Position);
+                this.columnletter_Signee_Name = new global::System.Data.DataColumn("letter_Signee_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnletter_Signee_Name);
+                this.columnletter_Signee_Position = new global::System.Data.DataColumn("letter_Signee_Position", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnletter_Signee_Position);
+                this.columncert_Signee_Name = new global::System.Data.DataColumn("cert_Signee_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncert_Signee_Name);
+                this.columncert_Signee_Position = new global::System.Data.DataColumn("cert_Signee_Position", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncert_Signee_Position);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeRow NewIntern_SigneeRow() {
+                return ((Intern_SigneeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Intern_SigneeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Intern_SigneeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Intern_SigneeRowChanged != null)) {
+                    this.Intern_SigneeRowChanged(this, new Intern_SigneeRowChangeEvent(((Intern_SigneeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Intern_SigneeRowChanging != null)) {
+                    this.Intern_SigneeRowChanging(this, new Intern_SigneeRowChangeEvent(((Intern_SigneeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Intern_SigneeRowDeleted != null)) {
+                    this.Intern_SigneeRowDeleted(this, new Intern_SigneeRowChangeEvent(((Intern_SigneeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Intern_SigneeRowDeleting != null)) {
+                    this.Intern_SigneeRowDeleting(this, new Intern_SigneeRowChangeEvent(((Intern_SigneeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveIntern_SigneeRow(Intern_SigneeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportDataSet ds = new ReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Intern_SigneeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AcceptanceLetterRow : global::System.Data.DataRow {
@@ -3284,6 +3664,246 @@ namespace GJP_IMIS.Reports {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Intern_SigneeRow : global::System.Data.DataRow {
+            
+            private Intern_SigneeDataTable tableIntern_Signee;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal Intern_SigneeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableIntern_Signee = ((Intern_SigneeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dtr_Signee1_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.dtr_Signee1_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtr_Signee1_Name\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.dtr_Signee1_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dtr_Signee1_Position {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.dtr_Signee1_PositionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtr_Signee1_Position\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.dtr_Signee1_PositionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dtr_Signee2_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.dtr_Signee2_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtr_Signee2_Name\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.dtr_Signee2_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dtr_Signee2_Position {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.dtr_Signee2_PositionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dtr_Signee2_Position\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.dtr_Signee2_PositionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string letter_Signee_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.letter_Signee_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'letter_Signee_Name\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.letter_Signee_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string letter_Signee_Position {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.letter_Signee_PositionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'letter_Signee_Position\' in table \'Intern_Signee\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.letter_Signee_PositionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cert_Signee_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.cert_Signee_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cert_Signee_Name\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.cert_Signee_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string cert_Signee_Position {
+                get {
+                    try {
+                        return ((string)(this[this.tableIntern_Signee.cert_Signee_PositionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cert_Signee_Position\' in table \'Intern_Signee\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIntern_Signee.cert_Signee_PositionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdtr_Signee1_NameNull() {
+                return this.IsNull(this.tableIntern_Signee.dtr_Signee1_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdtr_Signee1_NameNull() {
+                this[this.tableIntern_Signee.dtr_Signee1_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdtr_Signee1_PositionNull() {
+                return this.IsNull(this.tableIntern_Signee.dtr_Signee1_PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdtr_Signee1_PositionNull() {
+                this[this.tableIntern_Signee.dtr_Signee1_PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdtr_Signee2_NameNull() {
+                return this.IsNull(this.tableIntern_Signee.dtr_Signee2_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdtr_Signee2_NameNull() {
+                this[this.tableIntern_Signee.dtr_Signee2_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isdtr_Signee2_PositionNull() {
+                return this.IsNull(this.tableIntern_Signee.dtr_Signee2_PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setdtr_Signee2_PositionNull() {
+                this[this.tableIntern_Signee.dtr_Signee2_PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isletter_Signee_NameNull() {
+                return this.IsNull(this.tableIntern_Signee.letter_Signee_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setletter_Signee_NameNull() {
+                this[this.tableIntern_Signee.letter_Signee_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isletter_Signee_PositionNull() {
+                return this.IsNull(this.tableIntern_Signee.letter_Signee_PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setletter_Signee_PositionNull() {
+                this[this.tableIntern_Signee.letter_Signee_PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscert_Signee_NameNull() {
+                return this.IsNull(this.tableIntern_Signee.cert_Signee_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcert_Signee_NameNull() {
+                this[this.tableIntern_Signee.cert_Signee_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Iscert_Signee_PositionNull() {
+                return this.IsNull(this.tableIntern_Signee.cert_Signee_PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setcert_Signee_PositionNull() {
+                this[this.tableIntern_Signee.cert_Signee_PositionColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3405,6 +4025,40 @@ namespace GJP_IMIS.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public Intern_DTRRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Intern_SigneeRowChangeEvent : global::System.EventArgs {
+            
+            private Intern_SigneeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeRowChangeEvent(Intern_SigneeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Intern_SigneeRow Row {
                 get {
                     return this.eventRow;
                 }
