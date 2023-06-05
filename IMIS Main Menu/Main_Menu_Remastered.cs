@@ -942,104 +942,55 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             BindingSource bs = new BindingSource();
             bs.DataSource = menuQueries.reportAcceptanceDataGrid1();
-            dataGridAccept.DataSource = bs;
 
-            dataGridAccept.AutoResizeColumns();
-            dataGridAccept.ClearSelection();
+            if (dataGridAccept.InvokeRequired)
+                dataGridAccept.Invoke(new Action(() =>
+                {
+                    dataGridAccept.DataSource = bs;
+
+                    dataGridAccept.AutoResizeColumns();
+                    dataGridAccept.ClearSelection();
+                    dataGridAccept.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                }));
+            else
+            {
+                dataGridAccept.DataSource = bs;
+
+                dataGridAccept.AutoResizeColumns();
+                dataGridAccept.ClearSelection();
+                dataGridAccept.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            }
+            
         }
         // generate certificate button
         private void btnGenerateCert_Click(object sender, EventArgs e)
         {
             if (!isLetterCerts())
             {
-                if (!isDirectors())
-                {
-                    if (radioOthers.Checked)
-                    {
-                        if (isOthersFields())
-                            viewReport();
-                        else
-                            MessageBox.Show("Input the Director's name and position first.");
-                    }
-                    else
-                        viewReport();
-                }
-                else
-                    MessageBox.Show("Select Director first.");
+                btnGenerateCert.Enabled = false;
+                loadScreen.Show();
+                loadScreen.TopMost = true;
+
+                ReportViewer rv = new ReportViewer();
+
+                if (radioAcceptance.Checked)
+                    rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.letter_Signee_Name, Settings1.Default.letter_Signee_Position);
+                if (radioCompletion.Checked)
+                    rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position); ;
+
+                loadScreen.Hide();
+                rv.ShowDialog();
+                btnGenerateCert.Enabled = true;
+                radioAcceptance.Checked = false;
+                radioCompletion.Checked = false;
             }
             else
-                MessageBox.Show("Select certification first.");
-        }
-        // type of certification
-        private void viewReport()
-        {
-            ReportViewer rv = new ReportViewer();
-
-            if (radioAcceptance.Checked)
-                rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
-            if (radioCompletion.Checked)
-                rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), getDirector(), getDirectorPos());
-
-            rv.ShowDialog();
+                MessageBox.Show("Select what document to generate.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         // data validation
         private bool isLetterCerts()
         {
             return !radioAcceptance.Checked && !radioCompletion.Checked;
-        }
-        private bool isDirectors()
-        {
-            return !radioBorja.Checked && !radioVida.Checked && !radioOthers.Checked;
-        }
-        private bool isOthersFields()
-        {
-            return !string.IsNullOrWhiteSpace(txtDirName.Text) && !string.IsNullOrWhiteSpace(txtDirPos.Text);
-        }
-        // get director's name
-        private string getDirector()
-        {
-            string dir = "";
-
-            if (radioVida.Checked)
-                dir = "MARIA VIDA G. CAPARAS, Ph.D., RPsy";
-            if (radioBorja.Checked)
-                dir = "CHRISTIAN P. BORJA";
-            if (radioOthers.Checked)
-                dir = txtDirName.Text;
-            return dir;
-        }
-        // get director's position
-        private string getDirectorPos()
-        {
-            string dirPos = "";
-            if (radioVida.Checked)
-                dirPos = "Director III";
-            if (radioBorja.Checked)
-                dirPos = "Director II";
-            if (radioOthers.Checked)
-                dirPos = txtDirPos.Text;
-            return dirPos;
-        }
-        // other director
-        private void radioOthers_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radioOthers.Checked)
-            {
-                lblDirName.Visible = true;
-                lblDirPos.Visible = true;
-                txtDirName.Visible = true;
-                txtDirPos.Visible = true;
-
-                txtDirName.Text = "";
-                txtDirPos.Text = "";
-            }
-            if (!radioOthers.Checked)
-            {
-                lblDirName.Visible = false;
-                lblDirPos.Visible = false;
-                txtDirName.Visible = false;
-                txtDirPos.Visible = false;
-            }
         }
 
         // ------------------------------------------------------------ END OF LETTER STRIP ------------------------------------------------------------
@@ -1245,9 +1196,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             comboBoxInternFilter.SelectedIndex = 0;
         }
         // certificates/letter
-        private void toolStripLetter_Click(object sender, EventArgs e)
+        private async void toolStripLetter_Click(object sender, EventArgs e)
         {
-            letterPanel.BringToFront();
+            loadScreen.Show();
+            loadScreen.TopMost = true;
+            await Task.Run(() => { 
+                defaultLetter();
+
+                if (letterPanel.InvokeRequired)
+                    letterPanel.Invoke(new Action(() => { letterPanel.BringToFront(); }));
+                else
+                    letterPanel.BringToFront();
+            });
+            loadScreen.Hide();
         }
         // report
         private void reportsToolStripButton2_Click_1(object sender, EventArgs e)
@@ -1317,6 +1278,24 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 buttonViewDTR.Enabled = true;
                 MessageBox.Show(ex.Message, "View DTR Button Error");
             }
+        }
+
+        private void acceptanceSigneeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSettings fs = new FormSettings("LOA");
+            fs.ShowDialog();
+        }
+
+        private void cOCSigneeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSettings fs = new FormSettings("COC");
+            fs.ShowDialog();
+        }
+
+        private void dTRSigneeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSettings fs = new FormSettings("DTR");
+            fs.ShowDialog();
         }
     }
 }

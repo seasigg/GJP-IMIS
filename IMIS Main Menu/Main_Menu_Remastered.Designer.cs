@@ -29,10 +29,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.viewInternPanel = new System.Windows.Forms.Panel();
             this.comboBoxInternFilter = new System.Windows.Forms.ComboBox();
             this.txtInternFilter = new System.Windows.Forms.TextBox();
@@ -130,16 +132,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label30 = new System.Windows.Forms.Label();
             this.letterPanel = new System.Windows.Forms.Panel();
             this.btnGenerateCert = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.lblDirPos = new System.Windows.Forms.Label();
-            this.lblDirName = new System.Windows.Forms.Label();
-            this.txtDirPos = new System.Windows.Forms.TextBox();
-            this.txtDirName = new System.Windows.Forms.TextBox();
-            this.radioOthers = new System.Windows.Forms.RadioButton();
-            this.radioBorja = new System.Windows.Forms.RadioButton();
-            this.radioVida = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.radioCompletion = new System.Windows.Forms.RadioButton();
             this.radioAcceptance = new System.Windows.Forms.RadioButton();
@@ -171,6 +163,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acceptanceSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOCSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dTRSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.panelViewDTR = new System.Windows.Forms.Panel();
@@ -212,8 +208,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.editStatusPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit)).BeginInit();
             this.letterPanel.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccept)).BeginInit();
             this.reportsPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -341,23 +335,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.dataGridInterns.AllowUserToAddRows = false;
             this.dataGridInterns.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridInterns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridInterns.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridInterns.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridInterns.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridInterns.Location = new System.Drawing.Point(9, 161);
             this.dataGridInterns.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridInterns.Name = "dataGridInterns";
@@ -1329,9 +1323,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // letterPanel
             // 
+            this.letterPanel.Controls.Add(this.radioCompletion);
+            this.letterPanel.Controls.Add(this.label7);
+            this.letterPanel.Controls.Add(this.radioAcceptance);
             this.letterPanel.Controls.Add(this.btnGenerateCert);
-            this.letterPanel.Controls.Add(this.panel3);
-            this.letterPanel.Controls.Add(this.panel2);
             this.letterPanel.Controls.Add(this.label4);
             this.letterPanel.Controls.Add(this.dataGridAccept);
             this.letterPanel.Location = new System.Drawing.Point(0, 66);
@@ -1342,144 +1337,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             // btnGenerateCert
             // 
-            this.btnGenerateCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateCert.Location = new System.Drawing.Point(1121, 576);
+            this.btnGenerateCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateCert.Location = new System.Drawing.Point(1110, 652);
             this.btnGenerateCert.Name = "btnGenerateCert";
-            this.btnGenerateCert.Size = new System.Drawing.Size(200, 75);
+            this.btnGenerateCert.Size = new System.Drawing.Size(192, 48);
             this.btnGenerateCert.TabIndex = 7;
             this.btnGenerateCert.Text = "Create Certificate";
             this.btnGenerateCert.UseVisualStyleBackColor = true;
             this.btnGenerateCert.Click += new System.EventHandler(this.btnGenerateCert_Click);
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label32);
-            this.panel3.Controls.Add(this.lblDirPos);
-            this.panel3.Controls.Add(this.lblDirName);
-            this.panel3.Controls.Add(this.txtDirPos);
-            this.panel3.Controls.Add(this.txtDirName);
-            this.panel3.Controls.Add(this.radioOthers);
-            this.panel3.Controls.Add(this.radioBorja);
-            this.panel3.Controls.Add(this.radioVida);
-            this.panel3.Location = new System.Drawing.Point(469, 505);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(582, 206);
-            this.panel3.TabIndex = 6;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(261, 23);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(95, 25);
-            this.label32.TabIndex = 8;
-            this.label32.Text = "Director";
-            // 
-            // lblDirPos
-            // 
-            this.lblDirPos.AutoSize = true;
-            this.lblDirPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirPos.Location = new System.Drawing.Point(150, 159);
-            this.lblDirPos.Name = "lblDirPos";
-            this.lblDirPos.Size = new System.Drawing.Size(95, 25);
-            this.lblDirPos.TabIndex = 7;
-            this.lblDirPos.Text = "Position:";
-            this.lblDirPos.Visible = false;
-            // 
-            // lblDirName
-            // 
-            this.lblDirName.AutoSize = true;
-            this.lblDirName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirName.Location = new System.Drawing.Point(171, 121);
-            this.lblDirName.Name = "lblDirName";
-            this.lblDirName.Size = new System.Drawing.Size(74, 25);
-            this.lblDirName.TabIndex = 6;
-            this.lblDirName.Text = "Name:";
-            this.lblDirName.Visible = false;
-            // 
-            // txtDirPos
-            // 
-            this.txtDirPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirPos.Location = new System.Drawing.Point(255, 153);
-            this.txtDirPos.Name = "txtDirPos";
-            this.txtDirPos.Size = new System.Drawing.Size(168, 31);
-            this.txtDirPos.TabIndex = 5;
-            this.txtDirPos.Visible = false;
-            // 
-            // txtDirName
-            // 
-            this.txtDirName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDirName.Location = new System.Drawing.Point(255, 115);
-            this.txtDirName.Name = "txtDirName";
-            this.txtDirName.Size = new System.Drawing.Size(168, 31);
-            this.txtDirName.TabIndex = 4;
-            this.txtDirName.Visible = false;
-            // 
-            // radioOthers
-            // 
-            this.radioOthers.AutoSize = true;
-            this.radioOthers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioOthers.Location = new System.Drawing.Point(458, 66);
-            this.radioOthers.Name = "radioOthers";
-            this.radioOthers.Size = new System.Drawing.Size(94, 29);
-            this.radioOthers.TabIndex = 3;
-            this.radioOthers.TabStop = true;
-            this.radioOthers.Text = "Others";
-            this.radioOthers.UseVisualStyleBackColor = true;
-            this.radioOthers.CheckedChanged += new System.EventHandler(this.radioOthers_CheckedChanged);
-            // 
-            // radioBorja
-            // 
-            this.radioBorja.AutoSize = true;
-            this.radioBorja.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioBorja.Location = new System.Drawing.Point(266, 66);
-            this.radioBorja.Name = "radioBorja";
-            this.radioBorja.Size = new System.Drawing.Size(171, 29);
-            this.radioBorja.TabIndex = 2;
-            this.radioBorja.TabStop = true;
-            this.radioBorja.Text = "Christian Borja";
-            this.radioBorja.UseVisualStyleBackColor = true;
-            // 
-            // radioVida
-            // 
-            this.radioVida.AutoSize = true;
-            this.radioVida.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioVida.Location = new System.Drawing.Point(17, 66);
-            this.radioVida.Name = "radioVida";
-            this.radioVida.Size = new System.Drawing.Size(220, 29);
-            this.radioVida.TabIndex = 1;
-            this.radioVida.TabStop = true;
-            this.radioVida.Text = "Maria Vida Caparas";
-            this.radioVida.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.radioCompletion);
-            this.panel2.Controls.Add(this.radioAcceptance);
-            this.panel2.Location = new System.Drawing.Point(68, 504);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(351, 166);
-            this.panel2.TabIndex = 5;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(62, 24);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(795, 639);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 25);
+            this.label7.Size = new System.Drawing.Size(156, 20);
             this.label7.TabIndex = 2;
             this.label7.Text = "Type of Certificate";
             // 
             // radioCompletion
             // 
             this.radioCompletion.AutoSize = true;
-            this.radioCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioCompletion.Location = new System.Drawing.Point(33, 111);
+            this.radioCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioCompletion.Location = new System.Drawing.Point(882, 664);
             this.radioCompletion.Name = "radioCompletion";
-            this.radioCompletion.Size = new System.Drawing.Size(265, 29);
+            this.radioCompletion.Size = new System.Drawing.Size(201, 24);
             this.radioCompletion.TabIndex = 1;
             this.radioCompletion.TabStop = true;
             this.radioCompletion.Text = "Certificate of Completion";
@@ -1488,10 +1371,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // radioAcceptance
             // 
             this.radioAcceptance.AutoSize = true;
-            this.radioAcceptance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioAcceptance.Location = new System.Drawing.Point(33, 72);
+            this.radioAcceptance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioAcceptance.Location = new System.Drawing.Point(683, 664);
             this.radioAcceptance.Name = "radioAcceptance";
-            this.radioAcceptance.Size = new System.Drawing.Size(228, 29);
+            this.radioAcceptance.Size = new System.Drawing.Size(176, 24);
             this.radioAcceptance.TabIndex = 0;
             this.radioAcceptance.TabStop = true;
             this.radioAcceptance.Text = "Letter of Acceptance";
@@ -1516,7 +1399,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAccept.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAccept.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccept.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridAccept.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridAccept.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridAccept.Location = new System.Drawing.Point(39, 73);
             this.dataGridAccept.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridAccept.Name = "dataGridAccept";
@@ -1524,7 +1423,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridAccept.RowHeadersWidth = 51;
             this.dataGridAccept.RowTemplate.Height = 24;
             this.dataGridAccept.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridAccept.Size = new System.Drawing.Size(1407, 413);
+            this.dataGridAccept.Size = new System.Drawing.Size(1407, 551);
             this.dataGridAccept.TabIndex = 1;
             // 
             // reportsPanel
@@ -1678,19 +1577,19 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.mainPanel.Controls.Add(this.toolStrip1);
             this.mainPanel.Controls.Add(this.menuStrip1);
+            this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.viewInternPanel);
             this.mainPanel.Controls.Add(this.imisWelcome);
             this.mainPanel.Controls.Add(this.panelViewDTR);
             this.mainPanel.Controls.Add(this.addInternPanel);
             this.mainPanel.Controls.Add(this.editInternPanel);
-            this.mainPanel.Controls.Add(this.letterPanel);
             this.mainPanel.Controls.Add(this.reportsPanel);
             this.mainPanel.Controls.Add(this.addInternUnreg);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1487, 798);
+            this.mainPanel.Size = new System.Drawing.Size(1484, 791);
             this.mainPanel.TabIndex = 11;
             // 
             // toolStrip1
@@ -1707,7 +1606,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStripSeparator4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1487, 42);
+            this.toolStrip1.Size = new System.Drawing.Size(1484, 42);
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -1781,11 +1680,12 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aCCOUNTToolStripMenuItem});
+            this.aCCOUNTToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1487, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1484, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1811,6 +1711,37 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.eXITToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.eXITToolStripMenuItem.Text = "EXIT";
             this.eXITToolStripMenuItem.Click += new System.EventHandler(this.eXITToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acceptanceSigneeToolStripMenuItem,
+            this.cOCSigneeToolStripMenuItem,
+            this.dTRSigneeToolStripMenuItem});
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // acceptanceSigneeToolStripMenuItem
+            // 
+            this.acceptanceSigneeToolStripMenuItem.Name = "acceptanceSigneeToolStripMenuItem";
+            this.acceptanceSigneeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.acceptanceSigneeToolStripMenuItem.Text = "Acceptance Signee";
+            this.acceptanceSigneeToolStripMenuItem.Click += new System.EventHandler(this.acceptanceSigneeToolStripMenuItem_Click);
+            // 
+            // cOCSigneeToolStripMenuItem
+            // 
+            this.cOCSigneeToolStripMenuItem.Name = "cOCSigneeToolStripMenuItem";
+            this.cOCSigneeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.cOCSigneeToolStripMenuItem.Text = "COC Signee";
+            this.cOCSigneeToolStripMenuItem.Click += new System.EventHandler(this.cOCSigneeToolStripMenuItem_Click);
+            // 
+            // dTRSigneeToolStripMenuItem
+            // 
+            this.dTRSigneeToolStripMenuItem.Name = "dTRSigneeToolStripMenuItem";
+            this.dTRSigneeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.dTRSigneeToolStripMenuItem.Text = "DTR Signee";
+            this.dTRSigneeToolStripMenuItem.Click += new System.EventHandler(this.dTRSigneeToolStripMenuItem_Click);
             // 
             // imisWelcome
             // 
@@ -1983,23 +1914,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewInternDTR.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewInternDTR.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInternDTR.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInternDTR.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewInternDTR.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInternDTR.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInternDTR.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewInternDTR.Location = new System.Drawing.Point(39, 176);
             this.dataGridViewInternDTR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewInternDTR.Name = "dataGridViewInternDTR";
@@ -2177,9 +2108,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1487, 798);
+            this.ClientSize = new System.Drawing.Size(1484, 791);
             this.Controls.Add(this.mainPanel);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(1500, 814);
             this.Name = "Main_Menu_Remastered";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IMIS";
@@ -2203,10 +2135,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             ((System.ComponentModel.ISupportInitialize)(this.numericEdit)).EndInit();
             this.letterPanel.ResumeLayout(false);
             this.letterPanel.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccept)).EndInit();
             this.reportsPanel.ResumeLayout(false);
             this.reportsPanel.PerformLayout();
@@ -2351,18 +2279,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.RadioButton radioEditScheduleNormal;
         private System.Windows.Forms.ToolStripButton toolStripLetter;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioBorja;
-        private System.Windows.Forms.RadioButton radioVida;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton radioCompletion;
         private System.Windows.Forms.RadioButton radioAcceptance;
         private System.Windows.Forms.Button btnGenerateCert;
-        private System.Windows.Forms.Label lblDirPos;
-        private System.Windows.Forms.Label lblDirName;
-        private System.Windows.Forms.TextBox txtDirPos;
-        private System.Windows.Forms.TextBox txtDirName;
-        private System.Windows.Forms.RadioButton radioOthers;
         private System.Windows.Forms.CheckBox boxSuffix;
         private System.Windows.Forms.TextBox txtSuffix;
         private System.Windows.Forms.CheckBox boxEditSuffix;
@@ -2372,7 +2291,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Button btnEditIntern;
         private System.Windows.Forms.Button btnAddNewIntern;
         private System.Windows.Forms.ToolStripButton stripInterns;
-        private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label37;
@@ -2397,5 +2315,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.Label txtDTR_TermName;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Button buttonDTRPrint;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acceptanceSigneeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cOCSigneeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dTRSigneeToolStripMenuItem;
     }
 }
