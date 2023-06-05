@@ -55,14 +55,15 @@ namespace GJP_IMIS.IMIS_Methods.Main_Menu_Queries
         // acceptance letter data grid
         public static DataTable reportAcceptanceDataGrid1()
         {
-            return dataTable(@"SELECT DISTINCT
-                OJT_Number AS 'OJT Number',
-				CASE
-					WHEN Suffix = ' '
-					THEN CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name)
-					ELSE CONCAT(First_Name, ' ', Middle_Initial, '. ', Last_Name, ' ', Suffix)
-				END AS 'Intern'
-                FROM Intern_Info ");
+            return dataTable(@"SELECT Intern_Info.OJT_Number as 'OJT ID',
+                        (Intern_Info.First_Name + ' ' + Intern_Info.Last_Name + ' ' + Intern_Info.Suffix) as 'Name',
+
+                        (CONVERT(VARCHAR(12), Intern_Status.Current_Hours /3600) + ':' + CONVERT(VARCHAR(2), Intern_Status.Current_Hours /60 % 60)) as 'Hours Rendered',
+                        (CONVERT(VARCHAR(12), Intern_Status.Target_Hours / 3600)) as 'Target Hours',
+                        Intern_Status.Status as 'Status'
+                        FROM Intern_Info
+                        INNER JOIN Intern_Status ON Intern_Info.OJT_Number = Intern_Status.OJT_Number
+						ORDER BY Intern_Info.OJT_Number ASC");
         }
 
         // intern logs

@@ -975,12 +975,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 ReportViewer rv = new ReportViewer();
 
                 if (radioAcceptance.Checked)
+                {
                     rv.viewAcceptanceLetter(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.letter_Signee_Name, Settings1.Default.letter_Signee_Position);
+                    loadScreen.Hide();
+                    rv.ShowDialog();
+                }
                 if (radioCompletion.Checked)
-                    rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position); ;
+                {
+                    if (dataGridAccept.CurrentRow.Cells[4].Value.ToString() == "COMPLETE")
+                    {
+                        rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position);
+                        loadScreen.Hide();
+                        rv.ShowDialog();
+                    }
+                    else
+                    {
+                        loadScreen.Hide();
+                        if (MessageBox.Show("Intern has incomplete hours. Proceed anyway?", "Incomplete Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            loadScreen.Show();
+                            loadScreen.TopMost = true;
+                            rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position);
+                            loadScreen.Hide();
+                            rv.ShowDialog();
+                        }
+                        else
+                            loadScreen.Hide();
+                    }
+                        
+                }
 
-                loadScreen.Hide();
-                rv.ShowDialog();
                 btnGenerateCert.Enabled = true;
                 radioAcceptance.Checked = false;
                 radioCompletion.Checked = false;
@@ -1184,6 +1208,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 this.Dispose();
+                Application.Exit();
                 /*Application.Restart();*/
             }
         }
@@ -1297,6 +1322,36 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             FormSettings fs = new FormSettings("DTR");
             fs.ShowDialog();
+        }
+
+        private void comboLetterFilter_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            letterFilter();
+        }
+
+        private void txtLetterFilter_TextChanged(object sender, EventArgs e)
+        {
+            letterFilter();
+        }
+
+        private void letterFilter()
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridAccept.DataSource;
+
+            if (comboLetterFilter.SelectedIndex == 0)
+                bs.Filter = "[OJT ID] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 1)
+                bs.Filter = "[Name] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 2)
+                bs.Filter = "[Hours Rendered] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 3)
+                bs.Filter = "[Target Hours] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 4)
+                bs.Filter = "[Status] like '%" + txtLetterFilter.Text + "%'";
+
+            dataGridAccept.DataSource = bs;
+            dataGridAccept.ClearSelection();
         }
     }
 }
