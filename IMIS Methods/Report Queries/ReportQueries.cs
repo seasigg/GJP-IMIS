@@ -453,9 +453,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 						
 						i.UserID,
 						convert(datetime, i.Date, 102) as 'Date',
-						i.Time_In,
-						i.Lunch,
-						i.Time_Out,
+						CONVERT(VARCHAR(5),i.Time_In,108) as 'Time_In',
+						CONVERT(VARCHAR(5),i.Lunch,108) as 'Lunch',
+						CONVERT(VARCHAR(5),i.Time_Out,108) as 'Time_Out',
 						convert(varchar(5), dateadd(ss, i.Hours_Rendered, 0), 114) as 'Hours_Rendered',
 						case
 		

@@ -87,7 +87,23 @@ namespace GJP_IMIS.Reports
             ReportInternDTR dtr = new ReportInternDTR();
             ReportDataSet ds = ReportQueries.reportViewDTR(ojtID);
 
-            dtr.SetDataSource(ds.Tables["InternDTR"]);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("dtr_Signee1_Name", typeof(string));
+            dt.Columns.Add("dtr_Signee1_Position", typeof(string));
+            dt.Columns.Add("dtr_Signee2_Name", typeof(string));
+            dt.Columns.Add("dtr_Signee2_Position", typeof(string));
+            DataRow dr = dt.NewRow();
+            dr["dtr_Signee1_Name"] = Settings1.Default.dtr_Signee1_Name;
+            dr["dtr_Signee1_Position"] = Settings1.Default.dtr_Signee1_Position;
+            dr["dtr_Signee2_Name"] = Settings1.Default.dtr_Signee2_Name;
+            dr["dtr_Signee2_Position"] = Settings1.Default.dtr_Signee2_Position;
+            dt.Rows.Add(dr);
+
+            dt.TableName = "Intern_Signee";
+            dtr.Database.Tables[0].SetDataSource(ds.Tables["InternDTR"]);
+            dtr.Database.Tables[1].SetDataSource(dt);
+            //dtr.SetDataSource(dt);
+            //dtr.SetDataSource(ds.Tables["InternDTR"]);
             crystalReportViewer1.ReportSource = dtr;
             crystalReportViewer1.Refresh();
             ds.Dispose();

@@ -95,9 +95,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
 
                 await Task.Run(() =>
                 {
-
-
-
                     BindingSource bs = new BindingSource();
                     bs.DataSource = menuQueries.viewInternDTR(ojtNum);
 
