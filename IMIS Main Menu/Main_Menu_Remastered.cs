@@ -1363,5 +1363,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
             dataGridAccept.DataSource = bs;
             dataGridAccept.ClearSelection();
         }
+
+        private void Main_Menu_Remastered_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
