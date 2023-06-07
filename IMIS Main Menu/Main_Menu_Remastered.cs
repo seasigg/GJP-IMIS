@@ -1142,6 +1142,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         // generate report button
         private void internButtonGenerate_Click(object sender, EventArgs e)
         {
+            internButtonGenerate.Enabled = false;
+            loadScreen.Show();
+            loadScreen.TopMost = true;
+
             string query = ReportQueries.reportsInternQuery();
             string filter = "";
             ReportViewer rv = new ReportViewer();
@@ -1190,6 +1194,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             else
                 rv.viewInternReport(ReportQueries.reportsInternQuery());
 
+            loadScreen.Hide();
+            internButtonGenerate.Enabled = true;
             rv.ShowDialog();
         }
 
