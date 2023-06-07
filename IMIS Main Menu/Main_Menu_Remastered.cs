@@ -923,12 +923,14 @@ namespace GJP_IMIS.IMIS_Main_Menu
             string newTime = dateTimePickerTime.Value.ToString("HH:mm:ss");
             string terminal = txtDTR_TermName.Text;
 
-            InternQueries.insertInternLog(ojtID, newDate, newTime, terminal);
+            if(MessageBox.Show("Add this log?\n\nDate: " + dateTimePickerDate.Value.Date.ToLongDateString() + "\nTime: " + newTime, "Add Log", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                InternQueries.insertInternLog(ojtID, newDate, newTime, terminal);
 
-            // REFRESH THE LOG DATA
-            InternQueries.calculateDTR();
-            viewDTR(ojtID);
-
+                // REFRESH THE LOG DATA
+                InternQueries.calculateDTR();
+                viewDTR(ojtID);
+            }
         }
 
         // ------------------------------------------------------------ END OF MODIFY LOG STRIP ------------------------------------------------------------
@@ -988,7 +990,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     else
                     {
                         loadScreen.Hide();
-                        if (MessageBox.Show("Intern has incomplete hours. Proceed anyway?", "Incomplete Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show("Intern is not yet completed. Proceed anyway?", "Incomplete Intern", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             loadScreen.Show();
                             loadScreen.TopMost = true;
@@ -1230,6 +1232,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
                     letterPanel.Invoke(new Action(() => { letterPanel.BringToFront(); }));
                 else
                     letterPanel.BringToFront();
+
+                if (comboLetterFilter.InvokeRequired)
+                    comboLetterFilter.Invoke(new Action(() => { comboLetterFilter.SelectedIndex = 0; }));
+                else
+                    comboLetterFilter.SelectedIndex = 0;
             });
             loadScreen.Hide();
         }
