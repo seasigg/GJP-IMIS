@@ -1368,5 +1368,10 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             
         }
+
+        private void editStatusPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
