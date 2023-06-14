@@ -71,6 +71,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 }*/
             });
             loadScreen.Hide();
+            internFilter();
             buttonRefresh.Enabled = true;
         }
 
@@ -175,16 +176,25 @@ namespace GJP_IMIS.IMIS_Main_Menu
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridInterns.DataSource;
 
+            string f = "";
+
             if (comboBoxInternFilter.SelectedIndex == 0)
-                bs.Filter = "[Name] like '%" + txtInternFilter.Text + "%'";
+                f = "[Name] like '%" + txtInternFilter.Text + "%'";
             if (comboBoxInternFilter.SelectedIndex == 1)
-                bs.Filter = "[Course] like '%" + txtInternFilter.Text + "%'";
+                f = "[Course] like '%" + txtInternFilter.Text + "%'";
             if (comboBoxInternFilter.SelectedIndex == 2)
-                bs.Filter = "[School] like '%" + txtInternFilter.Text + "%'";
+                f = "[School] like '%" + txtInternFilter.Text + "%'";
             if (comboBoxInternFilter.SelectedIndex == 3)
-                bs.Filter = "[Office] like '%" + txtInternFilter.Text + "%'";
+                f = "[Office] like '%" + txtInternFilter.Text + "%'";
             if (comboBoxInternFilter.SelectedIndex == 4)
-                bs.Filter = "[OJT ID] like '%" + txtInternFilter.Text + "%'";
+                f = "[OJT ID] like '%" + txtInternFilter.Text + "%'";
+
+            if (radioButtonComplete.Checked)
+                f += " and [Status] = 'Complete'";
+            if (radioButtonIncomplete.Checked)
+                f += "and [Status] = 'Incomplete'";
+
+            bs.Filter = f;
 
             dataGridInterns.DataSource = bs;
             dataGridInterns.ClearSelection();
@@ -325,6 +335,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 dataGridInterns.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dataGridInterns.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                internFilter();
             });
 
             if (dataGridInterns.InvokeRequired)
@@ -1225,6 +1237,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             viewInternPanel.BringToFront();
             comboBoxInternFilter.SelectedIndex = 0;
+            radioButtonIncomplete.Checked = true;
+            internFilter();
         }
         // certificates/letter
         private async void toolStripLetter_Click(object sender, EventArgs e)
@@ -1244,6 +1258,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 else
                     comboLetterFilter.SelectedIndex = 0;
             });
+            radioButtonIncompleteLetter.Checked = true;
+            letterFilter();
             loadScreen.Hide();
         }
         // report
@@ -1349,17 +1365,23 @@ namespace GJP_IMIS.IMIS_Main_Menu
             BindingSource bs = new BindingSource();
             bs.DataSource = dataGridAccept.DataSource;
 
-            if (comboLetterFilter.SelectedIndex == 0)
-                bs.Filter = "[OJT ID] like '%" + txtLetterFilter.Text + "%'";
-            if (comboLetterFilter.SelectedIndex == 1)
-                bs.Filter = "[Name] like '%" + txtLetterFilter.Text + "%'";
-            if (comboLetterFilter.SelectedIndex == 2)
-                bs.Filter = "[Hours Rendered] like '%" + txtLetterFilter.Text + "%'";
-            if (comboLetterFilter.SelectedIndex == 3)
-                bs.Filter = "[Target Hours] like '%" + txtLetterFilter.Text + "%'";
-            if (comboLetterFilter.SelectedIndex == 4)
-                bs.Filter = "[Status] like '%" + txtLetterFilter.Text + "%'";
+            string f = "";
 
+            if (comboLetterFilter.SelectedIndex == 1)
+                f = "[OJT ID] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 0)
+                f = "[Name] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 2)
+                f = "[Hours Rendered] like '%" + txtLetterFilter.Text + "%'";
+            if (comboLetterFilter.SelectedIndex == 3)
+                f = "[Target Hours] like '%" + txtLetterFilter.Text + "%'";
+
+            if (radioButtonCompleteLetter.Checked)
+                f += " and [Status] = 'Complete'";
+            if (radioButtonIncompleteLetter.Checked)
+                f += " and [Status] = 'Incomplete'";
+
+            bs.Filter = f;
             dataGridAccept.DataSource = bs;
             dataGridAccept.ClearSelection();
         }
@@ -1372,6 +1394,26 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private void editStatusPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void radioButtonComplete_CheckedChanged(object sender, EventArgs e)
+        {
+            internFilter();
+        }
+
+        private void radioButtonIncomplete_CheckedChanged(object sender, EventArgs e)
+        {
+            internFilter();
+        }
+
+        private void radioButtonIncompleteLetter_CheckedChanged(object sender, EventArgs e)
+        {
+            letterFilter();
+        }
+
+        private void radioButtonCompleteLetter_CheckedChanged(object sender, EventArgs e)
+        {
+            letterFilter();
         }
     }
 }

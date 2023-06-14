@@ -88,7 +88,9 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 									ELSE i.First_Name + ' ' + i.Middle_Initial + '. ' +  i.Last_Name + ' ' + i.Suffix
 									END AS 'Intern Name',
 	                            i.School_Name as 'School',
-	                            i.Course as 'Course',
+	                            case when left(i.Course, 1) in ('a', 'e', 'i', 'o', 'u') then 'an ' + i.Course
+	                            else 'a ' + i.Course
+								end as 'Course',
 	                            (s.Target_Hours / 3600) as 'Hours',
 	                            i.Office_Name as 'Office',
 	                            @day as 'Day',
