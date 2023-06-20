@@ -1415,5 +1415,11 @@ namespace GJP_IMIS.IMIS_Main_Menu
         {
             letterFilter();
         }
+
+        private void deleteLogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogSettings ls = new LogSettings();
+            ls.ShowDialog();
+        }
     }
 }

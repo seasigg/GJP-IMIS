@@ -40,6 +40,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Menu_Remastered));
             this.viewInternPanel = new System.Windows.Forms.Panel();
+            this.radioButtonIncomplete = new System.Windows.Forms.RadioButton();
+            this.radioButtonComplete = new System.Windows.Forms.RadioButton();
             this.comboBoxInternFilter = new System.Windows.Forms.ComboBox();
             this.txtInternFilter = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -145,6 +147,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label6 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.letterPanel = new System.Windows.Forms.Panel();
+            this.radioButtonCompleteLetter = new System.Windows.Forms.RadioButton();
+            this.radioButtonIncompleteLetter = new System.Windows.Forms.RadioButton();
             this.btnGenerateCert = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioAcceptance = new System.Windows.Forms.RadioButton();
@@ -169,13 +173,9 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportGender = new System.Windows.Forms.CheckBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.stripInterns = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -216,11 +216,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridViewInternDTR = new System.Windows.Forms.DataGridView();
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
+            this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.stripInterns = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
+            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButtonComplete = new System.Windows.Forms.RadioButton();
-            this.radioButtonIncomplete = new System.Windows.Forms.RadioButton();
-            this.radioButtonIncompleteLetter = new System.Windows.Forms.RadioButton();
-            this.radioButtonCompleteLetter = new System.Windows.Forms.RadioButton();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
             this.addInternPanel.SuspendLayout();
@@ -271,6 +273,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.viewInternPanel.Name = "viewInternPanel";
             this.viewInternPanel.Size = new System.Drawing.Size(1482, 723);
             this.viewInternPanel.TabIndex = 3;
+            // 
+            // radioButtonIncomplete
+            // 
+            this.radioButtonIncomplete.AutoSize = true;
+            this.radioButtonIncomplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonIncomplete.Location = new System.Drawing.Point(1339, 140);
+            this.radioButtonIncomplete.Name = "radioButtonIncomplete";
+            this.radioButtonIncomplete.Size = new System.Drawing.Size(92, 20);
+            this.radioButtonIncomplete.TabIndex = 53;
+            this.radioButtonIncomplete.TabStop = true;
+            this.radioButtonIncomplete.Text = "Incomplete";
+            this.radioButtonIncomplete.UseVisualStyleBackColor = true;
+            this.radioButtonIncomplete.CheckedChanged += new System.EventHandler(this.radioButtonIncomplete_CheckedChanged);
+            // 
+            // radioButtonComplete
+            // 
+            this.radioButtonComplete.AutoSize = true;
+            this.radioButtonComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonComplete.Location = new System.Drawing.Point(1249, 141);
+            this.radioButtonComplete.Name = "radioButtonComplete";
+            this.radioButtonComplete.Size = new System.Drawing.Size(84, 20);
+            this.radioButtonComplete.TabIndex = 52;
+            this.radioButtonComplete.TabStop = true;
+            this.radioButtonComplete.Text = "Complete";
+            this.radioButtonComplete.UseVisualStyleBackColor = true;
+            this.radioButtonComplete.CheckedChanged += new System.EventHandler(this.radioButtonComplete_CheckedChanged);
             // 
             // comboBoxInternFilter
             // 
@@ -1523,6 +1551,32 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.letterPanel.Size = new System.Drawing.Size(1482, 723);
             this.letterPanel.TabIndex = 8;
             // 
+            // radioButtonCompleteLetter
+            // 
+            this.radioButtonCompleteLetter.AutoSize = true;
+            this.radioButtonCompleteLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonCompleteLetter.Location = new System.Drawing.Point(1347, 92);
+            this.radioButtonCompleteLetter.Name = "radioButtonCompleteLetter";
+            this.radioButtonCompleteLetter.Size = new System.Drawing.Size(84, 20);
+            this.radioButtonCompleteLetter.TabIndex = 57;
+            this.radioButtonCompleteLetter.TabStop = true;
+            this.radioButtonCompleteLetter.Text = "Complete";
+            this.radioButtonCompleteLetter.UseVisualStyleBackColor = true;
+            this.radioButtonCompleteLetter.CheckedChanged += new System.EventHandler(this.radioButtonCompleteLetter_CheckedChanged);
+            // 
+            // radioButtonIncompleteLetter
+            // 
+            this.radioButtonIncompleteLetter.AutoSize = true;
+            this.radioButtonIncompleteLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonIncompleteLetter.Location = new System.Drawing.Point(1249, 93);
+            this.radioButtonIncompleteLetter.Name = "radioButtonIncompleteLetter";
+            this.radioButtonIncompleteLetter.Size = new System.Drawing.Size(92, 20);
+            this.radioButtonIncompleteLetter.TabIndex = 56;
+            this.radioButtonIncompleteLetter.TabStop = true;
+            this.radioButtonIncompleteLetter.Text = "Incomplete";
+            this.radioButtonIncompleteLetter.UseVisualStyleBackColor = true;
+            this.radioButtonIncompleteLetter.CheckedChanged += new System.EventHandler(this.radioButtonIncompleteLetter_CheckedChanged);
+            // 
             // btnGenerateCert
             // 
             this.btnGenerateCert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
@@ -1855,68 +1909,20 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // updateDTRToolStripButton1
-            // 
-            this.updateDTRToolStripButton1.BackColor = System.Drawing.Color.Transparent;
-            this.updateDTRToolStripButton1.Image = global::GJP_IMIS.Properties.Resources.Update;
-            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
-            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(82, 41);
-            this.updateDTRToolStripButton1.Text = "Update Logs";
-            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.updateDTRToolStripButton1.ToolTipText = "Update Logs (CSV format)";
-            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 44);
-            // 
-            // stripInterns
-            // 
-            this.stripInterns.Image = global::GJP_IMIS.Properties.Resources.Interns;
-            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stripInterns.Name = "stripInterns";
-            this.stripInterns.Size = new System.Drawing.Size(52, 41);
-            this.stripInterns.Text = "Interns";
-            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 44);
             // 
-            // toolStripLetter
-            // 
-            this.toolStripLetter.Image = global::GJP_IMIS.Properties.Resources.Certificate;
-            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLetter.Name = "toolStripLetter";
-            this.toolStripLetter.Size = new System.Drawing.Size(142, 41);
-            this.toolStripLetter.Text = "Certificates and Letters";
-            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripLetter.ToolTipText = "Certificates & Letters";
-            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 44);
-            // 
-            // reportsToolStripButton
-            // 
-            this.reportsToolStripButton.Image = global::GJP_IMIS.Properties.Resources.Report;
-            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.reportsToolStripButton.Name = "reportsToolStripButton";
-            this.reportsToolStripButton.Size = new System.Drawing.Size(56, 41);
-            this.reportsToolStripButton.Text = "Reports";
-            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
             // 
             // toolStripSeparator4
             // 
@@ -1929,7 +1935,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aCCOUNTToolStripMenuItem,
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.logsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -2394,6 +2401,69 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label45.TabIndex = 1;
             this.label45.Text = "INTERN MANAGEMENT INFORMATION SYSTEM";
             // 
+            // logsToolStripMenuItem
+            // 
+            this.logsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteLogsToolStripMenuItem});
+            this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.logsToolStripMenuItem.Text = "Logs";
+            // 
+            // deleteLogsToolStripMenuItem
+            // 
+            this.deleteLogsToolStripMenuItem.Name = "deleteLogsToolStripMenuItem";
+            this.deleteLogsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteLogsToolStripMenuItem.Text = "Delete Logs";
+            this.deleteLogsToolStripMenuItem.Click += new System.EventHandler(this.deleteLogsToolStripMenuItem_Click);
+            // 
+            // updateDTRToolStripButton1
+            // 
+            this.updateDTRToolStripButton1.BackColor = System.Drawing.Color.Transparent;
+            this.updateDTRToolStripButton1.Image = global::GJP_IMIS.Properties.Resources.Update;
+            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
+            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(82, 41);
+            this.updateDTRToolStripButton1.Text = "Update Logs";
+            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.updateDTRToolStripButton1.ToolTipText = "Update Logs (CSV format)";
+            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
+            // 
+            // stripInterns
+            // 
+            this.stripInterns.Image = global::GJP_IMIS.Properties.Resources.Interns;
+            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stripInterns.Name = "stripInterns";
+            this.stripInterns.Size = new System.Drawing.Size(52, 41);
+            this.stripInterns.Text = "Interns";
+            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
+            // 
+            // toolStripLetter
+            // 
+            this.toolStripLetter.Image = global::GJP_IMIS.Properties.Resources.Certificate;
+            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripLetter.Name = "toolStripLetter";
+            this.toolStripLetter.Size = new System.Drawing.Size(142, 41);
+            this.toolStripLetter.Text = "Certificates and Letters";
+            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripLetter.ToolTipText = "Certificates & Letters";
+            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
+            // 
+            // reportsToolStripButton
+            // 
+            this.reportsToolStripButton.Image = global::GJP_IMIS.Properties.Resources.Report;
+            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.reportsToolStripButton.Name = "reportsToolStripButton";
+            this.reportsToolStripButton.Size = new System.Drawing.Size(56, 41);
+            this.reportsToolStripButton.Text = "Reports";
+            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GJP_IMIS.Properties.Resources.IMIS_Logo;
@@ -2403,58 +2473,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // radioButtonComplete
-            // 
-            this.radioButtonComplete.AutoSize = true;
-            this.radioButtonComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonComplete.Location = new System.Drawing.Point(1249, 141);
-            this.radioButtonComplete.Name = "radioButtonComplete";
-            this.radioButtonComplete.Size = new System.Drawing.Size(84, 20);
-            this.radioButtonComplete.TabIndex = 52;
-            this.radioButtonComplete.TabStop = true;
-            this.radioButtonComplete.Text = "Complete";
-            this.radioButtonComplete.UseVisualStyleBackColor = true;
-            this.radioButtonComplete.CheckedChanged += new System.EventHandler(this.radioButtonComplete_CheckedChanged);
-            // 
-            // radioButtonIncomplete
-            // 
-            this.radioButtonIncomplete.AutoSize = true;
-            this.radioButtonIncomplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonIncomplete.Location = new System.Drawing.Point(1339, 140);
-            this.radioButtonIncomplete.Name = "radioButtonIncomplete";
-            this.radioButtonIncomplete.Size = new System.Drawing.Size(92, 20);
-            this.radioButtonIncomplete.TabIndex = 53;
-            this.radioButtonIncomplete.TabStop = true;
-            this.radioButtonIncomplete.Text = "Incomplete";
-            this.radioButtonIncomplete.UseVisualStyleBackColor = true;
-            this.radioButtonIncomplete.CheckedChanged += new System.EventHandler(this.radioButtonIncomplete_CheckedChanged);
-            // 
-            // radioButtonIncompleteLetter
-            // 
-            this.radioButtonIncompleteLetter.AutoSize = true;
-            this.radioButtonIncompleteLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonIncompleteLetter.Location = new System.Drawing.Point(1249, 93);
-            this.radioButtonIncompleteLetter.Name = "radioButtonIncompleteLetter";
-            this.radioButtonIncompleteLetter.Size = new System.Drawing.Size(92, 20);
-            this.radioButtonIncompleteLetter.TabIndex = 56;
-            this.radioButtonIncompleteLetter.TabStop = true;
-            this.radioButtonIncompleteLetter.Text = "Incomplete";
-            this.radioButtonIncompleteLetter.UseVisualStyleBackColor = true;
-            this.radioButtonIncompleteLetter.CheckedChanged += new System.EventHandler(this.radioButtonIncompleteLetter_CheckedChanged);
-            // 
-            // radioButtonCompleteLetter
-            // 
-            this.radioButtonCompleteLetter.AutoSize = true;
-            this.radioButtonCompleteLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonCompleteLetter.Location = new System.Drawing.Point(1347, 92);
-            this.radioButtonCompleteLetter.Name = "radioButtonCompleteLetter";
-            this.radioButtonCompleteLetter.Size = new System.Drawing.Size(84, 20);
-            this.radioButtonCompleteLetter.TabIndex = 57;
-            this.radioButtonCompleteLetter.TabStop = true;
-            this.radioButtonCompleteLetter.Text = "Complete";
-            this.radioButtonCompleteLetter.UseVisualStyleBackColor = true;
-            this.radioButtonCompleteLetter.CheckedChanged += new System.EventHandler(this.radioButtonCompleteLetter_CheckedChanged);
             // 
             // Main_Menu_Remastered
             // 
@@ -2709,5 +2727,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
         private System.Windows.Forms.RadioButton radioButtonComplete;
         private System.Windows.Forms.RadioButton radioButtonCompleteLetter;
         private System.Windows.Forms.RadioButton radioButtonIncompleteLetter;
+        private System.Windows.Forms.ToolStripMenuItem logsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteLogsToolStripMenuItem;
     }
 }
