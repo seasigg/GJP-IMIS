@@ -26,5 +26,8 @@
     <Setting Name="cert_Signee_Position" Type="System.String" Scope="User">
       <Value Profile="(Default)">Director III</Value>
     </Setting>
+    <Setting Name="cert_Signee_Office" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Human Resource Management Services</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

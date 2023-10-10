@@ -41,7 +41,7 @@ namespace GJP_IMIS.Reports
 
         }
 
-        public void viewCertificateOfCompletion(string ojtID, string dir, string dirPos)
+        public void viewCertificateOfCompletion(string ojtID, string dir, string dirPos, string dirOff)
         {
             ReportDataSet ds = new ReportDataSet();
             ReportCertificateOfCompletion coc = new ReportCertificateOfCompletion();
@@ -52,9 +52,11 @@ namespace GJP_IMIS.Reports
             cmd.Parameters.Add("@ojtID", SqlDbType.Int);
             cmd.Parameters.Add("@director", SqlDbType.NVarChar);
             cmd.Parameters.Add("@dirPosition", SqlDbType.NVarChar);
+            cmd.Parameters.Add("@dirOffice", SqlDbType.NVarChar);
             cmd.Parameters["@ojtID"].Value = ojtID;
             cmd.Parameters["@director"].Value = dir;
             cmd.Parameters["@dirPosition"].Value = dirPos;
+            cmd.Parameters["@dirOffice"].Value = dirOff;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             da.Fill(ds, "CertOfCompletion");

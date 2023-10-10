@@ -995,7 +995,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                 {
                     if (dataGridAccept.CurrentRow.Cells[4].Value.ToString() == "COMPLETE")
                     {
-                        rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position);
+                        rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position, Settings1.Default.cert_Signee_Office);
                         loadScreen.Hide();
                         rv.ShowDialog();
                     }
@@ -1006,7 +1006,7 @@ namespace GJP_IMIS.IMIS_Main_Menu
                         {
                             loadScreen.Show();
                             loadScreen.TopMost = true;
-                            rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position);
+                            rv.viewCertificateOfCompletion(dataGridAccept.CurrentRow.Cells[0].Value.ToString(), Settings1.Default.cert_Signee_Name, Settings1.Default.cert_Signee_Position, Settings1.Default.cert_Signee_Office);
                             loadScreen.Hide();
                             rv.ShowDialog();
                         }

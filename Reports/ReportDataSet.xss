@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:AcceptanceLetter" ZOrder="5" X="799" Y="183" Height="296" Width="242" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="292" />
     <Shape ID="DesignTable:Interns" ZOrder="4" X="1135" Y="41" Height="124" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
-    <Shape ID="DesignTable:CertOfCompletion" ZOrder="3" X="1098" Y="270" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:CertOfCompletion" ZOrder="3" X="1074" Y="211" Height="277" Width="172" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="273" />
     <Shape ID="DesignTable:Intern_DTR" ZOrder="2" X="347" Y="129" Height="238" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="234" />
     <Shape ID="DesignTable:Intern_Signee" ZOrder="1" X="552" Y="174" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="86" />
   </Shapes>

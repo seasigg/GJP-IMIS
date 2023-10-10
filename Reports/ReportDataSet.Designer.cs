@@ -1221,6 +1221,8 @@ namespace GJP_IMIS.Reports {
             
             private global::System.Data.DataColumn columnDirector_Position;
             
+            private global::System.Data.DataColumn columnDirector_Office;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CertOfCompletionDataTable() {
@@ -1344,6 +1346,14 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Director_OfficeColumn {
+                get {
+                    return this.columnDirector_Office;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1379,7 +1389,7 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CertOfCompletionRow AddCertOfCompletionRow(string Intern_Name, string School, string Course, string Hours, string Office, string Day, string Ordinal_Number, string Month, string Year, string Director, string Director_Position) {
+            public CertOfCompletionRow AddCertOfCompletionRow(string Intern_Name, string School, string Course, string Hours, string Office, string Day, string Ordinal_Number, string Month, string Year, string Director, string Director_Position, string Director_Office) {
                 CertOfCompletionRow rowCertOfCompletionRow = ((CertOfCompletionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Intern_Name,
@@ -1392,7 +1402,8 @@ namespace GJP_IMIS.Reports {
                         Month,
                         Year,
                         Director,
-                        Director_Position};
+                        Director_Position,
+                        Director_Office};
                 rowCertOfCompletionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCertOfCompletionRow);
                 return rowCertOfCompletionRow;
@@ -1426,6 +1437,7 @@ namespace GJP_IMIS.Reports {
                 this.columnYear = base.Columns["Year"];
                 this.columnDirector = base.Columns["Director"];
                 this.columnDirector_Position = base.Columns["Director_Position"];
+                this.columnDirector_Office = base.Columns["Director_Office"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1457,6 +1469,8 @@ namespace GJP_IMIS.Reports {
                 base.Columns.Add(this.columnDirector);
                 this.columnDirector_Position = new global::System.Data.DataColumn("Director_Position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDirector_Position);
+                this.columnDirector_Office = new global::System.Data.DataColumn("Director_Office", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDirector_Office);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3153,6 +3167,22 @@ namespace GJP_IMIS.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Director_Office {
+                get {
+                    try {
+                        return ((string)(this[this.tableCertOfCompletion.Director_OfficeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Director_Office\' in table \'CertOfCompletion\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCertOfCompletion.Director_OfficeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsIntern_NameNull() {
                 return this.IsNull(this.tableCertOfCompletion.Intern_NameColumn);
             }
@@ -3281,6 +3311,18 @@ namespace GJP_IMIS.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDirector_PositionNull() {
                 this[this.tableCertOfCompletion.Director_PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDirector_OfficeNull() {
+                return this.IsNull(this.tableCertOfCompletion.Director_OfficeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDirector_OfficeNull() {
+                this[this.tableCertOfCompletion.Director_OfficeColumn] = global::System.Convert.DBNull;
             }
         }
         

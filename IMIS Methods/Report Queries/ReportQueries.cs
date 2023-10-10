@@ -104,7 +104,8 @@ namespace GJP_IMIS.IMIS_Methods.Report_Queries
 	                            @month as 'Month',
 	                            @year as 'Year',
                                 @director as 'Director',
-								@dirPosition as 'Director_Position'
+								@dirPosition as 'Director_Position',
+								@dirOffice as 'Director_Office'
 
                             FROM Intern_Info i, Intern_Status s
                             WHERE

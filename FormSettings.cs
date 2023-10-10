@@ -25,11 +25,11 @@ namespace GJP_IMIS
             this.typeSetting = type;
             switch (type)
             {
-                case "LOA": LOA();
+                case "LOA": LOA(type);
                     break;
-                case "COC": COC();
+                case "COC": COC(type);
                     break;
-                case "DTR": DTR();
+                case "DTR": DTR(type);
                     break;
 
                 default:
@@ -37,11 +37,15 @@ namespace GJP_IMIS
             }
         }
 
-        private void enableHalf()
+        private void enableHalf(string o)
         {
             lblSigneeName.Visible = true;
             lblSigneePos.Visible = true;
-
+            if (o == "COC")
+            {
+                lblSigneeName1.Visible = true;
+                txtSigneeName1.Visible = true;
+            }
             txtSigneeName.Visible = true;
             txtSigneePos.Visible = true;
         }
@@ -71,21 +75,23 @@ namespace GJP_IMIS
             txtSigneePos.Visible = false;
             txtSigneePos1.Visible = false;
         }
-        private void LOA()
+        private void LOA(string o)
         {
             lblTitle.Text = "Letter of Acceptance";
             txtSigneeName.Text = Settings1.Default.letter_Signee_Name;
             txtSigneePos.Text = Settings1.Default.letter_Signee_Position;
-            enableHalf();
+            enableHalf(o);
         }
-        private void COC()
+        private void COC(string o)
         {
             lblTitle.Text = "Certificate of Completion";
             txtSigneeName.Text = Settings1.Default.cert_Signee_Name;
             txtSigneePos.Text = Settings1.Default.cert_Signee_Position;
-            enableHalf();
+            lblSigneeName1.Text = "Office: ";
+            txtSigneeName1.Text = Settings1.Default.cert_Signee_Office;
+            enableHalf(o);
         }
-        private void DTR()
+        private void DTR(string o)
         {
             lblTitle.Text = "DTR Signee";
             txtSigneeName.Text = Settings1.Default.dtr_Signee1_Name;
@@ -110,6 +116,7 @@ namespace GJP_IMIS
                 case "COC":
                     Settings1.Default.cert_Signee_Name = txtSigneeName.Text;
                     Settings1.Default.cert_Signee_Position = txtSigneePos.Text;
+                    Settings1.Default.cert_Signee_Office = txtSigneeName1.Text;
                     break;
                 case "DTR":
                     Settings1.Default.dtr_Signee1_Name = txtSigneeName.Text;

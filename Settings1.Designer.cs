@@ -118,5 +118,17 @@ namespace GJP_IMIS {
                 this["cert_Signee_Position"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Human Resource Management Services")]
+        public string cert_Signee_Office {
+            get {
+                return ((string)(this["cert_Signee_Office"]));
+            }
+            set {
+                this["cert_Signee_Office"] = value;
+            }
+        }
     }
 }
