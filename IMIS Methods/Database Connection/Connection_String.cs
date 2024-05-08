@@ -9,7 +9,7 @@ namespace GJP_IMIS.IMIS_Methods.Database_Connection
         public static SqlConnection con;
 
         //MAIN
-        public static string conn = ConfigurationManager.ConnectionStrings["Main"].ConnectionString;
+        public static string conn = ConfigurationManager.ConnectionStrings["EJDev"].ConnectionString;
 
         public static void dbConnection()
         {

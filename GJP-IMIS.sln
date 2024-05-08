@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32228.343
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GJP-IMIS", "GJP-IMIS.csproj", "{CF4FCA34-FEB1-4259-938A-171F3D9A21D3}"
-EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "IMIS-Setup", "..\IMIS-Setup\IMIS-Setup.aiproj", "{12859633-F1A3-48C5-A520-653B4EF00BB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,12 +18,6 @@ Global
 		{CF4FCA34-FEB1-4259-938A-171F3D9A21D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF4FCA34-FEB1-4259-938A-171F3D9A21D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF4FCA34-FEB1-4259-938A-171F3D9A21D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.All|Any CPU.ActiveCfg = All
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.All|Any CPU.Build.0 = All
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.Debug|Any CPU.ActiveCfg = All
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.Debug|Any CPU.Build.0 = All
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.Release|Any CPU.ActiveCfg = All
-		{12859633-F1A3-48C5-A520-653B4EF00BB8}.Release|Any CPU.Build.0 = All
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

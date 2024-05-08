@@ -173,9 +173,13 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.reportGender = new System.Windows.Forms.CheckBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.stripInterns = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aCCOUNTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -185,6 +189,8 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.acceptanceSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOCSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dTRSigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInternUnreg = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.textFilter_unregInterns = new System.Windows.Forms.TextBox();
@@ -216,12 +222,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dataGridViewInternDTR = new System.Windows.Forms.DataGridView();
             this.imisWelcome = new System.Windows.Forms.Panel();
             this.label45 = new System.Windows.Forms.Label();
-            this.logsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteLogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateDTRToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.stripInterns = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLetter = new System.Windows.Forms.ToolStripButton();
-            this.reportsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.viewInternPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridInterns)).BeginInit();
@@ -1909,20 +1909,68 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.toolStrip1.TabIndex = 12;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // updateDTRToolStripButton1
+            // 
+            this.updateDTRToolStripButton1.BackColor = System.Drawing.Color.Transparent;
+            this.updateDTRToolStripButton1.Image = global::GJP_IMIS.Properties.Resources.Update;
+            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
+            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(82, 41);
+            this.updateDTRToolStripButton1.Text = "Update Logs";
+            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.updateDTRToolStripButton1.ToolTipText = "Update Logs (CSV format)";
+            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 44);
+            // 
+            // stripInterns
+            // 
+            this.stripInterns.Image = global::GJP_IMIS.Properties.Resources.Interns;
+            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stripInterns.Name = "stripInterns";
+            this.stripInterns.Size = new System.Drawing.Size(52, 41);
+            this.stripInterns.Text = "Interns";
+            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 44);
             // 
+            // toolStripLetter
+            // 
+            this.toolStripLetter.Image = global::GJP_IMIS.Properties.Resources.Certificate;
+            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripLetter.Name = "toolStripLetter";
+            this.toolStripLetter.Size = new System.Drawing.Size(142, 41);
+            this.toolStripLetter.Text = "Certificates and Letters";
+            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripLetter.ToolTipText = "Certificates & Letters";
+            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 44);
+            // 
+            // reportsToolStripButton
+            // 
+            this.reportsToolStripButton.Image = global::GJP_IMIS.Properties.Resources.Report;
+            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.reportsToolStripButton.Name = "reportsToolStripButton";
+            this.reportsToolStripButton.Size = new System.Drawing.Size(56, 41);
+            this.reportsToolStripButton.Text = "Reports";
+            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
             // 
             // toolStripSeparator4
             // 
@@ -1999,6 +2047,21 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.dTRSigneeToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
             this.dTRSigneeToolStripMenuItem.Text = "DTR Signee";
             this.dTRSigneeToolStripMenuItem.Click += new System.EventHandler(this.dTRSigneeToolStripMenuItem_Click);
+            // 
+            // logsToolStripMenuItem
+            // 
+            this.logsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteLogsToolStripMenuItem});
+            this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
+            this.logsToolStripMenuItem.Text = "Logs";
+            // 
+            // deleteLogsToolStripMenuItem
+            // 
+            this.deleteLogsToolStripMenuItem.Name = "deleteLogsToolStripMenuItem";
+            this.deleteLogsToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.deleteLogsToolStripMenuItem.Text = "Delete Logs";
+            this.deleteLogsToolStripMenuItem.Click += new System.EventHandler(this.deleteLogsToolStripMenuItem_Click);
             // 
             // addInternUnreg
             // 
@@ -2400,69 +2463,6 @@ namespace GJP_IMIS.IMIS_Main_Menu
             this.label45.Size = new System.Drawing.Size(967, 59);
             this.label45.TabIndex = 1;
             this.label45.Text = "INTERN MANAGEMENT INFORMATION SYSTEM";
-            // 
-            // logsToolStripMenuItem
-            // 
-            this.logsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteLogsToolStripMenuItem});
-            this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
-            this.logsToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
-            this.logsToolStripMenuItem.Text = "Logs";
-            // 
-            // deleteLogsToolStripMenuItem
-            // 
-            this.deleteLogsToolStripMenuItem.Name = "deleteLogsToolStripMenuItem";
-            this.deleteLogsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteLogsToolStripMenuItem.Text = "Delete Logs";
-            this.deleteLogsToolStripMenuItem.Click += new System.EventHandler(this.deleteLogsToolStripMenuItem_Click);
-            // 
-            // updateDTRToolStripButton1
-            // 
-            this.updateDTRToolStripButton1.BackColor = System.Drawing.Color.Transparent;
-            this.updateDTRToolStripButton1.Image = global::GJP_IMIS.Properties.Resources.Update;
-            this.updateDTRToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.updateDTRToolStripButton1.Name = "updateDTRToolStripButton1";
-            this.updateDTRToolStripButton1.Size = new System.Drawing.Size(82, 41);
-            this.updateDTRToolStripButton1.Text = "Update Logs";
-            this.updateDTRToolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.updateDTRToolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.updateDTRToolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.updateDTRToolStripButton1.ToolTipText = "Update Logs (CSV format)";
-            this.updateDTRToolStripButton1.Click += new System.EventHandler(this.updateDTRToolStripButton1_Click);
-            // 
-            // stripInterns
-            // 
-            this.stripInterns.Image = global::GJP_IMIS.Properties.Resources.Interns;
-            this.stripInterns.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stripInterns.Name = "stripInterns";
-            this.stripInterns.Size = new System.Drawing.Size(52, 41);
-            this.stripInterns.Text = "Interns";
-            this.stripInterns.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stripInterns.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.stripInterns.Click += new System.EventHandler(this.toolStripInterns_Click);
-            // 
-            // toolStripLetter
-            // 
-            this.toolStripLetter.Image = global::GJP_IMIS.Properties.Resources.Certificate;
-            this.toolStripLetter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripLetter.Name = "toolStripLetter";
-            this.toolStripLetter.Size = new System.Drawing.Size(142, 41);
-            this.toolStripLetter.Text = "Certificates and Letters";
-            this.toolStripLetter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripLetter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripLetter.ToolTipText = "Certificates & Letters";
-            this.toolStripLetter.Click += new System.EventHandler(this.toolStripLetter_Click);
-            // 
-            // reportsToolStripButton
-            // 
-            this.reportsToolStripButton.Image = global::GJP_IMIS.Properties.Resources.Report;
-            this.reportsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.reportsToolStripButton.Name = "reportsToolStripButton";
-            this.reportsToolStripButton.Size = new System.Drawing.Size(56, 41);
-            this.reportsToolStripButton.Text = "Reports";
-            this.reportsToolStripButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.reportsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.reportsToolStripButton.Click += new System.EventHandler(this.reportsToolStripButton2_Click_1);
             // 
             // pictureBox1
             // 
